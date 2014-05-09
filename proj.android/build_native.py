@@ -85,6 +85,9 @@ def do_build(cocos_root, ndk_root, app_android_root,ndk_build_param,sdk_root,and
         command = '%s -j%d -C %s %s' % (ndk_path, num_of_cpu, app_android_root, ndk_module_path)
     else:
         command = '%s -j%d -C %s %s %s' % (ndk_path, num_of_cpu, app_android_root, ''.join(str(e) for e in ndk_build_param), ndk_module_path)
+    print "**********************"
+    print command
+    print "**********************"
     if os.system(command) != 0:
         raise Exception("Build dynamic library for project [ " + app_android_root + " ] fails!")
     elif android_platform is not None:
@@ -126,7 +129,12 @@ def copy_resources(app_android_root):
         copy_files(resources_dir, assets_dir)
 
 def build(ndk_build_param,android_platform,build_mode):
-
+    print "**********************"
+    print ndk_build_param
+    print android_platform
+    print build_mode
+    print "**********************"
+	
     ndk_root = check_environment_variables()
     sdk_root = None
     select_toolchain_version()

@@ -52,6 +52,11 @@
 			<locationURI>COCOS2DX/cocos2dx</locationURI>
 		</link>
 		<link>
+			<name>cocos2dx_src</name>
+			<type>2</type>
+			<location>D:/cocos2dxDownload/cocos2d-x-3.0/projects/HelloGame/cocos2d/cocos/2d/platform/android/java/src</location>
+		</link>
+		<link>
 			<name>extensions</name>
 			<type>2</type>
 			<locationURI>COCOS2DX/extensions</locationURI>
