@@ -32,7 +32,12 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>jni</name>
+			<name>cocos2dxAndroidCpp</name>
+			<type>2</type>
+			<location>D:/cocos2dxDownload/cocos2d-x-3.0/projects/HelloGame/cocos2d/cocos/2d/platform/android/cpp</location>
+		</link>
+		<link>
+			<name>cocos2dxAndroidJni</name>
 			<type>2</type>
 			<location>D:/cocos2dxDownload/cocos2d-x-3.0/projects/HelloGame/cocos2d/cocos/2d/platform/android/jni</location>
 		</link>

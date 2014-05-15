@@ -1,0 +1,519 @@
+Android NDK: WARNING:d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\../cocos2d/cocos/2d/Android.mk:cocos2dx_static: LOCAL_LDLIBS is always ignored for static libraries    
+Android NDK: WARNING:d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\../cocos2d/cocos/2d/platform/android/Android.mk:cocos2dxandroid_static: LOCAL_LDLIBS is always ignored for static libraries    
+make: Entering directory `d:/cocos2dxDownload/cocos2d-x-3.0/projects/HelloGame/proj.android'
+Gdbserver      : [arm-linux-androideabi-4.8] libs/armeabi/gdbserver
+Gdbsetup       : libs/armeabi/gdb.setup
+"Compile++ thumb : cocos2dcpp_shared <= main.cpp
+"Compile++ thumb : cocos2dcpp_shared <= AppDelegate.cpp
+"Compile++ thumb : cocos2dcpp_shared <= HelloWorldScene.cpp
+"Compile++ thumb : cocos2dx_static <= base64.cpp
+"Compile++ thumb : cocos2dx_static <= CCAction.cpp
+"Compile++ thumb : cocos2dx_static <= CCActionCamera.cpp
+"Compile++ thumb : cocos2dx_static <= CCActionCatmullRom.cpp
+"Compile++ thumb : cocos2dx_static <= CCActionEase.cpp
+"Compile++ thumb : cocos2dx_static <= CCTweenFunction.cpp
+"Compile++ thumb : cocos2dx_static <= CCActionGrid.cpp
+"Compile++ thumb : cocos2dx_static <= CCActionGrid3D.cpp
+"Compile++ thumb : cocos2dx_static <= CCActionInstant.cpp
+"Compile++ thumb : cocos2dx_static <= CCActionInterval.cpp
+"Compile++ thumb : cocos2dx_static <= CCActionManager.cpp
+"Compile++ thumb : cocos2dx_static <= CCActionPageTurn3D.cpp
+"Compile++ thumb : cocos2dx_static <= CCActionProgressTimer.cpp
+"Compile++ thumb : cocos2dx_static <= CCActionTiledGrid.cpp
+"Compile++ thumb : cocos2dx_static <= CCActionTween.cpp
+"Compile++ thumb : cocos2dx_static <= CCAnimation.cpp
+"Compile++ thumb : cocos2dx_static <= CCAnimationCache.cpp
+"Compile++ thumb : cocos2dx_static <= CCAtlasNode.cpp
+"Compile++ thumb : cocos2dx_static <= ccCArray.cpp
+"Compile++ thumb : cocos2dx_static <= CCClippingNode.cpp
+"Compile++ thumb : cocos2dx_static <= CCComponent.cpp
+"Compile++ thumb : cocos2dx_static <= CCComponentContainer.cpp
+"Compile++ thumb : cocos2dx_static <= CCConfiguration.cpp
+"Compile++ thumb : cocos2dx_static <= CCDirector.cpp
+"Compile++ thumb : cocos2dx_static <= CCDrawingPrimitives.cpp
+"Compile++ thumb : cocos2dx_static <= CCDrawNode.cpp
+"Compile++ thumb : cocos2dx_static <= CCEvent.cpp
+"Compile++ thumb : cocos2dx_static <= CCEventAcceleration.cpp
+"Compile++ thumb : cocos2dx_static <= CCEventCustom.cpp
+"Compile++ thumb : cocos2dx_static <= CCEventDispatcher.cpp
+"Compile++ thumb : cocos2dx_static <= CCEventKeyboard.cpp
+"Compile++ thumb : cocos2dx_static <= CCEventListener.cpp
+"Compile++ thumb : cocos2dx_static <= CCEventListenerAcceleration.cpp
+"Compile++ thumb : cocos2dx_static <= CCEventListenerCustom.cpp
+"Compile++ thumb : cocos2dx_static <= CCEventListenerKeyboard.cpp
+"Compile++ thumb : cocos2dx_static <= CCEventListenerMouse.cpp
+"Compile++ thumb : cocos2dx_static <= CCEventListenerTouch.cpp
+"Compile++ thumb : cocos2dx_static <= CCEventMouse.cpp
+"Compile++ thumb : cocos2dx_static <= CCEventTouch.cpp
+"Compile++ thumb : cocos2dx_static <= CCFont.cpp
+"Compile++ thumb : cocos2dx_static <= CCFontCharMap.cpp
+"Compile++ thumb : cocos2dx_static <= CCFontAtlas.cpp
+"Compile++ thumb : cocos2dx_static <= CCFontAtlasCache.cpp
+"Compile++ thumb : cocos2dx_static <= CCFontFNT.cpp
+"Compile++ thumb : cocos2dx_static <= CCFontFreeType.cpp
+"Compile thumb : cocos2dx_static <= ccFPSImages.c
+"Compile++ thumb : cocos2dx_static <= CCGLBufferedNode.cpp
+"Compile++ thumb : cocos2dx_static <= CCGLProgram.cpp
+"Compile++ thumb : cocos2dx_static <= ccGLStateCache.cpp
+"Compile++ thumb : cocos2dx_static <= CCGrabber.cpp
+"Compile++ thumb : cocos2dx_static <= CCGrid.cpp
+"Compile++ thumb : cocos2dx_static <= CCNodeGrid.cpp
+"Compile++ thumb : cocos2dx_static <= CCIMEDispatcher.cpp
+"Compile++ thumb : cocos2dx_static <= CCLabel.cpp
+"Compile++ thumb : cocos2dx_static <= CCLabelAtlas.cpp
+"Compile++ thumb : cocos2dx_static <= CCLabelBMFont.cpp
+"Compile++ thumb : cocos2dx_static <= CCLabelTextFormatter.cpp
+"Compile++ thumb : cocos2dx_static <= CCLabelTTF.cpp
+"Compile++ thumb : cocos2dx_static <= CCLayer.cpp
+"Compile++ thumb : cocos2dx_static <= CCMenu.cpp
+"Compile++ thumb : cocos2dx_static <= CCMenuItem.cpp
+"Compile++ thumb : cocos2dx_static <= CCMotionStreak.cpp
+"Compile++ thumb : cocos2dx_static <= CCNode.cpp
+"Compile++ thumb : cocos2dx_static <= CCParallaxNode.cpp
+"Compile++ thumb : cocos2dx_static <= CCParticleBatchNode.cpp
+"Compile++ thumb : cocos2dx_static <= CCParticleExamples.cpp
+"Compile++ thumb : cocos2dx_static <= CCParticleSystem.cpp
+"Compile++ thumb : cocos2dx_static <= CCParticleSystemQuad.cpp
+"Compile++ thumb : cocos2dx_static <= CCProfiling.cpp
+"Compile++ thumb : cocos2dx_static <= CCProgressTimer.cpp
+"Compile++ thumb : cocos2dx_static <= CCRenderTexture.cpp
+"Compile++ thumb : cocos2dx_static <= CCScene.cpp
+"Compile++ thumb : cocos2dx_static <= CCScheduler.cpp
+"Compile++ thumb : cocos2dx_static <= CCScriptSupport.cpp
+"Compile++ thumb : cocos2dx_static <= CCShaderCache.cpp
+"Compile++ thumb : cocos2dx_static <= ccShaders.cpp
+"Compile++ thumb : cocos2dx_static <= CCSprite.cpp
+"Compile++ thumb : cocos2dx_static <= CCSpriteBatchNode.cpp
+"Compile++ thumb : cocos2dx_static <= CCSpriteFrame.cpp
+"Compile++ thumb : cocos2dx_static <= CCSpriteFrameCache.cpp
+"Compile++ thumb : cocos2dx_static <= CCTextFieldTTF.cpp
+"Compile++ thumb : cocos2dx_static <= CCTexture2D.cpp
+"Compile++ thumb : cocos2dx_static <= CCTextureAtlas.cpp
+"Compile++ thumb : cocos2dx_static <= CCTextureCache.cpp
+"Compile++ thumb : cocos2dx_static <= CCTileMapAtlas.cpp
+"Compile++ thumb : cocos2dx_static <= CCTMXLayer.cpp
+"Compile++ thumb : cocos2dx_static <= CCTMXObjectGroup.cpp
+"Compile++ thumb : cocos2dx_static <= CCTMXTiledMap.cpp
+"Compile++ thumb : cocos2dx_static <= CCTMXXMLParser.cpp
+"Compile++ thumb : cocos2dx_static <= CCTouch.cpp
+"Compile++ thumb : cocos2dx_static <= CCTransition.cpp
+"Compile++ thumb : cocos2dx_static <= CCTransitionPageTurn.cpp
+"Compile++ thumb : cocos2dx_static <= CCTransitionProgress.cpp
+"Compile++ thumb : cocos2dx_static <= ccTypes.cpp
+"Compile++ thumb : cocos2dx_static <= CCUserDefault.cpp
+"Compile++ thumb : cocos2dx_static <= CCUserDefaultAndroid.cpp
+"Compile++ thumb : cocos2dx_static <= ccUTF8.cpp
+"Compile++ thumb : cocos2dx_static <= ccUtils.cpp
+"Compile++ thumb : cocos2dx_static <= CCVertex.cpp
+"Compile++ thumb : cocos2dx_static <= cocos2d.cpp
+"Compile++ thumb : cocos2dx_static <= TGAlib.cpp
+"Compile++ thumb : cocos2dx_static <= TransformUtils.cpp
+"Compile++ thumb : cocos2dx_static <= ZipUtils.cpp
+"Compile++ thumb : cocos2dx_static <= CCGLViewProtocol.cpp
+"Compile++ thumb : cocos2dx_static <= CCFileUtils.cpp
+"Compile++ thumb : cocos2dx_static <= CCSAXParser.cpp
+"Compile++ thumb : cocos2dx_static <= CCThread.cpp
+"Compile++ thumb : cocos2dx_static <= CCImage.cpp
+"Compile++ thumb : cocos2dx_static <= CCCustomCommand.cpp
+"Compile++ thumb : cocos2dx_static <= CCFrustum.cpp
+"Compile++ thumb : cocos2dx_static <= CCGroupCommand.cpp
+"Compile++ thumb : cocos2dx_static <= CCMaterialManager.cpp
+"Compile++ thumb : cocos2dx_static <= CCQuadCommand.cpp
+"Compile++ thumb : cocos2dx_static <= CCBatchCommand.cpp
+"Compile++ thumb : cocos2dx_static <= CCRenderCommand.cpp
+"Compile++ thumb : cocos2dx_static <= CCRenderer.cpp
+"Compile++ thumb : cocos2dx_static <= CCRenderMaterial.cpp
+"Compile++ thumb : cocos2dx_static <= atitc.cpp
+"Compile++ thumb : cocos2dx_static <= CCAffineTransform.cpp
+"Compile++ thumb : cocos2dx_static <= CCAutoreleasePool.cpp
+"Compile++ thumb : cocos2dx_static <= CCConsole.cpp
+"Compile++ thumb : cocos2dx_static <= CCData.cpp
+"Compile++ thumb : cocos2dx_static <= CCDataVisitor.cpp
+"Compile++ thumb : cocos2dx_static <= CCGeometry.cpp
+"Compile++ thumb : cocos2dx_static <= CCNS.cpp
+"Compile++ thumb : cocos2dx_static <= CCRef.cpp
+"Compile++ thumb : cocos2dx_static <= CCValue.cpp
+"Compile++ thumb : cocos2dx_static <= etc1.cpp
+"Compile++ thumb : cocos2dx_static <= s3tc.cpp
+"Compile++ thumb : cocos2dx_static <= CCArray.cpp
+"Compile++ thumb : cocos2dx_static <= CCSet.cpp
+"Compile++ thumb : cocos2dx_static <= CCString.cpp
+"Compile++ thumb : cocos2dx_static <= CCDictionary.cpp
+"Compile++ thumb : cocos2dx_static <= CCDeprecated.cpp
+"Compile++ thumb : cocos2dx_static <= CCNotificationCenter.cpp
+"Compile thumb : cocos2dx_static <= aabb.c
+"Compile thumb : cocos2dx_static <= mat3.c
+"Compile thumb : cocos2dx_static <= mat4.c
+"Compile thumb : cocos2dx_static <= neon_matrix_impl.c
+"Compile thumb : cocos2dx_static <= plane.c
+"Compile thumb : cocos2dx_static <= quaternion.c
+"Compile thumb : cocos2dx_static <= ray2.c
+"Compile thumb : cocos2dx_static <= ray3.c
+"Compile thumb : cocos2dx_static <= utility.c
+"Compile thumb : cocos2dx_static <= vec2.c
+"Compile thumb : cocos2dx_static <= vec3.c
+"Compile thumb : cocos2dx_static <= vec4.c
+"Compile thumb : cocos2dx_static <= matrix.c
+"Compile thumb : cocos2dx_static <= mat4stack.c
+"Compile++ thumb : cocos2dx_static <= CCPhysicsBody.cpp
+"Compile++ thumb : cocos2dx_static <= CCPhysicsContact.cpp
+"Compile++ thumb : cocos2dx_static <= CCPhysicsJoint.cpp
+"Compile++ thumb : cocos2dx_static <= CCPhysicsShape.cpp
+"Compile++ thumb : cocos2dx_static <= CCPhysicsWorld.cpp
+"Compile++ thumb : cocos2dx_static <= CCPhysicsBodyInfo_chipmunk.cpp
+"Compile++ thumb : cocos2dx_static <= CCPhysicsContactInfo_chipmunk.cpp
+"Compile++ thumb : cocos2dx_static <= CCPhysicsJointInfo_chipmunk.cpp
+"Compile++ thumb : cocos2dx_static <= CCPhysicsShapeInfo_chipmunk.cpp
+"Compile++ thumb : cocos2dx_static <= CCPhysicsWorldInfo_chipmunk.cpp
+"Compile++ thumb : cocos2dx_static <= tinyxml2.cpp
+"Compile++ thumb : cocos2dx_static <= ioapi.cpp
+"Compile++ thumb : cocos2dx_static <= unzip.cpp
+"Compile++ thumb : cocos2dx_static <= edtaa3func.cpp
+"Compile thumb : cocos2dx_static <= xxhash.c
+"Compile++ thumb : cocosdenshion_static <= cddSimpleAudioEngine.cpp
+"Compile++ thumb : cocosdenshion_static <= ccdandroidUtils.cpp
+"Compile++ thumb : cocosdenshion_static <= cddandroidAndroidJavaEngine.cpp
+"Compile++ thumb : box2d_static <= b2BroadPhase.cpp
+"Compile++ thumb : box2d_static <= b2CollideCircle.cpp
+"Compile++ thumb : box2d_static <= b2CollideEdge.cpp
+"Compile++ thumb : box2d_static <= b2CollidePolygon.cpp
+"Compile++ thumb : box2d_static <= b2Collision.cpp
+"Compile++ thumb : box2d_static <= b2Distance.cpp
+"Compile++ thumb : box2d_static <= b2DynamicTree.cpp
+"Compile++ thumb : box2d_static <= b2TimeOfImpact.cpp
+"Compile++ thumb : box2d_static <= b2ChainShape.cpp
+"Compile++ thumb : box2d_static <= b2CircleShape.cpp
+"Compile++ thumb : box2d_static <= b2EdgeShape.cpp
+"Compile++ thumb : box2d_static <= b2PolygonShape.cpp
+"Compile++ thumb : box2d_static <= b2BlockAllocator.cpp
+"Compile++ thumb : box2d_static <= b2Draw.cpp
+"Compile++ thumb : box2d_static <= b2Math.cpp
+"Compile++ thumb : box2d_static <= b2Settings.cpp
+"Compile++ thumb : box2d_static <= b2StackAllocator.cpp
+"Compile++ thumb : box2d_static <= b2Timer.cpp
+"Compile++ thumb : box2d_static <= b2Body.cpp
+"Compile++ thumb : box2d_static <= b2ContactManager.cpp
+"Compile++ thumb : box2d_static <= b2Fixture.cpp
+"Compile++ thumb : box2d_static <= b2Island.cpp
+"Compile++ thumb : box2d_static <= b2World.cpp
+"Compile++ thumb : box2d_static <= b2WorldCallbacks.cpp
+"Compile++ thumb : box2d_static <= b2ChainAndCircleContact.cpp
+"Compile++ thumb : box2d_static <= b2ChainAndPolygonContact.cpp
+"Compile++ thumb : box2d_static <= b2CircleContact.cpp
+"Compile++ thumb : box2d_static <= b2Contact.cpp
+"Compile++ thumb : box2d_static <= b2ContactSolver.cpp
+"Compile++ thumb : box2d_static <= b2EdgeAndCircleContact.cpp
+"Compile++ thumb : box2d_static <= b2EdgeAndPolygonContact.cpp
+"Compile++ thumb : box2d_static <= b2PolygonAndCircleContact.cpp
+"Compile++ thumb : box2d_static <= b2PolygonContact.cpp
+"Compile++ thumb : box2d_static <= b2DistanceJoint.cpp
+"Compile++ thumb : box2d_static <= b2FrictionJoint.cpp
+"Compile++ thumb : box2d_static <= b2GearJoint.cpp
+"Compile++ thumb : box2d_static <= b2Joint.cpp
+"Compile++ thumb : box2d_static <= b2MotorJoint.cpp
+"Compile++ thumb : box2d_static <= b2MouseJoint.cpp
+"Compile++ thumb : box2d_static <= b2PrismaticJoint.cpp
+"Compile++ thumb : box2d_static <= b2PulleyJoint.cpp
+"Compile++ thumb : box2d_static <= b2RevoluteJoint.cpp
+"Compile++ thumb : box2d_static <= b2RopeJoint.cpp
+"Compile++ thumb : box2d_static <= b2WeldJoint.cpp
+"Compile++ thumb : box2d_static <= b2WheelJoint.cpp
+"Compile++ thumb : box2d_static <= b2Rope.cpp
+"Compile thumb : chipmunk_static <= chipmunk.c
+"Compile thumb : chipmunk_static <= cpArbiter.c
+"Compile thumb : chipmunk_static <= cpArray.c
+"Compile thumb : chipmunk_static <= cpBB.c
+"Compile thumb : chipmunk_static <= cpBBTree.c
+"Compile thumb : chipmunk_static <= cpBody.c
+"Compile thumb : chipmunk_static <= cpCollision.c
+"Compile thumb : chipmunk_static <= cpHashSet.c
+"Compile thumb : chipmunk_static <= cpPolyShape.c
+"Compile thumb : chipmunk_static <= cpShape.c
+"Compile thumb : chipmunk_static <= cpSpace.c
+"Compile thumb : chipmunk_static <= cpSpaceComponent.c
+"Compile thumb : chipmunk_static <= cpSpaceHash.c
+"Compile thumb : chipmunk_static <= cpSpaceQuery.c
+"Compile thumb : chipmunk_static <= cpSpaceStep.c
+"Compile thumb : chipmunk_static <= cpSpatialIndex.c
+"Compile thumb : chipmunk_static <= cpSweep1D.c
+"Compile thumb : chipmunk_static <= cpVect.c
+"Compile thumb : chipmunk_static <= cpConstraint.c
+"Compile thumb : chipmunk_static <= cpDampedRotarySpring.c
+"Compile thumb : chipmunk_static <= cpDampedSpring.c
+"Compile thumb : chipmunk_static <= cpGearJoint.c
+"Compile thumb : chipmunk_static <= cpGrooveJoint.c
+"Compile thumb : chipmunk_static <= cpPinJoint.c
+"Compile thumb : chipmunk_static <= cpPivotJoint.c
+"Compile thumb : chipmunk_static <= cpRatchetJoint.c
+"Compile thumb : chipmunk_static <= cpRotaryLimitJoint.c
+"Compile thumb : chipmunk_static <= cpSimpleMotor.c
+"Compile thumb : chipmunk_static <= cpSlideJoint.c
+"Compile++ thumb : cocos2dxandroid_static <= CCApplication.cpp
+"Compile++ thumb : cocos2dxandroid_static <= CCCommon.cpp
+"Compile++ thumb : cocos2dxandroid_static <= CCDevice.cpp
+"Compile++ thumb : cocos2dxandroid_static <= CCGLView.cpp
+"Compile++ thumb : cocos2dxandroid_static <= CCFileUtilsAndroid.cpp
+"Compile++ thumb : cocos2dxandroid_static <= javaactivity.cpp
+"Compile++ thumb : cocos2dxandroid_static <= DPIJni.cpp
+"Compile++ thumb : cocos2dxandroid_static <= IMEJni.cpp
+"Compile++ thumb : cocos2dxandroid_static <= Java_org_cocos2dx_lib_Cocos2dxAccelerometer.cpp
+"Compile++ thumb : cocos2dxandroid_static <= Java_org_cocos2dx_lib_Cocos2dxBitmap.cpp
+"Compile++ thumb : cocos2dxandroid_static <= Java_org_cocos2dx_lib_Cocos2dxHelper.cpp
+"Compile++ thumb : cocos2dxandroid_static <= Java_org_cocos2dx_lib_Cocos2dxRenderer.cpp
+"Compile++ thumb : cocos2dxandroid_static <= JniHelper.cpp
+"Compile++ thumb : cocos2dxandroid_static <= TouchesJni.cpp
+"Compile thumb : cpufeatures <= cpu-features.c
+StaticLibrary  : libcocos2d.a
+StaticLibrary  : libcocosdenshion.a
+StaticLibrary  : libbox2d.a
+StaticLibrary  : libchipmunk.a
+StaticLibrary  : libcpufeatures.a
+StaticLibrary  : libcocos2dandroid.a
+SharedLibrary  : libcocos2dcpp.so
+Install        : libcocos2dcpp.so => libs/armeabi/libcocos2dcpp.so
+make: Leaving directory `d:/cocos2dxDownload/cocos2d-x-3.0/projects/HelloGame/proj.android'
+Updated project.properties
+Updated local.properties
+Updated file d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\proguard-project.txt
+Updated project.properties
+Updated local.properties
+Updated file d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\..\cocos2d\cocos\2d\platform\android\java\proguard-project.txt
+Buildfile: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\build.xml
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 22.6.3
+ [checkenv] Installed at D:\android\android-sdk
+
+-setup:
+     [echo] Project Name: HelloGame
+  [gettype] Project Type: Application
+
+-pre-clean:
+
+clean:
+[getlibpath] Library dependencies:
+[getlibpath] 
+[getlibpath] ------------------
+[getlibpath] Ordered libraries:
+
+nodeps:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 22.6.3
+ [checkenv] Installed at D:\android\android-sdk
+
+-setup:
+     [echo] Project Name: cocos2dxandroid
+  [gettype] Project Type: Android Library
+
+-pre-clean:
+
+clean:
+
+-set-mode-check:
+
+-set-debug-files:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 22.6.3
+ [checkenv] Installed at D:\android\android-sdk
+
+-setup:
+     [echo] Project Name: HelloGame
+  [gettype] Project Type: Application
+
+-set-debug-mode:
+
+-debug-obfuscation-check:
+
+-pre-build:
+
+-build-setup:
+[getbuildtools] Using latest Build Tools: 19.0.3
+     [echo] Resolving Build Target for HelloGame...
+[gettarget] Project Target:   Android 2.3.3
+[gettarget] API level:        10
+     [echo] ----------
+     [echo] Creating output directories if needed...
+    [mkdir] Created dir: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin
+    [mkdir] Created dir: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\res
+    [mkdir] Created dir: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\rsObj
+    [mkdir] Created dir: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\rsLibs
+    [mkdir] Created dir: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\gen
+    [mkdir] Created dir: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\classes
+    [mkdir] Created dir: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\dexedLibs
+     [echo] ----------
+     [echo] Resolving Dependencies for HelloGame...
+[dependency] Ordered libraries:
+[dependency] D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java
+[dependency] 
+[dependency] ------------------
+[dependency] API<=15: Adding annotations.jar to the classpath.
+     [echo] ----------
+     [echo] Building Libraries with 'debug'...
+
+nodeps:
+
+-set-mode-check:
+
+-set-debug-files:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 22.6.3
+ [checkenv] Installed at D:\android\android-sdk
+
+-setup:
+     [echo] Project Name: cocos2dxandroid
+  [gettype] Project Type: Android Library
+
+-set-debug-mode:
+
+-debug-obfuscation-check:
+
+-pre-build:
+
+-build-setup:
+[getbuildtools] Using latest Build Tools: 19.0.3
+     [echo] Resolving Build Target for cocos2dxandroid...
+[gettarget] Project Target:   Android 2.3.3
+[gettarget] API level:        10
+     [echo] ----------
+     [echo] Creating output directories if needed...
+    [mkdir] Created dir: D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\libs
+    [mkdir] Created dir: D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\bin
+    [mkdir] Created dir: D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\bin\res
+    [mkdir] Created dir: D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\bin\rsObj
+    [mkdir] Created dir: D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\bin\rsLibs
+    [mkdir] Created dir: D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\gen
+    [mkdir] Created dir: D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\bin\classes
+    [mkdir] Created dir: D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\bin\dexedLibs
+     [echo] ----------
+     [echo] Resolving Dependencies for cocos2dxandroid...
+[dependency] Library dependencies:
+[dependency] No Libraries
+[dependency] 
+[dependency] ------------------
+[dependency] API<=15: Adding annotations.jar to the classpath.
+
+-code-gen:
+[mergemanifest] Merging AndroidManifest files into one.
+[mergemanifest] Manifest merger disabled. Using project manifest only.
+     [echo] Handling aidl files...
+     [aidl] No AIDL files to compile.
+     [echo] ----------
+     [echo] Handling RenderScript files...
+     [echo] ----------
+     [echo] Handling Resources...
+     [aapt] Generating resource IDs...
+     [aapt]     (skipping file '.gitignore' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [echo] ----------
+     [echo] Handling BuildConfig class...
+[buildconfig] Generating BuildConfig class.
+
+-pre-compile:
+
+-compile:
+    [javac] Compiling 17 source files to D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\bin\classes
+     [echo] Creating library output jar file...
+      [jar] Building jar: D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\bin\classes.jar
+
+-post-compile:
+
+-obfuscate:
+
+-dex:
+     [echo] Library project: do not convert bytecode...
+
+-crunch:
+   [crunch] Crunching PNG Files in source dir: D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\res
+   [crunch] To destination dir: D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\bin\res
+   [crunch] Crunched 0 PNG files to update cache
+
+-package-resources:
+     [echo] Library project: do not package resources...
+
+-package:
+     [echo] Library project: do not package apk...
+
+-post-package:
+
+-do-debug:
+     [echo] Library project: do not create apk...
+[propertyfile] Creating new property file: D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\bin\build.prop
+[propertyfile] Updating property file: D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\bin\build.prop
+[propertyfile] Updating property file: D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\bin\build.prop
+[propertyfile] Updating property file: D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\bin\build.prop
+
+-post-build:
+
+debug:
+
+-code-gen:
+[mergemanifest] Merging AndroidManifest files into one.
+[mergemanifest] Manifest merger disabled. Using project manifest only.
+     [echo] Handling aidl files...
+     [aidl] No AIDL files to compile.
+     [echo] ----------
+     [echo] Handling RenderScript files...
+     [echo] ----------
+     [echo] Handling Resources...
+     [aapt] Generating resource IDs...
+     [aapt]     (skipping file '.gitignore' due to ANDROID_AAPT_IGNORE pattern '.*')
+     [echo] ----------
+     [echo] Handling BuildConfig class...
+[buildconfig] Generating BuildConfig class.
+
+-pre-compile:
+
+-compile:
+    [javac] Compiling 3 source files to d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\classes
+
+-post-compile:
+
+-obfuscate:
+
+-dex:
+      [dex] input: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\classes
+      [dex] input: D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\bin\classes.jar
+      [dex] input: D:\android\android-sdk\tools\support\annotations.jar
+      [dex] Pre-Dexing D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\cocos2d\cocos\2d\platform\android\java\bin\classes.jar -> classes-2f00488cfabe6091bb287ec576e47d1f.jar
+      [dex] Pre-Dexing D:\android\android-sdk\tools\support\annotations.jar -> annotations-39df7c2a62e1ea4e08197c77622f56a8.jar
+      [dex] Converting compiled files and external libraries into d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\classes.dex...
+       [dx] Merged dex A (6 defs/1.6KiB) with dex B (40 defs/58.0KiB). Result is 46 defs/69.4KiB. Took 0.1s
+       [dx] Merged dex A (46 defs/69.4KiB) with dex B (2 defs/1.1KiB). Result is 48 defs/86.5KiB. Took 0.0s
+
+-crunch:
+   [crunch] Crunching PNG Files in source dir: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\res
+   [crunch] To destination dir: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\res
+   [crunch] Processing image to cache: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\res\drawable-hdpi\icon.png => d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\res\drawable-hdpi\icon.png
+   [crunch]   (processed image to cache entry d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\res\drawable-hdpi\icon.png: 67% size of source)
+   [crunch] Processing image to cache: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\res\drawable-ldpi\icon.png => d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\res\drawable-ldpi\icon.png
+   [crunch]   (processed image to cache entry d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\res\drawable-ldpi\icon.png: 0% size of source)
+   [crunch] Processing image to cache: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\res\drawable-mdpi\icon.png => d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\res\drawable-mdpi\icon.png
+   [crunch]   (processed image to cache entry d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\res\drawable-mdpi\icon.png: 53% size of source)
+   [crunch] Crunched 3 PNG files to update cache
+
+-package-resources:
+     [aapt] Creating full resource package...
+     [aapt]     (skipping file '.gitignore' due to ANDROID_AAPT_IGNORE pattern '.*')
+
+-package:
+[apkbuilder] Current build type is different than previous build: forced apkbuilder run.
+[apkbuilder] Creating HelloGame-debug-unaligned.apk and signing it with a debug key...
+
+-post-package:
+
+-do-debug:
+ [zipalign] Running zip align on final apk...
+     [echo] Debug Package: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\HelloGame-debug.apk
+[propertyfile] Creating new property file: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\build.prop
+[propertyfile] Updating property file: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\build.prop
+[propertyfile] Updating property file: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\build.prop
+[propertyfile] Updating property file: d:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\bin\build.prop
+
+-post-build:
+
+debug:
+
+BUILD SUCCESSFUL
+Total time: 7 seconds

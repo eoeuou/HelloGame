@@ -127,6 +127,47 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Charge.xml" />
+    <Content Include="ConsumeCodeInfo.xml" />
+    <Content Include="Res\Images\checkboxNormal.png" />
+    <Content Include="Res\Images\checkboxSelected.png" />
+    <Content Include="Res\Images\gc_bg_small.9.png" />
+    <Content Include="Res\Images\gc_billing_blue.9.png" />
+    <Content Include="Res\Images\gc_billing_cancel.png" />
+    <Content Include="Res\Images\gc_billing_cancel_hl.png" />
+    <Content Include="Res\Images\gc_billing_cancel_unenabled.png" />
+    <Content Include="Res\Images\gc_billing_divider_line.png" />
+    <Content Include="Res\Images\gc_billing_green.9.png" />
+    <Content Include="Res\Images\gc_billing_hl.9.png" />
+    <Content Include="Res\Images\gc_billing_red.9.png" />
+    <Content Include="Res\Images\gc_billing_unenabled.9.png" />
+    <Content Include="Res\Images\gc_cmgc_logo_s.png" />
+    <Content Include="Res\Images\gc_gamehall.png" />
+    <Content Include="Res\Images\gc_logo.png" />
+    <Content Include="Res\Images\gc_member_logo.png" />
+    <Content Include="Res\Images\gc_more_game.png" />
+    <Content Include="Res\Images\gc_net_bg.9.png" />
+    <Content Include="Res\Images\gc_net_black.9.png" />
+    <Content Include="Res\Images\gc_net_no.9.png" />
+    <Content Include="Res\Images\gc_net_yes.9.png" />
+    <Content Include="Res\Images\gc_notification_icon.png" />
+    <Content Include="Res\Images\gc_pay_background.9.png" />
+    <Content Include="Res\Images\g_game_title.png" />
+    <Content Include="Res\Images\g_logo_cmcc.png" />
+    <Content Include="Res\Images\g_logo_cmgc.png" />
+    <Content Include="Res\Images\g_logo_cmgc_s.png" />
+    <Content Include="Res\Images\g_logo_cp.png" />
+    <Content Include="Res\Images\g_logo_sp.png" />
+    <Content Include="Res\Images\g_no.png" />
+    <Content Include="Res\Images\g_no_hl.png" />
+    <Content Include="Res\Images\g_rocker.png" />
+    <Content Include="Res\Images\g_rotate_left.png" />
+    <Content Include="Res\Images\g_rotate_mid.png" />
+    <Content Include="Res\Images\g_rotate_right.png" />
+    <Content Include="Res\Images\g_sound_ask.png" />
+    <Content Include="Res\Images\g_yes.png" />
+    <Content Include="Res\Images\g_yes_hl.png" />
+    <Content Include="Res\Images\icon.png" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -154,14 +195,17 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-
   <ItemGroup>
     <Content Include="..\..\Resources\**\*">
       <Link>Assets\Resources\%(RecursiveDir)%(FileName)%(Extension)</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  
+  <ItemGroup>
+    <Reference Include="GameSDK">
+      <HintPath>SDK\GameSDK.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
@@ -172,6 +216,5 @@
   <Target Name="AfterBuild">
   </Target>
     -->
-<ProjectExtensions />
- 
+  <ProjectExtensions />
 </Project>
