@@ -37,33 +37,36 @@ namespace PhoneDirect3DXamlAppInterop
         // event handler for CCEditBox
         private event EventHandler<String> m_receiveHandler;
 
+        private GameSdkBridge _gameSdkBridge = new GameSdkBridge();
+
         // invisible XAML TextBox for Cocos2d-x keyboard input
         TextBox m_textBox = null;
-
+        bool loaded = false;
         // Constructor
         public MainPage()
         {
             InitializeComponent();
+
+            PhoneDirect3DXamlAppComponent.GameSdkBridge.GameSdkBridge.GetInstance().SetCallback(_gameSdkBridge);
+
             this.Loaded += (s, e) =>
             {
-                //初始化游戏计费SDK
-                GameBilling.InitializeSDK();
-
+                if (!loaded)
+                {
+                    //初始化游戏计费SDK
+                    GameBilling.InitializeSDK();
+                }
 
                 //上报进入page的事件
-                BehaviorLogManager.EnterinPage(pageId: "MainPage", callBack: null);
+                // BehaviorLogManager.EnterinPage(pageId: "MainPage", callBack: null);
+
+                loaded = true;
             };
             this.Unloaded += (s, e) =>
             {
                 //上报离开page的事件
                 BehaviorLogManager.ExitPage(pageId: "MainPage", callBack: null);
             };
-
-#if DISPLAY_MEMORY
-            StartTimer();
-#else
-            MemoryDisplay.Visibility = Visibility.Collapsed;
-#endif
         }
 
         private void DrawingSurfaceBackground_Loaded(object sender, RoutedEventArgs e)
@@ -128,13 +131,16 @@ namespace PhoneDirect3DXamlAppInterop
         }
 
         public void orderGoods()
-        {
+        {            
             try
             {
                 Deployment.Current.Dispatcher.BeginInvoke(() =>
                 {
-                    string serviceid = "001";
-                    GameBilling.PayWithUI(page: this, billingIndex: serviceid, cpParam: null, callback: this);
+                    /*string serviceid = "001";
+                    GameBilling.PayWithUI(page: this, billingIndex: serviceid, cpParam: null, callback: this);*/
+                    PhoneDirect3DXamlAppComponent.GameSdkBridge.ICallback callBack = PhoneDirect3DXamlAppComponent.GameSdkBridge.GameSdkBridge.GetInstance().GlobalCallback;
+                    callBack.PayWithUI((object)this, "001", null, this);
+            
                 });
             }
             catch (Exception ex)
@@ -237,6 +243,11 @@ namespace PhoneDirect3DXamlAppInterop
         public void OnPayResult(int resultCode, string billingIndex, string message)
         {
             
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            orderGoods();
         }
     }
 }

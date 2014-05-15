@@ -92,6 +92,7 @@
   <ItemGroup>
     <Compile Include="App.xaml.cs" />
     <Compile Include="EditBox.xaml.cs" />
+    <Compile Include="GameSdkBridge.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
