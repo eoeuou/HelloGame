@@ -69,7 +69,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes\ckbase\extentions\pay;..\Classes\ckbase\extentions;..\Classes\ckbase;..\Classes;..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -140,6 +140,9 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\ckbase\CKModel.cpp" />
     <ClCompile Include="..\Classes\ckbase\CKProtocols.cpp" />
     <ClCompile Include="..\Classes\ckbase\CKScene.cpp" />
+    <ClCompile Include="..\Classes\ckbase\extentions\pay\CKAndroidPayEngine.cpp" />
+    <ClCompile Include="..\Classes\ckbase\extentions\pay\CKDefaultPayEngine.cpp" />
+    <ClCompile Include="..\Classes\ckbase\extentions\pay\CKPayEngine.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -151,6 +154,9 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\ckbase\CKModel.h" />
     <ClInclude Include="..\Classes\ckbase\CKProtocols.h" />
     <ClInclude Include="..\Classes\ckbase\CKScene.h" />
+    <ClInclude Include="..\Classes\ckbase\extentions\pay\CKAndroidPayEngine.h" />
+    <ClInclude Include="..\Classes\ckbase\extentions\pay\CKDefaultPayEngine.h" />
+    <ClInclude Include="..\Classes\ckbase\extentions\pay\CKPayEngine.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

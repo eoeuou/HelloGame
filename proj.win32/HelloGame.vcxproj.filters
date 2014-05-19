@@ -13,6 +13,12 @@
     <Filter Include="Classes\ckbase">
       <UniqueIdentifier>{f74e4b60-339d-4929-b326-e7dd1f023b38}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\ckbase\extentions">
+      <UniqueIdentifier>{2b2d41cc-874a-4474-96ca-9462033bb79d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ckbase\extentions\pay">
+      <UniqueIdentifier>{ec7355fc-7881-4a77-8c5b-9bd583edf3d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,6 +48,15 @@
     <ClCompile Include="..\Classes\ckbase\CKConstants.cpp">
       <Filter>Classes\ckbase</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\pay\CKDefaultPayEngine.cpp">
+      <Filter>Classes\ckbase\extentions\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\pay\CKPayEngine.cpp">
+      <Filter>Classes\ckbase\extentions\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\pay\CKAndroidPayEngine.cpp">
+      <Filter>Classes\ckbase\extentions\pay</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -70,6 +85,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\CKConstants.h">
       <Filter>Classes\ckbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\pay\CKDefaultPayEngine.h">
+      <Filter>Classes\ckbase\extentions\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\pay\CKPayEngine.h">
+      <Filter>Classes\ckbase\extentions\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\pay\CKAndroidPayEngine.h">
+      <Filter>Classes\ckbase\extentions\pay</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

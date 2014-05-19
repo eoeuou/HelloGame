@@ -1,6 +1,10 @@
 # Ignore thumbnails created by windows
 Thumbs.db
 
+tools/make_manager/output/*
+tools/make_model/output/*
+tools/make_platform/output/*
+
 # Ignore files build by Visual Studio
 *.obj
 *.exe

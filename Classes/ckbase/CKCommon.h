@@ -10,6 +10,26 @@ USING_NS_CC;
 using namespace std;
 using namespace cocostudio;
 
+#define CK_SINGLETON_METHOD(className,sharedObject,methodName) \
+protected:\
+	static className* sharedObject;\
+public:\
+	static className* methodName(){\
+		assert(sharedObject);\
+		return sharedObject;\
+	}\
+
+#define CK_SINGLETON_METHOD_LAZY(className,sharedObject,methodName) \
+protected:\
+	static className* sharedObject;\
+public:\
+	static className* methodName(){\
+		if(!sharedObject){\
+			sharedObject = new className();\
+		}\
+		return sharedObject;\
+	}\
+
 #define CK_INIT_STATIC_FIELD(className,fieldName,fieldType,fieldValue)\
 fieldType className::fieldName = fieldValue
 
