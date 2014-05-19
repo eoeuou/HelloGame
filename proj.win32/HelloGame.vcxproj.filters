@@ -57,6 +57,9 @@
     <ClCompile Include="..\Classes\ckbase\extentions\pay\CKAndroidPayEngine.cpp">
       <Filter>Classes\ckbase\extentions\pay</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\CKDialog.cpp">
+      <Filter>Classes\ckbase</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -94,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\extentions\pay\CKAndroidPayEngine.h">
       <Filter>Classes\ckbase\extentions\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\CKDialog.h">
+      <Filter>Classes\ckbase</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

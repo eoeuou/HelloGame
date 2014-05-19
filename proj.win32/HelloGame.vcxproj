@@ -136,6 +136,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\ckbase\CKCommon.cpp" />
     <ClCompile Include="..\Classes\ckbase\CKConstants.cpp" />
+    <ClCompile Include="..\Classes\ckbase\CKDialog.cpp" />
     <ClCompile Include="..\Classes\ckbase\CKGameDataManager.cpp" />
     <ClCompile Include="..\Classes\ckbase\CKModel.cpp" />
     <ClCompile Include="..\Classes\ckbase\CKProtocols.cpp" />
@@ -150,6 +151,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\ckbase\CKCommon.h" />
     <ClInclude Include="..\Classes\ckbase\CKConstants.h" />
+    <ClInclude Include="..\Classes\ckbase\CKDialog.h" />
     <ClInclude Include="..\Classes\ckbase\CKGameDataManager.h" />
     <ClInclude Include="..\Classes\ckbase\CKModel.h" />
     <ClInclude Include="..\Classes\ckbase\CKProtocols.h" />

@@ -1,6 +1,7 @@
 #include "CKScene.h"
 #include "CKGameDataManager.h"
 #include "CKPayEngine.h"
+#include "CKDialog.h"
 
 CKScene::CKScene(void)
 {
@@ -31,5 +32,7 @@ bool CKScene::init()
 	CKGameDataManager::getInstance()->loadGameData();
 
 	CKPayEngine::sharedEngine()->pay("1",100);
+
+	this->addChild(CKDialog::create());
 	return ret;
 }

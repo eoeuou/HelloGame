@@ -7,11 +7,15 @@ USING_NS_CC;
 
 using namespace std;
 
-class CKDialog:public cocos2d::Ref
+class CKDialog:public cocos2d::LayerColor
 {
 public:
 	CREATE_FUNC(CKDialog);
-			
+				
+    virtual bool onTouchBegan(Touch *touch, Event *unused_event); 	
+    virtual void onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event);
+
+	void onCloseCallback(cocos2d::Ref* pSender);
 protected:
 	CKDialog(void);
 	
