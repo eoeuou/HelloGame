@@ -1,14 +1,7 @@
 #ifndef __CKGAMEDATAMANAGER_H__
 #define __CKGAMEDATAMANAGER_H__
 
-#include "cocos2d.h"
-#include "editor-support\cocostudio\DictionaryHelper.h"
 #include "CKCommon.h"
-#include "CKModel.h"
-
-USING_NS_CC;
-using namespace std;
-using namespace cocostudio;
 
 class CKGameDataManager
 {

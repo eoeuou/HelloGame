@@ -36,10 +36,10 @@
     <ClCompile Include="..\Classes\ckbase\CKScene.cpp">
       <Filter>Classes\ckbase</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ckbase\CKManager.cpp">
+    <ClCompile Include="..\Classes\ckbase\CKGameDataManager.cpp">
       <Filter>Classes\ckbase</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ckbase\CKGameDataManager.cpp">
+    <ClCompile Include="..\Classes\ckbase\CKConstants.cpp">
       <Filter>Classes\ckbase</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,10 +65,10 @@
     <ClInclude Include="..\Classes\ckbase\CKScene.h">
       <Filter>Classes\ckbase</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\ckbase\CKManager.h">
+    <ClInclude Include="..\Classes\ckbase\CKGameDataManager.h">
       <Filter>Classes\ckbase</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\ckbase\CKGameDataManager.h">
+    <ClInclude Include="..\Classes\ckbase\CKConstants.h">
       <Filter>Classes\ckbase</Filter>
     </ClInclude>
   </ItemGroup>

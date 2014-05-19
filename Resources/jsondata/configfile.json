@@ -1,0 +1,5 @@
+{
+    "login": "https://passport.baidu.com/v2/?login&fr=old",
+    "get_settings": "https://passport.baidu.com/",
+    "check_overdue": "true"
+}

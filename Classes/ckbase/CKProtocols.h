@@ -17,18 +17,20 @@ protected:
     virtual ~PropertyProtocol() {}
 
 public:
-	bool getBooleanProperty(string key, bool defaultValue = false);
-	int getIntProperty(string key, int defaultValue = 0);
-	float getFloatProperty(string key, float defaultValue = 0);
-	string getStringProperty(string key, const char* defaultValue = "");
+	bool getBooleanProperty(const char* key, bool defaultValue = false);
+	int getIntProperty(const char* key, int defaultValue = 0);
+	float getFloatProperty(const char* key, float defaultValue = 0);
+	string getStringProperty(const char* key, const char* defaultValue = "");
 
-	void setProperty(string key, float value);
-	void setProperty(string key, bool value);
-	void setProperty(string key, const char* value);
-	void setProperty(string key, int value);
-	void setProperty(string key, __Dictionary* value){}
-	void setProperty(string key, __Array* value){}
-	void setProperty(string key, PropertyProtocol* value){}
+	void setProperty(const char* key, float value);
+	void setProperty(const char* key, bool value);
+	void setProperty(const char* key, const char* value);
+	void setProperty(const char* key, int value);
+
+	void removeProperty(const char* key);
+	bool hasProperty(const char* key);
+
+	void clear();
 
 	__Array* allKeys(){ return m_propertyDic->allKeys();}
 	string allKeysToString(){
