@@ -1,4 +1,5 @@
 #include "HelloWorldScene.h"
+#include "ckbase/CKModel.h"
 
 USING_NS_CC;
 
@@ -72,6 +73,12 @@ bool HelloWorld::init()
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
     
+	CKModel* model = CKModel::create();
+	model->setProperty("k","v");
+	std::string v = model->getStringProperty("k");
+	int a = model->getIntProperty("k");
+	CCLog("%d",a);
+
     return true;
 }
 

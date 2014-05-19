@@ -10,6 +10,9 @@
     <Filter Include="resource">
       <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\ckbase">
+      <UniqueIdentifier>{f74e4b60-339d-4929-b326-e7dd1f023b38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,6 +24,24 @@
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\CKCommon.cpp">
+      <Filter>Classes\ckbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\CKModel.cpp">
+      <Filter>Classes\ckbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\CKProtocols.cpp">
+      <Filter>Classes\ckbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\CKScene.cpp">
+      <Filter>Classes\ckbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\CKManager.cpp">
+      <Filter>Classes\ckbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\CKGameDataManager.cpp">
+      <Filter>Classes\ckbase</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -31,6 +52,24 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\CKCommon.h">
+      <Filter>Classes\ckbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\CKModel.h">
+      <Filter>Classes\ckbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\CKProtocols.h">
+      <Filter>Classes\ckbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\CKScene.h">
+      <Filter>Classes\ckbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\CKManager.h">
+      <Filter>Classes\ckbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\CKGameDataManager.h">
+      <Filter>Classes\ckbase</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

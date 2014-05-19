@@ -134,11 +134,23 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\ckbase\CKCommon.cpp" />
+    <ClCompile Include="..\Classes\ckbase\CKGameDataManager.cpp" />
+    <ClCompile Include="..\Classes\ckbase\CKManager.cpp" />
+    <ClCompile Include="..\Classes\ckbase\CKModel.cpp" />
+    <ClCompile Include="..\Classes\ckbase\CKProtocols.cpp" />
+    <ClCompile Include="..\Classes\ckbase\CKScene.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\ckbase\CKCommon.h" />
+    <ClInclude Include="..\Classes\ckbase\CKGameDataManager.h" />
+    <ClInclude Include="..\Classes\ckbase\CKManager.h" />
+    <ClInclude Include="..\Classes\ckbase\CKModel.h" />
+    <ClInclude Include="..\Classes\ckbase\CKProtocols.h" />
+    <ClInclude Include="..\Classes\ckbase\CKScene.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
@@ -149,6 +161,9 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     </ProjectReference>
     <ProjectReference Include="..\cocos2d\cocos\audio\proj.win32\CocosDenshion.vcxproj">
       <Project>{f8edd7fa-9a51-4e80-baeb-860825d2eac6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\cocos2d\cocos\editor-support\cocostudio\proj.win32\libCocosStudio.vcxproj">
+      <Project>{b57cf53f-2e49-4031-9822-047cc0e6bde2}</Project>
     </ProjectReference>
     <ProjectReference Include="..\cocos2d\external\chipmunk\proj.win32\chipmunk.vcxproj">
       <Project>{207bc7a9-ccf1-4f2f-a04d-45f72242ae25}</Project>
