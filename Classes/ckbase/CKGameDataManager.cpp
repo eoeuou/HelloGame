@@ -49,8 +49,6 @@ bool CKGameDataManager::loadGameData()
 		convertValueToModel("name",subModel,subData);
 
 		rootModel->setProperty("animation",subModel);
-
-		string str = rootModel->allKeysToString();
         
 		bRet = true;
     } while (0);
