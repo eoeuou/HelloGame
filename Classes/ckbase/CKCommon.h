@@ -50,6 +50,18 @@ std::wstring UTF8ToUnicode(const char* putf8);
 
 std::string UnicodeToUTF8(const wchar_t* putf8);
 
+//about json
+
+#define CONVERT_VALUE_MODEL(key,model,doc) \
+	if(!model)\
+{\
+	return;\
+}\
+	const char* value = DICTOOL->getStringValue_json(doc,key.c_str());\
+	model->setProperty(key.c_str(),value);\
+	CCLog("key=%s,value=%s",key.c_str(),value);\
+
 bool parseJsonToDocument(const std::string &fileName, rapidjson::Document &doc);
+
 
 #endif // __CKCommon_H__

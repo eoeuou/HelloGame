@@ -2,6 +2,8 @@
 #define __CKProtocols_H__
 
 #include "cocos2d.h"
+#include "cocostudio/CocoStudio.h"
+#include "trigger/EventDef.h"
 
 USING_NS_CC;
 
@@ -52,5 +54,37 @@ public:
 	}
 };
 
+class SceneProtocol
+{
+protected:	
+	//oncreate onstart onresume onpause onstop ondestory
+
+	//************************************
+	// Method:    add your sprite to this scene
+	// FullName:  SceneProtocol::initScene
+	// Access:    virtual protected 
+	// Returns:   void
+	// Qualifier:
+	//************************************
+	virtual void initScene() = 0;
+
+	//************************************
+	// Method:    pause your scene
+	// FullName:  SceneProtocol::pauseScene
+	// Access:    virtual protected 
+	// Returns:   void
+	// Qualifier:
+	//************************************
+	virtual void pauseScene() = 0;
+	
+	//************************************
+	// Method:    resume your scene
+	// FullName:  SceneProtocol::resumeScene
+	// Access:    virtual protected 
+	// Returns:   void
+	// Qualifier:
+	//************************************
+	virtual void resumeScene() = 0;
+};
 
 #endif // __CKProtocols_H__

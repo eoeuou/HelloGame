@@ -29,14 +29,6 @@ void CKGameDataManager::destroyInstance()
     CC_SAFE_DELETE(s_singleInstance);
 }
 
-#define CONVERT_VALUE_MODEL(key,model,doc) \
-	if(!model)\
-	{\
-		return;\
-	}\
-	const char* value = DICTOOL->getStringValue_json(doc,key.c_str());\
-	model->setProperty(key.c_str(),value);\
-
 void CKGameDataManager::convertDocumentToModel(std::string key,CKModel* model,rapidjson::Document& doc)
 {
 	CONVERT_VALUE_MODEL(key,model,doc);
@@ -72,4 +64,48 @@ bool CKGameDataManager::loadGameData()
     } while (0);
 
     return bRet;
+}
+
+bool CKGameDataManager::loadQuestionsData()
+{
+	bool bRet = false;
+	do {
+		CKModel* rootModel = CKModel::create();
+
+		rapidjson::Document jsonDict;
+
+		CC_BREAK_IF(!parseJsonToDocument("jsondata/questions.json",jsonDict));
+		
+		convertDocumentToModel("version",rootModel,jsonDict);
+
+		int queCount = DICTOOL->getArrayCount_json(jsonDict, "questions");
+		__Array* questionsArray = __Array::create();
+		for (int i = 0; i < queCount; i++)
+		{
+			const rapidjson::Value &questionsDic = DICTOOL->getDictionaryFromArray_json(jsonDict, "questions", i);
+
+			CKModel* questionModel = CKModel::create();
+			convertValueToModel("id",questionModel,questionsDic);
+			convertValueToModel("title",questionModel,questionsDic);
+			convertValueToModel("right",questionModel,questionsDic);
+
+			const rapidjson::Value &answersDic = DICTOOL->getSubDictionary_json(questionsDic, "answers");
+
+			CKModel* answerModel = CKModel::create();
+			convertValueToModel("a",answerModel,answersDic);
+			convertValueToModel("b",answerModel,answersDic);
+			convertValueToModel("c",answerModel,answersDic);
+			convertValueToModel("d",answerModel,answersDic);
+
+			questionModel->setForeignProperty("answers",answerModel);
+
+			questionsArray->addObject(questionModel);
+		}
+		rootModel->setForeignArray("questions",questionsArray);
+
+		m_questionsModel = rootModel;
+		bRet = true;
+	} while (0);
+
+	return bRet;
 }

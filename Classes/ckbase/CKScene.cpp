@@ -29,10 +29,26 @@ bool CKScene::init()
     // add the label as a child to this layer
     this->addChild(label, 1);
 		
-	CKGameDataManager::getInstance()->loadGameData();
+	//CKGameDataManager::getInstance()->loadGameData();
+	CKGameDataManager::getInstance()->loadQuestionsData();
 
 	CKPayEngine::sharedEngine()->pay("1",100);
 
 	this->addChild(CKDialog::create());
 	return ret;
+}
+
+void CKScene::initScene()
+{
+	throw std::exception("The method or operation is not implemented.");
+}
+
+void CKScene::pauseScene()
+{
+	throw std::exception("The method or operation is not implemented.");
+}
+
+void CKScene::resumeScene()
+{
+	throw std::exception("The method or operation is not implemented.");
 }

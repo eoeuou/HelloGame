@@ -2,12 +2,13 @@
 #define __CKSCENE_H__
 
 #include "cocos2d.h"
+#include "CKProtocols.h"
 
 USING_NS_CC;
 
 using namespace std;
 
-class CKScene:public cocos2d::Scene
+class CKScene:public cocos2d::Scene,public SceneProtocol
 {
 public:
 	CREATE_FUNC(CKScene);
@@ -19,21 +20,11 @@ protected:
 
 	virtual bool init() override;  
 
-	/**
-     * add your sprite to this scene
-     */
-	virtual void initScene(){}
+	virtual void initScene();
 
-	/**
-     * pause your scene
-     */
-	virtual void pauseScene(){}
-	
-	/**
-     * resume your scene
-     */
-	virtual void resumeScene(){}
+	virtual void pauseScene();
 
+	virtual void resumeScene();
 };
 
 #endif // __CKSCENE_H__
