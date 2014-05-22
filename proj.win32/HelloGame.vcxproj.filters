@@ -19,6 +19,9 @@
     <Filter Include="Classes\ckbase\extentions\pay">
       <UniqueIdentifier>{ec7355fc-7881-4a77-8c5b-9bd583edf3d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\ckbase\extentions\trigger">
+      <UniqueIdentifier>{82155a50-31ab-42f0-8776-d99fd0f304a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -60,6 +63,12 @@
     <ClCompile Include="..\Classes\ckbase\CKDialog.cpp">
       <Filter>Classes\ckbase</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\trigger\acts.cpp">
+      <Filter>Classes\ckbase\extentions\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\trigger\cons.cpp">
+      <Filter>Classes\ckbase\extentions\trigger</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -100,6 +109,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\CKDialog.h">
       <Filter>Classes\ckbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\trigger\acts.h">
+      <Filter>Classes\ckbase\extentions\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\trigger\cons.h">
+      <Filter>Classes\ckbase\extentions\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\trigger\EventDef.h">
+      <Filter>Classes\ckbase\extentions\trigger</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
