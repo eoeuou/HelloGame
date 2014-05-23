@@ -3,6 +3,7 @@
 #include "CKDialog.h"
 
 #include "cocostudio/CocoStudio.h"
+#include "CKGameDataManager.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -79,6 +80,8 @@ bool HelloWorld::init()
 
 
 	this->addChild(CKDialog::create(),100);
+	
+	questionTest();
 
 	return true;
 }
@@ -103,4 +106,30 @@ void HelloWorld::showFightScene()
 	CCNode *pNode = SceneReader::getInstance()->createNodeWithSceneFile("publish/FightScene.json"); 
 	newscene->addChild(pNode, 0, 1); 
 	CCDirector::sharedDirector()->replaceScene(newscene); 
+}
+
+CKModel* HelloWorld::getQuestionByIndex(int index)
+{
+	CKModel* questionsModel = CKGameDataManager::getInstance()->getQuestionsModel();
+	__Array* questions = questionsModel->getForeignArray("questions");
+	int sum = questions->count();
+	if (index<sum)
+	{
+		return (CKModel*)questions->getObjectAtIndex(index);
+	}	
+	return NULL;
+}
+
+void HelloWorld::questionTest()
+{
+	CKGameDataManager::getInstance()->loadQuestionsData();
+	CKModel* question = getQuestionByIndex(0);
+	std::string id = question->getStringProperty("id");
+	std::string right = question->getStringProperty("right");
+
+	CKModel* answers = question->getForeignProperty("answers");
+	std::string a = answers->getStringProperty("a");
+	std::string b = answers->getStringProperty("b");
+	std::string c = answers->getStringProperty("c");
+	std::string d = answers->getStringProperty("d");
 }

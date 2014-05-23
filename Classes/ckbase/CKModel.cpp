@@ -30,10 +30,14 @@ void CKModel::setForeignProperty(const char* key,CKModel* value)
 
 CKModel* CKModel::getForeignProperty(const char* key,CKModel* defaultValue)
 {
-	CKModel* result = dynamic_cast<CKModel*>(m_propertyDic->objectForKey(key));
-	if(result)
+	CCAssert(m_propertyDic,"dic init error");
+	if (m_propertyDic->objectForKey(key))
 	{
-		return result;
+		CKModel* result = dynamic_cast<CKModel*>(m_propertyDic->objectForKey(key));
+		if(result)
+		{
+			return result;
+		}
 	}
 	return defaultValue;
 }
@@ -52,10 +56,14 @@ void CKModel::setForeignArray(const char* key,__Array* value)
 
 __Array* CKModel::getForeignArray(const char* key,__Array* defaultValue)
 {
-	__Array* result = dynamic_cast<__Array*>(m_propertyDic->objectForKey(key));
-	if(result)
+	CCAssert(m_propertyDic,"dic init error");
+	if (m_propertyDic->objectForKey(key))
 	{
-		return result;
+		__Array* result = dynamic_cast<__Array*>(m_propertyDic->objectForKey(key));
+		if(result)
+		{
+			return result;
+		}
 	}
 	return defaultValue;
 }
