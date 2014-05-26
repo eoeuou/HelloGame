@@ -40,15 +40,15 @@ bool CKScene::init()
 
 void CKScene::initScene()
 {
-	throw std::exception("The method or operation is not implemented.");
+	//throw std::exception("The method or operation is not implemented.");
 }
 
 void CKScene::pauseScene()
 {
-	throw std::exception("The method or operation is not implemented.");
+	//throw std::exception("The method or operation is not implemented.");
 }
 
 void CKScene::resumeScene()
 {
-	throw std::exception("The method or operation is not implemented.");
+	//throw std::exception("The method or operation is not implemented.");
 }

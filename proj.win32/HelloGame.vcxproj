@@ -141,11 +141,14 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\ckbase\CKModel.cpp" />
     <ClCompile Include="..\Classes\ckbase\CKProtocols.cpp" />
     <ClCompile Include="..\Classes\ckbase\CKScene.cpp" />
+    <ClCompile Include="..\Classes\ckbase\device\CKDefaultDeviceEngine.cpp" />
+    <ClCompile Include="..\Classes\ckbase\device\CKDeviceEngine.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\pay\CKAndroidPayEngine.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\pay\CKDefaultPayEngine.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\pay\CKPayEngine.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\trigger\acts.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\trigger\cons.cpp" />
+    <ClCompile Include="..\Classes\FightScene.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -158,12 +161,15 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\ckbase\CKModel.h" />
     <ClInclude Include="..\Classes\ckbase\CKProtocols.h" />
     <ClInclude Include="..\Classes\ckbase\CKScene.h" />
+    <ClInclude Include="..\Classes\ckbase\device\CKDefaultDeviceEngine.h" />
+    <ClInclude Include="..\Classes\ckbase\device\CKDeviceEngine.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\pay\CKAndroidPayEngine.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\pay\CKDefaultPayEngine.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\pay\CKPayEngine.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\trigger\acts.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\trigger\cons.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\trigger\EventDef.h" />
+    <ClInclude Include="..\Classes\FightScene.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

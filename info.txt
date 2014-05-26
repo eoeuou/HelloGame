@@ -1,0 +1,30 @@
+
+D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame>python d:\cocos2dxDownload\cocos2d-x-3.0\tools\cocos2d-console\bin\/cocos.py run -p android 
+Android NDK: WARNING:D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\../cocos2d/cocos/2d/Android.mk:cocos2dx_static: LOCAL_LDLIBS is always ignored for static libraries    
+Android NDK: WARNING:D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\../cocos2d/cocos/2d/platform/android/Android.mk:cocos2dxandroid_static: LOCAL_LDLIBS is always ignored for static libraries    
+make: Entering directory `D:/cocos2dxDownload/cocos2d-x-3.0/projects/HelloGame/proj.android'
+Gdbserver      : [arm-linux-androideabi-4.8] libs/armeabi/gdbserver
+Gdbsetup       : libs/armeabi/gdb.setup
+make: Leaving directory `D:/cocos2dxDownload/cocos2d-x-3.0/projects/HelloGame/proj.android'
+Runing command: compile
+Building mode: debug
+building native
+The Selected NDK toolchain version was 4.8 !
+running: 'D:\android\android-ndk-r9\ndk-build -C D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android -j1 NDK_MODULE_PATH=D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\../cocos2d;D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\../cocos2d/cocos;D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\../cocos2d/external NDK_DEBUG=1'
+
+Error running command, return code: 2
+
+D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame>python d:\cocos2dxDownload\cocos2d-x-3.0\tools\cocos2d-console\bin\/cocos.py run -p android 
+Android NDK: WARNING:D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\../cocos2d/cocos/2d/Android.mk:cocos2dx_static: LOCAL_LDLIBS is always ignored for static libraries    
+Android NDK: WARNING:D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\../cocos2d/cocos/2d/platform/android/Android.mk:cocos2dxandroid_static: LOCAL_LDLIBS is always ignored for static libraries    
+make: Entering directory `D:/cocos2dxDownload/cocos2d-x-3.0/projects/HelloGame/proj.android'
+Gdbserver      : [arm-linux-androideabi-4.8] libs/armeabi/gdbserver
+Gdbsetup       : libs/armeabi/gdb.setup
+make: Leaving directory `D:/cocos2dxDownload/cocos2d-x-3.0/projects/HelloGame/proj.android'
+Runing command: compile
+Building mode: debug
+building native
+The Selected NDK toolchain version was 4.8 !
+running: 'D:\android\android-ndk-r9\ndk-build -C D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android -j1 NDK_MODULE_PATH=D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\../cocos2d;D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\../cocos2d/cocos;D:\cocos2dxDownload\cocos2d-x-3.0\projects\HelloGame\proj.android\../cocos2d/external NDK_DEBUG=1'
+
+Error running command, return code: 2

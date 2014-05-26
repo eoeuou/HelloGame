@@ -1,6 +1,6 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
-#include "ckbase\CKScene.h"
+//#include "ckbase\CKScene.h"
 
 USING_NS_CC;
 

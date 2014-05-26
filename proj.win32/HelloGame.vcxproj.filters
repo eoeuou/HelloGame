@@ -22,6 +22,9 @@
     <Filter Include="Classes\ckbase\extentions\trigger">
       <UniqueIdentifier>{82155a50-31ab-42f0-8776-d99fd0f304a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\ckbase\device">
+      <UniqueIdentifier>{8e2e62d4-9b71-4435-bee4-6d9f3fea8e9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -68,6 +71,15 @@
     </ClCompile>
     <ClCompile Include="..\Classes\ckbase\extentions\trigger\cons.cpp">
       <Filter>Classes\ckbase\extentions\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FightScene.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\device\CKDefaultDeviceEngine.cpp">
+      <Filter>Classes\ckbase\device</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\device\CKDeviceEngine.cpp">
+      <Filter>Classes\ckbase\device</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +130,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\extentions\trigger\EventDef.h">
       <Filter>Classes\ckbase\extentions\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FightScene.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\device\CKDefaultDeviceEngine.h">
+      <Filter>Classes\ckbase\device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\device\CKDeviceEngine.h">
+      <Filter>Classes\ckbase\device</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
