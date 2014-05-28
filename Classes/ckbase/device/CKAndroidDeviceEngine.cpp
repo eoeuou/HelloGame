@@ -11,11 +11,6 @@ CKAndroidDeviceEngine::~CKAndroidDeviceEngine() {
 
 }
 
-bool CKAndroidDeviceEngine::initDevice(){	
-
-	return true;
-}
-
 std::string CKAndroidDeviceEngine::getDeviceId()
 {
 	std::string ret("");
@@ -32,4 +27,14 @@ std::string CKAndroidDeviceEngine::getDeviceId()
 	}
 
 	return "0000";
+}
+
+void CKAndroidDeviceEngine::showNetworkSettings()
+{
+	JniMethodInfo t;
+
+	if (JniHelper::getStaticMethodInfo(t, CKGAMEHELP_CLASS_NAME, "showNetworkSettings", "()V")) {
+		t.env->CallStaticObjectMethod(t.classID, t.methodID);
+		t.env->DeleteLocalRef(t.classID);
+	}
 }

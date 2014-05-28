@@ -9,9 +9,9 @@ public:
 
 	virtual ~CKDefaultDeviceEngine();
 
-	virtual bool initDevice();
-
 	virtual std::string getDeviceId(){ return "default";}
+
+	virtual void showNetworkSettings(){}
 };
 
 #endif /* CKDEFAULTDEVICEENGINE_H_ */

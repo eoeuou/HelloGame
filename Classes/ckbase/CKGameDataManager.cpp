@@ -1,7 +1,7 @@
 #include "CKGameDataManager.h"
 #include "CKConstants.h"
 
-CKGameDataManager* CKGameDataManager::s_singleInstance = nullptr;
+CK_SINGLETON_METHOD_INIT(CKGameDataManager,s_singleInstance);
 
 CKGameDataManager::CKGameDataManager(void)
 {
@@ -13,20 +13,15 @@ CKGameDataManager::~CKGameDataManager(void)
 	
 }
 
-CKGameDataManager* CKGameDataManager::getInstance()
-{
-    if (! s_singleInstance)
-    {
-        s_singleInstance = new CKGameDataManager();
-		CKConstants::init();
-    }
-
-    return s_singleInstance;
-}
-
 void CKGameDataManager::destroyInstance()
 {
     CC_SAFE_DELETE(s_singleInstance);
+}
+
+bool CKGameDataManager::downloadGameData()
+{
+	
+	return true;
 }
 
 void CKGameDataManager::convertDocumentToModel(std::string key,CKModel* model,rapidjson::Document& doc)

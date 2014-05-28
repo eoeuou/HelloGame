@@ -7,6 +7,7 @@
 #include "CKGameDataManager.h"
 #include "FightScene.h"
 #include "device/CKDeviceEngine.h"
+#include "network/CKHttpUtils.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -66,6 +67,7 @@ bool HelloWorld::init()
 	auto label = LabelTTF::create("Hello World", "Arial", 24);
 
 	std::string id = CKDeviceEngine::sharedEngine()->getDeviceId();
+		
 	label->setString(id);
 
 	// position the label on the center of the screen
@@ -85,15 +87,26 @@ bool HelloWorld::init()
 
 	// add the sprite as a child to this layer
 	this->addChild(sprite, 0);
+		
+	//CKDialog::show<CKDialog>(this,100);
 
+	CKDialog::show<CKLoadingDialog>(this,200);
 
-	this->addChild(CKDialog::create(),100);
+	//this->addChild(CKDialog::create(),100);
 	
 	questionTest();
+
+	httpTest();
 
 	return true;
 }
 
+void HelloWorld::onExit()
+{
+	CCLayer::onExit();
+	CKHttpUtils::destroyInstance();
+	CKGameDataManager::destroyInstance();
+}
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
@@ -101,8 +114,10 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 	MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
 	return;
 #endif
-	showFightScene();
-	//Director::getInstance()->end();
+	//showFightScene();
+
+	CKHttpUtils::getInstance()->destroyInstance();
+	Director::getInstance()->end();
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	exit(0);
@@ -138,4 +153,11 @@ void HelloWorld::questionTest()
 	std::string b = answers->getStringProperty("b");
 	std::string c = answers->getStringProperty("c");
 	std::string d = answers->getStringProperty("d");
+}
+
+void HelloWorld::httpTest()
+{
+	std::string writablePath = CCFileUtils::sharedFileUtils()->getWritablePath();
+	std::string fileName = writablePath+"external.txt";
+	CKHttpUtils::getInstance()->getFile("http://httpbin.org/ip",fileName.c_str());
 }

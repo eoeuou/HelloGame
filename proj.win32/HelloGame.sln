@@ -20,6 +20,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libGUI", "..\cocos2d\cocos\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libExtensions", "..\cocos2d\extensions\proj.win32\libExtensions.vcxproj", "{21B2C324-891F-48EA-AD1A-5AE13DE12E28}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libNetwork", "..\cocos2d\cocos\network\proj.win32\libNetwork.vcxproj", "{DF2638C0-8128-4847-867C-6EAFE3DEE7B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -54,6 +56,10 @@ Global
 		{21B2C324-891F-48EA-AD1A-5AE13DE12E28}.Debug|Win32.Build.0 = Debug|Win32
 		{21B2C324-891F-48EA-AD1A-5AE13DE12E28}.Release|Win32.ActiveCfg = Release|Win32
 		{21B2C324-891F-48EA-AD1A-5AE13DE12E28}.Release|Win32.Build.0 = Release|Win32
+		{DF2638C0-8128-4847-867C-6EAFE3DEE7B5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DF2638C0-8128-4847-867C-6EAFE3DEE7B5}.Debug|Win32.Build.0 = Debug|Win32
+		{DF2638C0-8128-4847-867C-6EAFE3DEE7B5}.Release|Win32.ActiveCfg = Release|Win32
+		{DF2638C0-8128-4847-867C-6EAFE3DEE7B5}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

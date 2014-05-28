@@ -12,10 +12,25 @@ class CKDialog:public cocos2d::LayerColor
 public:
 	CREATE_FUNC(CKDialog);
 				
-    virtual bool onTouchBegan(Touch *touch, Event *unused_event); 	
-    virtual void onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event);
+	virtual bool onTouchBegan(Touch *touch, Event *unused_event); 	
+	virtual void onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event);
 
 	void onCloseCallback(cocos2d::Ref* pSender);
+
+	virtual void close();
+
+	template<class T> static T* show(CCNode* parent,int localZOrder) {
+		T* dialog = T::create();
+
+		if(dialog){
+			dialog->setVisible(true);
+			if(parent){
+				parent->addChild(dialog,localZOrder);
+			}
+		}
+
+		return dialog;
+	};
 protected:
 	CKDialog(void);
 	
@@ -25,4 +40,23 @@ protected:
 
 };
 
+class  CKLoadingDialog : public CKDialog
+{
+private:
+	CC_SYNTHESIZE_READONLY(Sprite*,m_loadingSprite,LoadingSprite);
+
+public:
+	CREATE_FUNC(CKLoadingDialog);
+
+	virtual bool init() override;
+
+	virtual void close() override;
+
+protected:
+
+	CKLoadingDialog():m_loadingSprite(nullptr){}
+
+	~CKLoadingDialog(){}
+
+};
 #endif // __CKDIALOG_H__

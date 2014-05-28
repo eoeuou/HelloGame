@@ -1,5 +1,6 @@
 #include "CKManager.h"
 
+//CK_SINGLETON_METHOD_INIT(CKManager,s_singleInstance);
 CKManager* CKManager::s_singleInstance = nullptr;
 
 CKManager::CKManager(void)

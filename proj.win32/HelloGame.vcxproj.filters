@@ -25,6 +25,9 @@
     <Filter Include="Classes\ckbase\device">
       <UniqueIdentifier>{8e2e62d4-9b71-4435-bee4-6d9f3fea8e9b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\ckbase\network">
+      <UniqueIdentifier>{4ee2a490-eb7a-41f2-845f-fa0813a68fd9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -80,6 +83,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\ckbase\device\CKDeviceEngine.cpp">
       <Filter>Classes\ckbase\device</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\device\CKAndroidDeviceEngine.cpp">
+      <Filter>Classes\ckbase\device</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\network\CKHttpUtils.cpp">
+      <Filter>Classes\ckbase\network</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +148,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\device\CKDeviceEngine.h">
       <Filter>Classes\ckbase\device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\device\CKAndroidDeviceEngine.h">
+      <Filter>Classes\ckbase\device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\network\CKHttpUtils.h">
+      <Filter>Classes\ckbase\network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

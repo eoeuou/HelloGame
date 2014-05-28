@@ -144,13 +144,30 @@ std::string UnicodeToUTF8(const wchar_t* putf8) {
 
 bool parseJsonToDocument(const std::string &fileName, rapidjson::Document &doc)
 {
-    bool bRet = false;
-    do {
-        std::string jsonpath = FileUtils::getInstance()->fullPathForFilename(fileName);
-        std::string contentStr = FileUtils::getInstance()->getStringFromFile(jsonpath);
-        doc.Parse<0>(contentStr.c_str());
-        CC_BREAK_IF(doc.HasParseError());
-        bRet = true;
-    } while (0);
-    return bRet;
+	bool bRet = false;
+	do {
+		std::string jsonpath = FileUtils::getInstance()->fullPathForFilename(fileName);
+		std::string contentStr = FileUtils::getInstance()->getStringFromFile(jsonpath);
+		doc.Parse<0>(contentStr.c_str());
+		CC_BREAK_IF(doc.HasParseError());
+		bRet = true;
+	} while (0);
+	return bRet;
+}
+
+bool writeFileData(const char * localPath, const char * fileData)
+{
+	FILE * pFile = fopen (localPath,"wb");
+
+	if (pFile!=NULL)
+	{
+		size_t result = fwrite(fileData, 1, strlen(fileData), pFile);
+		fclose(pFile);                    
+		if (result != 0) {
+			return true;
+		} else {
+			return false;        
+		}
+	}
+	return false;
 }

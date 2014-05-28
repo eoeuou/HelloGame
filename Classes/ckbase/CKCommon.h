@@ -23,12 +23,13 @@ public:\
 protected:\
 	static className* sharedObject;\
 public:\
-	static className* methodName(){\
+	static className* get##methodName(){\
 		if(!sharedObject){\
 			sharedObject = new className();\
 		}\
 		return sharedObject;\
 	}\
+	static void destroy##methodName();\
 
 #define CK_INIT_STATIC_FIELD(className,fieldName,fieldType,fieldValue)\
 fieldType className::fieldName = fieldValue
@@ -62,6 +63,8 @@ std::string UnicodeToUTF8(const wchar_t* putf8);
 	CCLog("key=%s,value=%s",key.c_str(),value);\
 
 bool parseJsonToDocument(const std::string &fileName, rapidjson::Document &doc);
+
+bool writeFileData(const char * localPath, const char * fileData);
 
 
 #endif // __CKCommon_H__

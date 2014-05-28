@@ -11,9 +11,9 @@ protected:
 public:
 	virtual ~CKDeviceEngine();
 
-	virtual bool initDevice() = 0;
-
 	virtual std::string getDeviceId() = 0;
+
+	virtual void showNetworkSettings() = 0;
 
 	CK_SINGLETON_METHOD(CKDeviceEngine,s_sharedEngine,sharedEngine);
 };

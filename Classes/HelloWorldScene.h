@@ -24,6 +24,10 @@ public:
 	CKModel* getQuestionByIndex(int index);
 
 	void questionTest();
+
+	void httpTest();
+
+	virtual void onExit();
 };
 
 #endif // __HELLOWORLD_SCENE_H__

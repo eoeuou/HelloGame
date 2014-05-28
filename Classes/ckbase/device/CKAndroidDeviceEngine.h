@@ -8,10 +8,10 @@ public:
 	CKAndroidDeviceEngine();
 
 	virtual ~CKAndroidDeviceEngine();
-
-	virtual bool initDevice();
-
+	
 	virtual std::string getDeviceId();
+
+	virtual void showNetworkSettings();
 
 };
 

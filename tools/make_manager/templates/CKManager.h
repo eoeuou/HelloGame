@@ -11,6 +11,8 @@ class CKManager
 {
 public:
 
+	//CK_SINGLETON_METHOD_LAZY(CKManager,s_singleInstance,Instance);
+
     static CKManager* getInstance();
 
     static void destroyInstance();
