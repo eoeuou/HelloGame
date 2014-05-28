@@ -26,10 +26,10 @@ public:\
 	static className* get##methodName(){\
 		if(!sharedObject){\
 			sharedObject = new className();\
+			sharedObject->init();\
 		}\
 		return sharedObject;\
 	}\
-	static void destroy##methodName();\
 
 #define CK_INIT_STATIC_FIELD(className,fieldName,fieldType,fieldValue)\
 fieldType className::fieldName = fieldValue
@@ -66,5 +66,6 @@ bool parseJsonToDocument(const std::string &fileName, rapidjson::Document &doc);
 
 bool writeFileData(const char * localPath, const char * fileData);
 
+int getChildrenMaxZorder(Node* parent);
 
 #endif // __CKCommon_H__

@@ -31,6 +31,8 @@ public:
 
 		return dialog;
 	};
+
+	void testBtnAdd();
 protected:
 	CKDialog(void);
 	

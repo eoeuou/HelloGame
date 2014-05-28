@@ -15,59 +15,106 @@ CKHttpUtils::~CKHttpUtils(void)
 void CKHttpUtils::destroyInstance()
 {
 	HttpClient::destroyInstance();
-	CC_SAFE_RELEASE(s_singleInstance);
+	CC_SAFE_RELEASE_NULL(s_singleInstance);
 }
 
-std::string CKHttpUtils::getText(const char* url) {
+bool CKHttpUtils::init()
+{
+	return true;
+}
+struct CKNetStruct
+{
+	std::string name;
+	std::function<void(CKModel* model)> callback;
+	CKLoadingDialog* m_loadingDialog;
 
-	std::string writablePath = CCFileUtils::sharedFileUtils()->getWritablePath();
-	std::string fileName = writablePath+"external.txt";
-	char szBuf[100] = "Hello Cocos2d-x!";
-	FILE* fp = fopen(fileName.c_str(), "wb");
-	if (fp)
+	CKNetStruct(std::string name,
+		std::function<void(CKModel* model)> callback)
 	{
-		size_t ret = fwrite(szBuf, 1, strlen(szBuf), fp);
-		CCASSERT(ret != 0, "fwrite function returned zero value");
-		fclose(fp);
-		if (ret != 0)
-			log("Writing file to writable path succeed.");
+		this->name = name;
+		this->callback = callback;
+		m_loadingDialog = nullptr;
 	}
 
-	return "";
+	void showLoadingDialog()
+	{
+		Scene* curScene = CCDirector::getInstance()->getRunningScene();
+		m_loadingDialog = CKDialog::show<CKLoadingDialog>(curScene,getChildrenMaxZorder(curScene));
+	}
+
+	void hideLoadingDialog()
+	{
+		if (m_loadingDialog)
+		{
+			m_loadingDialog->removeFromParent();
+		}
+	}
+};
+
+void CKHttpUtils::getText(const char* url,std::function<void(CKModel* model)> callback) 
+{
+	CKNetStruct* sInfo = new CKNetStruct("getTextName",callback);
+	sInfo->showLoadingDialog();
+
+	HttpRequest* request = new HttpRequest();
+	request->setUrl(url);
+	request->setRequestType(HttpRequest::Type::GET);
+	request->setResponseCallback(this, httpresponse_selector(CKHttpUtils::onGetTextCompleted));
+	request->setTag("getText");	
+	request->setUserData(sInfo);
+
+	HttpClient::getInstance()->send(request);
+	request->release();
 }
 
 void CKHttpUtils::onGetTextCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response)
 {
+	CKNetStruct* sInfo = static_cast<CKNetStruct*>(response->getHttpRequest()->getUserData());
+	const char* name = sInfo->name.c_str();
+	log("getTextName=%s",name);
+
 	std::string res = httpRequestCompleted(sender,response);
+
+	CKModel* model = CKModel::create();
+	model->setProperty("result",res.c_str());
+
+	sInfo->callback(model);
+	sInfo->hideLoadingDialog();
+	CC_SAFE_DELETE(sInfo);
 }
 
-void CKHttpUtils::getFile(const char* url,const char* localpath)
+void CKHttpUtils::getFile(const char* url,const char* localpath,std::function<void(CKModel* model)> callback)
 {
-	HttpRequest* request = new HttpRequest();
+	CKNetStruct* sInfo = new CKNetStruct(localpath,callback);	
+	sInfo->showLoadingDialog();
 
+	HttpRequest* request = new HttpRequest();
 	request->setUrl(url);
 	request->setRequestType(HttpRequest::Type::GET);
 	request->setResponseCallback(this, httpresponse_selector(CKHttpUtils::onGetFileCompleted));
-	request->setTag("GET test2");
+	request->setTag("getFile");
+	request->setUserData(sInfo);
 
 	HttpClient::getInstance()->send(request);
-
 	request->release();
 }
 
 void CKHttpUtils::onGetFileCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response)
-{	
-	log("over");	
+{		
+	CKNetStruct* sInfo = static_cast<CKNetStruct*>(response->getHttpRequest()->getUserData());
+	const char* path = sInfo->name.c_str();
+	log("getTextName=%s",path);
+	
 	std::string res = httpRequestCompleted(sender,response);
+	writeFileData(path,res.c_str());
 
-	std::string writablePath = CCFileUtils::sharedFileUtils()->getWritablePath();
-	std::string fileName = writablePath+"external.txt";
-	writeFileData(fileName.c_str(),res.c_str());
-}
+	CKModel* model = CKModel::create();
+	model->setProperty("result",res.c_str());
+	model->setProperty("path",path);
 
-std::string CKHttpUtils::download(const char* url,const string& filename)
-{	
-	return "";
+	sInfo->callback(model);
+	sInfo->hideLoadingDialog();
+	CC_SAFE_DELETE(sInfo);
 }
 
 std::string CKHttpUtils::httpRequestCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response)

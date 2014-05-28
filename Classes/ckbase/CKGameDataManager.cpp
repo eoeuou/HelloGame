@@ -18,6 +18,11 @@ void CKGameDataManager::destroyInstance()
     CC_SAFE_DELETE(s_singleInstance);
 }
 
+bool CKGameDataManager::init()
+{
+	return true;
+}
+
 bool CKGameDataManager::downloadGameData()
 {
 	

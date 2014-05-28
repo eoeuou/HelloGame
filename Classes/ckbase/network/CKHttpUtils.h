@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "network/HttpClient.h"
 #include "CKCommon.h"
+#include "CKDialog.h"
 
 USING_NS_CC;
 using namespace cocos2d::network;
@@ -13,13 +14,38 @@ using namespace std;
 class CKHttpUtils : public cocos2d::Ref
 {
 public:
-	CK_SINGLETON_METHOD_LAZY(CKHttpUtils,s_singleInstance,Instance);
+	CK_SINGLETON_METHOD_LAZY(CKHttpUtils,s_singleInstance,Instance);	
 
-	std::string getText(const char* url);
+	static void destroyInstance();
 
-	void getFile(const char* url,const char* localpath);
+	bool init();
 
-	std::string download(const char* url,const string& filename);
+	//************************************
+	// Method:    getText
+	// FullName:  CKHttpUtils::getText
+	// Access:    public 
+	// Returns:   void
+	// Qualifier:
+	// Parameter: const char * url
+	// Parameter: std::function<void
+	// Parameter: CKModel * model model拥有result和path属性，代表内容和保存地址
+	// Parameter: > callback 回掉函数
+	//************************************
+	void getText(const char* url,std::function<void(CKModel* model)> callback);
+
+	//************************************
+	// Method:    getFile
+	// FullName:  CKHttpUtils::getFile
+	// Access:    public 
+	// Returns:   void
+	// Qualifier:
+	// Parameter: const char * url
+	// Parameter: const char * localpath 保存路径
+	// Parameter: std::function<void
+	// Parameter: CKModel * model   model拥有result和path属性，代表内容和保存地址
+	// Parameter: > callback 回掉函数
+	//************************************
+	void getFile(const char* url,const char* localpath,std::function<void(CKModel* model)> callback);
 
 protected:
 	CKHttpUtils(void);
@@ -33,7 +59,6 @@ protected:
 	std::string httpRequestCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response);
 
 private:
-
 };
 
 #endif // __CKHTTPUTILS_H__

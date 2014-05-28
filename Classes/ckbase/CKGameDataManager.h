@@ -11,6 +11,10 @@ public:
 	
 	CK_SINGLETON_METHOD_LAZY(CKGameDataManager,s_singleInstance,Instance);
 
+	static void destroyInstance();
+
+	bool init();
+
 	bool downloadGameData();
 		
 	bool loadGameData();

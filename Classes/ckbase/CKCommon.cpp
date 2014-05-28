@@ -171,3 +171,20 @@ bool writeFileData(const char * localPath, const char * fileData)
 	}
 	return false;
 }
+
+int getChildrenMaxZorder(Node* parent)
+{
+	int maxZoreder = 0;
+	if (parent)
+	{
+		const auto& children = parent->getChildren();
+		for (const auto& child : children)
+		{
+			if (maxZoreder<child->getLocalZOrder())
+			{
+				maxZoreder = child->getLocalZOrder();
+			}		
+		}
+	}
+	return maxZoreder;
+}

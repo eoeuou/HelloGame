@@ -90,13 +90,13 @@ bool HelloWorld::init()
 		
 	//CKDialog::show<CKDialog>(this,100);
 
-	CKDialog::show<CKLoadingDialog>(this,200);
+	//CKDialog::show<CKLoadingDialog>(this,200);
 
 	//this->addChild(CKDialog::create(),100);
 	
-	questionTest();
+	//questionTest();
 
-	httpTest();
+	//httpTest();
 
 	return true;
 }
@@ -116,8 +116,10 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 #endif
 	//showFightScene();
 
-	CKHttpUtils::getInstance()->destroyInstance();
-	Director::getInstance()->end();
+	httpTest();
+
+	//CKHttpUtils::getInstance()->destroyInstance();
+	//Director::getInstance()->end();
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	exit(0);
@@ -159,5 +161,11 @@ void HelloWorld::httpTest()
 {
 	std::string writablePath = CCFileUtils::sharedFileUtils()->getWritablePath();
 	std::string fileName = writablePath+"external.txt";
-	CKHttpUtils::getInstance()->getFile("http://httpbin.org/ip",fileName.c_str());
+	CKHttpUtils::getInstance()->getFile("http://httpbin.org/ip",fileName.c_str(),[](CKModel* model){
+		CCLog("getFile_end:result=%s,path=%s",model->getStringProperty("result").c_str(),model->getStringProperty("path").c_str());
+	});
+
+	CKHttpUtils::getInstance()->getText("http://httpbin.org/ip",[](CKModel* model){
+		CCLog("getText_end:result=%s,path=%s",model->getStringProperty("result").c_str(),model->getStringProperty("path").c_str());
+	});
 }
