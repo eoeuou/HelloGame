@@ -110,7 +110,7 @@ void CKHttpUtils::onGetTextCompleted(cocos2d::network::HttpClient *sender, cocos
 	std::string res = httpRequestCompleted(sender,response);
 
 	CKModel* model = CKModel::create();
-	model->setProperty("result",res.c_str());
+	model->setValue("result",Value(res.c_str()));
 
 	sInfo->callback(model);
 	sInfo->hideLoadingDialog();
@@ -144,8 +144,8 @@ void CKHttpUtils::onGetFileCompleted(cocos2d::network::HttpClient *sender, cocos
 	writeFileData(path,res.c_str());
 
 	CKModel* model = CKModel::create();
-	model->setProperty("result",res.c_str());
-	model->setProperty("path",path);
+	model->setValue("result",Value(res.c_str()));
+	model->setValue("path",Value(path));
 
 	sInfo->callback(model);
 	sInfo->hideLoadingDialog();
@@ -178,7 +178,7 @@ void CKHttpUtils::onPostCompleted(cocos2d::network::HttpClient *sender, cocos2d:
 	log("%s",res.c_str());
 
 	CKModel* model = CKModel::create();
-	model->setProperty("result",res.c_str());
+	model->setValue("result",Value(res.c_str()));
 
 	sInfo->callback(model);
 	sInfo->hideLoadingDialog();

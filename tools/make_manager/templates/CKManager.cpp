@@ -18,6 +18,7 @@ CKManager* CKManager::getInstance()
     if (! s_singleInstance)
     {
         s_singleInstance = new CKManager();
+		s_singleInstance->init();
     }
 
     return s_singleInstance;
@@ -26,4 +27,9 @@ CKManager* CKManager::getInstance()
 void CKManager::destroyInstance()
 {
     CC_SAFE_DELETE(s_singleInstance);
+}
+
+bool CKManager::init()
+{
+	return true;
 }

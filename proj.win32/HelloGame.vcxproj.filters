@@ -90,6 +90,9 @@
     <ClCompile Include="..\Classes\ckbase\network\CKHttpUtils.cpp">
       <Filter>Classes\ckbase\network</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\CKGameManager.cpp">
+      <Filter>Classes\ckbase</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -154,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\network\CKHttpUtils.h">
       <Filter>Classes\ckbase\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\CKGameManager.h">
+      <Filter>Classes\ckbase</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

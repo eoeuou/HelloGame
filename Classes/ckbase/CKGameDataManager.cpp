@@ -1,5 +1,4 @@
 #include "CKGameDataManager.h"
-#include "CKConstants.h"
 
 CK_SINGLETON_METHOD_INIT(CKGameDataManager,s_singleInstance);
 

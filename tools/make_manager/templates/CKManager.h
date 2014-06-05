@@ -16,6 +16,8 @@ public:
     static CKManager* getInstance();
 
     static void destroyInstance();
+	
+	bool init();
 			
 private:
 	CKManager(void);

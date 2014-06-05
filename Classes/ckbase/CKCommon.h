@@ -59,8 +59,9 @@ std::string UnicodeToUTF8(const wchar_t* putf8);
 	return;\
 }\
 	const char* value = DICTOOL->getStringValue_json(doc,key.c_str());\
-	model->setProperty(key.c_str(),value);\
+	model->setValue(key.c_str(),Value(value));\
 	CCLog("key=%s,value=%s",key.c_str(),value);\
+	CCLog("info=%s",model->getInfo().c_str());\
 
 bool parseJsonToDocument(const std::string &fileName, rapidjson::Document &doc);
 //about json end

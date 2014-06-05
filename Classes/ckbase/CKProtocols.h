@@ -14,12 +14,13 @@ class PropertyProtocol
 private:
 	CC_SYNTHESIZE(__Dictionary*,m_propertyDic,PropertyDic);
 
+	ValueMap        _valueDict;
 protected:
 	PropertyProtocol():m_propertyDic(__Dictionary::create()){}
     virtual ~PropertyProtocol() {}
 
 public:
-	bool getBooleanProperty(const char* key, bool defaultValue = false);
+	/*bool getBooleanProperty(const char* key, bool defaultValue = false);
 	int getIntProperty(const char* key, int defaultValue = 0);
 	float getFloatProperty(const char* key, float defaultValue = 0);
 	string getStringProperty(const char* key, const char* defaultValue = "");
@@ -51,7 +52,16 @@ public:
 			}
 		}
 		return result;
-	}
+	}*/
+
+	/** returns the value of a given key as a double */
+	const Value& getValue(const std::string& key, const Value& defaultValue = Value::Null) const;
+
+	/** sets a new key/value pair  in the configuration dictionary */
+	void setValue(const std::string& key, const Value& value);
+
+	/** returns the Configuration info */
+	std::string getInfo() const;
 };
 
 class SceneProtocol

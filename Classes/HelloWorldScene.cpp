@@ -8,6 +8,7 @@
 #include "FightScene.h"
 #include "device/CKDeviceEngine.h"
 #include "network/CKHttpUtils.h"
+#include "CKGameManager.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -98,14 +99,22 @@ bool HelloWorld::init()
 
 	//httpTest();
 
+	CKModel* child = CKModel::create();
+	child->setValue("name",Value("childName"));
+
+	CKModel* model = CKModel::create();
+	model->setValue("child",Value(child->getValue("name")));
+	int key = model->getValue("key").asInt();
+	CCLog("%s",model->getInfo().c_str());
+
+	//CKGameDataManager::getInstance()->loadGameData();
 	return true;
 }
 
 void HelloWorld::onExit()
 {
 	CCLayer::onExit();
-	CKHttpUtils::destroyInstance();
-	CKGameDataManager::destroyInstance();
+	CKGameManager::destroyInstance();
 }
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
@@ -147,14 +156,14 @@ void HelloWorld::questionTest()
 {
 	CKGameDataManager::getInstance()->loadQuestionsData();
 	CKModel* question = getQuestionByIndex(0);
-	std::string id = question->getStringProperty("id");
-	std::string right = question->getStringProperty("right");
+	std::string id = question->getValue("id").asString();
+	std::string right = question->getValue("right").asString();
 
 	CKModel* answers = question->getForeignProperty("answers");
-	std::string a = answers->getStringProperty("a");
-	std::string b = answers->getStringProperty("b");
-	std::string c = answers->getStringProperty("c");
-	std::string d = answers->getStringProperty("d");
+	std::string a = answers->getValue("a").asString();
+	std::string b = answers->getValue("b").asString();
+	std::string c = answers->getValue("c").asString();
+	std::string d = answers->getValue("d").asString();
 }
 
 void HelloWorld::httpTest()
@@ -162,11 +171,11 @@ void HelloWorld::httpTest()
 	std::string writablePath = CCFileUtils::sharedFileUtils()->getWritablePath();
 	std::string fileName = writablePath+"external.txt";
 	/*CKHttpUtils::getInstance()->getFile("http://httpbin.org/ip",fileName.c_str(),[](CKModel* model){
-		CCLog("getFile_end:result=%s,path=%s",model->getStringProperty("result").c_str(),model->getStringProperty("path").c_str());
+		CCLog("getFile_end:result=%s,path=%s",model->getValue("result").asString(),model->getValue("path").asString());
 	});*/
 	/*
 	CKHttpUtils::getInstance()->getText("http://tarenaapptest.herokuapp.com/?echostr=1",[](CKModel* model){
-		CCLog("getText_end:result=%s,path=%s",model->getStringProperty("result").c_str(),model->getStringProperty("path").c_str());
+		CCLog("getText_end:result=%s,path=%s",model->getValue("result").asString(),model->getValue("path").asString());
 	});
 	*/
 	/*CKHttpUtils::getInstance()->getText("http://127.0.0.1:8000",[](CKModel* model){
