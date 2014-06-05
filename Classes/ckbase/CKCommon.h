@@ -10,6 +10,9 @@ USING_NS_CC;
 using namespace std;
 using namespace cocostudio;
 
+#define STD_FUN_NULL [](){}
+#define STD_FUN_MODEL_NULL [](CKModel* model){}
+
 #define CK_SINGLETON_METHOD(className,sharedObject,methodName) \
 protected:\
 	static className* sharedObject;\
@@ -46,13 +49,10 @@ const char* floatToString(const float value);
 const char* doubleToString(const double value);
 
 std::string GBKToUTF8(const std::string& strGBK);
-
 std::wstring UTF8ToUnicode(const char* putf8);
-
 std::string UnicodeToUTF8(const wchar_t* putf8);
 
-//about json
-
+//about json begin
 #define CONVERT_VALUE_MODEL(key,model,doc) \
 	if(!model)\
 {\
@@ -63,6 +63,7 @@ std::string UnicodeToUTF8(const wchar_t* putf8);
 	CCLog("key=%s,value=%s",key.c_str(),value);\
 
 bool parseJsonToDocument(const std::string &fileName, rapidjson::Document &doc);
+//about json end
 
 bool writeFileData(const char * localPath, const char * fileData);
 

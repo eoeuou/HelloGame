@@ -47,6 +47,18 @@ public:
 	//************************************
 	void getFile(const char* url,const char* localpath,std::function<void(CKModel* model)> callback);
 
+	//************************************
+	// Method:    post
+	// FullName:  CKHttpUtils::post
+	// Access:    public 
+	// Returns:   void
+	// Qualifier:
+	// Parameter: const char * url
+	// Parameter: std::function<void
+	// Parameter: CKModel * model
+	// Parameter: > callback
+	//************************************
+	void post(const char* url,const char* postData,std::function<void(CKModel* model)> callback);
 protected:
 	CKHttpUtils(void);
 
@@ -55,6 +67,8 @@ protected:
 	void onGetTextCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response);
 
 	void onGetFileCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response);
+
+	void onPostCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response);
 
 	std::string httpRequestCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response);
 

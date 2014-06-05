@@ -161,11 +161,16 @@ void HelloWorld::httpTest()
 {
 	std::string writablePath = CCFileUtils::sharedFileUtils()->getWritablePath();
 	std::string fileName = writablePath+"external.txt";
-	CKHttpUtils::getInstance()->getFile("http://httpbin.org/ip",fileName.c_str(),[](CKModel* model){
+	/*CKHttpUtils::getInstance()->getFile("http://httpbin.org/ip",fileName.c_str(),[](CKModel* model){
 		CCLog("getFile_end:result=%s,path=%s",model->getStringProperty("result").c_str(),model->getStringProperty("path").c_str());
-	});
-
-	CKHttpUtils::getInstance()->getText("http://httpbin.org/ip",[](CKModel* model){
+	});*/
+	/*
+	CKHttpUtils::getInstance()->getText("http://tarenaapptest.herokuapp.com/?echostr=1",[](CKModel* model){
 		CCLog("getText_end:result=%s,path=%s",model->getStringProperty("result").c_str(),model->getStringProperty("path").c_str());
 	});
+	*/
+	/*CKHttpUtils::getInstance()->getText("http://127.0.0.1:8000",[](CKModel* model){
+	});*/
+	//CKHttpUtils::getInstance()->post("http://tarenaapptest.herokuapp.com/login");
+	CKHttpUtils::getInstance()->post("http://httpbin.org/post","username=112",STD_FUN_MODEL_NULL);
 }
