@@ -147,7 +147,8 @@ CKModel* HelloWorld::getQuestionByIndex(int index)
 	int sum = questions->count();
 	if (index<sum)
 	{
-		return (CKModel*)questions->getObjectAtIndex(index);
+		Ref* r = questions->objectAtIndex(index);
+		return dynamic_cast<CKModel*>(r);
 	}	
 	return NULL;
 }
@@ -159,7 +160,7 @@ void HelloWorld::questionTest()
 	std::string id = question->getValue("id").asString();
 	std::string right = question->getValue("right").asString();
 
-	CKModel* answers = question->getForeignProperty("answers");
+	const CKModel* answers = question->getForeignProperty("answers");
 	std::string a = answers->getValue("a").asString();
 	std::string b = answers->getValue("b").asString();
 	std::string c = answers->getValue("c").asString();

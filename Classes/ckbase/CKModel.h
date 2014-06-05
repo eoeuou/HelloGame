@@ -11,6 +11,7 @@ using namespace std;
 class CKModel:public cocos2d::Ref , public PropertyProtocol
 {
 private:
+	CC_SYNTHESIZE_READONLY(__Dictionary*,m_propertyDic,PropertyDic);
 
 public:
 	CREATE_FUNC(CKModel);
@@ -22,6 +23,10 @@ public:
 	void setForeignArray(const char* key,__Array* value);
 
 	__Array* getForeignArray(const char* key,__Array* defaultValue = nullptr);		
+
+	void setForeignDic(const char* key,__Dictionary* value);
+
+	__Dictionary* getForeignDic(const char* key,__Dictionary* defaultValue = nullptr);
 
 protected:
 	CKModel(void);
