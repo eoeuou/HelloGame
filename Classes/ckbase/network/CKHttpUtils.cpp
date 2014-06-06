@@ -9,12 +9,14 @@ CKHttpUtils::CKHttpUtils(void)
 
 CKHttpUtils::~CKHttpUtils(void)
 {
-	
 }
 
 void CKHttpUtils::destroyInstance()
 {
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_WP8)
 	HttpClient::destroyInstance();
+#endif
+	//HttpClient::destroyInstance();
 	CC_SAFE_RELEASE_NULL(s_singleInstance);
 }
 
@@ -22,7 +24,7 @@ bool CKHttpUtils::init()
 {
 	return true;
 }
-
+/*
 std::string CKHttpUtils::httpRequestCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response)
 {
 	if (!response)
@@ -183,4 +185,4 @@ void CKHttpUtils::onPostCompleted(cocos2d::network::HttpClient *sender, cocos2d:
 	sInfo->callback(model);
 	sInfo->hideLoadingDialog();
 	CC_SAFE_DELETE(sInfo);
-}
+}*/

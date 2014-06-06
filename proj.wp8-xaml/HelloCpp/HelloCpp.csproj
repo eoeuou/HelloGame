@@ -130,6 +130,11 @@
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HelloCppComponent\HelloCppComponent.vcxproj">
+      <Name>HelloCppComponent</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
@@ -149,18 +154,14 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+
   <ItemGroup>
     <Content Include="..\..\Resources\**\*">
       <Link>Assets\Resources\%(RecursiveDir)%(FileName)%(Extension)</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HelloCppComponent\HelloCppComponent.vcxproj">
-      <Project>{60EC6889-C3C4-45AD-A006-47D9EE689212}</Project>
-      <Name>HelloCppComponent</Name>
-    </ProjectReference>
-  </ItemGroup>
+  
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
@@ -171,5 +172,6 @@
   <Target Name="AfterBuild">
   </Target>
     -->
-  <ProjectExtensions />
+<ProjectExtensions />
+ 
 </Project>

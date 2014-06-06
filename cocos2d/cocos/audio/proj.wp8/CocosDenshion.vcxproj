@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F49EE90A-0331-4101-82DF-13DE58C626BD}</ProjectGuid>
+    <ProjectGuid>{DF125891-EEE9-4466-B903-F828FD272158}</ProjectGuid>
     <RootNamespace>CocosDenshion.win32</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>

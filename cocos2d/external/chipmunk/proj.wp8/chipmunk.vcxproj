@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{887BEF37-26AB-46AC-87A1-65E33A1565D8}</ProjectGuid>
+    <ProjectGuid>{BA568A33-98F9-4D2A-BFFF-C065ADCB447A}</ProjectGuid>
     <RootNamespace>libchipmunk</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>

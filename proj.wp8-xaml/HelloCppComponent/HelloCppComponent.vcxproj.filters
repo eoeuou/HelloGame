@@ -14,30 +14,6 @@
     <ClCompile Include="..\..\Classes\HelloWorldScene.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Classes\FightScene.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Classes\ckbase\network\CKHttpUtils.cpp">
-      <Filter>Classes\ckbase\network</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Classes\ckbase\extentions\pay\CKDefaultPayEngine.cpp">
-      <Filter>Classes\ckbase\extentions\pay</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Classes\ckbase\extentions\pay\CKPayEngine.cpp">
-      <Filter>Classes\ckbase\extentions\pay</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Classes\ckbase\extentions\trigger\acts.cpp">
-      <Filter>Classes\ckbase\extentions\trigger</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Classes\ckbase\extentions\trigger\cons.cpp">
-      <Filter>Classes\ckbase\extentions\trigger</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Classes\ckbase\device\CKDefaultDeviceEngine.cpp">
-      <Filter>Classes\ckbase\device</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Classes\ckbase\device\CKDeviceEngine.cpp">
-      <Filter>Classes\ckbase\device</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Classes\ckbase\CKCommon.cpp">
       <Filter>Classes\ckbase</Filter>
     </ClCompile>
@@ -62,8 +38,32 @@
     <ClCompile Include="..\..\Classes\ckbase\CKScene.cpp">
       <Filter>Classes\ckbase</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\extentions\trigger\acts.cpp">
+      <Filter>Classes\ckbase\extentions\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\extentions\trigger\cons.cpp">
+      <Filter>Classes\ckbase\extentions\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\extentions\pay\CKDefaultPayEngine.cpp">
+      <Filter>Classes\ckbase\extentions\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\extentions\pay\CKPayEngine.cpp">
+      <Filter>Classes\ckbase\extentions\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\device\CKDefaultDeviceEngine.cpp">
+      <Filter>Classes\ckbase\device</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\device\CKDeviceEngine.cpp">
+      <Filter>Classes\ckbase\device</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\network\CKHttpUtils.cpp">
+      <Filter>Classes\ckbase\network</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\WP8DataEvent.cpp" />
     <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\WP8DataManager.cpp" />
+    <ClCompile Include="..\..\Classes\FightScene.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\Cocos2dRenderer.h" />
@@ -80,33 +80,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Classes\HelloWorldScene.h">
       <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Classes\FightScene.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Classes\ckbase\network\CKHttpUtils.h">
-      <Filter>Classes\ckbase\network</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Classes\ckbase\extentions\pay\CKDefaultPayEngine.h">
-      <Filter>Classes\ckbase\extentions\pay</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Classes\ckbase\extentions\pay\CKPayEngine.h">
-      <Filter>Classes\ckbase\extentions\pay</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Classes\ckbase\extentions\trigger\acts.h">
-      <Filter>Classes\ckbase\extentions\trigger</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Classes\ckbase\extentions\trigger\cons.h">
-      <Filter>Classes\ckbase\extentions\trigger</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Classes\ckbase\extentions\trigger\EventDef.h">
-      <Filter>Classes\ckbase\extentions\trigger</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Classes\ckbase\device\CKDefaultDeviceEngine.h">
-      <Filter>Classes\ckbase\device</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Classes\ckbase\device\CKDeviceEngine.h">
-      <Filter>Classes\ckbase\device</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Classes\ckbase\CKCommon.h">
       <Filter>Classes\ckbase</Filter>
@@ -132,30 +105,57 @@
     <ClInclude Include="..\..\Classes\ckbase\CKScene.h">
       <Filter>Classes\ckbase</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\extentions\trigger\acts.h">
+      <Filter>Classes\ckbase\extentions\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\extentions\trigger\cons.h">
+      <Filter>Classes\ckbase\extentions\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\extentions\trigger\EventDef.h">
+      <Filter>Classes\ckbase\extentions\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\extentions\pay\CKDefaultPayEngine.h">
+      <Filter>Classes\ckbase\extentions\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\extentions\pay\CKPayEngine.h">
+      <Filter>Classes\ckbase\extentions\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\device\CKDefaultDeviceEngine.h">
+      <Filter>Classes\ckbase\device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\device\CKDeviceEngine.h">
+      <Filter>Classes\ckbase\device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\network\CKHttpUtils.h">
+      <Filter>Classes\ckbase\network</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\WP8DataEvent.h" />
     <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\WP8DataManager.h" />
+    <ClInclude Include="..\..\Classes\FightScene.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Classes">
       <UniqueIdentifier>{facbd0ff-d271-46ef-8324-beff0cbcb424}</UniqueIdentifier>
     </Filter>
     <Filter Include="Classes\ckbase">
-      <UniqueIdentifier>{ee849166-28bb-4a2f-9728-eeaceab56a52}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\ckbase\network">
-      <UniqueIdentifier>{9daf7d0d-09d1-495b-ad5a-ac06e10319d9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\ckbase\extentions">
-      <UniqueIdentifier>{45bce0d2-8862-4828-95f9-f3f64874b030}</UniqueIdentifier>
+      <UniqueIdentifier>{57345b71-dad8-4dd6-ba09-98662ad99e97}</UniqueIdentifier>
     </Filter>
     <Filter Include="Classes\ckbase\device">
-      <UniqueIdentifier>{d6e416aa-813c-4376-99c2-e6aac8e0b36e}</UniqueIdentifier>
+      <UniqueIdentifier>{4a82ee42-da0e-4cce-972d-a675a674b12b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ckbase\extentions">
+      <UniqueIdentifier>{c91c3cb0-9e8e-416b-8dd9-fd77ceb292bb}</UniqueIdentifier>
     </Filter>
     <Filter Include="Classes\ckbase\extentions\pay">
-      <UniqueIdentifier>{7ab6a4ce-6cb5-446d-a959-aa923d57ebd7}</UniqueIdentifier>
+      <UniqueIdentifier>{d2352664-a14e-47b1-a92f-85cd7579dc0d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Classes\ckbase\extentions\trigger">
-      <UniqueIdentifier>{d8f46191-90ab-4e8b-9425-13c474b56614}</UniqueIdentifier>
+      <UniqueIdentifier>{68ae7c62-beef-4e0c-8c52-0dce631aba31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ckbase\network">
+      <UniqueIdentifier>{9656fcb7-9b59-4e31-bfc4-0d46e8cf8bf8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -163,8 +163,13 @@
     <None Include="..\..\cocos2d\external\wp8-specific\angle\prebuilt\Win32\libGLESv2_phone.dll" />
     <None Include="..\..\cocos2d\external\wp8-specific\angle\prebuilt\ARM\libEGL_phone.dll" />
     <None Include="..\..\cocos2d\external\wp8-specific\angle\prebuilt\ARM\libGLESv2_phone.dll" />
-    <None Include="..\..\cocos2d\external\curl\prebuilt\wp8\arm\libcurl.dll" />
-    <None Include="..\..\cocos2d\external\curl\prebuilt\wp8\arm\libeay32.dll" />
-    <None Include="..\..\cocos2d\external\curl\prebuilt\wp8\arm\ssleay32.dll" />
+    <None Include="..\..\cocos2dexternal\curl\prebuilt\wp8\arm\libcurl.dll" />
+    <None Include="..\..\cocos2dexternal\curl\prebuilt\wp8\arm\libeay32.dll" />
+    <None Include="..\..\cocos2dexternal\curl\prebuilt\wp8\arm\ssleay32.dll" />
+    <None Include="..\..\cocos2dexternal\curl\prebuilt\wp8\win32\libcurl.dll" />
+    <None Include="..\..\cocos2dexternal\curl\prebuilt\wp8\win32\libeay32.dll" />
+    <None Include="..\..\cocos2dexternal\curl\prebuilt\wp8\win32\ssleay32.dll" />
+    <None Include="..\..\cocos2dexternal\websockets\prebuilt\wp8\arm\libwebsockets.dll" />
+    <None Include="..\..\cocos2dexternal\websockets\prebuilt\wp8\win32\libwebsockets.dll" />
   </ItemGroup>
 </Project>

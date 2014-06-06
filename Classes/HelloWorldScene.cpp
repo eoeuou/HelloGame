@@ -77,7 +77,7 @@ bool HelloWorld::init()
 
 	// add the label as a child to this layer
 	this->addChild(label, 1);
-
+	
 
 
 	// add "HelloWorld" splash screen"
@@ -98,7 +98,7 @@ bool HelloWorld::init()
 	//questionTest();
 
 	//httpTest();
-
+	
 	CKModel* child = CKModel::create();
 	child->setValue("name",Value("childName"));
 
@@ -123,9 +123,9 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 	MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
 	return;
 #endif
-	//showFightScene();
+	showFightScene();
 
-	httpTest();
+	//httpTest();
 
 	//CKHttpUtils::getInstance()->destroyInstance();
 	//Director::getInstance()->end();
@@ -136,7 +136,7 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 }
 void HelloWorld::showFightScene()
 {
-	CCScene * newscene  = FightScene::create();
+	CCScene * newscene = FightScene::create();
 	CCDirector::sharedDirector()->replaceScene(newscene); 
 }
 
@@ -165,7 +165,6 @@ void HelloWorld::questionTest()
 	std::string c = answers->getValue("c").asString();
 	std::string d = answers->getValue("d").asString();
 }
-
 void HelloWorld::httpTest()
 {
 	std::string writablePath = CCFileUtils::sharedFileUtils()->getWritablePath();
@@ -181,5 +180,5 @@ void HelloWorld::httpTest()
 	/*CKHttpUtils::getInstance()->getText("http://127.0.0.1:8000",[](CKModel* model){
 	});*/
 	//CKHttpUtils::getInstance()->post("http://tarenaapptest.herokuapp.com/login");
-	CKHttpUtils::getInstance()->post("http://httpbin.org/post","username=112",STD_FUN_MODEL_NULL);
+	//CKHttpUtils::getInstance()->post("http://httpbin.org/post","username=112",STD_FUN_MODEL_NULL);
 }

@@ -18,7 +18,7 @@ public:
     
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
-
+	
 	void showFightScene();
 
 	CKModel* getQuestionByIndex(int index);
