@@ -24,12 +24,10 @@ using Microsoft.Phone.Shell;
 using Windows.UI.Input;
 using System.Windows.Threading;
 using Microsoft.Phone.Info;
-using GameSDK;
-using GameSDK.Callback;
 
 namespace PhoneDirect3DXamlAppInterop
 {
-    public partial class MainPage : PhoneApplicationPage, IPayCallback
+    public partial class MainPage : PhoneApplicationPage
     {
         private Direct3DInterop m_d3dInterop = null;
         private DispatcherTimer m_timer;
@@ -37,36 +35,18 @@ namespace PhoneDirect3DXamlAppInterop
         // event handler for CCEditBox
         private event EventHandler<String> m_receiveHandler;
 
-        private GameSdkBridge _gameSdkBridge = new GameSdkBridge();
-
         // invisible XAML TextBox for Cocos2d-x keyboard input
         TextBox m_textBox = null;
-        bool loaded = false;
+
         // Constructor
         public MainPage()
         {
             InitializeComponent();
-
-            PhoneDirect3DXamlAppComponent.GameSdkBridge.GameSdkBridge.GetInstance().SetCallback(_gameSdkBridge);
-
-            this.Loaded += (s, e) =>
-            {
-                if (!loaded)
-                {
-                    //初始化游戏计费SDK
-                    GameBilling.InitializeSDK();
-                }
-
-                //上报进入page的事件
-                // BehaviorLogManager.EnterinPage(pageId: "MainPage", callBack: null);
-
-                loaded = true;
-            };
-            this.Unloaded += (s, e) =>
-            {
-                //上报离开page的事件
-                BehaviorLogManager.ExitPage(pageId: "MainPage", callBack: null);
-            };
+#if DISPLAY_MEMORY
+            StartTimer();
+#else
+            MemoryDisplay.Visibility = Visibility.Collapsed;
+#endif
         }
 
         private void DrawingSurfaceBackground_Loaded(object sender, RoutedEventArgs e)
@@ -130,34 +110,13 @@ namespace PhoneDirect3DXamlAppInterop
             m_textBox.Text = "";
         }
 
-        public void orderGoods()
-        {            
-            try
-            {
-                Deployment.Current.Dispatcher.BeginInvoke(() =>
-                {
-                    /*string serviceid = "001";
-                    GameBilling.PayWithUI(page: this, billingIndex: serviceid, cpParam: null, callback: this);*/
-                    PhoneDirect3DXamlAppComponent.GameSdkBridge.ICallback callBack = PhoneDirect3DXamlAppComponent.GameSdkBridge.GameSdkBridge.GetInstance().GlobalCallback;
-                    callBack.PayWithUI((object)this, "001", null, this);
-            
-                });
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "OrderProduct_CMGC", MessageBoxButton.OK);
-            }
-        }
-
         // Called by the Cocos2d-x C++ engine to display a MessageBox
         public void OnCocos2dMessageBoxEvent(String title, String text)
         {
-
-            orderGoods();
-            /*Dispatcher.BeginInvoke(() =>
+            Dispatcher.BeginInvoke(() =>
             {
                 MessageBox.Show(text, title, MessageBoxButton.OK);
-            });*/
+            });
         }
 
         // events called by the Cocos2d-x C++ engine to be handled by C#
@@ -238,16 +197,6 @@ namespace PhoneDirect3DXamlAppInterop
             {
                 MemoryTextBlock.Text = ex.Message;
             }
-        }
-
-        public void OnPayResult(int resultCode, string billingIndex, string message)
-        {
-            
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            orderGoods();
         }
     }
 }

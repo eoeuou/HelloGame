@@ -147,8 +147,7 @@ CKModel* HelloWorld::getQuestionByIndex(int index)
 	int sum = questions->count();
 	if (index<sum)
 	{
-		Ref* r = questions->objectAtIndex(index);
-		return dynamic_cast<CKModel*>(r);
+		return dynamic_cast<CKModel*>(questions->objectAtIndex(index));
 	}	
 	return NULL;
 }

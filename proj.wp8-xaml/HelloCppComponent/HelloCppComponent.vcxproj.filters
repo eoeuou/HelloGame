@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\Cocos2dRenderer.cpp" />
-    <ClCompile Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\Direct3DContentProvider.cpp" />
-    <ClCompile Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\Direct3DInterop.cpp" />
-    <ClCompile Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\DirectXBase.cpp" />
-    <ClCompile Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\EditBoxEvent.cpp" />
-    <ClCompile Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\InputEvent.cpp" />
+    <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\Cocos2dRenderer.cpp" />
+    <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\Direct3DContentProvider.cpp" />
+    <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\Direct3DInterop.cpp" />
+    <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\DirectXBase.cpp" />
+    <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\EditBoxEvent.cpp" />
+    <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\InputEvent.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="..\..\Classes\AppDelegate.cpp">
       <Filter>Classes</Filter>
@@ -14,17 +14,66 @@
     <ClCompile Include="..\..\Classes\HelloWorldScene.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\GameSdkBridge.cpp" />
+    <ClCompile Include="..\..\Classes\FightScene.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\network\CKHttpUtils.cpp">
+      <Filter>Classes\ckbase\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\extentions\pay\CKDefaultPayEngine.cpp">
+      <Filter>Classes\ckbase\extentions\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\extentions\pay\CKPayEngine.cpp">
+      <Filter>Classes\ckbase\extentions\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\extentions\trigger\acts.cpp">
+      <Filter>Classes\ckbase\extentions\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\extentions\trigger\cons.cpp">
+      <Filter>Classes\ckbase\extentions\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\device\CKDefaultDeviceEngine.cpp">
+      <Filter>Classes\ckbase\device</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\device\CKDeviceEngine.cpp">
+      <Filter>Classes\ckbase\device</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\CKCommon.cpp">
+      <Filter>Classes\ckbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\CKConstants.cpp">
+      <Filter>Classes\ckbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\CKDialog.cpp">
+      <Filter>Classes\ckbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\CKGameDataManager.cpp">
+      <Filter>Classes\ckbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\CKGameManager.cpp">
+      <Filter>Classes\ckbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\CKModel.cpp">
+      <Filter>Classes\ckbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\CKProtocols.cpp">
+      <Filter>Classes\ckbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\ckbase\CKScene.cpp">
+      <Filter>Classes\ckbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\WP8DataEvent.cpp" />
+    <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\WP8DataManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\Cocos2dRenderer.h" />
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\Direct3DContentProvider.h" />
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\Direct3DInterop.h" />
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\DirectXBase.h" />
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\DirectXHelper.h" />
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\EditBoxEvent.h" />
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\InputEvent.h" />
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\InputEventTypes.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\Cocos2dRenderer.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\Direct3DContentProvider.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\Direct3DInterop.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\DirectXBase.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\DirectXHelper.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\EditBoxEvent.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\InputEvent.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\InputEventTypes.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="..\..\Classes\AppDelegate.h">
       <Filter>Classes</Filter>
@@ -32,17 +81,90 @@
     <ClInclude Include="..\..\Classes\HelloWorldScene.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\GameSdkBridge.h" />
+    <ClInclude Include="..\..\Classes\FightScene.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\network\CKHttpUtils.h">
+      <Filter>Classes\ckbase\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\extentions\pay\CKDefaultPayEngine.h">
+      <Filter>Classes\ckbase\extentions\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\extentions\pay\CKPayEngine.h">
+      <Filter>Classes\ckbase\extentions\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\extentions\trigger\acts.h">
+      <Filter>Classes\ckbase\extentions\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\extentions\trigger\cons.h">
+      <Filter>Classes\ckbase\extentions\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\extentions\trigger\EventDef.h">
+      <Filter>Classes\ckbase\extentions\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\device\CKDefaultDeviceEngine.h">
+      <Filter>Classes\ckbase\device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\device\CKDeviceEngine.h">
+      <Filter>Classes\ckbase\device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\CKCommon.h">
+      <Filter>Classes\ckbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\CKConstants.h">
+      <Filter>Classes\ckbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\CKDialog.h">
+      <Filter>Classes\ckbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\CKGameDataManager.h">
+      <Filter>Classes\ckbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\CKGameManager.h">
+      <Filter>Classes\ckbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\CKModel.h">
+      <Filter>Classes\ckbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\CKProtocols.h">
+      <Filter>Classes\ckbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\ckbase\CKScene.h">
+      <Filter>Classes\ckbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\WP8DataEvent.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\WP8DataManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Classes">
       <UniqueIdentifier>{facbd0ff-d271-46ef-8324-beff0cbcb424}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\ckbase">
+      <UniqueIdentifier>{ee849166-28bb-4a2f-9728-eeaceab56a52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ckbase\network">
+      <UniqueIdentifier>{9daf7d0d-09d1-495b-ad5a-ac06e10319d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ckbase\extentions">
+      <UniqueIdentifier>{45bce0d2-8862-4828-95f9-f3f64874b030}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ckbase\device">
+      <UniqueIdentifier>{d6e416aa-813c-4376-99c2-e6aac8e0b36e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ckbase\extentions\pay">
+      <UniqueIdentifier>{7ab6a4ce-6cb5-446d-a959-aa923d57ebd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ckbase\extentions\trigger">
+      <UniqueIdentifier>{d8f46191-90ab-4e8b-9425-13c474b56614}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\external\wp8-specific\angle\prebuilt\Win32\libEGL_phone.dll" />
-    <None Include="..\..\..\..\external\wp8-specific\angle\prebuilt\Win32\libGLESv2_phone.dll" />
-    <None Include="..\..\..\..\external\wp8-specific\angle\prebuilt\ARM\libEGL_phone.dll" />
-    <None Include="..\..\..\..\external\wp8-specific\angle\prebuilt\ARM\libGLESv2_phone.dll" />
+    <None Include="..\..\cocos2d\external\wp8-specific\angle\prebuilt\Win32\libEGL_phone.dll" />
+    <None Include="..\..\cocos2d\external\wp8-specific\angle\prebuilt\Win32\libGLESv2_phone.dll" />
+    <None Include="..\..\cocos2d\external\wp8-specific\angle\prebuilt\ARM\libEGL_phone.dll" />
+    <None Include="..\..\cocos2d\external\wp8-specific\angle\prebuilt\ARM\libGLESv2_phone.dll" />
+    <None Include="..\..\cocos2d\external\curl\prebuilt\wp8\arm\libcurl.dll" />
+    <None Include="..\..\cocos2d\external\curl\prebuilt\wp8\arm\libeay32.dll" />
+    <None Include="..\..\cocos2d\external\curl\prebuilt\wp8\arm\ssleay32.dll" />
   </ItemGroup>
 </Project>

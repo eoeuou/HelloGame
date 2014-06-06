@@ -62,20 +62,20 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="..\..\..\..\cocos\2d\cocos2d_winrt_headers.props" />
-    <Import Project="..\..\..\..\cocos\2d\cocos2d_winrt.props" />
+    <Import Project="..\..\cocos2d\cocos\2d\cocos2d_winrt_headers.props" />
+    <Import Project="..\..\cocos2d\cocos\2d\cocos2d_winrt.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
-    <Import Project="..\..\..\..\cocos\2d\cocos2d_winrt_headers.props" />
-    <Import Project="..\..\..\..\cocos\2d\cocos2d_winrt.props" />
+    <Import Project="..\..\cocos2d\cocos\2d\cocos2d_winrt_headers.props" />
+    <Import Project="..\..\cocos2d\cocos\2d\cocos2d_winrt.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="..\..\..\..\cocos\2d\cocos2d_winrt_headers.props" />
-    <Import Project="..\..\..\..\cocos\2d\cocos2d_winrt.props" />
+    <Import Project="..\..\cocos2d\cocos\2d\cocos2d_winrt_headers.props" />
+    <Import Project="..\..\cocos2d\cocos\2d\cocos2d_winrt.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
-    <Import Project="..\..\..\..\cocos\2d\cocos2d_winrt_headers.props" />
-    <Import Project="..\..\..\..\cocos\2d\cocos2d_winrt.props" />
+    <Import Project="..\..\cocos2d\cocos\2d\cocos2d_winrt_headers.props" />
+    <Import Project="..\..\cocos2d\cocos\2d\cocos2d_winrt.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -90,7 +90,7 @@
       <CompileAsWinRT>true</CompileAsWinRT>
       <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
       <AdditionalOptions>/Zm200 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\Classes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;$(EngineRoot)cocos\network;$(EngineRoot)cocos\editor-support;$(ProjectDir)..\..\Classes;$(ProjectDir)..\..\Classes\ckbase\device;$(ProjectDir)..\..\Classes\ckbase\extentions\pay;$(ProjectDir)..\..\Classes\ckbase\extentions\trigger;$(ProjectDir)..\..\Classes\ckbase\extentions;$(ProjectDir)..\..\Classes\ckbase\network;$(ProjectDir)..\..\Classes\ckbase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -110,7 +110,7 @@
       <CompileAsWinRT>true</CompileAsWinRT>
       <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
       <AdditionalOptions>/Zm200 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\Classes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;$(EngineRoot)cocos\network;$(EngineRoot)cocos\editor-support;$(ProjectDir)..\..\Classes;$(ProjectDir)..\..\Classes\ckbase\device;$(ProjectDir)..\..\Classes\ckbase\extentions\pay;$(ProjectDir)..\..\Classes\ckbase\extentions\trigger;$(ProjectDir)..\..\Classes\ckbase\extentions;$(ProjectDir)..\..\Classes\ckbase\network;$(ProjectDir)..\..\Classes\ckbase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,15 +130,15 @@
       <CompileAsWinRT>true</CompileAsWinRT>
       <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
       <AdditionalOptions>/Zm200 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\Classes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;$(EngineRoot)cocos\network;$(EngineRoot)cocos\editor-support;$(ProjectDir)..\..\Classes;$(ProjectDir)..\..\Classes\ckbase\device;$(ProjectDir)..\..\Classes\ckbase\extentions\pay;$(ProjectDir)..\..\Classes\ckbase\extentions\trigger;$(ProjectDir)..\..\Classes\ckbase\extentions;$(ProjectDir)..\..\Classes\ckbase\network;$(ProjectDir)..\..\Classes\ckbase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
-      <AdditionalDependencies>d3d11.lib;libGLESv2_phone.lib;libEGL_phone.lib;xaudio2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;libGLESv2_phone.lib;libEGL_phone.lib;xaudio2.lib;libwebsockets.lib;libcurl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>ole32.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateWindowsMetadata>true</GenerateWindowsMetadata>
-      <AdditionalLibraryDirectories>$(EngineRoot)external\wp8-specific\angle\prebuilt\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(EngineRoot)external\wp8-specific\angle\prebuilt\$(Platform);$(EngineRoot)\external\curl\prebuilt\wp8\$(Platform);$(EngineRoot)external\websockets\prebuilt\wp8\$(Platform)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
@@ -150,7 +150,7 @@
       <CompileAsWinRT>true</CompileAsWinRT>
       <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
       <AdditionalOptions>/Zm200 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\Classes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;$(EngineRoot)cocos\network;$(EngineRoot)cocos\editor-support;$(ProjectDir)..\..\Classes;$(ProjectDir)..\..\Classes\ckbase\device;$(ProjectDir)..\..\Classes\ckbase\extentions\pay;$(ProjectDir)..\..\Classes\ckbase\extentions\trigger;$(ProjectDir)..\..\Classes\ckbase\extentions;$(ProjectDir)..\..\Classes\ckbase\network;$(ProjectDir)..\..\Classes\ckbase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -168,20 +168,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\cocos\2d\cocos2d_wp8.vcxproj">
-      <Project>{b5af91b3-64ea-44e1-84b0-d759e93758fb}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\Cocos2dRenderer.cpp" />
-    <ClCompile Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\Direct3DContentProvider.cpp" />
-    <ClCompile Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\Direct3DInterop.cpp" />
-    <ClCompile Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\DirectXBase.cpp" />
-    <ClCompile Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\EditBoxEvent.cpp" />
-    <ClCompile Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\GameSdkBridge.cpp" />
-    <ClCompile Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\InputEvent.cpp" />
+    <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\Cocos2dRenderer.cpp" />
+    <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\Direct3DContentProvider.cpp" />
+    <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\Direct3DInterop.cpp" />
+    <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\DirectXBase.cpp" />
+    <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\EditBoxEvent.cpp" />
+    <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\InputEvent.cpp" />
     <ClCompile Include="..\..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\..\Classes\ckbase\CKCommon.cpp" />
+    <ClCompile Include="..\..\Classes\ckbase\CKConstants.cpp" />
+    <ClCompile Include="..\..\Classes\ckbase\CKDialog.cpp" />
+    <ClCompile Include="..\..\Classes\ckbase\CKGameDataManager.cpp" />
+    <ClCompile Include="..\..\Classes\ckbase\CKGameManager.cpp" />
+    <ClCompile Include="..\..\Classes\ckbase\CKModel.cpp" />
+    <ClCompile Include="..\..\Classes\ckbase\CKProtocols.cpp" />
+    <ClCompile Include="..\..\Classes\ckbase\CKScene.cpp" />
+    <ClCompile Include="..\..\Classes\ckbase\device\CKDefaultDeviceEngine.cpp" />
+    <ClCompile Include="..\..\Classes\ckbase\device\CKDeviceEngine.cpp" />
+    <ClCompile Include="..\..\Classes\ckbase\extentions\pay\CKDefaultPayEngine.cpp" />
+    <ClCompile Include="..\..\Classes\ckbase\extentions\pay\CKPayEngine.cpp" />
+    <ClCompile Include="..\..\Classes\ckbase\extentions\trigger\acts.cpp" />
+    <ClCompile Include="..\..\Classes\ckbase\extentions\trigger\cons.cpp" />
+    <ClCompile Include="..\..\Classes\ckbase\network\CKHttpUtils.cpp" />
+    <ClCompile Include="..\..\Classes\FightScene.cpp" />
     <ClCompile Include="..\..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\WP8DataEvent.cpp" />
+    <ClCompile Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\WP8DataManager.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Create</PrecompiledHeader>
@@ -190,36 +202,80 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\Cocos2dRenderer.h" />
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\Direct3DContentProvider.h" />
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\Direct3DInterop.h" />
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\DirectXBase.h" />
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\DirectXHelper.h" />
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\EditBoxEvent.h" />
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\GameSdkBridge.h" />
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\InputEvent.h" />
-    <ClInclude Include="..\..\..\..\cocos\2d\platform\wp8-xaml\cpp\InputEventTypes.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\Cocos2dRenderer.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\Direct3DContentProvider.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\Direct3DInterop.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\DirectXBase.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\DirectXHelper.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\EditBoxEvent.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\InputEvent.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\InputEventTypes.h" />
     <ClInclude Include="..\..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\..\Classes\ckbase\CKCommon.h" />
+    <ClInclude Include="..\..\Classes\ckbase\CKConstants.h" />
+    <ClInclude Include="..\..\Classes\ckbase\CKDialog.h" />
+    <ClInclude Include="..\..\Classes\ckbase\CKGameDataManager.h" />
+    <ClInclude Include="..\..\Classes\ckbase\CKGameManager.h" />
+    <ClInclude Include="..\..\Classes\ckbase\CKModel.h" />
+    <ClInclude Include="..\..\Classes\ckbase\CKProtocols.h" />
+    <ClInclude Include="..\..\Classes\ckbase\CKScene.h" />
+    <ClInclude Include="..\..\Classes\ckbase\device\CKDefaultDeviceEngine.h" />
+    <ClInclude Include="..\..\Classes\ckbase\device\CKDeviceEngine.h" />
+    <ClInclude Include="..\..\Classes\ckbase\extentions\pay\CKDefaultPayEngine.h" />
+    <ClInclude Include="..\..\Classes\ckbase\extentions\pay\CKPayEngine.h" />
+    <ClInclude Include="..\..\Classes\ckbase\extentions\trigger\acts.h" />
+    <ClInclude Include="..\..\Classes\ckbase\extentions\trigger\cons.h" />
+    <ClInclude Include="..\..\Classes\ckbase\extentions\trigger\EventDef.h" />
+    <ClInclude Include="..\..\Classes\ckbase\network\CKHttpUtils.h" />
+    <ClInclude Include="..\..\Classes\FightScene.h" />
     <ClInclude Include="..\..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\WP8DataEvent.h" />
+    <ClInclude Include="..\..\cocos2d\cocos\2d\platform\wp8-xaml\cpp\WP8DataManager.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\external\wp8-specific\angle\prebuilt\ARM\libEGL_phone.dll">
+    <None Include="..\..\cocos2d\external\curl\prebuilt\wp8\arm\libcurl.dll" />
+    <None Include="..\..\cocos2d\external\curl\prebuilt\wp8\arm\libeay32.dll" />
+    <None Include="..\..\cocos2d\external\curl\prebuilt\wp8\arm\ssleay32.dll" />
+    <None Include="..\..\cocos2d\external\wp8-specific\angle\prebuilt\ARM\libEGL_phone.dll">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</DeploymentContent>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</DeploymentContent>
     </None>
-    <None Include="..\..\..\..\external\wp8-specific\angle\prebuilt\ARM\libGLESv2_phone.dll">
+    <None Include="..\..\cocos2d\external\wp8-specific\angle\prebuilt\ARM\libGLESv2_phone.dll">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</DeploymentContent>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</DeploymentContent>
     </None>
-    <None Include="..\..\..\..\external\wp8-specific\angle\prebuilt\Win32\libEGL_phone.dll">
+    <None Include="..\..\cocos2d\external\wp8-specific\angle\prebuilt\Win32\libEGL_phone.dll">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
     </None>
-    <None Include="..\..\..\..\external\wp8-specific\angle\prebuilt\Win32\libGLESv2_phone.dll">
+    <None Include="..\..\cocos2d\external\wp8-specific\angle\prebuilt\Win32\libGLESv2_phone.dll">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\cocos2d\cocos\2d\cocos2d_wp8.vcxproj">
+      <Project>{2d5efdf1-ac69-4c37-b04d-67684b4a33c0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\cocos2d\cocos\audio\proj.wp8\CocosDenshion.vcxproj">
+      <Project>{f49ee90a-0331-4101-82df-13de58c626bd}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\cocos2d\cocos\editor-support\cocostudio\proj.wp8\libCocosStudio.vcxproj">
+      <Project>{51e5736e-e1a3-4c94-abb7-e92ecef9c12e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\cocos2d\cocos\network\proj.wp8\libNetwork.vcxproj">
+      <Project>{7daa99e7-8e07-4fef-8374-8ec04e395d2e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\cocos2d\cocos\ui\proj.wp8\libGUI.vcxproj">
+      <Project>{08fb23e4-1517-4edc-b682-da238cdaa83d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\cocos2d\extensions\proj.wp8\libExtensions.vcxproj">
+      <Project>{04a0c42f-23bb-469b-a9d8-ca49136adbd4}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\cocos2d\external\chipmunk\proj.wp8\chipmunk.vcxproj">
+      <Project>{887bef37-26ab-46ac-87a1-65e33a1565d8}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsPhone\v$(TargetPlatformVersion)\Microsoft.Cpp.WindowsPhone.$(TargetPlatformVersion).targets" />

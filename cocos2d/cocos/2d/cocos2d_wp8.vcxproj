@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B5AF91B3-64EA-44E1-84B0-D759E93758FB}</ProjectGuid>
+    <ProjectGuid>{2D5EFDF1-AC69-4C37-B04D-67684B4A33C0}</ProjectGuid>
     <RootNamespace>cocos2d-x.win32</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
