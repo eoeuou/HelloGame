@@ -90,7 +90,7 @@
       <CompileAsWinRT>true</CompileAsWinRT>
       <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
       <AdditionalOptions>/Zm200 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;$(EngineRoot)cocos\network;$(EngineRoot)cocos\editor-support;$(ProjectDir)..\..\Classes;$(ProjectDir)..\..\Classes\ckbase\device;$(ProjectDir)..\..\Classes\ckbase\extentions\pay;$(ProjectDir)..\..\Classes\ckbase\extentions\trigger;$(ProjectDir)..\..\Classes\ckbase\extentions;$(ProjectDir)..\..\Classes\ckbase\network;$(ProjectDir)..\..\Classes\ckbase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;$(EngineRoot)cocos\network;$(EngineRoot)cocos\editor-support;$(ProjectDir)..\..\Classes;$(ProjectDir)..\..\Classes\ckbase\device;$(ProjectDir)..\..\Classes\ckbase\extentions\pay;$(ProjectDir)..\..\Classes\ckbase\extentions\trigger;$(ProjectDir)..\..\Classes\ckbase\extentions;$(ProjectDir)..\..\Classes\ckbase\network;$(ProjectDir)..\..\Classes\ckbase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -110,7 +110,7 @@
       <CompileAsWinRT>true</CompileAsWinRT>
       <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
       <AdditionalOptions>/Zm200 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;$(EngineRoot)cocos\network;$(EngineRoot)cocos\editor-support;$(ProjectDir)..\..\Classes;$(ProjectDir)..\..\Classes\ckbase\device;$(ProjectDir)..\..\Classes\ckbase\extentions\pay;$(ProjectDir)..\..\Classes\ckbase\extentions\trigger;$(ProjectDir)..\..\Classes\ckbase\extentions;$(ProjectDir)..\..\Classes\ckbase\network;$(ProjectDir)..\..\Classes\ckbase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;$(EngineRoot)cocos\network;$(EngineRoot)cocos\editor-support;$(ProjectDir)..\..\Classes;$(ProjectDir)..\..\Classes\ckbase\device;$(ProjectDir)..\..\Classes\ckbase\extentions\pay;$(ProjectDir)..\..\Classes\ckbase\extentions\trigger;$(ProjectDir)..\..\Classes\ckbase\extentions;$(ProjectDir)..\..\Classes\ckbase\network;$(ProjectDir)..\..\Classes\ckbase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,7 +130,7 @@
       <CompileAsWinRT>true</CompileAsWinRT>
       <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
       <AdditionalOptions>/Zm200 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;$(EngineRoot)cocos\network;$(EngineRoot)cocos\editor-support;$(ProjectDir)..\..\Classes;$(ProjectDir)..\..\Classes\ckbase\device;$(ProjectDir)..\..\Classes\ckbase\extentions\pay;$(ProjectDir)..\..\Classes\ckbase\extentions\trigger;$(ProjectDir)..\..\Classes\ckbase\extentions;$(ProjectDir)..\..\Classes\ckbase\network;$(ProjectDir)..\..\Classes\ckbase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;$(EngineRoot)cocos\network;$(EngineRoot)cocos\editor-support;$(ProjectDir)..\..\Classes;$(ProjectDir)..\..\Classes\ckbase\device;$(ProjectDir)..\..\Classes\ckbase\extentions\pay;$(ProjectDir)..\..\Classes\ckbase\extentions\trigger;$(ProjectDir)..\..\Classes\ckbase\extentions;$(ProjectDir)..\..\Classes\ckbase\network;$(ProjectDir)..\..\Classes\ckbase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -150,7 +150,7 @@
       <CompileAsWinRT>true</CompileAsWinRT>
       <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
       <AdditionalOptions>/Zm200 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;$(EngineRoot)cocos\network;$(EngineRoot)cocos\editor-support;$(ProjectDir)..\..\Classes;$(ProjectDir)..\..\Classes\ckbase\device;$(ProjectDir)..\..\Classes\ckbase\extentions\pay;$(ProjectDir)..\..\Classes\ckbase\extentions\trigger;$(ProjectDir)..\..\Classes\ckbase\extentions;$(ProjectDir)..\..\Classes\ckbase\network;$(ProjectDir)..\..\Classes\ckbase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;$(EngineRoot)cocos\network;$(EngineRoot)cocos\editor-support;$(ProjectDir)..\..\Classes;$(ProjectDir)..\..\Classes\ckbase\device;$(ProjectDir)..\..\Classes\ckbase\extentions\pay;$(ProjectDir)..\..\Classes\ckbase\extentions\trigger;$(ProjectDir)..\..\Classes\ckbase\extentions;$(ProjectDir)..\..\Classes\ckbase\network;$(ProjectDir)..\..\Classes\ckbase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

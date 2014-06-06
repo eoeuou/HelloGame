@@ -2,11 +2,13 @@
 #define __CKCommon_H__
 
 #include "cocos2d.h"
+#include "cocos-ext.h"
 #include "editor-support\cocostudio\DictionaryHelper.h"
 
 #include "CKModel.h"
 
 USING_NS_CC;
+USING_NS_CC_EXT;
 using namespace std;
 using namespace cocostudio;
 

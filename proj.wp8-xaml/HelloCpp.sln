@@ -12,11 +12,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chipmunk", "..\cocos2d\exte
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libGUI", "..\cocos2d\cocos\ui\proj.wp8\libGUI.vcxproj", "{08FB23E4-1517-4EDC-B682-DA238CDAA83D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libNetwork", "..\cocos2d\cocos\network\proj.wp8\libNetwork.vcxproj", "{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libCocosStudio", "..\cocos2d\cocos\editor-support\cocostudio\proj.wp8\libCocosStudio.vcxproj", "{51E5736E-E1A3-4C94-ABB7-E92ECEF9C12E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libExtensions", "..\cocos2d\extensions\proj.wp8\libExtensions.vcxproj", "{04A0C42F-23BB-469B-A9D8-CA49136ADBD4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libNetwork", "..\cocos2d\cocos\network\proj.wp8\libNetwork.vcxproj", "{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -152,24 +152,6 @@ Global
 		{08FB23E4-1517-4EDC-B682-DA238CDAA83D}.Release|Win32.Build.0 = Release|Win32
 		{08FB23E4-1517-4EDC-B682-DA238CDAA83D}.Release|x86.ActiveCfg = Release|Win32
 		{08FB23E4-1517-4EDC-B682-DA238CDAA83D}.Release|x86.Build.0 = Release|Win32
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|ARM.ActiveCfg = Debug|ARM
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|ARM.Build.0 = Debug|ARM
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|Mixed Platforms.Build.0 = Debug|Win32
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|Win32.ActiveCfg = Debug|Win32
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|Win32.Build.0 = Debug|Win32
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|x86.ActiveCfg = Debug|Win32
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|x86.Build.0 = Debug|Win32
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|Any CPU.ActiveCfg = Release|Win32
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|ARM.ActiveCfg = Release|ARM
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|ARM.Build.0 = Release|ARM
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|Mixed Platforms.ActiveCfg = Release|Win32
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|Mixed Platforms.Build.0 = Release|Win32
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|Win32.ActiveCfg = Release|Win32
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|Win32.Build.0 = Release|Win32
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|x86.ActiveCfg = Release|Win32
-		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|x86.Build.0 = Release|Win32
 		{51E5736E-E1A3-4C94-ABB7-E92ECEF9C12E}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{51E5736E-E1A3-4C94-ABB7-E92ECEF9C12E}.Debug|ARM.ActiveCfg = Debug|ARM
 		{51E5736E-E1A3-4C94-ABB7-E92ECEF9C12E}.Debug|ARM.Build.0 = Debug|ARM
@@ -206,6 +188,24 @@ Global
 		{04A0C42F-23BB-469B-A9D8-CA49136ADBD4}.Release|Win32.Build.0 = Release|Win32
 		{04A0C42F-23BB-469B-A9D8-CA49136ADBD4}.Release|x86.ActiveCfg = Release|Win32
 		{04A0C42F-23BB-469B-A9D8-CA49136ADBD4}.Release|x86.Build.0 = Release|Win32
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|ARM.ActiveCfg = Debug|ARM
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|ARM.Build.0 = Debug|ARM
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|Win32.Build.0 = Debug|Win32
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|x86.ActiveCfg = Debug|Win32
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Debug|x86.Build.0 = Debug|Win32
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|Any CPU.ActiveCfg = Release|Win32
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|ARM.ActiveCfg = Release|ARM
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|ARM.Build.0 = Release|ARM
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|Win32.ActiveCfg = Release|Win32
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|Win32.Build.0 = Release|Win32
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|x86.ActiveCfg = Release|Win32
+		{7DAA99E7-8E07-4FEF-8374-8EC04E395D2E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

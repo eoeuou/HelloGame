@@ -19,7 +19,7 @@ public:
 	static void destroyInstance();
 
 	bool init();
-/*
+
 	//************************************
 	// Method:    getText
 	// FullName:  CKHttpUtils::getText
@@ -58,12 +58,12 @@ public:
 	// Parameter: CKModel * model
 	// Parameter: > callback
 	//************************************
-	void post(const char* url,const char* postData,std::function<void(CKModel* model)> callback);*/
+	void post(const char* url,const char* postData,std::function<void(CKModel* model)> callback);
 protected:
 	CKHttpUtils(void);
 
 	~CKHttpUtils(void);
-	/*
+	
 	void onGetTextCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response);
 
 	void onGetFileCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response);
@@ -72,7 +72,7 @@ protected:
 
 	std::string httpRequestCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response);
 
-private:*/
+private:
 };
 
 #endif // __CKHTTPUTILS_H__
