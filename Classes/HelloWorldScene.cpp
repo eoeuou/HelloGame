@@ -9,7 +9,7 @@
 #include "device/CKDeviceEngine.h"
 #include "network/CKHttpUtils.h"
 #include "CKGameManager.h"
-//#include "CKNotificationEngine.h"
+#include "CKNotificationEngine.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -29,6 +29,8 @@ Scene* HelloWorld::createScene()
 	return scene;
 }
 
+static HelloWorld* m_hello = NULL;
+
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
@@ -39,6 +41,7 @@ bool HelloWorld::init()
 		return false;
 	}
 
+	m_hello = this;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
@@ -58,7 +61,7 @@ bool HelloWorld::init()
 	// create menu, it's an autorelease object
 	auto menu = Menu::create(closeItem, NULL);
 	menu->setPosition(Point::ZERO);
-	this->addChild(menu, 1);
+	//this->addChild(menu, 1);
 
 	/////////////////////////////
 	// 3. add your codes below...
@@ -79,6 +82,7 @@ bool HelloWorld::init()
 	// add the label as a child to this layer
 	this->addChild(label, 1);
 
+	this->setColor(ccc3(0,0,0));
 	// add "HelloWorld" splash screen"
 	auto sprite = Sprite::create("HelloWorld.png");
 
@@ -86,17 +90,8 @@ bool HelloWorld::init()
 	sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
 
 	// add the sprite as a child to this layer
-	this->addChild(sprite, 0);
-		
-	//CKDialog::show<CKDialog>(this,100);
+	//this->addChild(sprite, 0);
 
-	//CKDialog::show<CKLoadingDialog>(this,200);
-
-	//this->addChild(CKDialog::create(),100);
-	
-	//questionTest();
-
-	//httpTest();
 	
 	CKModel* child = CKModel::create();
 	child->setValue("name",Value("childName"));
@@ -107,16 +102,63 @@ bool HelloWorld::init()
 	CCLog("%s",model->getInfo().c_str());
 
 	//CKGameDataManager::getInstance()->loadGameData();
+
+	addTestLabel();
 	return true;
 }
 
+
+typedef struct _Controller{
+	const char *test_name;
+	std::function<void()> callback;
+} Controller;
+
+Controller g_aTestNames[] = {
+	{ "FightScene", [=]() { m_hello->showFightScene();} },
+	{ "questionTest", [=]() { m_hello->questionTest();} },
+	{ "httpTest", [=]() { m_hello->httpTest();} },
+	{ "NotificationTest", [=]() { m_hello->NotificationTest();} },
+	{
+		"Dialog",[=](){
+			CKDialog::show<CKDialog>(m_hello,getChildrenMaxZorder(m_hello));
+			//this->addChild(CKDialog::create(),100);
+		}
+	},
+	{"CKLoadingDialog",[=](){CKDialog::show<CKLoadingDialog>(m_hello,getChildrenMaxZorder(m_hello));}},
+};
+
+static int g_testCount = sizeof(g_aTestNames) / sizeof(g_aTestNames[0]);
+#define LINE_SPACE          40
+static Point s_tCurPos = Point::ZERO;
+
 void HelloWorld::addTestLabel()
 {
-	auto label = LabelTTF::create("Hello World", "Arial", 24);
+	
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Point origin = Director::getInstance()->getVisibleOrigin();
 
-	label->setPosition(ccp(100,100));
+	TTFConfig ttfConfig("fonts/arial.ttf", 24);
+	Menu* _itemMenu = Menu::create();
 
-	this->addChild(label, 1);
+	for (int i = 0; i < g_testCount; ++i)
+	{		
+		auto label = LabelTTF::create( g_aTestNames[i].test_name,"Arial", 24);
+		auto menuItem = MenuItemLabel::create(label, CC_CALLBACK_1(HelloWorld::menuCallback, this));
+		_itemMenu->addChild(menuItem, i + 10000);		
+		menuItem->setPosition( Point( visibleSize.width/2, (visibleSize.height - (i + 1) * LINE_SPACE) ));				
+	}	
+	
+	_itemMenu->setContentSize(visibleSize);
+	_itemMenu->setPosition(Point::ZERO);
+	_itemMenu->setColor(ccc3(255,255,0));
+	addChild(_itemMenu,100);
+}
+
+void HelloWorld::menuCallback(cocos2d::Ref* pSender)
+{
+	auto menuItem = static_cast<MenuItem *>(pSender);
+	int idx = menuItem->getLocalZOrder() - 10000;
+	g_aTestNames[idx].callback();
 }
 
 void HelloWorld::onExit()
@@ -132,11 +174,11 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 	return;
 #endif
 	//showFightScene();
-	NotificationTest();
+	//NotificationTest();
 	//httpTest();
 
 	//CKHttpUtils::getInstance()->destroyInstance();
-	//Director::getInstance()->end();
+	Director::getInstance()->end();
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	exit(0);
@@ -192,12 +234,12 @@ void HelloWorld::httpTest()
 }
 
 void HelloWorld::NotificationTest()
-{/*
+{
 	CKNotificationEngine* engine = CKNotificationEngine::sharedEngine();
 	CKNotification notification;
 	notification.id = 1;
 	notification.title = "title";
 	notification.message = "message";
 	notification.url = "http://www.baidu.com/";
-	engine->show(notification);*/
+	engine->show(notification);
 }

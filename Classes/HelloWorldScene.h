@@ -14,6 +14,8 @@ public:
     virtual bool init();  
 
 	void addTestLabel();
+
+	void menuCallback(cocos2d::Ref* pSender);
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
