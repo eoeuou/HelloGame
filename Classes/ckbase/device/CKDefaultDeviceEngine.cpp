@@ -1,5 +1,7 @@
 #include "CKDefaultDeviceEngine.h"
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
 #include "platform\wp8-xaml\cpp\WP8DataManager.h"
+#endif
 CKDefaultDeviceEngine::CKDefaultDeviceEngine() {
 
 }

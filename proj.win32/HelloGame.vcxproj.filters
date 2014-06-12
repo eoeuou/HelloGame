@@ -28,6 +28,9 @@
     <Filter Include="Classes\ckbase\network">
       <UniqueIdentifier>{4ee2a490-eb7a-41f2-845f-fa0813a68fd9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\ckbase\extentions\notification">
+      <UniqueIdentifier>{4d77d4e5-e174-4684-b3d2-879357c285a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -92,6 +95,15 @@
     </ClCompile>
     <ClCompile Include="..\Classes\ckbase\CKGameManager.cpp">
       <Filter>Classes\ckbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\notification\CKAndroidNotificationEngine.cpp">
+      <Filter>Classes\ckbase\extentions\notification</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\notification\CKDefaultNotificationEngine.cpp">
+      <Filter>Classes\ckbase\extentions\notification</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\notification\CKNotificationEngine.cpp">
+      <Filter>Classes\ckbase\extentions\notification</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +172,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\CKGameManager.h">
       <Filter>Classes\ckbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\notification\CKAndroidNotificationEngine.h">
+      <Filter>Classes\ckbase\extentions\notification</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\notification\CKDefaultNotificationEngine.h">
+      <Filter>Classes\ckbase\extentions\notification</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\notification\CKNotificationEngine.h">
+      <Filter>Classes\ckbase\extentions\notification</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

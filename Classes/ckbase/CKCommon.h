@@ -2,8 +2,8 @@
 #define __CKCommon_H__
 
 #include "cocos2d.h"
-#include "cocos-ext.h"
 #include "editor-support\cocostudio\DictionaryHelper.h"
+#include "cocos-ext.h"
 
 #include "CKModel.h"
 
@@ -12,8 +12,12 @@ USING_NS_CC_EXT;
 using namespace std;
 using namespace cocostudio;
 
+
+//////////////////////////////////////////////////////////////////////////
 #define STD_FUN_NULL [](){}
 #define STD_FUN_MODEL_NULL [](CKModel* model){}
+
+//////////////////////////////////////////////////////////////////////////
 
 #define CK_SINGLETON_METHOD(className,sharedObject,methodName) \
 protected:\

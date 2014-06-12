@@ -17,10 +17,12 @@
 
 CK_INIT_STATIC_FIELD(CKPayEngine,s_sharedEngine,CKPayEngine*,new CKPlatformPayEngine());
 
-CKPayEngine::CKPayEngine():m_listener(NULL) {
+CKPayEngine::CKPayEngine():m_listener(NULL)
+{
 
 }
 
-CKPayEngine::~CKPayEngine() {
+CKPayEngine::~CKPayEngine()
+{
 
 }

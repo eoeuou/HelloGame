@@ -9,6 +9,7 @@
 #include "device/CKDeviceEngine.h"
 #include "network/CKHttpUtils.h"
 #include "CKGameManager.h"
+//#include "CKNotificationEngine.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -77,8 +78,6 @@ bool HelloWorld::init()
 
 	// add the label as a child to this layer
 	this->addChild(label, 1);
-	
-
 
 	// add "HelloWorld" splash screen"
 	auto sprite = Sprite::create("HelloWorld.png");
@@ -111,6 +110,15 @@ bool HelloWorld::init()
 	return true;
 }
 
+void HelloWorld::addTestLabel()
+{
+	auto label = LabelTTF::create("Hello World", "Arial", 24);
+
+	label->setPosition(ccp(100,100));
+
+	this->addChild(label, 1);
+}
+
 void HelloWorld::onExit()
 {
 	CCLayer::onExit();
@@ -123,8 +131,8 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 	MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
 	return;
 #endif
-	showFightScene();
-
+	//showFightScene();
+	NotificationTest();
 	//httpTest();
 
 	//CKHttpUtils::getInstance()->destroyInstance();
@@ -181,4 +189,15 @@ void HelloWorld::httpTest()
 	});*/
 	//CKHttpUtils::getInstance()->post("http://tarenaapptest.herokuapp.com/login");
 	//CKHttpUtils::getInstance()->post("http://httpbin.org/post","username=112",STD_FUN_MODEL_NULL);
+}
+
+void HelloWorld::NotificationTest()
+{/*
+	CKNotificationEngine* engine = CKNotificationEngine::sharedEngine();
+	CKNotification notification;
+	notification.id = 1;
+	notification.title = "title";
+	notification.message = "message";
+	notification.url = "http://www.baidu.com/";
+	engine->show(notification);*/
 }
