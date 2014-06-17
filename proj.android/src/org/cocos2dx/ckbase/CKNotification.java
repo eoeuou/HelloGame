@@ -1,4 +1,4 @@
-package org.cocos2dx.cpp.ckbase;
+package org.cocos2dx.ckbase;
 
 import android.app.Activity;
 import android.app.Notification;

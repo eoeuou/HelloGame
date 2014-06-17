@@ -61,7 +61,7 @@ bool HelloWorld::init()
 	// create menu, it's an autorelease object
 	auto menu = Menu::create(closeItem, NULL);
 	menu->setPosition(Point::ZERO);
-	//this->addChild(menu, 1);
+	this->addChild(menu, 1);
 
 	/////////////////////////////
 	// 3. add your codes below...
@@ -101,8 +101,6 @@ bool HelloWorld::init()
 	int key = model->getValue("key").asInt();
 	CCLog("%s",model->getInfo().c_str());
 
-	//CKGameDataManager::getInstance()->loadGameData();
-
 	addTestLabel();
 	return true;
 }
@@ -114,6 +112,7 @@ typedef struct _Controller{
 } Controller;
 
 Controller g_aTestNames[] = {
+	{"loadGameData",[=](){CKGameDataManager::getInstance()->loadGameData();}},
 	{ "FightScene", [=]() { m_hello->showFightScene();} },
 	{ "questionTest", [=]() { m_hello->questionTest();} },
 	{ "httpTest", [=]() { m_hello->httpTest();} },
@@ -173,9 +172,6 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 	MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
 	return;
 #endif
-	//showFightScene();
-	//NotificationTest();
-	//httpTest();
 
 	//CKHttpUtils::getInstance()->destroyInstance();
 	Director::getInstance()->end();

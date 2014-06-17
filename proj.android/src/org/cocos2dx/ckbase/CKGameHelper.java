@@ -1,4 +1,4 @@
-package org.cocos2dx.cpp.ckbase;
+package org.cocos2dx.ckbase;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,6 +9,7 @@ import android.net.NetworkInfo;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.widget.Toast;
 
 public class CKGameHelper {
 
@@ -27,6 +28,14 @@ public class CKGameHelper {
 
 	public static Activity getActivity() {
 		return sActivity;
+	}
+
+	public static void showToast(CharSequence text) {
+		Toast.makeText(sActivity, text, Toast.LENGTH_SHORT).show();
+	}
+
+	public static void showToast(CharSequence text, int duration) {
+		Toast.makeText(sActivity, text, duration).show();
 	}
 
 	// ===========================================================
@@ -138,5 +147,6 @@ public class CKGameHelper {
 	// ===========================================================
 	// CKAndroidDeviceEngine
 	// ===========================================================
-
+	
+	public static native String httpUtilsGetText(String url);
 }

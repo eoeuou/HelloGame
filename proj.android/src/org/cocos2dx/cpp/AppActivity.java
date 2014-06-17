@@ -26,10 +26,12 @@ THE SOFTWARE.
  ****************************************************************************/
 package org.cocos2dx.cpp;
 
-import org.cocos2dx.cpp.ckbase.CKGameHelper;
-import org.cocos2dx.cpp.ckbase.CKNotification;
+import org.cocos2dx.ckbase.CKGameHelper;
+import org.cocos2dx.ckbase.CKNotification;
+import org.cocos2dx.ckbase.utils.CKNotificationService;
 import org.cocos2dx.lib.Cocos2dxActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 public class AppActivity extends Cocos2dxActivity {
@@ -40,6 +42,9 @@ public class AppActivity extends Cocos2dxActivity {
 		super.onCreate(savedInstanceState);
 
 		initCKBase();
+/*
+		Intent serviceIntent = new Intent(this, CKNotificationService.class);
+		this.startService(serviceIntent);*/
 	}
 
 	private void initCKBase() {
