@@ -4,8 +4,12 @@
 #include "platform/android/jni/JniHelper.h"
 #include <jni.h>
 #include <android/log.h>
+#include "CKCommon.h"
 #include "CKNotificationEngine.h"
+#include "CKHttpUtils.h"
 #include "org_cocos2dx_ckbase_CKNotification.h"
+#include "org_cocos2dx_ckbase_CKGameHelper.h"
+#include "org_cocos2dx_ckbase_utils_CKNotificationService.h"
 
 #define  LOG_TAG    "main"
 #define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
@@ -44,4 +48,17 @@ JNIEXPORT void JNICALL Java_org_cocos2dx_ckbase_CKNotification_dispatchClickNoti
   (JNIEnv * env, jclass obj, jint id)
 {
 	CKNotificationEngine::sharedEngine()->dispatchClickNotification(id);
+}
+
+/*
+ * Class:     org_cocos2dx_ckbase_CKGameHelper
+ * Method:    httpUtilsGetText
+ * Signature: (Ljava/lang/String;)Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_org_cocos2dx_ckbase_CKGameHelper_httpUtilsGetText
+  (JNIEnv *env, jclass obj, jstring url)
+{
+	std::string path = JniHelper::jstring2string(url);
+	CKHttpUtils::getInstance()->getText(path.c_str());
+	return "";
 }

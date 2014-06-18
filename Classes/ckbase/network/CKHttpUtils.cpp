@@ -59,35 +59,6 @@ std::string CKHttpUtils::httpRequestCompleted(cocos2d::network::HttpClient *send
 	return "";
 }
 
-struct CKNetStruct
-{
-	std::string name;
-	std::function<void(CKModel* model)> callback;
-	CKLoadingDialog* m_loadingDialog;
-
-	CKNetStruct(std::string name,
-		std::function<void(CKModel* model)> callback)
-	{
-		this->name = name;
-		this->callback = callback;
-		m_loadingDialog = nullptr;
-	}
-
-	void showLoadingDialog()
-	{
-		Scene* curScene = CCDirector::getInstance()->getRunningScene();
-		m_loadingDialog = CKDialog::show<CKLoadingDialog>(curScene,getChildrenMaxZorder(curScene));
-	}
-
-	void hideLoadingDialog()
-	{
-		if (m_loadingDialog)
-		{
-			m_loadingDialog->removeFromParent();
-		}
-	}
-};
-
 void CKHttpUtils::getText(const char* url,std::function<void(CKModel* model)> callback) 
 {
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WP8)
@@ -104,6 +75,11 @@ void CKHttpUtils::getText(const char* url,std::function<void(CKModel* model)> ca
 	HttpClient::getInstance()->send(request);
 	request->release();
 #endif
+}
+
+void CKHttpUtils::getText(const char* url) 
+{
+	getText(url,STD_FUN_MODEL_NULL);
 }
 
 void CKHttpUtils::onGetTextCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response)
@@ -141,6 +117,10 @@ void CKHttpUtils::getFile(const char* url,const char* localpath,std::function<vo
 	HttpClient::getInstance()->send(request);
 	request->release();
 #endif
+}
+void CKHttpUtils::getFile(const char* url,const char* localpath)
+{
+	getFile(url,localpath,STD_FUN_MODEL_NULL);
 }
 
 void CKHttpUtils::onGetFileCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response)

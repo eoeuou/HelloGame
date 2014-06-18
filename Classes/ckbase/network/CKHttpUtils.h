@@ -11,6 +11,35 @@ using namespace cocos2d::network;
 
 using namespace std;
 
+struct CKNetStruct
+{
+	std::string name;
+	std::function<void(CKModel* model)> callback;
+	CKLoadingDialog* m_loadingDialog;
+
+	CKNetStruct(std::string name,
+		std::function<void(CKModel* model)> callback)
+	{
+		this->name = name;
+		this->callback = callback;
+		m_loadingDialog = nullptr;
+	}
+
+	void showLoadingDialog()
+	{
+		Scene* curScene = CCDirector::getInstance()->getRunningScene();
+		m_loadingDialog = CKDialog::show<CKLoadingDialog>(curScene,getChildrenMaxZorder(curScene));
+	}
+
+	void hideLoadingDialog()
+	{
+		if (m_loadingDialog)
+		{
+			m_loadingDialog->removeFromParent();
+		}
+	}
+};
+
 class CKHttpUtils : public cocos2d::Ref
 {
 public:
@@ -32,6 +61,7 @@ public:
 	// Parameter: > callback 回掉函数
 	//************************************
 	void getText(const char* url,std::function<void(CKModel* model)> callback);
+	void getText(const char* url);
 
 	//************************************
 	// Method:    getFile
@@ -46,6 +76,7 @@ public:
 	// Parameter: > callback 回掉函数
 	//************************************
 	void getFile(const char* url,const char* localpath,std::function<void(CKModel* model)> callback);
+	void getFile(const char* url,const char* localpath);
 
 	//************************************
 	// Method:    post
