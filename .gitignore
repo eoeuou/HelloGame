@@ -4,6 +4,8 @@ Thumbs.db
 tools/make_manager/output/*
 tools/make_model/output/*
 tools/make_platform/output/*
+tools/javah_tool/output/*
+tools/javah_tool/temp.txt
 
 # Ignore files build by Visual Studio
 *.obj

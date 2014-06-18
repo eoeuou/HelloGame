@@ -1,3 +1,0 @@
-org.cocos2dx.ckbase.CKGameHelper
-org.cocos2dx.ckbase.CKNotification
-org.cocos2dx.ckbase.utils.CKNotificationService
