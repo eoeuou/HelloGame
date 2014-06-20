@@ -17,10 +17,12 @@
 
 CK_INIT_STATIC_FIELD(CKDeviceEngine,s_sharedEngine,CKDeviceEngine*,new CKPlatformDeviceEngine());
 
-CKDeviceEngine::CKDeviceEngine(){
+CKDeviceEngine::CKDeviceEngine()
+{
 
 }
 
-CKDeviceEngine::~CKDeviceEngine() {
+CKDeviceEngine::~CKDeviceEngine() 
+{
 
 }

@@ -31,6 +31,9 @@
     <Filter Include="Classes\ckbase\extentions\notification">
       <UniqueIdentifier>{4d77d4e5-e174-4684-b3d2-879357c285a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\ckbase\wrapper">
+      <UniqueIdentifier>{5c627365-3455-4f59-a6f7-b04a35afa65d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -104,6 +107,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\ckbase\extentions\notification\CKNotificationEngine.cpp">
       <Filter>Classes\ckbase\extentions\notification</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\wrapper\CKAndroidWrapper.cpp">
+      <Filter>Classes\ckbase\wrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\wrapper\CKDefaultWrapper.cpp">
+      <Filter>Classes\ckbase\wrapper</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\extentions\notification\CKNotificationEngine.h">
       <Filter>Classes\ckbase\extentions\notification</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\wrapper\CKWrapper.h">
+      <Filter>Classes\ckbase\wrapper</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

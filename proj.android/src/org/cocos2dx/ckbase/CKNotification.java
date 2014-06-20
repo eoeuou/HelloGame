@@ -1,6 +1,5 @@
 package org.cocos2dx.ckbase;
 
-import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,35 +8,20 @@ import android.content.Intent;
 import android.net.Uri;
 
 public class CKNotification {
-
-	private static Activity sActivity = null;
-
-	private static boolean sInited = false;
-
-	public static void init(final Activity activity) {
-		if (!sInited) {
-
-			sActivity = activity;
-
-			sInited = true;
-		}
-	}
-
-	public static Activity getActivity() {
-		return sActivity;
-	}
-
 	// ===========================================================
 	// CKAndroidNotificationEngine
 	// ===========================================================
 
 	public static void showNotification(int id, String title, String message,
 			String url) {
-		NotificationManager manager = (NotificationManager) sActivity
-				.getSystemService(Context.NOTIFICATION_SERVICE);
+		NotificationManager manager = (NotificationManager) Wrapper
+				.getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
 
-		int iconId = sActivity.getResources().getIdentifier("icon", "drawable",
-				sActivity.getPackageName());
+		int iconId = Wrapper
+				.getActivity()
+				.getResources()
+				.getIdentifier("icon", "drawable",
+						Wrapper.getActivity().getPackageName());
 
 		Notification notification = new Notification(iconId, title,
 				System.currentTimeMillis());
@@ -48,23 +32,24 @@ public class CKNotification {
 		Uri uri = Uri.parse(url);
 		Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 
-		PendingIntent pendingIntent = PendingIntent.getActivity(sActivity, 0,
-				intent, PendingIntent.FLAG_ONE_SHOT);
+		PendingIntent pendingIntent = PendingIntent.getActivity(
+				Wrapper.getActivity(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
 
-		notification.setLatestEventInfo(sActivity, title, message,
+		notification.setLatestEventInfo(Wrapper.getActivity(), title, message,
 				pendingIntent);
 
 		manager.notify(id, notification);
 	}
 
 	public static void cancelNotification(int id) {
-		NotificationManager manager = (NotificationManager) sActivity
-				.getSystemService(Context.NOTIFICATION_SERVICE);
+		NotificationManager manager = (NotificationManager) Wrapper
+				.getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
 		manager.cancel(id);
 	}
 
-	public static native void dispatchRecieveNotification(int id, String title, String message,
-			String url);
+	public static native void dispatchRecieveNotification(int id, String title,
+			String message, String url);
+
 	public static native void dispatchClickNotification(int id);
 	// ===========================================================
 	// CKAndroidNotificationEngine

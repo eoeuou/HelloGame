@@ -8,9 +8,11 @@ filenamesmall=`tr '[A-Z]' '[a-z]' <<<"$1"`
 rm -rf output
 mkdir output
 
-filename="CK"$1"Engine"
-hfile="CK"$1"Engine.h"
-cppfile="CK"$1"Engine.cpp"
+begname="CK"
+#endname="Engine"
+filename=$begname$1$endname""
+hfile=$begname$1$endname".h"
+cppfile=$begname$1$endname".cpp"
 
 echo $hfile
 echo $cppfile
@@ -20,22 +22,22 @@ cp -rf templates/CKPayEngine.h output/$hfile
 cp -rf templates/CKPayEngine.cpp output/$cppfile
 
 #DefaultEngine
-hfile="CKDefault"$1"Engine.h"
-cppfile="CKDefault"$1"Engine.cpp"
+hfile=$begname"Default"$1$endname".h"
+cppfile=$begname"Default"$1$endname".cpp"
 
 cp -rf templates/CKDefaultPayEngine.h output/$hfile
 cp -rf templates/CKDefaultPayEngine.cpp output/$cppfile
 
 #AndroidEngine
-hfile="CKAndroid"$1"Engine.h"
-cppfile="CKAndroid"$1"Engine.cpp"
+hfile=$begname"Android"$1$endname".h"
+cppfile=$begname"Android"$1$endname".cpp"
 
 cp -rf templates/CKAndroidPayEngine.h output/$hfile
 cp -rf templates/CKAndroidPayEngine.cpp output/$cppfile
 
 #IOSEngine
-hfile="CKIOS"$1"Engine.h"
-cppfile="CKIOS"$1"Engine.mm"
+hfile=$begname"IOS"$1$endname".h"
+cppfile=$begname"IOS"$1$endname".mm"
 
 cp -rf templates/CKIOSPayEngine.h output/$hfile
 cp -rf templates/CKIOSPayEngine.mm output/$cppfile
@@ -47,5 +49,4 @@ sed -i -e "s/pay/$filenamesmall/g" output/*
 sed -i -e "s/CKPayEngine/$filename/g" output/*
 
 sed -i -e "s/Pay/$1/g" output/*
-
 

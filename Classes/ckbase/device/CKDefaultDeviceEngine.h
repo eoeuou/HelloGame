@@ -3,11 +3,16 @@
 
 #include "CKDeviceEngine.h"
 
-class CKDefaultDeviceEngine: public CKDeviceEngine {
+class CKDefaultDeviceEngine: public CKDeviceEngine 
+{
 public:
 	CKDefaultDeviceEngine();
 
 	virtual ~CKDefaultDeviceEngine();
+
+	virtual std::string getIMSI(){ return ""; }
+
+	virtual std::string getPhoneNum(){ return ""; }
 
 	virtual std::string getDeviceId();
 

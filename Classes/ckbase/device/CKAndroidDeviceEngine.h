@@ -3,12 +3,17 @@
 
 #include "CKDeviceEngine.h"
 
-class CKAndroidDeviceEngine: public CKDeviceEngine {
+class CKAndroidDeviceEngine: public CKDeviceEngine 
+{
 public:
 	CKAndroidDeviceEngine();
 
 	virtual ~CKAndroidDeviceEngine();
-	
+
+	virtual std::string getIMSI();
+
+	virtual std::string getPhoneNum();
+
 	virtual std::string getDeviceId();
 
 	virtual void showNetworkSettings();

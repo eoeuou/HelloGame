@@ -10,6 +10,7 @@
 #include "network/CKHttpUtils.h"
 #include "CKGameManager.h"
 #include "CKNotificationEngine.h"
+#include "wrapper/CKWrapper.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -40,7 +41,6 @@ bool HelloWorld::init()
 	{
 		return false;
 	}
-
 	m_hello = this;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
@@ -124,6 +124,13 @@ Controller g_aTestNames[] = {
 		}
 	},
 	{"CKLoadingDialog",[=](){CKDialog::show<CKLoadingDialog>(m_hello,getChildrenMaxZorder(m_hello));}},
+	{"Toast",[=](){wrapper::showToast("11111111111");}},
+	{"UID",[=](){wrapper::showToast(wrapper::getUID().c_str());}},
+	{"IMSI",[=](){wrapper::showToast(wrapper::getIMSI().c_str());}},
+	{"PhoneNum",[=](){
+		const char * p = wrapper::getPhoneNum().c_str();
+		wrapper::showToast(p);
+	}},
 };
 
 static int g_testCount = sizeof(g_aTestNames) / sizeof(g_aTestNames[0]);
@@ -131,13 +138,12 @@ static int g_testCount = sizeof(g_aTestNames) / sizeof(g_aTestNames[0]);
 static Point s_tCurPos = Point::ZERO;
 
 void HelloWorld::addTestLabel()
-{
-	
+{	
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
 	TTFConfig ttfConfig("fonts/arial.ttf", 24);
-	Menu* _itemMenu = Menu::create();
+	_itemMenu = Menu::create();
 
 	for (int i = 0; i < g_testCount; ++i)
 	{		
@@ -147,10 +153,81 @@ void HelloWorld::addTestLabel()
 		menuItem->setPosition( Point( visibleSize.width/2, (visibleSize.height - (i + 1) * LINE_SPACE) ));				
 	}	
 	
-	_itemMenu->setContentSize(visibleSize);
+	_itemMenu->setContentSize(Size(visibleSize.width, (g_testCount + 1) * (LINE_SPACE)));
 	_itemMenu->setPosition(Point::ZERO);
 	_itemMenu->setColor(ccc3(255,255,0));
 	addChild(_itemMenu,100);
+
+	// Register Touch Event
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(true);
+
+	listener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);
+	listener->onTouchMoved = CC_CALLBACK_2(HelloWorld::onTouchMoved, this);
+
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
+	auto mouseListener = EventListenerMouse::create();
+	mouseListener->onMouseScroll = CC_CALLBACK_1(HelloWorld::onMouseScroll, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(mouseListener, this);
+}
+
+bool HelloWorld::onTouchBegan(Touch* touch, Event  *event)
+{
+	_beginPos = touch->getLocation();
+	return true;
+}
+
+void HelloWorld::onTouchMoved(Touch* touch, Event  *event)
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+
+	auto touchLocation = touch->getLocation();    
+	float nMoveY = touchLocation.y - _beginPos.y;
+
+	auto curPos  = _itemMenu->getPosition();
+	auto nextPos = Point(curPos.x, curPos.y + nMoveY);
+
+	if (nextPos.y < 0.0f)
+	{
+		_itemMenu->setPosition(Point::ZERO);
+		return;
+	}
+
+	if (nextPos.y > ((g_testCount + 1)* LINE_SPACE - visibleSize.height))
+	{
+		_itemMenu->setPosition(Point(0, ((g_testCount + 1)* LINE_SPACE - visibleSize.height)));
+		return;
+	}
+
+	_itemMenu->setPosition(nextPos);
+	_beginPos = touchLocation;
+	s_tCurPos   = nextPos;
+}
+
+void HelloWorld::onMouseScroll(Event *event)
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto mouseEvent = static_cast<EventMouse*>(event);
+	float nMoveY = mouseEvent->getScrollY() * 6;
+
+	auto curPos  = _itemMenu->getPosition();
+	auto nextPos = Point(curPos.x, curPos.y + nMoveY);
+
+	if (nextPos.y < 0.0f)
+	{
+		_itemMenu->setPosition(Point::ZERO);
+		return;
+	}
+
+	if (nextPos.y > ((g_testCount + 1)* LINE_SPACE - visibleSize.height))
+	{
+		_itemMenu->setPosition(Point(0, ((g_testCount + 1)* LINE_SPACE - visibleSize.height)));
+		return;
+	}
+
+	_itemMenu->setPosition(nextPos);
+	s_tCurPos   = nextPos;
 }
 
 void HelloWorld::menuCallback(cocos2d::Ref* pSender)

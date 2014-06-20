@@ -1,49 +1,23 @@
 package org.cocos2dx.ckbase;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.Log;
-import android.widget.Toast;
 
 public class CKGameHelper {
-
-	private static Activity sActivity = null;
-
-	private static boolean sInited = false;
-
-	public static void init(final Activity activity) {
-		if (!sInited) {
-
-			sActivity = activity;
-
-			sInited = true;
-		}
-	}
-
-	public static Activity getActivity() {
-		return sActivity;
-	}
-
-	public static void showToast(CharSequence text) {
-		Toast.makeText(sActivity, text, Toast.LENGTH_SHORT).show();
-	}
-
-	public static void showToast(CharSequence text, int duration) {
-		Toast.makeText(sActivity, text, duration).show();
-	}
-
 	// ===========================================================
 	// CKAndroidDeviceEngine
 	// ===========================================================
 	public static String getDeviceId() {
 
-		TelephonyManager tm = (TelephonyManager) sActivity
+		TelephonyManager tm = (TelephonyManager) Wrapper.getActivity()
 				.getSystemService(Context.TELEPHONY_SERVICE);
 
 		String deviceId = tm.getDeviceId();
@@ -59,7 +33,7 @@ public class CKGameHelper {
 
 	public static int getDeviceCallState() {
 
-		TelephonyManager tm = (TelephonyManager) sActivity
+		TelephonyManager tm = (TelephonyManager) Wrapper.getActivity()
 				.getSystemService(Context.TELEPHONY_SERVICE);
 
 		int callstate = tm.getCallState();
@@ -71,16 +45,16 @@ public class CKGameHelper {
 
 	public static String getCKGamePackageName() {
 
-		Log.d("CKGame", "pack " + sActivity.getPackageName());
+		Log.d("CKGame", "pack " + Wrapper.getActivity().getPackageName());
 
-		return sActivity.getPackageName();
+		return Wrapper.getActivity().getPackageName();
 	}
 
 	public static String getPackageVersion() {
 		String versionName = "0.0.0";
 		try {
-			versionName = sActivity.getPackageManager().getPackageInfo(
-					sActivity.getPackageName(), 0).versionName;
+			versionName = Wrapper.getActivity().getPackageManager()
+					.getPackageInfo(Wrapper.getActivity().getPackageName(), 0).versionName;
 			Log.d("CKGame", "version " + versionName);
 		} catch (NameNotFoundException e) {
 			Log.e("CKGame", "getPackageVersion error", e);
@@ -94,20 +68,52 @@ public class CKGameHelper {
 		return languageName;
 	}
 
-	public static String getPhoneNum() {
-
-		TelephonyManager tm = (TelephonyManager) sActivity
-				.getSystemService(Context.TELEPHONY_SERVICE);
-
-		String phoneNum = tm.getLine1Number();
-
-		Log.d("CKGame", "phoneNum " + phoneNum);
-
-		if (phoneNum != null) {
-			return phoneNum;
+	public static String getLocalMacAddress() {
+		String macAdd = null;
+		try {
+			WifiManager wifi = (WifiManager) Wrapper.getActivity()
+					.getSystemService(Context.WIFI_SERVICE);
+			WifiInfo info = wifi.getConnectionInfo();
+			macAdd = info.getMacAddress();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
-		return "";
+		return macAdd;
+	}
+	
+	public static String getImsiNumber() {
+		String imsiNumber = null;
+
+		try {
+			TelephonyManager phoneMgr = (TelephonyManager) Wrapper
+					.getActivity().getSystemService(Context.TELEPHONY_SERVICE);
+			imsiNumber = phoneMgr.getSubscriberId();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return imsiNumber;
+	}
+	
+	public static String getPhoneNumber() {
+		String phoneNumber = null;
+
+		try {
+			TelephonyManager phoneMgr = (TelephonyManager) Wrapper
+					.getActivity().getSystemService(Context.TELEPHONY_SERVICE);
+			phoneNumber = phoneMgr.getLine1Number();
+
+			if (phoneNumber != null && phoneNumber.length() > 11) {
+				phoneNumber = phoneNumber.substring(phoneNumber.length() - 11);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		Log.d("CKGame", "phoneNum " + phoneNumber);
+
+		return phoneNumber;
 	}
 
 	public static String getDeviceModel() {
@@ -116,8 +122,8 @@ public class CKGameHelper {
 
 	public static int getNetworkStatus() {
 
-		ConnectivityManager manager = (ConnectivityManager) sActivity
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager manager = (ConnectivityManager) Wrapper
+				.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 
 		NetworkInfo networkInfo = manager.getActiveNetworkInfo();
 
@@ -141,12 +147,12 @@ public class CKGameHelper {
 	public static void showNetworkSettings() {
 		Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		sActivity.startActivity(intent);
+		Wrapper.getActivity().startActivity(intent);
 	}
 
 	// ===========================================================
 	// CKAndroidDeviceEngine
 	// ===========================================================
-	
+
 	public static native String httpUtilsGetText(String url);
 }

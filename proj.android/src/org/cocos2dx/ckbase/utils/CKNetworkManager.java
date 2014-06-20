@@ -3,6 +3,7 @@ package org.cocos2dx.ckbase.utils;
 import java.util.ArrayList;
 
 import org.cocos2dx.ckbase.CKGameHelper;
+import org.cocos2dx.ckbase.Wrapper;
 
 import android.content.Context;
 import android.net.NetworkInfo;
@@ -15,14 +16,14 @@ public class CKNetworkManager {
 		for (CKNetworkListener listener : mListeners) {
 			listener.onConnected(context, info);
 		}
-		CKGameHelper.showToast("completeConnectedTask");
+		Wrapper.showToast("completeConnectedTask");
 	}
 
 	public static void completeUnConnectedTask(Context context, NetworkInfo info) {
 		for (CKNetworkListener listener : mListeners) {
 			listener.onUnConnected(context, info);
 		}
-		CKGameHelper.showToast("completeUnConnectedTask");
+		Wrapper.showToast("completeUnConnectedTask");
 	}
 
 	public static void registerListener(CKNetworkListener listener) {

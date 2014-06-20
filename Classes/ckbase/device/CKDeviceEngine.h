@@ -3,7 +3,8 @@
 
 #include "CKCommon.h"
 
-class CKDeviceEngine: public cocos2d::Ref{
+class CKDeviceEngine: public cocos2d::Ref
+{
 private:
 
 protected:
@@ -11,6 +12,8 @@ protected:
 public:
 	virtual ~CKDeviceEngine();
 
+	virtual std::string getIMSI() = 0;
+	virtual std::string getPhoneNum() = 0;
 	virtual std::string getDeviceId() = 0;
 
 	virtual void showNetworkSettings() = 0;

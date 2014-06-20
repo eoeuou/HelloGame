@@ -60,5 +60,5 @@ JNIEXPORT jstring JNICALL Java_org_cocos2dx_ckbase_CKGameHelper_httpUtilsGetText
 {
 	std::string path = JniHelper::jstring2string(url);
 	CKHttpUtils::getInstance()->getText(path.c_str());
-	return "";
+	return env->NewStringUTF("");
 }

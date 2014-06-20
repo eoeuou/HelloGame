@@ -16,6 +16,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/ckbase/CKModel.cpp \
 					../../Classes/ckbase/CKProtocols.cpp \
 					../../Classes/ckbase/CKScene.cpp \
+					../../Classes/ckbase/wrapper/CKAndroidWrapper.cpp \
 					../../Classes/ckbase/device/CKAndroidDeviceEngine.cpp \
 					../../Classes/ckbase/device/CKDeviceEngine.cpp \
 					../../Classes/ckbase/extentions/notification/CKAndroidNotificationEngine.cpp \

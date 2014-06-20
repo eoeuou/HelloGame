@@ -16,7 +16,12 @@ public:
 	void addTestLabel();
 
 	void menuCallback(cocos2d::Ref* pSender);
-    
+
+	bool onTouchBegan(Touch* touches, Event  *event);
+	void onTouchMoved(Touch* touches, Event  *event);
+
+	void onMouseScroll(Event *event);
+
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
     
@@ -34,6 +39,10 @@ public:
 	void NotificationTest();
 
 	virtual void onExit();
+
+private:
+	Point _beginPos;
+	Menu* _itemMenu;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

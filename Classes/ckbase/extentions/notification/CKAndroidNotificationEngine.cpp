@@ -1,7 +1,7 @@
 #include "CKAndroidNotificationEngine.h"
 #include "platform/android/jni/JniHelper.h"
 
-#define CKGAMEHELP_CLASS_NAME "org/cocos2dx/cpp/ckbase/CKNotification"
+#define CKGAMEHELP_CLASS_NAME "org/cocos2dx/ckbase/CKNotification"
 
 CKAndroidNotificationEngine::CKAndroidNotificationEngine()
 {
