@@ -6,6 +6,9 @@
 #include "cocos-ext.h"
 
 #include "CKModel.h"
+#include "JsonData.h"
+#include "JsonNode.h"
+#include "CStrUtils.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;

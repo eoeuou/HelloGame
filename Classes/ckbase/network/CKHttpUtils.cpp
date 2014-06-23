@@ -163,6 +163,11 @@ void CKHttpUtils::post(const char* url,const char* postData,std::function<void(C
 #endif
 }
 
+void CKHttpUtils::post(const char* url,const char* postData)
+{
+	post(url,postData,STD_FUN_MODEL_NULL);
+}
+
 void CKHttpUtils::onPostCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response)
 {
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WP8)

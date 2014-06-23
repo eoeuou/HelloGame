@@ -69,7 +69,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)cocos\network;$(EngineRoot)cocos\audio\include;$(EngineRoot)cocos\editor-support;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes\ckbase\device;..\Classes\ckbase\extentions\notification;..\Classes\ckbase\extentions\pay;..\Classes\ckbase\extentions\trigger;..\Classes\ckbase\extentions;..\Classes\ckbase\network;..\Classes\ckbase;..\Classes;..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)cocos\network;$(EngineRoot)cocos\audio\include;$(EngineRoot)cocos\editor-support;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes\ckbase\device;..\Classes\ckbase\extentions\jsonlib;..\Classes\ckbase\extentions\notification;..\Classes\ckbase\extentions\pay;..\Classes\ckbase\extentions\trigger;..\Classes\ckbase\extentions;..\Classes\ckbase\network;..\Classes\ckbase;..\Classes;..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -147,6 +147,10 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     </ClCompile>
     <ClCompile Include="..\Classes\ckbase\device\CKDefaultDeviceEngine.cpp" />
     <ClCompile Include="..\Classes\ckbase\device\CKDeviceEngine.cpp" />
+    <ClCompile Include="..\Classes\ckbase\extentions\jsonlib\CStrUtils.cpp" />
+    <ClCompile Include="..\Classes\ckbase\extentions\jsonlib\JsonData.cpp" />
+    <ClCompile Include="..\Classes\ckbase\extentions\jsonlib\JsonException.cpp" />
+    <ClCompile Include="..\Classes\ckbase\extentions\jsonlib\JsonNode.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\notification\CKAndroidNotificationEngine.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -160,6 +164,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\ckbase\extentions\trigger\acts.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\trigger\cons.cpp" />
     <ClCompile Include="..\Classes\ckbase\network\CKHttpUtils.cpp" />
+    <ClCompile Include="..\Classes\ckbase\network\URLData.cpp" />
+    <ClCompile Include="..\Classes\ckbase\network\URLManager.cpp" />
     <ClCompile Include="..\Classes\ckbase\wrapper\CKAndroidWrapper.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -183,6 +189,11 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\device\CKDefaultDeviceEngine.h" />
     <ClInclude Include="..\Classes\ckbase\device\CKDeviceEngine.h" />
+    <ClInclude Include="..\Classes\ckbase\extentions\jsonlib\ckHashMap.h" />
+    <ClInclude Include="..\Classes\ckbase\extentions\jsonlib\CStrUtils.h" />
+    <ClInclude Include="..\Classes\ckbase\extentions\jsonlib\JsonData.h" />
+    <ClInclude Include="..\Classes\ckbase\extentions\jsonlib\JsonException.h" />
+    <ClInclude Include="..\Classes\ckbase\extentions\jsonlib\JsonNode.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\notification\CKAndroidNotificationEngine.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
@@ -197,6 +208,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\ckbase\extentions\trigger\cons.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\trigger\EventDef.h" />
     <ClInclude Include="..\Classes\ckbase\network\CKHttpUtils.h" />
+    <ClInclude Include="..\Classes\ckbase\network\URLData.h" />
+    <ClInclude Include="..\Classes\ckbase\network\URLManager.h" />
     <ClInclude Include="..\Classes\ckbase\wrapper\CKWrapper.h" />
     <ClInclude Include="..\Classes\FightScene.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />

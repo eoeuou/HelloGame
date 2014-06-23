@@ -102,6 +102,14 @@ bool HelloWorld::init()
 	CCLog("%s",model->getInfo().c_str());
 
 	addTestLabel();
+
+	JsonData* j_data = new JsonData();
+	(*j_data)["location"] = "1";
+	(*j_data)["location"]["child"] = "2";
+	(*j_data)["abcdef"] = "1";
+	std::string result = j_data->toString();
+	log("%s",result.c_str());
+	
 	return true;
 }
 
@@ -292,9 +300,9 @@ void HelloWorld::httpTest()
 {
 	std::string writablePath = CCFileUtils::sharedFileUtils()->getWritablePath();
 	std::string fileName = writablePath+"external.txt";
-	/*CKHttpUtils::getInstance()->getFile("http://httpbin.org/ip",fileName.c_str(),[](CKModel* model){
+	CKHttpUtils::getInstance()->getFile("http://httpbin.org/ip",fileName.c_str(),[](CKModel* model){
 		CCLog("getFile_end:result=%s,path=%s",model->getValue("result").asString(),model->getValue("path").asString());
-	});*/
+	});
 	/*
 	CKHttpUtils::getInstance()->getText("http://tarenaapptest.herokuapp.com/?echostr=1",[](CKModel* model){
 		CCLog("getText_end:result=%s,path=%s",model->getValue("result").asString(),model->getValue("path").asString());

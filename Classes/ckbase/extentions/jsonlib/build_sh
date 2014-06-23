@@ -1,0 +1,5 @@
+#!/bin/bash
+xcodebuild -sdk iphoneos6.1 clean
+xcodebuild -sdk iphoneos6.1
+xcodebuild -sdk iphonesimulator6.1 -arch i386 clean
+xcodebuild -sdk iphonesimulator6.1 -arch i386

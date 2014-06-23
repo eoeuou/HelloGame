@@ -36,6 +36,7 @@ struct CKNetStruct
 		if (m_loadingDialog)
 		{
 			m_loadingDialog->removeFromParent();
+			m_loadingDialog = nullptr;
 		}
 	}
 };
@@ -90,6 +91,7 @@ public:
 	// Parameter: > callback
 	//************************************
 	void post(const char* url,const char* postData,std::function<void(CKModel* model)> callback);
+	void post(const char* url,const char* postData);
 protected:
 	CKHttpUtils(void);
 
