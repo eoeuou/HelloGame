@@ -11,6 +11,7 @@
 #include "CKGameManager.h"
 #include "CKNotificationEngine.h"
 #include "wrapper/CKWrapper.h"
+#include "ckjson/CKJsonData.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -44,6 +45,9 @@ bool HelloWorld::init()
 	m_hello = this;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
+
+	log("visibleSize.width=%f,visibleSize.height=%f",visibleSize.width,visibleSize.height);
+	log("origin.x=%f,origin.y=%f",origin.x,origin.y);
 
 	/////////////////////////////
 	// 2. add a menu item with "X" image, which is clicked to quit the program
@@ -102,14 +106,43 @@ bool HelloWorld::init()
 	CCLog("%s",model->getInfo().c_str());
 
 	addTestLabel();
-
+	
 	JsonData* j_data = new JsonData();
-	(*j_data)["location"] = "1";
-	(*j_data)["location"]["child"] = "2";
-	(*j_data)["abcdef"] = "1";
+	(*j_data)["location"] = "china";
+	(*j_data)["image"] = 123;
 	std::string result = j_data->toString();
 	log("%s",result.c_str());
 	
+	CKJsonValue* node = new CKJsonValue();
+	std::string result1 = node->jsonString();
+
+
+	{
+// 		CKJsonDataVector array;
+// 		for (int i = 0; i < 10; i++)
+// 		{
+// 			CKJsonData* child = new CKJsonData();
+// 			(*child)["name"] = i;
+// 			(*child)["age"] = i*20;
+// 			array.push_back(child);
+// 		}
+
+		CKJsonData* child = new CKJsonData();
+		(*child)["name"] = 2;
+		(*child)["age"] = 2*20;
+
+		CKJsonData* child1 = new CKJsonData();
+		(*child1)["name"] = 12;
+		(*child1)["age"] =12*20;
+
+		CKJsonData* data = new CKJsonData();
+		(*data)["id"] = 1;	
+		(*data)["image"] = "image_path";
+		data->addChild("stu",child);
+		data->addChild("stu",child1);
+		log("%s",data->getJsonString());
+
+	}
 	return true;
 }
 
@@ -136,8 +169,8 @@ Controller g_aTestNames[] = {
 	{"UID",[=](){wrapper::showToast(wrapper::getUID().c_str());}},
 	{"IMSI",[=](){wrapper::showToast(wrapper::getIMSI().c_str());}},
 	{"PhoneNum",[=](){
-		const char * p = wrapper::getPhoneNum().c_str();
-		wrapper::showToast(p);
+		std::string phone = wrapper::getPhoneNum();
+		wrapper::showToast(phone.c_str());
 	}},
 };
 
@@ -165,6 +198,7 @@ void HelloWorld::addTestLabel()
 	_itemMenu->setPosition(Point::ZERO);
 	_itemMenu->setColor(ccc3(255,255,0));
 	addChild(_itemMenu,100);
+	log("w:%f,h:%f",_itemMenu->getContentSize().width,_itemMenu->getContentSize().height);
 
 	// Register Touch Event
 	auto listener = EventListenerTouchOneByOne::create();
@@ -268,7 +302,7 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 void HelloWorld::showFightScene()
 {
 	CCScene * newscene = FightScene::create();
-	CCDirector::sharedDirector()->replaceScene(newscene); 
+	CCDirector::sharedDirector()->pushScene(newscene); 
 }
 
 CKModel* HelloWorld::getQuestionByIndex(int index)
@@ -298,11 +332,11 @@ void HelloWorld::questionTest()
 }
 void HelloWorld::httpTest()
 {
-	std::string writablePath = CCFileUtils::sharedFileUtils()->getWritablePath();
+	/*std::string writablePath = CCFileUtils::sharedFileUtils()->getWritablePath();
 	std::string fileName = writablePath+"external.txt";
 	CKHttpUtils::getInstance()->getFile("http://httpbin.org/ip",fileName.c_str(),[](CKModel* model){
 		CCLog("getFile_end:result=%s,path=%s",model->getValue("result").asString(),model->getValue("path").asString());
-	});
+	});*/
 	/*
 	CKHttpUtils::getInstance()->getText("http://tarenaapptest.herokuapp.com/?echostr=1",[](CKModel* model){
 		CCLog("getText_end:result=%s,path=%s",model->getValue("result").asString(),model->getValue("path").asString());

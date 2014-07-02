@@ -19,6 +19,10 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/ckbase/wrapper/CKAndroidWrapper.cpp \
 					../../Classes/ckbase/device/CKAndroidDeviceEngine.cpp \
 					../../Classes/ckbase/device/CKDeviceEngine.cpp \
+					../../Classes/ckbase/extentions/jsonlib/CStrUtils.cpp \
+					../../Classes/ckbase/extentions/jsonlib/JsonData.cpp \
+					../../Classes/ckbase/extentions/jsonlib/JsonException.cpp \
+					../../Classes/ckbase/extentions/jsonlib/JsonNode.cpp \
 					../../Classes/ckbase/extentions/notification/CKAndroidNotificationEngine.cpp \
 					../../Classes/ckbase/extentions/notification/CKNotificationEngine.cpp \
 					../../Classes/ckbase/extentions/pay/CKAndroidPayEngine.cpp \
@@ -33,6 +37,7 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes \
 					$(LOCAL_PATH)/../../Classes/ckbase \
 					$(LOCAL_PATH)/../../Classes/ckbase/device \
 					$(LOCAL_PATH)/../../Classes/ckbase/extentions \
+					$(LOCAL_PATH)/../../Classes/ckbase/extentions/jsonlib \
 					$(LOCAL_PATH)/../../Classes/ckbase/extentions/notification \
 					$(LOCAL_PATH)/../../Classes/ckbase/extentions/pay \
 					$(LOCAL_PATH)/../../Classes/ckbase/extentions/trigger \

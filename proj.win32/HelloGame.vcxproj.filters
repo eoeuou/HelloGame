@@ -37,6 +37,9 @@
     <Filter Include="Classes\ckbase\extentions\jsonlib">
       <UniqueIdentifier>{c5c586bf-2fe6-4f5a-9c6d-be61eb574326}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\ckbase\extentions\ckjson">
+      <UniqueIdentifier>{5b55d894-b72d-4e7f-a7d0-a91d0b9706f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -134,6 +137,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\ckbase\network\URLManager.cpp">
       <Filter>Classes\ckbase\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\ckjson\CKJsonHelper.cpp">
+      <Filter>Classes\ckbase\extentions\ckjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\ckjson\CKJsonData.cpp">
+      <Filter>Classes\ckbase\extentions\ckjson</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +244,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\network\URLManager.h">
       <Filter>Classes\ckbase\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppMacros.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\ckjson\CKJsonHelper.h">
+      <Filter>Classes\ckbase\extentions\ckjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\ckjson\CKJsonData.h">
+      <Filter>Classes\ckbase\extentions\ckjson</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

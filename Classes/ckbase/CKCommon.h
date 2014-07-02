@@ -4,6 +4,8 @@
 #include "cocos2d.h"
 #include "editor-support\cocostudio\DictionaryHelper.h"
 #include "cocos-ext.h"
+#include "json/stringbuffer.h"
+#include "json/writer.h"
 
 #include "CKModel.h"
 #include "JsonData.h"
@@ -72,11 +74,39 @@ std::string UnicodeToUTF8(const wchar_t* putf8);
 	CCLog("key=%s,value=%s",key.c_str(),value);\
 	CCLog("info=%s",model->getInfo().c_str());\
 
+//************************************
+// Method:    parseJsonToDocument
+// FullName:  parseJsonToDocument
+// Access:    public 
+// Returns:   bool
+// Qualifier:  将json文件解析为document
+// Parameter: const std::string & fileName
+// Parameter: rapidjson::Document & doc
+//************************************
 bool parseJsonToDocument(const std::string &fileName, rapidjson::Document &doc);
 //about json end
 
+//************************************
+// Method:    writeFileData
+// FullName:  writeFileData
+// Access:    public 
+// Returns:   bool
+// Qualifier: 写入本地文件
+// Parameter: const char * localPath
+// Parameter: const char * fileData
+//************************************
 bool writeFileData(const char * localPath, const char * fileData);
 
+//************************************
+// Method:    getChildrenMaxZorder
+// FullName:  getChildrenMaxZorder
+// Access:    public 
+// Returns:   int
+// Qualifier:  获取Node节点的孩子节点中最大的order
+// Parameter: Node * parent
+//************************************
 int getChildrenMaxZorder(Node* parent);
+
+void writeToJson();
 
 #endif // __CKCommon_H__

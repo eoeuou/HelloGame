@@ -17,6 +17,16 @@ bool FightScene::init()
 	CCNode *pNode = SceneReader::getInstance()->createNodeWithSceneFile("publish/FightScene.json"); 
 	this->addChild(pNode, 0, 1); 
 
+	auto listener = EventListenerKeyboard::create();
+	listener->onKeyReleased = [&](EventKeyboard::KeyCode keyCode, Event* event)
+	{
+		if (keyCode == EventKeyboard::KeyCode::KEY_BACKSPACE)
+		{
+			CCDirector::sharedDirector()->popScene();
+		}		
+	};
+	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener,this);
+
 	return true;
 }
 
