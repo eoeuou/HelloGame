@@ -34,9 +34,6 @@
     <Filter Include="Classes\ckbase\wrapper">
       <UniqueIdentifier>{5c627365-3455-4f59-a6f7-b04a35afa65d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\ckbase\extentions\jsonlib">
-      <UniqueIdentifier>{c5c586bf-2fe6-4f5a-9c6d-be61eb574326}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Classes\ckbase\extentions\ckjson">
       <UniqueIdentifier>{5b55d894-b72d-4e7f-a7d0-a91d0b9706f7}</UniqueIdentifier>
     </Filter>
@@ -119,18 +116,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\ckbase\wrapper\CKDefaultWrapper.cpp">
       <Filter>Classes\ckbase\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ckbase\extentions\jsonlib\CStrUtils.cpp">
-      <Filter>Classes\ckbase\extentions\jsonlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ckbase\extentions\jsonlib\JsonData.cpp">
-      <Filter>Classes\ckbase\extentions\jsonlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ckbase\extentions\jsonlib\JsonException.cpp">
-      <Filter>Classes\ckbase\extentions\jsonlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ckbase\extentions\jsonlib\JsonNode.cpp">
-      <Filter>Classes\ckbase\extentions\jsonlib</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\ckbase\network\URLData.cpp">
       <Filter>Classes\ckbase\network</Filter>
@@ -223,21 +208,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\wrapper\CKWrapper.h">
       <Filter>Classes\ckbase\wrapper</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ckbase\extentions\jsonlib\ckHashMap.h">
-      <Filter>Classes\ckbase\extentions\jsonlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ckbase\extentions\jsonlib\CStrUtils.h">
-      <Filter>Classes\ckbase\extentions\jsonlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ckbase\extentions\jsonlib\JsonData.h">
-      <Filter>Classes\ckbase\extentions\jsonlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ckbase\extentions\jsonlib\JsonException.h">
-      <Filter>Classes\ckbase\extentions\jsonlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ckbase\extentions\jsonlib\JsonNode.h">
-      <Filter>Classes\ckbase\extentions\jsonlib</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\network\URLData.h">
       <Filter>Classes\ckbase\network</Filter>

@@ -14,12 +14,6 @@
 #include "CKJsonData.h"
 #include "CKJsonHelper.h"
 
-//////////////////////////////////////////////////////////////////////////
-#include "ckbase/extentions/jsonlib/JsonData.h"
-#include "ckbase/extentions/jsonlib/JsonNode.h"
-#include "ckbase/extentions/jsonlib/CStrUtils.h"
-//////////////////////////////////////////////////////////////////////////
-
 USING_NS_CC;
 using namespace cocostudio;
 
@@ -112,15 +106,6 @@ bool HelloWorld::init()
 	CCLog("%s",model->getInfo().c_str());
 
 	addTestLabel();
-	
-	JsonData* j_data = new JsonData();
-	(*j_data)["location"] = "china";
-	(*j_data)["image"] = 123;
-	std::string result = j_data->toString();
-	log("%s",result.c_str());
-
-
-	CKJsonHelper::getInstance()->parseJsonToJsonData("jsondata/data.json");
 
 	return true;
 }
@@ -150,7 +135,11 @@ Controller g_aTestNames[] = {
 	{"PhoneNum",[=](){
 		std::string phone = wrapper::getPhoneNum();
 		wrapper::showToast(phone.c_str());
-	}},
+	}},	
+	{"ParseJson",[=](){
+		CKJsonHelper::getInstance()->parseJsonToJsonData("jsondata/data.json");
+		wrapper::showToast("see log");
+	}},		
 	{"JsonData",[=](){
 		CKJsonData* child = new CKJsonData();
 		(*child)["name"] = 2;

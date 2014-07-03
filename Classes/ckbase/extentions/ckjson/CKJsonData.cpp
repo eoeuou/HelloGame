@@ -30,7 +30,7 @@ void CKJsonData::clear()
 	std::vector<string> values = getKeys();
 	for (auto it = values.begin(); it !=  values.end(); ++it)
 	{
-		m_document.RemoveMember((*it).c_str(););
+		m_document.RemoveMember((*it).c_str());
 	}		
 }
 
@@ -46,7 +46,7 @@ std::vector<std::string> CKJsonData::getKeys()
 
 void CKJsonData::logJsonString()
 {
-	log(getJsonString().c_str());
+	log("%s",getJsonString().c_str());
 }
 
 std::string CKJsonData::getJsonString()
