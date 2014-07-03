@@ -22,7 +22,7 @@ samples:
 	CKJsonData* data = new CKJsonData();
 	(*data)["id"] = 1;	
 	(*data)["image"] = "image_path";
-	data->addChild("stu",child);
+	data->addArrayChild("stu",child);
 	log("%s",data->getJsonString());
 */
 
@@ -37,6 +37,33 @@ public:
 	~CKJsonData(void);
 
 	rapidjson::Document& getJsonDocument();
+
+	//************************************
+	// Method:    size
+	// FullName:  CKJsonData::size
+	// Access:    public 
+	// Returns:   int
+	// Qualifier: get the root keys size
+	//************************************
+	int size();
+
+	//************************************
+	// Method:    clear
+	// FullName:  CKJsonData::clear
+	// Access:    public 
+	// Returns:   void
+	// Qualifier:  clear all data
+	//************************************
+	void clear();
+
+	//************************************
+	// Method:    getKeys
+	// FullName:  CKJsonData::getKeys
+	// Access:    public 
+	// Returns:   std::vector<std::string>
+	// Qualifier:  get the root keys
+	//************************************
+	std::vector<std::string> getKeys();
 
 	//************************************
 	// Method:    logJsonString
@@ -71,39 +98,102 @@ public:
     rapidjson::Value& operator[](string key);
 
 	rapidjson::Value& operator[](const char* key);
-
+	
 	//************************************
-	// Method:    addChild
-	// FullName:  CKJsonData::addChild
+	// Method:    addObjectChild
+	// FullName:  CKJsonData::addObjectChild
 	// Access:    public 
 	// Returns:   void
-	// Qualifier: this is used to add array
-	// Parameter: const char * key
-	// Parameter: CKJsonData * data
-	//************************************
-	void addChild(const char* key, CKJsonData* data);
-
-	//************************************
-	// Method:    addChild
-	// FullName:  CKJsonData::addChild
-	// Access:    public 
-	// Returns:   void
-	// Qualifier: this is used to add array
+	// Qualifier: this is used to add object child
 	// Parameter: int key
 	// Parameter: CKJsonData * data
 	//************************************
-	void addChild(int key, CKJsonData* data);
+	void addObjectChild(int key, CKJsonData* data);
+
+	//************************************
+	// Method:    addObjectChild
+	// FullName:  CKJsonData::addObjectChild
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: this is used to add object child
+	// Parameter: std::string key
+	// Parameter: CKJsonData * data
+	//************************************
+	void addObjectChild(std::string key, CKJsonData* data);
+	
+	//************************************
+	// Method:    addObject
+	// FullName:  CKJsonData::addObject
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: this is used to add object child
+	// Parameter: const char * key
+	// Parameter: CKJsonData * data
+	//************************************
+	void addObjectChild(const char* key, CKJsonData* data);
 
 	//************************************
 	// Method:    addChild
 	// FullName:  CKJsonData::addChild
 	// Access:    public 
 	// Returns:   void
-	// Qualifier: this is used to add array
+	// Qualifier: this is used to add array child
+	// Parameter: int key
+	// Parameter: CKJsonData * data
+	//************************************
+	void addArrayChild(int key, CKJsonData* data);
+
+	//************************************
+	// Method:    addChild
+	// FullName:  CKJsonData::addChild
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: this is used to add array child
 	// Parameter: std::string key
 	// Parameter: CKJsonData * data
 	//************************************
-	void addChild(std::string key, CKJsonData* data);
+	void addArrayChild(std::string key, CKJsonData* data);	
+
+	//************************************
+	// Method:    addChild
+	// FullName:  CKJsonData::addChild
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: this is used to add array child
+	// Parameter: const char * key
+	// Parameter: CKJsonData * data
+	//************************************
+	void addArrayChild(const char* key, CKJsonData* data);
+	
+	//************************************
+	// Method:    removeChild
+	// FullName:  CKJsonData::removeChild
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: remove child by key
+	// Parameter: int key
+	//************************************
+	void removeChild(int key);
+
+	//************************************
+	// Method:    removeChild
+	// FullName:  CKJsonData::removeChild
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: remove child by key
+	// Parameter: std::string key
+	//************************************
+	void removeChild(std::string key);
+
+	//************************************
+	// Method:    removeChild
+	// FullName:  CKJsonData::removeChild
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: remove child by key
+	// Parameter: const char * key
+	//************************************
+	void removeChild(const char* key);	
 };
 
 #endif // __CKJSONDATA_H__

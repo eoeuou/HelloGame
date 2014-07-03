@@ -11,7 +11,8 @@
 #include "CKGameManager.h"
 #include "CKNotificationEngine.h"
 #include "wrapper/CKWrapper.h"
-#include "ckjson/CKJsonData.h"
+#include "CKJsonData.h"
+#include "CKJsonHelper.h"
 
 //////////////////////////////////////////////////////////////////////////
 #include "ckbase/extentions/jsonlib/JsonData.h"
@@ -101,7 +102,6 @@ bool HelloWorld::init()
 
 	// add the sprite as a child to this layer
 	//this->addChild(sprite, 0);
-
 	
 	CKModel* child = CKModel::create();
 	child->setValue("name",Value("childName"));
@@ -120,19 +120,8 @@ bool HelloWorld::init()
 	log("%s",result.c_str());
 
 
-	{
-// 		CKJsonDataVector array;
-// 		for (int i = 0; i < 10; i++)
-// 		{
-// 			CKJsonData* child = new CKJsonData();
-// 			(*child)["name"] = i;
-// 			(*child)["age"] = i*20;
-// 			array.push_back(child);
-// 		}
+	CKJsonHelper::getInstance()->parseJsonToJsonData("jsondata/data.json");
 
-		
-
-	}
 	return true;
 }
 
@@ -174,11 +163,10 @@ Controller g_aTestNames[] = {
 		CKJsonData* data = new CKJsonData();
 		(*data)["id"] = 1;	
 		(*data)["image"] = "image_path";
-		data->addChild("stu",child);
-		data->addChild("stu",child1);
-		
-		data->logJsonString();
+		data->addArrayChild("stu",child);
+		data->addArrayChild("stu",child1);
 
+		data->logJsonString();
 
 		bool result = data->hasRapidJsonMember("stu");
 		result = data->hasRapidJsonMember("name");
@@ -186,6 +174,11 @@ Controller g_aTestNames[] = {
 
 		std::string str = data->getJsonString();
 		wrapper::showToast(str.c_str());
+
+		int s = data->size();
+		data->clear();
+		s = data->size();
+
 	}},
 };
 

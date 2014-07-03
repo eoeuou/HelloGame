@@ -2,7 +2,7 @@
 #define __CKJSONHELPER_H__
 
 #include "cocos2d.h"
-#include "CKCommon.h"
+#include "CKJsonData.h"
 
 USING_NS_CC;
 
@@ -17,12 +17,15 @@ public:
     static void destroyInstance();
 	
 	bool init();
+
+	CKJsonData* parseJsonToJsonData(const char* json);
 			
 private:
 	CKJsonHelper(void);
 	
 	~CKJsonHelper(void);
 
+	CKJsonData* parseRapidJsonObject(rapidjson::Value& jsonDoc);
 };
 
 #endif // __CKJSONHELPER_H__
