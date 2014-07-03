@@ -2,7 +2,7 @@
 #define __URLDATA_H__
 
 #include "cocos2d.h"
-#include "JsonData.h"
+#include "CKJsonData.h"
 
 USING_NS_CC;
 #define MAX_URL_NUM 20
@@ -18,13 +18,13 @@ class URLRequestDelegate
 {
 public:
 	virtual void URLRequestErrorCallback(URLRequestType action, int errorCode, void* extraInfo ) =0;
-	virtual void URLRequestSuccessCallback(URLRequestType action, JsonData &j_data, void* extraInfo) = 0;
+	virtual void URLRequestSuccessCallback(URLRequestType action, CKJsonData &j_data, void* extraInfo) = 0;
 	virtual void GetPicCallback(URLRequestType action, unsigned char* data, int dataLen, void* extraInfo) = 0;
 };
 
 struct requestURLData
 {
-	JsonData* j_data;
+	CKJsonData* j_data;
 	URLRequestType action;
 	URLRequestDelegate* delegate;
 	char* picURL;

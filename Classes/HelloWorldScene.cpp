@@ -85,7 +85,7 @@ bool HelloWorld::init()
 		origin.y + visibleSize.height - label->getContentSize().height));
 
 	// add the label as a child to this layer
-	this->addChild(label, 1);
+	//this->addChild(label, 1);
 
 	this->setColor(ccc3(0,0,0));
 	// add "HelloWorld" splash screen"
@@ -169,6 +169,9 @@ Controller g_aTestNames[] = {
 		s = data->size();
 
 	}},
+	{"empty",[=](){
+		wrapper::showToast("empty");
+	}},	
 };
 
 static int g_testCount = sizeof(g_aTestNames) / sizeof(g_aTestNames[0]);
