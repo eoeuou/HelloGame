@@ -22,13 +22,13 @@ bool CKJsonHelper::init()
 	return true;
 }
 
-CKJsonData* CKJsonHelper::parseRapidJsonObject(rapidjson::Value& jsonDoc)
+CKJsonData* CKJsonHelper::parseRapidJsonObject(rapidjson::Value& jsonObj)
 {
-	CCAssert(jsonDoc.GetType()== rapidjson::kObjectType,"jsonDoc must be object");
+	CCAssert(jsonObj.GetType()== rapidjson::kObjectType,"jsonDoc must be object");
 	
 	CKJsonData* result = new CKJsonData();
 
-	for (auto it = jsonDoc.MemberonBegin(); it !=  jsonDoc.MemberonEnd(); ++it)
+	for (auto it = jsonObj.MemberonBegin(); it !=  jsonObj.MemberonEnd(); ++it)
 	{		
 		const rapidjson::Value::Ch* k = (*it).name.GetString();
 		char* key = new char[strlen(k)+1];
@@ -67,14 +67,29 @@ CKJsonData* CKJsonHelper::parseRapidJsonObject(rapidjson::Value& jsonDoc)
 			break;
 		case rapidjson::kNumberType:
 			{
-				(*result)[key] = (*it).value.GetInt();
+				if ((*it).value.IsInt())
+				{
+					(*result)[key] = (*it).value.GetInt();
+				}
+				else if ((*it).value.IsInt64())
+				{
+					(*result)[key] = (*it).value.GetInt64();
+				}
+				else if ((*it).value.IsDouble())
+				{
+					(*result)[key] = (*it).value.GetDouble();
+				}
+				else
+				{
+					CCAssert(false,"unknown type");
+				}
 			}
 			break;
 		default:
 			break;
 		}
-	}		
-
+	}
+	
 	result->logJsonString();
 
 	return result;

@@ -18,6 +18,14 @@ public:
 	
 	bool init();
 
+	//************************************
+	// Method:    parseJsonToJsonData
+	// FullName:  CKJsonHelper::parseJsonToJsonData
+	// Access:    public 
+	// Returns:   CKJsonData*
+	// Qualifier:
+	// Parameter: const char * json
+	//************************************
 	CKJsonData* parseJsonToJsonData(const char* json);
 			
 private:
@@ -25,7 +33,15 @@ private:
 	
 	~CKJsonHelper(void);
 
-	CKJsonData* parseRapidJsonObject(rapidjson::Value& jsonDoc);
+	//************************************
+	// Method:    parseRapidJsonObject
+	// FullName:  CKJsonHelper::parseRapidJsonObject
+	// Access:    private 
+	// Returns:   CKJsonData*
+	// Qualifier: 
+	// Parameter: rapidjson::Value & jsonDoc
+	//************************************
+	CKJsonData* parseRapidJsonObject(rapidjson::Value& jsonObj);
 };
 
 #endif // __CKJSONHELPER_H__

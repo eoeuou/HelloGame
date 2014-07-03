@@ -169,31 +169,31 @@ public:
 	// Method:    removeChild
 	// FullName:  CKJsonData::removeChild
 	// Access:    public 
-	// Returns:   void
+	// Returns:   bool
 	// Qualifier: remove child by key
 	// Parameter: int key
 	//************************************
-	void removeChild(int key);
+	bool removeChild(int key);
 
 	//************************************
 	// Method:    removeChild
 	// FullName:  CKJsonData::removeChild
 	// Access:    public 
-	// Returns:   void
+	// Returns:   bool
 	// Qualifier: remove child by key
 	// Parameter: std::string key
 	//************************************
-	void removeChild(std::string key);
+	bool removeChild(std::string key);
 
 	//************************************
 	// Method:    removeChild
 	// FullName:  CKJsonData::removeChild
 	// Access:    public 
-	// Returns:   void
+	// Returns:   bool
 	// Qualifier: remove child by key
 	// Parameter: const char * key
 	//************************************
-	void removeChild(const char* key);	
+	bool removeChild(const char* key);	
 };
 
 #endif // __CKJSONDATA_H__

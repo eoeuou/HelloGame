@@ -7,7 +7,7 @@ CKJsonData::CKJsonData(void)
 
 CKJsonData::~CKJsonData(void)
 {
-	
+	clear();
 }
 
 rapidjson::Document& CKJsonData::getJsonDocument()
@@ -30,7 +30,7 @@ void CKJsonData::clear()
 	std::vector<string> values = getKeys();
 	for (auto it = values.begin(); it !=  values.end(); ++it)
 	{
-		m_document.RemoveMember((*it).c_str());
+		m_document.RemoveMember((*it).c_str(););
 	}		
 }
 
@@ -164,27 +164,27 @@ void CKJsonData::addArrayChild(const char* key, CKJsonData* data)
 	}
 }
 
-void CKJsonData::removeChild(int key)
+bool CKJsonData::removeChild(int key)
 {
-	this->removeChild(intToString(key));
+	return this->removeChild(intToString(key));
 }
 
-void CKJsonData::removeChild(std::string key)
+bool CKJsonData::removeChild(std::string key)
 {
-	this->removeChild(key.c_str());
+	return this->removeChild(key.c_str());
 }
 
-void CKJsonData::removeChild(const char* key)
+bool CKJsonData::removeChild(const char* key)
 {
-	if (hasRapidJsonMember(key))
+	for (auto it = m_document.MemberonBegin(); it !=  m_document.MemberonEnd(); ++it)
 	{
-		for (auto it = m_document.MemberonBegin(); it !=  m_document.MemberonEnd(); ++it)
+		if ((*it).name.GetString() == key)
 		{
-			if ((*it).name.GetString() == key)
-			{
-				m_document.RemoveMember((*it).name.GetString());
-				break;
-			}
+			m_document.RemoveMember((*it).name.GetString());
+
+			return true;
 		}
-	}	
+	}
+
+	return false;
 }
