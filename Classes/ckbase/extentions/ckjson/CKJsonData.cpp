@@ -103,7 +103,9 @@ void CKJsonData::addObjectChild(const char* key, CKJsonData* data)
 	rapidjson::Value object(rapidjson::kObjectType);
 
 	for (auto it = data->getJsonDocument().MemberonBegin(); it !=  data->getJsonDocument().MemberonEnd(); ++it)
-	{		
+	{			
+		CCAssert((*it).name.GetType() == rapidjson::kStringType,"data maybe added");
+
 		object.AddMember((*it).name,(*it).value,allocator);
 	}
 
@@ -139,7 +141,7 @@ void CKJsonData::addArrayChild(const char* key, CKJsonData* data)
 		{
 			if ((*it).name.GetString() == key)
 			{
-				CCASSERT((*it).value.GetType()==rapidjson::kArrayType,"this key is not for array before");
+				CCASSERT((*it).value.GetType() == rapidjson::kArrayType,"this key is not for array before");
 				array = (*it).value;
 			}
 		}
@@ -150,6 +152,8 @@ void CKJsonData::addArrayChild(const char* key, CKJsonData* data)
 
 	for (auto it = data->getJsonDocument().MemberonBegin(); it !=  data->getJsonDocument().MemberonEnd(); ++it)
 	{		
+		CCAssert((*it).name.GetType() == rapidjson::kStringType,"data maybe added");
+
 		object.AddMember((*it).name,(*it).value,allocator);
 	}
 	array.PushBack(object,allocator);

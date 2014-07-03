@@ -141,19 +141,24 @@ Controller g_aTestNames[] = {
 		wrapper::showToast("see log");
 	}},		
 	{"JsonData",[=](){
+		CKJsonData* data = new CKJsonData();
+		(*data)["id"] = 1;	
+		(*data)["image"] = "image_path";
+
 		CKJsonData* child = new CKJsonData();
 		(*child)["name"] = 2;
 		(*child)["age"] = 2*20;
+		data->addArrayChild("stu",child);
 
 		CKJsonData* child1 = new CKJsonData();
 		(*child1)["name"] = 12;
 		(*child1)["age"] =12*20;
-
-		CKJsonData* data = new CKJsonData();
-		(*data)["id"] = 1;	
-		(*data)["image"] = "image_path";
-		data->addArrayChild("stu",child);
 		data->addArrayChild("stu",child1);
+
+		CKJsonData* obj = new CKJsonData();
+		(*obj)["name"] = 12;
+		(*obj)["age"] =12*20;
+		data->addObjectChild("stuobj",obj);
 
 		data->logJsonString();
 
