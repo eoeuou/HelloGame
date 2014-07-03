@@ -17,14 +17,18 @@ rapidjson::Document& CKJsonData::getJsonDocument()
 	return m_document;
 }
 
-const char* CKJsonData::getJsonString()
+void CKJsonData::logJsonString()
+{
+	log(getJsonString().c_str());
+}
+
+std::string CKJsonData::getJsonString()
 {
 	rapidjson::StringBuffer buffer;
 	rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
 	m_document.Accept(writer);
 
-	auto out = buffer.GetString();
-	log("getJsonString: %s", out);
+	const char* out = buffer.GetString();
 	
 	return out;
 }
@@ -58,6 +62,20 @@ rapidjson::Value& CKJsonData::operator[]( const char* key )
 void CKJsonData::addChild(const char* key, CKJsonData* data)
 {
 	rapidjson::Value array(rapidjson::kArrayType);	
+
+	if (hasRapidJsonMember(key))
+	{
+		for (auto it = m_document.MemberonBegin(); it !=  m_document.MemberonEnd(); ++it)
+		{		
+			rapidjson::Type t= (*it).name.GetType();
+			if ((*it).name.GetString() == key)
+			{
+				CCASSERT((*it).value.GetType()==rapidjson::kArrayType,"this key is not for array before");
+				array = (*it).value;
+			}
+		}
+	}	
+
 	rapidjson::Document::AllocatorType& allocator = m_document.GetAllocator();
 	rapidjson::Value object(rapidjson::kObjectType);
 
@@ -67,11 +85,15 @@ void CKJsonData::addChild(const char* key, CKJsonData* data)
 	}
 	array.PushBack(object,allocator);
 
-	if (!hasRapidJsonMember(key))
-	{
-		m_document.AddMember(key,array,allocator);		
-	}else
-	{
-		m_document[key] = array;
-	}
+	m_document.AddMember(key,array,allocator);	
+}
+
+void CKJsonData::addChild(int key, CKJsonData* data)
+{
+	this->addChild(intToString(key),data);
+}
+
+void CKJsonData::addChild(std::string key, CKJsonData* data)
+{
+	this->addChild(key.c_str(),data);
 }

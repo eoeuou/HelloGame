@@ -38,8 +38,32 @@ public:
 
 	rapidjson::Document& getJsonDocument();
 
-	const char* getJsonString();
+	//************************************
+	// Method:    logJsonString
+	// FullName:  CKJsonData::logJsonString
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: log the Json string
+	//************************************
+	void logJsonString();
+
+	//************************************
+	// Method:    getJsonString
+	// FullName:  CKJsonData::getJsonString
+	// Access:    public 
+	// Returns:   std::string
+	// Qualifier: get the Json string
+	//************************************
+	std::string getJsonString();
 	
+	//************************************
+	// Method:    hasRapidJsonMember
+	// FullName:  CKJsonData::hasRapidJsonMember
+	// Access:    public 
+	// Returns:   bool
+	// Qualifier: find whether have the member by key 
+	// Parameter: const char * key
+	//************************************
 	bool hasRapidJsonMember(const char* key);
 	
     rapidjson::Value& operator[](int key);
@@ -48,7 +72,38 @@ public:
 
 	rapidjson::Value& operator[](const char* key);
 
+	//************************************
+	// Method:    addChild
+	// FullName:  CKJsonData::addChild
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: this is used to add array
+	// Parameter: const char * key
+	// Parameter: CKJsonData * data
+	//************************************
 	void addChild(const char* key, CKJsonData* data);
+
+	//************************************
+	// Method:    addChild
+	// FullName:  CKJsonData::addChild
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: this is used to add array
+	// Parameter: int key
+	// Parameter: CKJsonData * data
+	//************************************
+	void addChild(int key, CKJsonData* data);
+
+	//************************************
+	// Method:    addChild
+	// FullName:  CKJsonData::addChild
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: this is used to add array
+	// Parameter: std::string key
+	// Parameter: CKJsonData * data
+	//************************************
+	void addChild(std::string key, CKJsonData* data);
 };
 
 #endif // __CKJSONDATA_H__

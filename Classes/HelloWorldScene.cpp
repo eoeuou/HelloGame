@@ -13,6 +13,12 @@
 #include "wrapper/CKWrapper.h"
 #include "ckjson/CKJsonData.h"
 
+//////////////////////////////////////////////////////////////////////////
+#include "ckbase/extentions/jsonlib/JsonData.h"
+#include "ckbase/extentions/jsonlib/JsonNode.h"
+#include "ckbase/extentions/jsonlib/CStrUtils.h"
+//////////////////////////////////////////////////////////////////////////
+
 USING_NS_CC;
 using namespace cocostudio;
 
@@ -112,9 +118,6 @@ bool HelloWorld::init()
 	(*j_data)["image"] = 123;
 	std::string result = j_data->toString();
 	log("%s",result.c_str());
-	
-	CKJsonValue* node = new CKJsonValue();
-	std::string result1 = node->jsonString();
 
 
 	{
@@ -127,20 +130,7 @@ bool HelloWorld::init()
 // 			array.push_back(child);
 // 		}
 
-		CKJsonData* child = new CKJsonData();
-		(*child)["name"] = 2;
-		(*child)["age"] = 2*20;
-
-		CKJsonData* child1 = new CKJsonData();
-		(*child1)["name"] = 12;
-		(*child1)["age"] =12*20;
-
-		CKJsonData* data = new CKJsonData();
-		(*data)["id"] = 1;	
-		(*data)["image"] = "image_path";
-		data->addChild("stu",child);
-		data->addChild("stu",child1);
-		log("%s",data->getJsonString());
+		
 
 	}
 	return true;
@@ -171,6 +161,31 @@ Controller g_aTestNames[] = {
 	{"PhoneNum",[=](){
 		std::string phone = wrapper::getPhoneNum();
 		wrapper::showToast(phone.c_str());
+	}},
+	{"JsonData",[=](){
+		CKJsonData* child = new CKJsonData();
+		(*child)["name"] = 2;
+		(*child)["age"] = 2*20;
+
+		CKJsonData* child1 = new CKJsonData();
+		(*child1)["name"] = 12;
+		(*child1)["age"] =12*20;
+
+		CKJsonData* data = new CKJsonData();
+		(*data)["id"] = 1;	
+		(*data)["image"] = "image_path";
+		data->addChild("stu",child);
+		data->addChild("stu",child1);
+		
+		data->logJsonString();
+
+
+		bool result = data->hasRapidJsonMember("stu");
+		result = data->hasRapidJsonMember("name");
+		result = data->hasRapidJsonMember("id");
+
+		std::string str = data->getJsonString();
+		wrapper::showToast(str.c_str());
 	}},
 };
 
