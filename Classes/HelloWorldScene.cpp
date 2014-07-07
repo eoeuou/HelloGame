@@ -158,7 +158,17 @@ Controller g_aTestNames[] = {
 		CKJsonData* obj = new CKJsonData();
 		(*obj)["name"] = 12;
 		(*obj)["age"] =12*20;
+		int age = (*obj)["name"].GetInt();
 		data->addObjectChild("stuobj",obj);
+		rapidjson::Type type = (*data)["stuobj"].GetType();
+
+		//反向取obj
+		CKJsonData* test = data->getObjectChildByKey("1");
+		test = data->getObjectChildByKey("stuobj");
+
+		//反向去array
+		CKJsonDataVector* vector = data->getArrayChildByKey("stu");
+		int count = vector->size();
 
 		data->logJsonString();
 

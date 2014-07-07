@@ -12,6 +12,7 @@ class CKJsonData;
 
 typedef std::vector<CKJsonData*> CKJsonDataVector;
 typedef std::unordered_map<std::string, CKJsonData*> CKJsonDataMap;
+typedef std::unordered_map<std::string, CKJsonDataVector*> CKJsonDataVectorMap;
 
 /*
 samples:
@@ -42,6 +43,13 @@ class CKJsonData
 private:
 	rapidjson::Document m_document;
 
+	CKJsonDataMap* m_objMap;
+
+	CKJsonDataVectorMap* m_arrayMap;
+
+	void recordToObjMap(const char* key, CKJsonData* data);
+
+	void recordToArrayMap(const char* key, CKJsonData* data);
 public:
 	CKJsonData(void);
 	
@@ -111,6 +119,16 @@ public:
 	rapidjson::Value& operator[](const char* key);
 	
 	//************************************
+	// Method:    getObjectChildByKey
+	// FullName:  CKJsonData::getObjectChildByKey
+	// Access:    public 
+	// Returns:   CKJsonData*
+	// Qualifier:
+	// Parameter: const char * key
+	//************************************
+	CKJsonData* getObjectChildByKey(const char* key);
+
+	//************************************
 	// Method:    addObjectChild
 	// FullName:  CKJsonData::addObjectChild
 	// Access:    public 
@@ -142,6 +160,16 @@ public:
 	// Parameter: CKJsonData * data
 	//************************************
 	void addObjectChild(const char* key, CKJsonData* data);
+
+	//************************************
+	// Method:    getArrayChildByKey
+	// FullName:  CKJsonData::getArrayChildByKey
+	// Access:    public 
+	// Returns:   CKJsonDataVector*
+	// Qualifier:
+	// Parameter: const char * key
+	//************************************
+	CKJsonDataVector* getArrayChildByKey(const char* key);
 
 	//************************************
 	// Method:    addChild

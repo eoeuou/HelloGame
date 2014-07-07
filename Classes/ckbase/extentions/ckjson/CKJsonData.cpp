@@ -1,6 +1,9 @@
 #include "CKJsonData.h"
 
 CKJsonData::CKJsonData(void)
+	:m_objMap(nullptr)
+	,m_arrayMap(nullptr)
+
 {
 	m_document.SetObject();
 }
@@ -87,6 +90,25 @@ rapidjson::Value& CKJsonData::operator[]( const char* key )
 	return m_document[key];
 }
 
+CKJsonData* CKJsonData::getObjectChildByKey(const char* key)
+{	
+	if (m_objMap)
+	{
+		return (*m_objMap)[key];
+	}
+
+	return nullptr;	
+}
+
+void CKJsonData::recordToObjMap(const char* key, CKJsonData* data)
+{
+	if (!m_objMap)
+	{
+		m_objMap = new CKJsonDataMap();
+	}		
+	(*m_objMap)[key] = data;
+}
+
 void CKJsonData::addObjectChild(int key, CKJsonData* data)
 {
 	this->addObjectChild(intToString(key),data);
@@ -112,11 +134,51 @@ void CKJsonData::addObjectChild(const char* key, CKJsonData* data)
 	if (!hasRapidJsonMember(key))
 	{
 		m_document.AddMember(key,object,allocator);	
+		
+		recordToObjMap(key,data);
 	}
 	else
 	{
 		m_document[key] = object;
 	}
+}
+
+CKJsonDataVector* CKJsonData::getArrayChildByKey(const char* key)
+{
+	if (m_arrayMap)
+	{
+		return (*m_arrayMap)[key];
+	}
+
+	return nullptr;	
+}
+
+void CKJsonData::recordToArrayMap(const char* key, CKJsonData* data)
+{
+	if (!m_arrayMap)
+	{
+		m_arrayMap = new CKJsonDataVectorMap();
+	}
+	CKJsonDataVector* vector = (*m_arrayMap)[key];
+
+	if (vector)
+	{
+		for (auto it = vector->begin(); it != vector->end(); ++it)
+		{
+			CCAssert((*it) != data,"data maybe added");	
+			if ((*it) == data)
+			{
+				return;
+			}			
+		}
+	}
+	else
+	{
+		vector = new CKJsonDataVector();
+		(*m_arrayMap)[key] = vector;
+	}
+
+	(*vector).push_back(data);
 }
 
 void CKJsonData::addArrayChild(int key, CKJsonData* data)
@@ -131,6 +193,8 @@ void CKJsonData::addArrayChild(std::string key, CKJsonData* data)
 
 void CKJsonData::addArrayChild(const char* key, CKJsonData* data)
 {
+	recordToArrayMap(key,data);	
+
 	rapidjson::Value array(rapidjson::kArrayType);	
 
 	bool haveMember = hasRapidJsonMember(key);
@@ -160,7 +224,7 @@ void CKJsonData::addArrayChild(const char* key, CKJsonData* data)
 
 	if (!haveMember)
 	{
-		m_document.AddMember(key,array,allocator);	
+		m_document.AddMember(key,array,allocator);			
 	}
 	else
 	{
