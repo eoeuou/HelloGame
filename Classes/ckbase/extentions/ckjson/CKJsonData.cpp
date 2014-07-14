@@ -143,6 +143,16 @@ void CKJsonData::addObjectChild(const char* key, CKJsonData* data)
 	}
 }
 
+int CKJsonData::getArrayChildCount()
+{
+	if (m_arrayMap)
+	{
+		return m_arrayMap->size();
+	}
+
+	return 0;	
+}
+
 CKJsonDataVector* CKJsonData::getArrayChildByKey(const char* key)
 {
 	if (m_arrayMap)

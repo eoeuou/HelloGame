@@ -13,6 +13,7 @@
 #include "wrapper/CKWrapper.h"
 #include "CKJsonData.h"
 #include "CKJsonHelper.h"
+#include "CKJsonModel.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -166,9 +167,13 @@ Controller g_aTestNames[] = {
 		CKJsonData* test = data->getObjectChildByKey("1");
 		test = data->getObjectChildByKey("stuobj");
 
-		//反向去array
+		//反向取array
 		CKJsonDataVector* vector = data->getArrayChildByKey("stu");
 		int count = vector->size();
+		for (int i = 0; i < count; i++)
+		{
+			//vector->at(i)["name"] = "this is name";
+		}		
 
 		data->logJsonString();
 
@@ -182,6 +187,25 @@ Controller g_aTestNames[] = {
 		int s = data->size();
 		data->clear();
 		s = data->size();
+
+	}},
+	{"CKJsonModel",[=](){
+		CKJsonModel* child = CKJsonModel::create();
+		(*child)["id"] = 12;		
+		
+		rapidjson::Type type = child->GetType();
+		int id = (*child)["id"].GetInt();
+		int size = child->size();
+
+		//model
+		CKJsonModel* model = CKJsonModel::create();
+		(*model)["key"] = 1;
+		model->addObjectChild("child",child);
+
+		type = (*model)["child"].GetType();
+		id = (*model)["child"]["id"].GetInt();
+
+		model->logJsonString();
 
 	}},
 	{"empty",[=](){
