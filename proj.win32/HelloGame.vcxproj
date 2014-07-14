@@ -147,7 +147,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     </ClCompile>
     <ClCompile Include="..\Classes\ckbase\device\CKDefaultDeviceEngine.cpp" />
     <ClCompile Include="..\Classes\ckbase\device\CKDeviceEngine.cpp" />
-    <ClCompile Include="..\Classes\ckbase\extentions\ckjson\CKJsonData.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\ckjson\CKJsonHelper.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\ckjson\CKJsonModel.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\notification\CKAndroidNotificationEngine.cpp">
@@ -189,7 +188,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\device\CKDefaultDeviceEngine.h" />
     <ClInclude Include="..\Classes\ckbase\device\CKDeviceEngine.h" />
-    <ClInclude Include="..\Classes\ckbase\extentions\ckjson\CKJsonData.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\ckjson\CKJsonHelper.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\ckjson\CKJsonModel.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\notification\CKAndroidNotificationEngine.h">

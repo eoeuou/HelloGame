@@ -22,11 +22,11 @@ bool CKJsonHelper::init()
 	return true;
 }
 
-CKJsonData* CKJsonHelper::parseRapidJsonObject(rapidjson::Value& jsonObj)
+CKJsonModel* CKJsonHelper::parseRapidJsonObject(rapidjson::Value& jsonObj)
 {
 	CCAssert(jsonObj.GetType()== rapidjson::kObjectType,"jsonDoc must be object");
 	
-	CKJsonData* result = new CKJsonData();
+	CKJsonModel* result = CKJsonModel::create();
 
 	for (auto it = jsonObj.MemberonBegin(); it !=  jsonObj.MemberonEnd(); ++it)
 	{		
@@ -95,9 +95,9 @@ CKJsonData* CKJsonHelper::parseRapidJsonObject(rapidjson::Value& jsonObj)
 	return result;
 }
 
-CKJsonData* CKJsonHelper::parseJsonToJsonData(const char* json)
+CKJsonModel* CKJsonHelper::parseJsonToJsonData(const char* json)
 {
-	CKJsonData* result = NULL;
+	CKJsonModel* result = NULL;
 
 	do {
 		rapidjson::Document jsonDoc;

@@ -53,7 +53,7 @@ private:
 public:
 	//************************************
 	// Method:    size
-	// FullName:  CKJsonData::size
+	// FullName:  CKJsonModel::size
 	// Access:    public 
 	// Returns:   int
 	// Qualifier: get the root keys size
@@ -62,7 +62,7 @@ public:
 
 	//************************************
 	// Method:    clear
-	// FullName:  CKJsonData::clear
+	// FullName:  CKJsonModel::clear
 	// Access:    public 
 	// Returns:   void
 	// Qualifier:  clear all data
@@ -71,7 +71,7 @@ public:
 
 	//************************************
 	// Method:    getKeys
-	// FullName:  CKJsonData::getKeys
+	// FullName:  CKJsonModel::getKeys
 	// Access:    public 
 	// Returns:   std::vector<std::string>
 	// Qualifier:  get the root keys
@@ -80,7 +80,7 @@ public:
 
 	//************************************
 	// Method:    logJsonString
-	// FullName:  CKJsonData::logJsonString
+	// FullName:  CKJsonModel::logJsonString
 	// Access:    public 
 	// Returns:   void
 	// Qualifier: log the Json string
@@ -89,7 +89,7 @@ public:
 
 	//************************************
 	// Method:    getJsonString
-	// FullName:  CKJsonData::getJsonString
+	// FullName:  CKJsonModel::getJsonString
 	// Access:    public 
 	// Returns:   std::string
 	// Qualifier: get the Json string

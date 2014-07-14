@@ -11,7 +11,7 @@
 #include "CKGameManager.h"
 #include "CKNotificationEngine.h"
 #include "wrapper/CKWrapper.h"
-#include "CKJsonData.h"
+//#include "CKJsonModel.h"
 #include "CKJsonHelper.h"
 #include "CKJsonModel.h"
 
@@ -141,22 +141,22 @@ Controller g_aTestNames[] = {
 		CKJsonHelper::getInstance()->parseJsonToJsonData("jsondata/data.json");
 		wrapper::showToast("see log");
 	}},		
-	{"JsonData",[=](){
-		CKJsonData* data = new CKJsonData();
+	/*{"JsonData",[=](){
+		CKJsonModel* data = new CKJsonModel();
 		(*data)["id"] = 1;	
 		(*data)["image"] = "image_path";
 
-		CKJsonData* child = new CKJsonData();
+		CKJsonModel* child = new CKJsonModel();
 		(*child)["name"] = 2;
 		(*child)["age"] = 2*20;
 		data->addArrayChild("stu",child);
 
-		CKJsonData* child1 = new CKJsonData();
+		CKJsonModel* child1 = new CKJsonModel();
 		(*child1)["name"] = 12;
 		(*child1)["age"] =12*20;
 		data->addArrayChild("stu",child1);
 
-		CKJsonData* obj = new CKJsonData();
+		CKJsonModel* obj = new CKJsonModel();
 		(*obj)["name"] = 12;
 		(*obj)["age"] =12*20;
 		int age = (*obj)["name"].GetInt();
@@ -164,11 +164,11 @@ Controller g_aTestNames[] = {
 		rapidjson::Type type = (*data)["stuobj"].GetType();
 
 		//反向取obj
-		CKJsonData* test = data->getObjectChildByKey("1");
+		CKJsonModel* test = data->getObjectChildByKey("1");
 		test = data->getObjectChildByKey("stuobj");
 
 		//反向取array
-		CKJsonDataVector* vector = data->getArrayChildByKey("stu");
+		CKJsonModelVector* vector = data->getArrayChildByKey("stu");
 		int count = vector->size();
 		for (int i = 0; i < count; i++)
 		{
@@ -188,7 +188,7 @@ Controller g_aTestNames[] = {
 		data->clear();
 		s = data->size();
 
-	}},
+	}},*/
 	{"CKJsonModel",[=](){
 		CKJsonModel* child = CKJsonModel::create();
 		(*child)["id"] = 12;		

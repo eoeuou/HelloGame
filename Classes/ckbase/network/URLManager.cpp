@@ -37,7 +37,7 @@ bool URLManager::init()
 	return true;
 }
 
-void URLManager::requestData(URLRequestType action, CKJsonData *j_data ,URLRequestDelegate* delegate, void* extraInfo)
+void URLManager::requestData(URLRequestType action, CKJsonModel *j_data ,URLRequestDelegate* delegate, void* extraInfo)
 {
 	requestURLData data;
 	data.action = action;

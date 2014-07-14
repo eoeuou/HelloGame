@@ -19,7 +19,7 @@ public:
 	bool init();
 
 	//∑¢ÀÕ«Î«Û    
-	void requestData(URLRequestType action, CKJsonData *j_data ,URLRequestDelegate* delegate, void* extraInfo = NULL);
+	void requestData(URLRequestType action, CKJsonModel *j_data ,URLRequestDelegate* delegate, void* extraInfo = NULL);
 			
 private:
 	URLManager(void);
