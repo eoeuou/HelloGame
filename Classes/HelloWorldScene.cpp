@@ -199,11 +199,25 @@ Controller g_aTestNames[] = {
 
 		//model
 		CKJsonModel* model = CKJsonModel::create();
+		bool result = model->HasMember("key");
 		(*model)["key"] = 1;
+		result = model->HasMember("key");
 		model->addObjectChild("child",child);
 
 		type = (*model)["child"].GetType();
 		id = (*model)["child"]["id"].GetInt();
+
+		model->logJsonString();
+
+		CKJsonModel* child1 = CKJsonModel::create();
+		(*child1)["name"] = 12;
+		(*child1)["age"] =12*20;
+		model->addArrayChild("stu",child1);
+
+		CKJsonModel* child2 = CKJsonModel::create();
+		(*child2)["name"] = 2;
+		(*child2)["age"] = 2*20;
+		model->addArrayChild("stu",child2);
 
 		model->logJsonString();
 
