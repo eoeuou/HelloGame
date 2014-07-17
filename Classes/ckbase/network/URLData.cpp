@@ -1,8 +1,10 @@
 #include "URLData.h"
 
+
 URLData::URLData(void):
 	m_addIndex(0)
 {
+	clear();
 }
 
 
@@ -20,9 +22,9 @@ bool URLData::init()
 
 bool URLData::add(requestURLData urlData)
 {
-	if (m_urlData[m_addIndex].delegate == NULL)
+	if (m_rUrlData[m_addIndex].m_listener == NULL)
 	{
-		m_urlData[m_addIndex] = urlData;
+		m_rUrlData[m_addIndex] = urlData;
 	}
 	else
 	{
@@ -43,30 +45,35 @@ string URLData::getNextUrl()
 
 	m_getIndex>=(MAX_URL_NUM-1)?m_getIndex=0:m_getIndex++;
 	
-	return generateURL(m_urlData[m_getIndex].action);
+	return generateURL(m_rUrlData[m_getIndex].m_action);
 }
 
 std::string URLData::getCurUrl()
 {
-	if (m_urlData[m_getIndex].delegate == nullptr)
+	if (m_rUrlData[m_getIndex].m_listener == nullptr)
 	{
 		return "";
 	}
 	
-	return generateURL(m_urlData[m_getIndex].action);
+	return generateURL(m_rUrlData[m_getIndex].m_action);
 }
 
 requestURLData* URLData::getCurUrlData()
 {
-	return &m_urlData[m_getIndex];
+	return &m_rUrlData[m_getIndex];
+}
+
+void URLData::removeCurRUrlData()
+{
+	m_rUrlData[m_getIndex].clear();
 }
 
 void URLData::clear()
 {
 	for (int i = 0; i < MAX_URL_NUM; i++)
 	{
-		m_urlData[i].delegate = nullptr;
-		CC_SAFE_DELETE(m_urlData[i].j_data);
+		m_rUrlData[i].m_listener = nullptr;
+		CC_SAFE_DELETE(m_rUrlData[i].m_jsonModel);
 	}
 	m_addIndex = 0;
 	m_getIndex = MAX_URL_NUM - 1;
@@ -76,7 +83,7 @@ bool URLData::isEmpty()
 {
 	for (int i = 0; i < MAX_URL_NUM; i++)
 	{
-		if (m_urlData[i].delegate != NULL)
+		if (m_rUrlData[i].m_listener != NULL)
 		{
 			return false;
 		}
@@ -87,5 +94,5 @@ bool URLData::isEmpty()
 
 std::string URLData::generateURL(URLRequestType type)
 {
-	return "";
+	return "http://tarenaapptest.herokuapp.com/?echostr=1";
 }

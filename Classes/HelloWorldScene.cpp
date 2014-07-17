@@ -1,7 +1,6 @@
 #include "HelloWorldScene.h"
 #include "cocostudio/CocoStudio.h"
 
-#include "ckbase/CKModel.h"
 #include "CKDialog.h"
 
 #include "CKGameDataManager.h"
@@ -10,10 +9,10 @@
 #include "network/CKHttpUtils.h"
 #include "CKGameManager.h"
 #include "CKNotificationEngine.h"
-#include "wrapper/CKWrapper.h"
-//#include "CKJsonModel.h"
+#include "CKWrapper.h"
 #include "CKJsonHelper.h"
 #include "CKJsonModel.h"
+#include "URLManager.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -392,16 +391,25 @@ void HelloWorld::httpTest()
 		CCLog("getFile_end:result=%s,path=%s",model->getValue("result").asString(),model->getValue("path").asString());
 	});*/
 		
-	CKHttpUtils::getInstance()->getText("http://tarenaapptest.herokuapp.com/?echostr=1",[](CKHttpModel* model){
-		bool isSucceed = model->getIsSucceed();
-		int code = model->getStatusCode();
-		CCLog("getText_end:result=%s,path=%s",model->getValue("result").asString().c_str(),model->getValue("path").asString().c_str());
-	});
+// 	CKHttpUtils::getInstance()->getText("http://tarenaapptest.herokuapp.com/?echostr=1",[](CKHttpModel* model){
+// 		bool isSucceed = model->getIsSucceed();
+// 		int code = model->getStatusCode();
+// 		CCLog("getText_end:result=%s,path=%s",model->getValue("result").asString().c_str(),model->getValue("path").asString().c_str());
+// 	});
+
+	CKJsonModel* model = CKJsonModel::create();
+	URLManager::getInstance()->requestData(k_BATTLE_WORLD_RANK_LIST,model,this);
 		
 	/*CKHttpUtils::getInstance()->getText("http://127.0.0.1:8000",[](CKHttpModel* model){
 	});*/
 	//CKHttpUtils::getInstance()->post("http://tarenaapptest.herokuapp.com/login");
 	//CKHttpUtils::getInstance()->post("http://httpbin.org/post","username=112",STD_FUN_CKHTTPMODEL_NULL);
+}
+
+void HelloWorld::urlRequestCallback(CKHttpModel* model)
+{
+	static int i = 1;
+	log("i=%d,isSucceed=%s",i++,model->getIsSucceed()?"true":"false");
 }
 
 void HelloWorld::NotificationTest()

@@ -5,6 +5,7 @@
 #include "CKCommon.h"
 #include "CKHttpUtils.h"
 #include "URLData.h"
+#include "CKWrapper.h"
 
 USING_NS_CC;
 
@@ -25,7 +26,7 @@ public:
 	// FullName:  URLController::openUrl
 	// Access:    public 
 	// Returns:   void
-	// Qualifier: 请求url,回掉URLRequestListener中URLRequestCallback方法
+	// Qualifier: 请求url,回掉URLRequestListener中urlRequestCallback方法
 	// Parameter: std::string url
 	//************************************
 	void openUrl(std::string url,URLRequestListener* urlRequestListener = nullptr);

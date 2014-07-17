@@ -3,8 +3,10 @@
 
 #include "cocos2d.h"
 #include "CKCommon.h"
+#include "CKModel.h"
+#include "URLData.h"
 
-class HelloWorld : public cocos2d::Layer
+class HelloWorld : public cocos2d::Layer , public URLRequestListener
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
@@ -40,6 +42,7 @@ public:
 
 	virtual void onExit();
 
+	virtual void urlRequestCallback(CKHttpModel* model);
 private:
 	Point _beginPos;
 	Menu* _itemMenu;

@@ -2,6 +2,7 @@
 #define __CKGAMEDATAMANAGER_H__
 
 #include "CKCommon.h"
+#include "CKModel.h"
 
 class CKGameDataManager
 {

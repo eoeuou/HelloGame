@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "URLData.h"
 #include "URLController.h"
+#include "CKHttpModel.h"
 
 USING_NS_CC;
 
@@ -19,7 +20,9 @@ public:
 	
 	bool init();
 	
-	virtual void URLRequestCallback(CKHttpModel* model);
+	void requestData(URLRequestType action, CKJsonModel *model ,URLRequestListener* listener, void* extraInfo = nullptr);
+
+	virtual void urlRequestCallback(CKHttpModel* model);
 
 private:
 	URLManager(void);
@@ -28,13 +31,20 @@ private:
 	
 	//向队列中添加url
 	bool addUrl(requestURLData _data);
-	
+		
 	void start();
-
+	
 	void next();
+
+	void retry();
+
+	void exit();
 
 	//生成与服务器的握手操作
 	std::string shakeHandsUrl();
+
+	//校验服务器返回握手数据    
+	bool checkShakeHandsData();
 
 private:
     static URLManager* s_singleInstance;		
@@ -46,7 +56,9 @@ private:
 	//是否正在与服务器握手
 	CC_SYNTHESIZE_READONLY(bool,m_bIsDoingShakeHands,BDoingShakeHands);
 	//是否正在访问url
-	CC_SYNTHESIZE_READONLY(bool,m_bIsRunning,BIsRunning)
+	CC_SYNTHESIZE_READONLY(bool,m_bIsRunning,BIsRunning);
+	//重试的次数     
+	CC_SYNTHESIZE_READONLY(int,m_iRetryTimes,IRetryTimes);
 
 	//正在访问的url
 	//CC_SYNTHESIZE_READONLY(std::string,,)

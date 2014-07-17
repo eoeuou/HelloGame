@@ -31,7 +31,7 @@ void URLController::openUrl(std::string url, URLRequestListener* urlRequestListe
 	CKHttpUtils::getInstance()->getText(url.c_str(),[this](CKHttpModel* model){
 		if (m_urlRequestListener)
 		{
-			m_urlRequestListener->URLRequestCallback(model);
+			m_urlRequestListener->urlRequestCallback(model);
 		}		
 	});
 

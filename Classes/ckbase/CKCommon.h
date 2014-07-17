@@ -7,8 +7,6 @@
 #include "json/stringbuffer.h"
 #include "json/writer.h"
 
-#include "CKModel.h"
-
 USING_NS_CC;
 USING_NS_CC_EXT;
 using namespace std;
@@ -17,7 +15,6 @@ using namespace cocostudio;
 
 //////////////////////////////////////////////////////////////////////////
 #define STD_FUN_NULL [](){}
-#define STD_FUN_CKHTTPMODEL_NULL [](CKHttpModel* model){}
 
 //////////////////////////////////////////////////////////////////////////
 

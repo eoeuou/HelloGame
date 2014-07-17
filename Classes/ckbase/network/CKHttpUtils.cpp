@@ -21,7 +21,7 @@ void CKHttpUtils::destroyInstance()
 
 bool CKHttpUtils::init()
 {
-	setTimeOutInformation(1,1);
+	//setTimeOutInformation(1,1);
 	return true;
 }
 
@@ -104,7 +104,7 @@ void CKHttpUtils::onGetTextCompleted(cocos2d::network::HttpClient *sender, cocos
 	CKHttpModel* model = CKHttpModel::create();
 
 	std::string res = httpRequestCompleted(sender,response,model);	
-	model->setValue("result",Value(res.c_str()));
+	model->setValue("content",Value(res.c_str()));
 	
 	sInfo->callback(model);
 	sInfo->hideLoadingDialog();
@@ -146,7 +146,7 @@ void CKHttpUtils::onGetFileCompleted(cocos2d::network::HttpClient *sender, cocos
 	
 	std::string res = httpRequestCompleted(sender,response,model);
 	writeFileData(path,res.c_str());
-	model->setValue("result",Value(res.c_str()));
+	model->setValue("content",Value(res.c_str()));
 	model->setValue("path",Value(path));
 
 	sInfo->callback(model);
@@ -189,7 +189,7 @@ void CKHttpUtils::onPostCompleted(cocos2d::network::HttpClient *sender, cocos2d:
 
 	std::string res = httpRequestCompleted(sender,response,model);
 	log("%s",res.c_str());
-	model->setValue("result",Value(res.c_str()));
+	model->setValue("content",Value(res.c_str()));
 
 	sInfo->callback(model);
 	sInfo->hideLoadingDialog();

@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "CKCommon.h"
+#include "CKModel.h"
 
 USING_NS_CC;
 using namespace std;

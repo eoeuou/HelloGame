@@ -1,4 +1,5 @@
 #include "CKConstants.h"
+#include "CKModel.h"
 
 CK_INIT_STATIC_FIELD_WITH_NULL(CKConstants,USER_LOGIN_URL,const char*);
 CK_INIT_STATIC_FIELD_WITH_NULL(CKConstants,GET_USER_SETTINGS_URL,const char*);

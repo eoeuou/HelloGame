@@ -3,13 +3,17 @@
 
 #include "cocos2d.h"
 #include "CKJsonModel.h"
+#include "CKHttpModel.h"
 
 USING_NS_CC;
-#define MAX_URL_NUM 20
+using namespace std;
+
+#define MAX_URL_NUM 3
 
 typedef enum __URLRequestType
 {
-	k_BATTLE_FRIENDLY_RANK_LIST = 0,
+	k_URL_NULL = 0,
+	k_BATTLE_FRIENDLY_RANK_LIST,
 	k_BATTLE_WORLD_RANK_LIST
 
 }URLRequestType;
@@ -18,27 +22,35 @@ typedef enum __URLRequestType
 class URLRequestListener
 {
 public:
-	virtual void URLRequestCallback(CKHttpModel* model) = 0;
+	virtual void urlRequestCallback(CKHttpModel* model) = 0;
 };
 
 struct requestURLData
 {
-	CKJsonModel* j_data;
-	URLRequestType action;
-	URLRequestListener* delegate;
-	char* picURL;
-	void* extraInfo;
+	CKJsonModel* m_jsonModel;
+	URLRequestType m_action;
+	URLRequestListener* m_listener;
+	char* m_picURL;
+	void* m_extraInfo;
 
 	requestURLData()
 	{
-		j_data = NULL;
-		picURL = "";
-		delegate = NULL;
-		extraInfo = NULL;
+		m_jsonModel = nullptr;
+		m_action =  URLRequestType::k_URL_NULL;
+		m_listener = nullptr;
+		m_picURL = "";
+		m_extraInfo = nullptr;
+	}
+
+	void clear()
+	{
+		m_jsonModel = nullptr;
+		m_action =  URLRequestType::k_URL_NULL;
+		m_listener = nullptr;
+		m_picURL = "";
+		m_extraInfo = nullptr;	
 	}
 };
-
-using namespace std;
 
 class URLData:public cocos2d::Ref
 {
@@ -54,6 +66,15 @@ public:
 
 	requestURLData* getCurUrlData();
 
+	//************************************
+	// Method:    removeCurRUrlData
+	// FullName:  URLData::removeCurRUrlData
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: 删除当前请求数据
+	//************************************
+	void removeCurRUrlData();
+
 	void clear();
 
 	bool isEmpty();
@@ -66,7 +87,7 @@ protected:
 	virtual bool init();  
 	
 	//用于存储Url
-	requestURLData m_urlData[MAX_URL_NUM];
+	requestURLData m_rUrlData[MAX_URL_NUM];
 
 	//添加Url的index
 	int m_addIndex;

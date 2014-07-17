@@ -188,13 +188,3 @@ int getChildrenMaxZorder(Node* parent)
 	}
 	return maxZoreder;
 }
-
-// CKModel* parseModel(string& response)
-// {
-// 
-// }
-// 
-// CKModel* parseModel(string& response,CKModel* model)
-// {
-// 
-// }

@@ -36,29 +36,4 @@ protected:
 	virtual bool init();  
 
 };
-
-/*
-以下结果均来自CKHttpUtils 返回值
-[result：内容] [path：保存地址] [statusCode：返回状态码] [isSucceed: 返回成功失败]
-*/
-class CKHttpModel : public CKModel
-{
-public:
-	CREATE_FUNC(CKHttpModel);
-
-	bool getIsSucceed(){ return this->getValue("isSucceed").asBool(); };
-
-	int getStatusCode(){ return this->getValue("statusCode").asInt(); };
-
-	std::string getPath(){ return this->getValue("path").asString(); };
-
-	std::string getResult(){ return this->getValue("result").asString(); };
-
-protected:
-
-	CKHttpModel(){}
-
-	~CKHttpModel(){}
-
-};
 #endif // __CKMODEL_H__
