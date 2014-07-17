@@ -21,10 +21,17 @@ void CKHttpUtils::destroyInstance()
 
 bool CKHttpUtils::init()
 {
+	setTimeOutInformation(1,1);
 	return true;
 }
 
-std::string CKHttpUtils::httpRequestCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response)
+void CKHttpUtils::setTimeOutInformation(int _timeoutForConnect,int _timeoutForRead)
+{
+	HttpClient::getInstance()->setTimeoutForConnect(_timeoutForConnect);
+	HttpClient::getInstance()->setTimeoutForRead(_timeoutForRead);
+}
+
+std::string CKHttpUtils::httpRequestCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response,CKHttpModel* callbackModel)
 {
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WP8)
 	if (!response)
@@ -42,11 +49,15 @@ std::string CKHttpUtils::httpRequestCompleted(cocos2d::network::HttpClient *send
 	char statusString[64] = {};
 	sprintf(statusString, "HTTP Status Code: %ld, tag = %s", statusCode, response->getHttpRequest()->getTag());
 	log("response code: %ld", statusCode);
-
+	
+	callbackModel->setValue("statusCode",Value(statusCode));
+	callbackModel->setValue("isSucceed",Value(response->isSucceed()));
+	
 	if (!response->isSucceed()) 
 	{
 		log("response failed");
 		log("error buffer: %s", response->getErrorBuffer());
+
 		return "";
 	}
 
@@ -59,7 +70,7 @@ std::string CKHttpUtils::httpRequestCompleted(cocos2d::network::HttpClient *send
 	return "";
 }
 
-void CKHttpUtils::getText(const char* url,std::function<void(CKModel* model)> callback) 
+void CKHttpUtils::getText(const char* url,std::function<void(CKHttpModel* model)> callback) 
 {
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WP8)
 	CKNetStruct* sInfo = new CKNetStruct("getTextName",callback);
@@ -71,7 +82,7 @@ void CKHttpUtils::getText(const char* url,std::function<void(CKModel* model)> ca
 	request->setResponseCallback(this, httpresponse_selector(CKHttpUtils::onGetTextCompleted));
 	request->setTag("getText");	
 	request->setUserData(sInfo);
-
+		
 	HttpClient::getInstance()->send(request);
 	request->release();
 #endif
@@ -79,7 +90,7 @@ void CKHttpUtils::getText(const char* url,std::function<void(CKModel* model)> ca
 
 void CKHttpUtils::getText(const char* url) 
 {
-	getText(url,STD_FUN_MODEL_NULL);
+	getText(url,STD_FUN_CKHTTPMODEL_NULL);
 }
 
 void CKHttpUtils::onGetTextCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response)
@@ -90,18 +101,18 @@ void CKHttpUtils::onGetTextCompleted(cocos2d::network::HttpClient *sender, cocos
 	const char* name = sInfo->name.c_str();
 	log("getTextName=%s",name);
 
-	std::string res = httpRequestCompleted(sender,response);
+	CKHttpModel* model = CKHttpModel::create();
 
-	CKModel* model = CKModel::create();
+	std::string res = httpRequestCompleted(sender,response,model);	
 	model->setValue("result",Value(res.c_str()));
-
+	
 	sInfo->callback(model);
 	sInfo->hideLoadingDialog();
 	CC_SAFE_DELETE(sInfo);
 #endif
 }
 
-void CKHttpUtils::getFile(const char* url,const char* localpath,std::function<void(CKModel* model)> callback)
+void CKHttpUtils::getFile(const char* url,const char* localpath,std::function<void(CKHttpModel* model)> callback)
 {
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WP8)
 	CKNetStruct* sInfo = new CKNetStruct(localpath,callback);	
@@ -120,7 +131,7 @@ void CKHttpUtils::getFile(const char* url,const char* localpath,std::function<vo
 }
 void CKHttpUtils::getFile(const char* url,const char* localpath)
 {
-	getFile(url,localpath,STD_FUN_MODEL_NULL);
+	getFile(url,localpath,STD_FUN_CKHTTPMODEL_NULL);
 }
 
 void CKHttpUtils::onGetFileCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response)
@@ -130,11 +141,11 @@ void CKHttpUtils::onGetFileCompleted(cocos2d::network::HttpClient *sender, cocos
 	CCASSERT(sInfo,"sInfo is empty");
 	const char* path = sInfo->name.c_str();
 	log("getTextName=%s",path);
-	
-	std::string res = httpRequestCompleted(sender,response);
-	writeFileData(path,res.c_str());
 
-	CKModel* model = CKModel::create();
+	CKHttpModel* model = CKHttpModel::create();
+	
+	std::string res = httpRequestCompleted(sender,response,model);
+	writeFileData(path,res.c_str());
 	model->setValue("result",Value(res.c_str()));
 	model->setValue("path",Value(path));
 
@@ -144,7 +155,7 @@ void CKHttpUtils::onGetFileCompleted(cocos2d::network::HttpClient *sender, cocos
 #endif
 }
 
-void CKHttpUtils::post(const char* url,const char* postData,std::function<void(CKModel* model)> callback)
+void CKHttpUtils::post(const char* url,const char* postData,std::function<void(CKHttpModel* model)> callback)
 {
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WP8)
 	CKNetStruct* sInfo = new CKNetStruct("postName",callback);	
@@ -165,7 +176,7 @@ void CKHttpUtils::post(const char* url,const char* postData,std::function<void(C
 
 void CKHttpUtils::post(const char* url,const char* postData)
 {
-	post(url,postData,STD_FUN_MODEL_NULL);
+	post(url,postData,STD_FUN_CKHTTPMODEL_NULL);
 }
 
 void CKHttpUtils::onPostCompleted(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response)
@@ -173,11 +184,11 @@ void CKHttpUtils::onPostCompleted(cocos2d::network::HttpClient *sender, cocos2d:
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WP8)
 	CKNetStruct* sInfo = static_cast<CKNetStruct*>(response->getHttpRequest()->getUserData());
 	CCASSERT(sInfo,"sInfo is empty");
+	
+	CKHttpModel* model = CKHttpModel::create();
 
-	std::string res = httpRequestCompleted(sender,response);
+	std::string res = httpRequestCompleted(sender,response,model);
 	log("%s",res.c_str());
-
-	CKModel* model = CKModel::create();
 	model->setValue("result",Value(res.c_str()));
 
 	sInfo->callback(model);

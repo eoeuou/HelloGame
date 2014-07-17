@@ -5,7 +5,7 @@ URLManager* URLManager::s_singleInstance = nullptr;
 URLManager::URLManager(void)
 	:m_urlData(NULL),
 	m_bNeedShakeHands(true),
-	m_bisDoingShakeHands(false),
+	m_bIsDoingShakeHands(false),
 	m_bIsRunning(false)
 {
 
@@ -37,37 +37,71 @@ bool URLManager::init()
 	return true;
 }
 
-void URLManager::requestData(URLRequestType action, CKJsonModel *j_data ,URLRequestDelegate* delegate, void* extraInfo)
-{
-	requestURLData data;
-	data.action = action;
-	data.delegate = delegate;
-	data.extraInfo = extraInfo;
-	data.j_data = j_data;
-	data.picURL = "";
-
-	if (!addUrl(data))
-	{
-		delegate->URLRequestErrorCallback(data.action,-1,extraInfo);
-	}	
-}
-
 bool URLManager::addUrl(requestURLData _data)
 {
 	if (!m_urlData->add(_data))
 	{
 		return false;
 	}
-	if (m_bNeedShakeHands && !m_bisDoingShakeHands)
+	if (m_bNeedShakeHands && !m_bIsDoingShakeHands)
 	{
 		m_bIsRunning = true;
-		m_bisDoingShakeHands = true;
-		
+		m_bIsDoingShakeHands = true;
+		URLController::getInstance()->openUrl(shakeHandsUrl(),this);
 		return true;
 	}
 	if (!m_bIsRunning)
 	{
-		//START();
+		start();
 	}
 	return true;
+}
+
+void URLManager::start()
+{
+	if (m_bIsRunning)
+	{
+		return;
+	}
+
+	if (m_bNeedShakeHands && !m_bIsDoingShakeHands)
+	{
+		m_bIsRunning = true;
+		m_bIsDoingShakeHands = true;
+		URLController::getInstance()->openUrl(shakeHandsUrl(),this);
+		return;
+	}
+	next();
+}
+
+void URLManager::next()
+{
+	std::string strUrl = m_urlData->getNextUrl();
+	if (strUrl == "")
+	{
+		m_bIsRunning = false;
+		return;
+	}
+
+	m_bIsRunning = true;
+	URLController::getInstance()->openUrl(strUrl,this);
+}
+
+std::string URLManager::shakeHandsUrl()
+{
+	return "";
+}
+
+void URLManager::URLRequestCallback(CKHttpModel* model)
+{
+	if (m_bIsDoingShakeHands)
+	{
+
+	}
+	else
+	{
+
+	}
+	
+	next();
 }

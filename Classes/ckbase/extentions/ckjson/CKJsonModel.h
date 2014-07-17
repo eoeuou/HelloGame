@@ -13,7 +13,7 @@ typedef std::vector<CKJsonModel*> CKJsonModelVector;
 typedef std::unordered_map<std::string, CKJsonModel*> CKJsonModelMap;
 typedef std::unordered_map<std::string, CKJsonModelVector*> CKJsonModelVectorMap;
 
-class CKJsonModel:public cocos2d::Ref , public rapidjson::Document
+class CKJsonModel:public CKModel , public rapidjson::Document
 {
 public:
 	//CREATE_FUNC(CKJsonModel);
@@ -33,11 +33,11 @@ public:
 			return NULL; 
 		} 
 	}
+	
+	~CKJsonModel(void);
 
 protected:
 	CKJsonModel(void);
-	
-	~CKJsonModel(void);
 
 	virtual bool init();  	
 
@@ -102,6 +102,13 @@ public:
 
 	rapidjson::Value& operator[](const char* key);
 
+	//************************************
+	// Method:    convertToRapidJsonValue
+	// FullName:  CKJsonModel::convertToRapidJsonValue
+	// Access:    public 
+	// Returns:   rapidjson::Value&
+	// Qualifier: 将CKJsonModel转化为rapidjson::Value对象
+	//************************************
 	rapidjson::Value& convertToRapidJsonValue();
 
 	//************************************

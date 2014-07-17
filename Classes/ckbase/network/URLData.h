@@ -14,19 +14,18 @@ typedef enum __URLRequestType
 
 }URLRequestType;
 
-class URLRequestDelegate
+/*URLController 中openUrl 方法的回掉*/
+class URLRequestListener
 {
 public:
-	virtual void URLRequestErrorCallback(URLRequestType action, int errorCode, void* extraInfo ) =0;
-	virtual void URLRequestSuccessCallback(URLRequestType action, CKJsonModel &j_data, void* extraInfo) = 0;
-	virtual void GetPicCallback(URLRequestType action, unsigned char* data, int dataLen, void* extraInfo) = 0;
+	virtual void URLRequestCallback(CKHttpModel* model) = 0;
 };
 
 struct requestURLData
 {
 	CKJsonModel* j_data;
 	URLRequestType action;
-	URLRequestDelegate* delegate;
+	URLRequestListener* delegate;
 	char* picURL;
 	void* extraInfo;
 
@@ -49,6 +48,16 @@ public:
 	//添加Url     
 	bool add(requestURLData urlData);
 
+	string getNextUrl();
+
+	std::string getCurUrl();
+
+	requestURLData* getCurUrlData();
+
+	void clear();
+
+	bool isEmpty();
+
 protected:
 	URLData(void);
 	
@@ -61,6 +70,12 @@ protected:
 
 	//添加Url的index
 	int m_addIndex;
+	
+	//
+	int m_getIndex;
+
+private:
+	std::string generateURL(URLRequestType type);
 };
 
 #endif // __URLDATA_H__

@@ -129,6 +129,9 @@
     <ClCompile Include="..\Classes\ckbase\extentions\ckjson\CKJsonModel.cpp">
       <Filter>Classes\ckbase\extentions\ckjson</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\network\URLController.cpp">
+      <Filter>Classes\ckbase\network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -223,6 +226,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\extentions\ckjson\CKJsonModel.h">
       <Filter>Classes\ckbase\extentions\ckjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\network\URLController.h">
+      <Filter>Classes\ckbase\network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

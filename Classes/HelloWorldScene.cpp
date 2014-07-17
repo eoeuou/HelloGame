@@ -219,6 +219,7 @@ Controller g_aTestNames[] = {
 		(*child2)["age"] = 2*20;
 		model->addArrayChild("stu",child2);
 
+		model->convertToRapidJsonValue();
 		model->logJsonString();
 
 	}},
@@ -387,18 +388,20 @@ void HelloWorld::httpTest()
 {
 	/*std::string writablePath = CCFileUtils::sharedFileUtils()->getWritablePath();
 	std::string fileName = writablePath+"external.txt";
-	CKHttpUtils::getInstance()->getFile("http://httpbin.org/ip",fileName.c_str(),[](CKModel* model){
+	CKHttpUtils::getInstance()->getFile("http://httpbin.org/ip",fileName.c_str(),[](CKHttpModel* model){
 		CCLog("getFile_end:result=%s,path=%s",model->getValue("result").asString(),model->getValue("path").asString());
 	});*/
-	/*
-	CKHttpUtils::getInstance()->getText("http://tarenaapptest.herokuapp.com/?echostr=1",[](CKModel* model){
-		CCLog("getText_end:result=%s,path=%s",model->getValue("result").asString(),model->getValue("path").asString());
+		
+	CKHttpUtils::getInstance()->getText("http://tarenaapptest.herokuapp.com/?echostr=1",[](CKHttpModel* model){
+		bool isSucceed = model->getIsSucceed();
+		int code = model->getStatusCode();
+		CCLog("getText_end:result=%s,path=%s",model->getValue("result").asString().c_str(),model->getValue("path").asString().c_str());
 	});
-	*/
-	/*CKHttpUtils::getInstance()->getText("http://127.0.0.1:8000",[](CKModel* model){
+		
+	/*CKHttpUtils::getInstance()->getText("http://127.0.0.1:8000",[](CKHttpModel* model){
 	});*/
 	//CKHttpUtils::getInstance()->post("http://tarenaapptest.herokuapp.com/login");
-	//CKHttpUtils::getInstance()->post("http://httpbin.org/post","username=112",STD_FUN_MODEL_NULL);
+	//CKHttpUtils::getInstance()->post("http://httpbin.org/post","username=112",STD_FUN_CKHTTPMODEL_NULL);
 }
 
 void HelloWorld::NotificationTest()

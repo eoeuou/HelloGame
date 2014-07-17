@@ -162,6 +162,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\ckbase\extentions\trigger\acts.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\trigger\cons.cpp" />
     <ClCompile Include="..\Classes\ckbase\network\CKHttpUtils.cpp" />
+    <ClCompile Include="..\Classes\ckbase\network\URLController.cpp" />
     <ClCompile Include="..\Classes\ckbase\network\URLData.cpp" />
     <ClCompile Include="..\Classes\ckbase\network\URLManager.cpp" />
     <ClCompile Include="..\Classes\ckbase\wrapper\CKAndroidWrapper.cpp">
@@ -204,6 +205,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\ckbase\extentions\trigger\cons.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\trigger\EventDef.h" />
     <ClInclude Include="..\Classes\ckbase\network\CKHttpUtils.h" />
+    <ClInclude Include="..\Classes\ckbase\network\URLController.h" />
     <ClInclude Include="..\Classes\ckbase\network\URLData.h" />
     <ClInclude Include="..\Classes\ckbase\network\URLManager.h" />
     <ClInclude Include="..\Classes\ckbase\wrapper\CKWrapper.h" />
