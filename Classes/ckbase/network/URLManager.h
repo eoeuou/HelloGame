@@ -10,7 +10,7 @@ USING_NS_CC;
 
 using namespace std;
 
-class URLManager : public URLRequestListener
+class URLManager
 {
 public:
 
@@ -22,7 +22,7 @@ public:
 	
 	void requestData(URLRequestType action, CKJsonModel *model ,URLRequestListener* listener, void* extraInfo = nullptr);
 
-	virtual void urlRequestCallback(CKHttpModel* model);
+	void urlRequestCallback(CKHttpModel* model);
 
 private:
 	URLManager(void);
@@ -31,6 +31,8 @@ private:
 	
 	//向队列中添加url
 	bool addUrl(requestURLData _data);
+
+	void openUrl(std::string url);
 		
 	void start();
 	

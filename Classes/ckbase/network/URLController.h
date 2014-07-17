@@ -26,10 +26,13 @@ public:
 	// FullName:  URLController::openUrl
 	// Access:    public 
 	// Returns:   void
-	// Qualifier: 请求url,回掉URLRequestListener中urlRequestCallback方法
+	// Qualifier:
 	// Parameter: std::string url
+	// Parameter: std::function<void
+	// Parameter: CKHttpModel * model
+	// Parameter: > callback
 	//************************************
-	void openUrl(std::string url,URLRequestListener* urlRequestListener = nullptr);
+	void openUrl(std::string url,std::function<void(CKHttpModel* model)> callback);
 			
 private:
 	URLController(void);

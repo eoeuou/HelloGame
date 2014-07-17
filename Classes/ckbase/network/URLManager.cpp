@@ -51,10 +51,10 @@ void URLManager::requestData(URLRequestType action, CKJsonModel *model ,URLReque
 	_data.m_picURL = "";
 	_data.m_extraInfo = extraInfo;
 
-	//å‘é˜Ÿåˆ—ä¸­æ·»åŠ url    
+	//Ïò¶ÓÁĞÖĞÌí¼Óurl    
 	if (!addUrl(_data))
 	{
-		//è¿›å…¥è¿™é‡Œè¯æ˜é˜Ÿåˆ—å·²æ»¡    
+		//½øÈëÕâÀïÖ¤Ã÷¶ÓÁĞÒÑÂú    
 		CKHttpModel* httpModel = CKHttpModel::create();
 		httpModel->initModelData(false,-1,"","",NULL);
 		_data.m_listener->urlRequestCallback(httpModel);
@@ -71,7 +71,8 @@ bool URLManager::addUrl(requestURLData _data)
 	{
 		m_bIsRunning = true;
 		m_bIsDoingShakeHands = true;
-		URLController::getInstance()->openUrl(shakeHandsUrl(),this);
+		std::string url = shakeHandsUrl();
+		openUrl(url);
 		return true;
 	}
 	if (!m_bIsRunning)
@@ -79,6 +80,52 @@ bool URLManager::addUrl(requestURLData _data)
 		start();
 	}
 	return true;
+}
+
+void URLManager::openUrl(std::string url)
+{
+	URLController::getInstance()->openUrl(url,[this](CKHttpModel* model){
+		
+		bool isSucceed = model->getIsSucceed();
+		if (m_bIsDoingShakeHands)
+		{
+			if (isSucceed)
+			{
+				if (checkShakeHandsData())
+				{
+					wrapper::showToast("ÎÕÊÖ³É¹¦!");
+					next();
+				}			
+			}
+			else
+			{
+				log("Óë·şÎñÆ÷Á¬½ÓÖĞ¶Ï!");
+				wrapper::showToast("Óë·şÎñÆ÷Á¬½ÓÖĞ¶Ï(ÎŞÇ©Ãû utf-8¿ÉÒÔÏÔÊ¾ººÓï) Server connection is broken!");
+				exit();
+			}		
+		}
+		else if (isSucceed)
+		{
+			//´¦ÀíÊı¾İ,¼Ó½âÃÜ´¦ÀíµÈ
+
+			URLRequestListener* listener = m_urlData->getCurUrlData()->m_listener;
+			if (listener)
+			{
+				listener->urlRequestCallback(model);
+
+				m_urlData->removeCurRUrlData();
+			}		
+
+			m_bIsRunning = false;
+			//·¢ËÍÏÂÒ»¸öÇëÇó
+			next();
+		}
+		else
+		{
+			retry();
+		}
+		
+	});
 }
 
 void URLManager::start()
@@ -92,7 +139,8 @@ void URLManager::start()
 	{
 		m_bIsRunning = true;
 		m_bIsDoingShakeHands = true;
-		URLController::getInstance()->openUrl(shakeHandsUrl(),this);
+		std::string url = shakeHandsUrl();
+		openUrl(url);
 		return;
 	}
 	next();
@@ -108,7 +156,7 @@ void URLManager::next()
 	}
 
 	m_bIsRunning = true;
-	URLController::getInstance()->openUrl(strUrl,this);
+	openUrl(strUrl);
 }
 
 void URLManager::retry()
@@ -122,7 +170,7 @@ void URLManager::retry()
 		m_iRetryTimes++;
 		std::string strUrl = m_urlData->getCurUrl();
 		m_bIsRunning = true;
-		URLController::getInstance()->openUrl(strUrl,this);
+		openUrl(strUrl);
 	}	
 }
 
@@ -162,42 +210,4 @@ bool URLManager::checkShakeHandsData()
 
 void URLManager::urlRequestCallback(CKHttpModel* model)
 {
-	bool isSucceed = model->getIsSucceed();
-	if (m_bIsDoingShakeHands)
-	{
-		if (isSucceed)
-		{
-			if (checkShakeHandsData())
-			{
-				wrapper::showToast("æ¡æ‰‹æˆåŠŸ!");
-				next();
-			}			
-		}
-		else
-		{
-			log("ä¸æœåŠ¡å™¨è¿æ¥ä¸­æ–­!");
-			wrapper::showToast("ä¸æœåŠ¡å™¨è¿æ¥ä¸­æ–­(æ— ç­¾å utf-8å¯ä»¥æ˜¾ç¤ºæ±‰è¯­) Server connection is broken!");
-			exit();
-		}		
-	}
-	else if (isSucceed)
-	{
-		//å¤„ç†æ•°æ®,åŠ è§£å¯†å¤„ç†ç­‰
-
-		URLRequestListener* listener = m_urlData->getCurUrlData()->m_listener;
-		if (listener)
-		{
-			listener->urlRequestCallback(model);
-
-			m_urlData->removeCurRUrlData();
-		}		
-
-		m_bIsRunning = false;
-		//å‘é€ä¸‹ä¸€ä¸ªè¯·æ±‚
-		next();
-	}
-	else
-	{
-		retry();
-	}
 }

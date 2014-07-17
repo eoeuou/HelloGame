@@ -23,16 +23,10 @@ bool URLController::init()
 	return true;
 }
 
-void URLController::openUrl(std::string url, URLRequestListener* urlRequestListener)
+void URLController::openUrl(std::string url,std::function<void(CKHttpModel* model)> callback)
 {
 	m_strUrl = url;
-	m_urlRequestListener = urlRequestListener;	
 
-	CKHttpUtils::getInstance()->getText(url.c_str(),[this](CKHttpModel* model){
-		if (m_urlRequestListener)
-		{
-			m_urlRequestListener->urlRequestCallback(model);
-		}		
-	});
+	CKHttpUtils::getInstance()->getText(url.c_str(),callback);
 
 }
