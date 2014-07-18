@@ -40,6 +40,7 @@ LOCAL_CXXFLAGS += -fexceptions
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/..
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/.. \
+						   $(LOCAL_PATH)/../extensions \
                            $(LOCAL_PATH)/GUI/CCControlExtension \
                            $(LOCAL_PATH)/GUI/CCScrollView 
                     

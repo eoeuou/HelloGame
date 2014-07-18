@@ -194,6 +194,7 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH) \
                     $(LOCAL_PATH)/../physics \
                     $(LOCAL_PATH)/../base \
                     $(LOCAL_PATH)/../deprecated \
+                    $(LOCAL_PATH)/../network \
                     $(LOCAL_PATH)/../../external/tinyxml2 \
                     $(LOCAL_PATH)/../../external/unzip \
                     $(LOCAL_PATH)/../../external/chipmunk/include/chipmunk \

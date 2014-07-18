@@ -30,7 +30,7 @@ struct requestURLData
 	CKJsonModel* m_jsonModel;
 	URLRequestType m_action;
 	URLRequestListener* m_listener;
-	char* m_picURL;
+	std::string m_picURL;
 	void* m_extraInfo;
 
 	requestURLData()

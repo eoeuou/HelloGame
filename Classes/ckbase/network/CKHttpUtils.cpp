@@ -50,7 +50,7 @@ std::string CKHttpUtils::httpRequestCompleted(cocos2d::network::HttpClient *send
 	sprintf(statusString, "HTTP Status Code: %ld, tag = %s", statusCode, response->getHttpRequest()->getTag());
 	log("response code: %ld", statusCode);
 	
-	callbackModel->setValue("statusCode",Value(statusCode));
+	callbackModel->setValue("statusCode",Value((int)statusCode));
 	callbackModel->setValue("isSucceed",Value(response->isSucceed()));
 	
 	if (!response->isSucceed()) 
