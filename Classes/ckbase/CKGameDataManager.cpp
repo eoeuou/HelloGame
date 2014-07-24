@@ -46,7 +46,7 @@ bool CKGameDataManager::loadGameData()
 
 		rapidjson::Document jsonDict;
 
-		CC_BREAK_IF(!parseJsonToDocument("jsondata/data.json",jsonDict));
+		CC_BREAK_IF(!parseJsonFileToDocument("jsondata/data.json",jsonDict));
 	
 		convertDocumentToModel("classname",rootModel,jsonDict);
 		convertDocumentToModel("version",rootModel,jsonDict);
@@ -73,7 +73,7 @@ bool CKGameDataManager::loadQuestionsData()
 
 		rapidjson::Document jsonDict;
 
-		CC_BREAK_IF(!parseJsonToDocument("jsondata/questions.json",jsonDict));
+		CC_BREAK_IF(!parseJsonFileToDocument("jsondata/questions.json",jsonDict));
 		
 		convertDocumentToModel("version",rootModel,jsonDict);
 

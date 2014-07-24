@@ -3,8 +3,9 @@
 
 #include "cocos2d.h"
 #include "URLData.h"
-#include "URLController.h"
+#include "CKHttpUtils.h"
 #include "CKHttpModel.h"
+#include "CKWrapper.h"
 
 USING_NS_CC;
 
@@ -21,8 +22,6 @@ public:
 	bool init();
 	
 	void requestData(URLRequestType action, CKJsonModel *model ,URLRequestListener* listener, void* extraInfo = nullptr);
-
-	void urlRequestCallback(CKHttpModel* model);
 
 private:
 	URLManager(void);

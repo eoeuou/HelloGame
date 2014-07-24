@@ -137,7 +137,7 @@ Controller g_aTestNames[] = {
 		wrapper::showToast(phone.c_str());
 	}},	
 	{"ParseJson",[=](){
-		CKJsonHelper::getInstance()->parseJsonToJsonData("jsondata/data.json");
+		CKJsonHelper::getInstance()->parseJsonToJsonModel("jsondata/data.json");
 		wrapper::showToast("see log");
 	}},		
 	/*{"JsonData",[=](){
@@ -218,9 +218,15 @@ Controller g_aTestNames[] = {
 		(*child2)["age"] = 2*20;
 		model->addArrayChild("stu",child2);
 
-		model->convertToRapidJsonValue();
 		model->logJsonString();
+		//model->convertToRapidJsonValue();
+		model->logJsonString();
+		
+		CKJsonModel* j_Data = CKJsonModel::create();
+		(*j_Data)<<model->getJsonString();
+		j_Data->logJsonString();
 
+		wrapper::showToast("xx");
 	}},
 	{"empty",[=](){
 		wrapper::showToast("empty");
@@ -410,6 +416,7 @@ void HelloWorld::urlRequestCallback(CKHttpModel* model)
 {
 	static int i = 1;
 	log("i=%d,isSucceed=%s",i++,model->getIsSucceed()?"true":"false");
+	wrapper::showToast(model->getContent().c_str());
 }
 
 void HelloWorld::NotificationTest()

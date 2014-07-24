@@ -84,7 +84,7 @@ bool URLManager::addUrl(requestURLData _data)
 
 void URLManager::openUrl(std::string url)
 {
-	URLController::getInstance()->openUrl(url,[this](CKHttpModel* model){
+	CKHttpUtils::getInstance()->getText(url.c_str(),[this](CKHttpModel* model){
 		
 		bool isSucceed = model->getIsSucceed();
 		if (m_bIsDoingShakeHands)
@@ -206,8 +206,4 @@ bool URLManager::checkShakeHandsData()
 
 
 	return result;
-}
-
-void URLManager::urlRequestCallback(CKHttpModel* model)
-{
 }

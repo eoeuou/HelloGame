@@ -69,15 +69,26 @@ std::string UnicodeToUTF8(const wchar_t* putf8);
 	CCLog("info=%s",model->getInfo().c_str());\
 
 //************************************
-// Method:    parseJsonToDocument
-// FullName:  parseJsonToDocument
+// Method:    parseJsonFileToDocument
+// FullName:  parseJsonFileToDocument
 // Access:    public 
 // Returns:   bool
 // Qualifier:  将json文件解析为document
 // Parameter: const std::string & fileName
 // Parameter: rapidjson::Document & doc
 //************************************
-bool parseJsonToDocument(const std::string &fileName, rapidjson::Document &doc);
+bool parseJsonFileToDocument(const std::string &fileName, rapidjson::Document &doc);
+
+//************************************
+// Method:    parseJsonStrToDocument
+// FullName:  parseJsonStrToDocument
+// Access:    public 
+// Returns:   bool
+// Qualifier: 将json字符串解析为document
+// Parameter: const std::string & jsonStr
+// Parameter: rapidjson::Document & doc
+//************************************
+bool parseJsonStrToDocument(const std::string &jsonStr, rapidjson::Document &doc);
 //about json end
 
 //************************************
@@ -101,6 +112,9 @@ bool writeFileData(const char * localPath, const char * fileData);
 //************************************
 int getChildrenMaxZorder(Node* parent);
 
-void writeToJson();
+/* */ 
+std::string base64_encode(const char* data, int data_len);
+/* */ 
+std::string base64_decode(const char *data, int data_len);
 
 #endif // __CKCommon_H__

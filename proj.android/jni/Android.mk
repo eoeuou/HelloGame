@@ -29,7 +29,6 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/ckbase/extentions/trigger/cons.cpp \
 ../../Classes/ckbase/network/CKHttpModel.cpp \
 ../../Classes/ckbase/network/CKHttpUtils.cpp \
-../../Classes/ckbase/network/URLController.cpp \
 ../../Classes/ckbase/network/URLData.cpp \
 ../../Classes/ckbase/network/URLManager.cpp \
 ../../Classes/ckbase/wrapper/CKAndroidWrapper.cpp \

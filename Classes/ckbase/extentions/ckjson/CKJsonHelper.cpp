@@ -22,11 +22,14 @@ bool CKJsonHelper::init()
 	return true;
 }
 
-CKJsonModel* CKJsonHelper::parseRapidJsonObject(rapidjson::Value& jsonObj)
+CKJsonModel* CKJsonHelper::parseRapidJsonObject(rapidjson::Value& jsonObj,CKJsonModel* result)
 {
 	CCAssert(jsonObj.GetType()== rapidjson::kObjectType,"jsonDoc must be object");
 	
-	CKJsonModel* result = CKJsonModel::create();
+	if (result == nullptr)
+	{
+		result = CKJsonModel::create();
+	}
 
 	for (auto it = jsonObj.MemberonBegin(); it !=  jsonObj.MemberonEnd(); ++it)
 	{		
@@ -95,19 +98,22 @@ CKJsonModel* CKJsonHelper::parseRapidJsonObject(rapidjson::Value& jsonObj)
 	return result;
 }
 
-CKJsonModel* CKJsonHelper::parseJsonToJsonData(const char* json)
+CKJsonModel* CKJsonHelper::parseJsonToJsonModel(const char* json, CKJsonModel* result)
 {
-	CKJsonModel* result = NULL;
-
+	bool parseResult = false;
 	do {
 		rapidjson::Document jsonDoc;
 
-		CC_BREAK_IF(!parseJsonToDocument(json,jsonDoc));
+		parseResult = parseJsonStrToDocument(json,jsonDoc);
 
-		result = parseRapidJsonObject(jsonDoc);	
+		CCAssert(parseResult,"parseResult is false,maybe json is wrong");
+
+		CC_BREAK_IF(!parseResult);
+
+		result = parseRapidJsonObject(jsonDoc,result);	
 
 	} while (0);
-
+		
 	CCAssert(result,"result is null,maybe json is wrong");
 
 	result->logJsonString();

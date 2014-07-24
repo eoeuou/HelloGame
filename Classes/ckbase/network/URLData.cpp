@@ -94,5 +94,13 @@ bool URLData::isEmpty()
 
 std::string URLData::generateURL(URLRequestType type)
 {
+	switch (type)
+	{
+		case k_BATTLE_WORLD_RANK_LIST:
+			break;
+		default:
+			break;
+	}
+
 	return "http://tarenaapptest.herokuapp.com/?echostr=1";
 }

@@ -96,6 +96,14 @@ protected:
 	int m_getIndex;
 
 private:
+	//************************************
+	// Method:    generateURL
+	// FullName:  URLData::generateURL
+	// Access:    private 
+	// Returns:   std::string
+	// Qualifier: 根据type生成url
+	// Parameter: URLRequestType type
+	//************************************
 	std::string generateURL(URLRequestType type);
 };
 

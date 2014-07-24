@@ -18,7 +18,7 @@ bool CKConstants::init(){
 
 		rapidjson::Document jsonDict;
 
-		CC_BREAK_IF(!parseJsonToDocument("jsondata/configfile.json",jsonDict));
+		CC_BREAK_IF(!parseJsonFileToDocument("jsondata/configfile.json",jsonDict));
 	
 		LOAD_FROM_CONFIGFILE("login",USER_LOGIN_URL,jsonDict);
 		LOAD_FROM_CONFIGFILE("get_settings",GET_USER_SETTINGS_URL,jsonDict);	

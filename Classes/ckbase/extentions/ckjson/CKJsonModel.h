@@ -102,6 +102,28 @@ public:
 	rapidjson::Value& operator[](string key);
 
 	rapidjson::Value& operator[](const char* key);
+	
+	//************************************
+	// Method:    operator>>
+	// FullName:  CKJsonModel::operator>>
+	// Access:    public 
+	// Returns:   void
+	// Qualifier:  将CKJsonModel输出到string
+	// Parameter: string & jstring
+	//************************************
+	void operator>>(string &jstring);
+	void operator>>(char* &jstring);
+
+	//************************************
+	// Method:    operator<<
+	// FullName:  CKJsonModel::operator<<
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: 将string转化为CKJsonModel
+	// Parameter: std::string str
+	//************************************
+	void operator<<(std::string jstring);
+	void operator<<(const char* jstring);
 
 	//************************************
 	// Method:    convertToRapidJsonValue

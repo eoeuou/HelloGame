@@ -19,7 +19,7 @@ public:
 
 	virtual void close();
 
-	template<class T> static T* show(CCNode* parent,int localZOrder) {
+	template<class T> static T* show(Node* parent,int localZOrder) {
 		T* dialog = T::create();
 
 		if(dialog){

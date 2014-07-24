@@ -1,4 +1,5 @@
 #include "CKJsonModel.h"
+#include "CKJsonHelper.h"
 
 CKJsonModel::CKJsonModel(void):
 	m_objMap(nullptr),
@@ -84,6 +85,29 @@ rapidjson::Value& CKJsonModel::operator[]( const char* key )
 	}
 
 	return rapidjson::Value::operator[](key);	
+}
+
+void CKJsonModel::operator>>(string &jstring)
+{
+	jstring = this->getJsonString();
+}
+
+void CKJsonModel::operator>>(char* &jstring)
+{
+	string str = this->getJsonString();
+	jstring = (char*)malloc(str.length()+1);
+	memset(jstring, 0, str.length()+1);
+	memcpy(jstring, str.c_str(), str.length());
+}
+
+void CKJsonModel::operator<<(std::string jstring)
+{
+	CKJsonHelper::getInstance()->parseJsonToJsonModel(jstring.c_str(),this);
+}
+
+void CKJsonModel::operator<<(const char* jstring)
+{
+	CKJsonHelper::getInstance()->parseJsonToJsonModel(jstring,this);
 }
 
 rapidjson::Value& CKJsonModel::convertToRapidJsonValue()
