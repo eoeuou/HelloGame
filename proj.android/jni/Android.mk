@@ -6,6 +6,7 @@ LOCAL_MODULE := cocos2dcpp_shared
 
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
+#src_begin
 LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/AppDelegate.cpp \
 ../../Classes/ckbase/CKCommon.cpp \
@@ -33,8 +34,10 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/ckbase/network/URLManager.cpp \
 ../../Classes/ckbase/wrapper/CKAndroidWrapper.cpp \
 ../../Classes/FightScene.cpp \
-../../Classes/HelloWorldScene.cpp \
+../../Classes/HelloWorldScene.cpp 
+#src_end
 
+#c_begin
 LOCAL_C_INCLUDES :=  \
 $(LOCAL_PATH)/../../Classes \
 $(LOCAL_PATH)/../../Classes/ckbase \
@@ -45,8 +48,8 @@ $(LOCAL_PATH)/../../Classes/ckbase/extentions/notification \
 $(LOCAL_PATH)/../../Classes/ckbase/extentions/pay \
 $(LOCAL_PATH)/../../Classes/ckbase/extentions/trigger \
 $(LOCAL_PATH)/../../Classes/ckbase/network \
-$(LOCAL_PATH)/../../Classes/ckbase/wrapper \
-					
+$(LOCAL_PATH)/../../Classes/ckbase/wrapper 
+#c_end
 					
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
