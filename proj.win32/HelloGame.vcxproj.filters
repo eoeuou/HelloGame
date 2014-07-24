@@ -129,11 +129,11 @@
     <ClCompile Include="..\Classes\ckbase\extentions\ckjson\CKJsonModel.cpp">
       <Filter>Classes\ckbase\extentions\ckjson</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ckbase\network\URLController.cpp">
-      <Filter>Classes\ckbase\network</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\ckbase\network\CKHttpModel.cpp">
       <Filter>Classes\ckbase\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\wrapper\RSA_CryptionHandler.cpp">
+      <Filter>Classes\ckbase\wrapper</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -230,11 +230,11 @@
     <ClInclude Include="..\Classes\ckbase\extentions\ckjson\CKJsonModel.h">
       <Filter>Classes\ckbase\extentions\ckjson</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\ckbase\network\URLController.h">
-      <Filter>Classes\ckbase\network</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\ckbase\network\CKHttpModel.h">
       <Filter>Classes\ckbase\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\wrapper\RSA_CryptionHandler.h">
+      <Filter>Classes\ckbase\wrapper</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

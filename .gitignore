@@ -123,3 +123,6 @@ build/build/
 cocos/scripting/lua-bindings/proj.ios_mac/build/
 tests/*/runtime/
 tests/*/publish/
+
+/Classes/ckbase/wrapper/RSA_CryptionHandler.cpp
+/Classes/ckbase/wrapper/RSA_CryptionHandler.h

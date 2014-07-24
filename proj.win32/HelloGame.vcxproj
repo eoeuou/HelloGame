@@ -69,7 +69,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)cocos\network;$(EngineRoot)cocos\audio\include;$(EngineRoot)cocos\editor-support;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes\ckbase\device;..\Classes\ckbase\extentions\ckjson;..\Classes\ckbase\extentions\notification;..\Classes\ckbase\extentions\pay;..\Classes\ckbase\extentions\trigger;..\Classes\ckbase\extentions;..\Classes\ckbase\network;..\Classes\ckbase\wrapper;..\Classes\ckbase;..\Classes;..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)cocos\network;$(EngineRoot)cocos\audio\include;$(EngineRoot)cocos\editor-support;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes\ckbase\device;..\Classes\ckbase\extentions\ckjson;..\Classes\ckbase\extentions\notification;..\Classes\ckbase\extentions\pay;..\Classes\ckbase\extentions\trigger;..\Classes\ckbase\extentions;..\Classes\ckbase\network;..\Classes\ckbase\wrapper;..\Classes\ckbase;..\Classes;..;..\thirdpartylibs;..\thirdpartylibs\openssl;..\thirdpartylibs\openssl\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -82,9 +82,9 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libcurl_imp.lib;websockets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libcurl_imp.lib;websockets.lib;libeay32.lib;ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
-      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir);..\thirdpartylibs\openssl\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
@@ -163,13 +163,13 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\ckbase\extentions\trigger\cons.cpp" />
     <ClCompile Include="..\Classes\ckbase\network\CKHttpModel.cpp" />
     <ClCompile Include="..\Classes\ckbase\network\CKHttpUtils.cpp" />
-    <ClCompile Include="..\Classes\ckbase\network\URLController.cpp" />
     <ClCompile Include="..\Classes\ckbase\network\URLData.cpp" />
     <ClCompile Include="..\Classes\ckbase\network\URLManager.cpp" />
     <ClCompile Include="..\Classes\ckbase\wrapper\CKAndroidWrapper.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\Classes\ckbase\wrapper\CKDefaultWrapper.cpp" />
+    <ClCompile Include="..\Classes\ckbase\wrapper\RSA_CryptionHandler.cpp" />
     <ClCompile Include="..\Classes\FightScene.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="main.cpp" />
@@ -207,10 +207,10 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\ckbase\extentions\trigger\EventDef.h" />
     <ClInclude Include="..\Classes\ckbase\network\CKHttpModel.h" />
     <ClInclude Include="..\Classes\ckbase\network\CKHttpUtils.h" />
-    <ClInclude Include="..\Classes\ckbase\network\URLController.h" />
     <ClInclude Include="..\Classes\ckbase\network\URLData.h" />
     <ClInclude Include="..\Classes\ckbase\network\URLManager.h" />
     <ClInclude Include="..\Classes\ckbase\wrapper\CKWrapper.h" />
+    <ClInclude Include="..\Classes\ckbase\wrapper\RSA_CryptionHandler.h" />
     <ClInclude Include="..\Classes\FightScene.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="main.h" />
