@@ -1,13 +1,18 @@
 package org.cocos2dx.ckbase;
 
 import java.io.File;
+import java.util.List;
 
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningAppProcessInfo;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Debug;
 import android.os.Environment;
 import android.os.StatFs;
 import android.provider.Settings;
@@ -54,16 +59,28 @@ public class CKGameHelper {
 		return Wrapper.getActivity().getPackageName();
 	}
 
-	public static String getPackageVersion() {
+	public static String getVersionName() {
 		String versionName = "0.0.0";
 		try {
 			versionName = Wrapper.getActivity().getPackageManager()
 					.getPackageInfo(Wrapper.getActivity().getPackageName(), 0).versionName;
-			Log.d("CKGame", "version " + versionName);
+			Log.d("CKGame", "VersionName " + versionName);
 		} catch (NameNotFoundException e) {
-			Log.e("CKGame", "getPackageVersion error", e);
+			Log.e("CKGame", "getVersionName error", e);
 		}
 		return versionName;
+	}
+
+	public static int getVersionCode() {
+		int versionCode = 0;
+		try {
+			versionCode = Wrapper.getActivity().getPackageManager()
+					.getPackageInfo(Wrapper.getActivity().getPackageName(), 0).versionCode;
+			Log.d("CKGame", "VersionCode " + versionCode);
+		} catch (NameNotFoundException e) {
+			Log.e("CKGame", "getVersionCode error", e);
+		}
+		return versionCode;
 	}
 
 	public static String getLocaleLanguage() {
@@ -126,7 +143,7 @@ public class CKGameHelper {
 		return android.os.Build.MODEL;
 	}
 
-	public static int getNetworkStatus() {
+	public static int getNetworkStatusCode() {
 
 		ConnectivityManager manager = (ConnectivityManager) Wrapper
 				.getActivity().getSystemService(
@@ -164,7 +181,10 @@ public class CKGameHelper {
 	// ===========================================================
 	// MemorySize
 	// ===========================================================
-	
+
+	/**
+	 * @return 手机内存的可用空间大小
+	 */
 	public static String getAvailableInternalMemorySize() {
 
 		File path = Environment.getDataDirectory();
@@ -180,6 +200,9 @@ public class CKGameHelper {
 
 	}
 
+	/**
+	 * @return 手机内存的总空间大小
+	 */
 	public static String getTotalInternalMemorySize() {
 
 		File path = Environment.getDataDirectory();
@@ -195,6 +218,9 @@ public class CKGameHelper {
 
 	}
 
+	/**
+	 * @return sdcard是否存在并具有读/写权限
+	 */
 	public static boolean externalMemoryAvailable() {
 
 		return Environment.getExternalStorageState().equals(
@@ -202,6 +228,9 @@ public class CKGameHelper {
 
 	}
 
+	/**
+	 * @return 手机sdcard的可用空间大小
+	 */
 	public static String getAvailableExternalMemorySize() {
 
 		if (externalMemoryAvailable()) {
@@ -219,12 +248,15 @@ public class CKGameHelper {
 
 		} else {
 
-			return "";
+			return "error";
 
 		}
 
 	}
 
+	/**
+	 * @return 手机sdcard的总空间大小
+	 */
 	public static String getTotalExternalMemorySize() {
 
 		if (externalMemoryAvailable()) {
@@ -242,12 +274,15 @@ public class CKGameHelper {
 
 		} else {
 
-			return "";
+			return "error";
 
 		}
 
 	}
 
+	/**
+	 * @return 手机sdcard的已用空间大小
+	 */
 	public static String getUsedExternalMemorySize() {
 
 		if (externalMemoryAvailable()) {
@@ -267,10 +302,41 @@ public class CKGameHelper {
 
 		} else {
 
-			return "";
+			return "error";
 
 		}
 
+	}
+
+	public static String getRunningAppProcessInfo() {
+		ActivityManager mActivityManager = (ActivityManager) Wrapper
+				.getActivity().getSystemService(Context.ACTIVITY_SERVICE);
+
+		// 获得系统里正在运行的所有进程
+		List<RunningAppProcessInfo> runningAppProcessesList = mActivityManager
+				.getRunningAppProcesses();
+
+		for (RunningAppProcessInfo runningAppProcessInfo : runningAppProcessesList) {
+			// 进程ID号
+			int pid = runningAppProcessInfo.pid;
+			// 用户ID
+			int uid = runningAppProcessInfo.uid;
+			// 进程名
+			String processName = runningAppProcessInfo.processName;
+			// 占用的内存
+			int[] pids = new int[] { pid };
+			Debug.MemoryInfo[] memoryInfo = mActivityManager
+					.getProcessMemoryInfo(pids);
+			int memorySize = memoryInfo[0].dalvikPrivateDirty;
+
+			Log.e("ck12345", "processName=" + processName + ",pid=" + pid
+					+ ",uid=" + uid + ",memorySize=" + memorySize + "kb");
+			if (getCKGamePackageName().equals(processName)) {
+				return "processName=" + processName + ",pid=" + pid + ",uid="
+						+ uid + ",memorySize=" + memorySize + "kb";
+			}
+		}
+		return "error";
 	}
 
 	// ===========================================================

@@ -1,6 +1,7 @@
 #include "CKDialog.h"
 
 CKDialog::CKDialog(void)
+	:m_closeItem(nullptr)
 {
 }
 
@@ -11,13 +12,13 @@ CKDialog::~CKDialog(void)
 }
 
 bool CKDialog::init()
-{	  
+{
 	bool bRet = false;
 	do 
 	{
 		CC_BREAK_IF(!LayerColor::initWithColor(Color4B(0,0,0,200)));
 
-		testBtnAdd();
+		addCloseItem();
 
 		setTouchMode(cocos2d::CCTouch::DispatchMode::ONE_BY_ONE);
 		setTouchEnabled(true);
@@ -27,35 +28,32 @@ bool CKDialog::init()
 
 	return bRet;
 }
-	
-void CKDialog::testBtnAdd()
+
+void CKDialog::addCloseItem()
 {
-	//test closebtn
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
-	auto label = LabelTTF::create("Dialog", "Arial", 24);
-
-	// position the label on the center of the screen
-	label->setPosition(Point(origin.x + visibleSize.width/2,
-		origin.y + visibleSize.height - label->getContentSize().height-220));
-
-	// add the label as a child to this layer
-	this->addChild(label, 1);
-
-	auto closeItem = MenuItemImage::create(
+	//addCloseItem
+	m_closeItem = MenuItemImage::create(
 		"CloseNormal.png",
 		"CloseSelected.png",
 		CC_CALLBACK_1(CKDialog::onCloseCallback, this));
 
-	closeItem->setPosition(Point(origin.x + visibleSize.width - closeItem->getContentSize().width/2,
-		origin.y + visibleSize.height - closeItem->getContentSize().height/2));
+	m_closeItem->setPosition(Point(origin.x + visibleSize.width - m_closeItem->getContentSize().width/2,
+		origin.y + visibleSize.height - m_closeItem->getContentSize().height/2));
 
-	// create menu, it's an autorelease object
-	auto menu = Menu::create(closeItem, NULL);
+	auto menu = Menu::create(m_closeItem, NULL);
 	menu->setPosition(Point::ZERO);
 	this->addChild(menu, 1);
-	//test closebtn
+}
+
+void CKDialog::removeCloseItem()
+{
+	if (m_closeItem)
+	{
+		m_closeItem->removeFromParent();
+	}	
 }
 
 bool CKDialog::onTouchBegan(Touch *touch, Event *unused_event)
@@ -81,7 +79,6 @@ void CKDialog::close()
 
 bool CKLoadingDialog::init()
 {
-
 	bool bRet = false;
 	do 
 	{
@@ -97,6 +94,8 @@ bool CKLoadingDialog::init()
 
 		this->addChild(m_loadingSprite);
 
+		//removeCloseItem();
+
 		bRet = true;
 	} while (0);	
 
@@ -111,4 +110,33 @@ void CKLoadingDialog::close()
 	}
 	
 	CKDialog::close();
+}
+
+bool CKInfoDialog::init()
+{
+	bool bRet = false;
+	do 
+	{
+		CC_BREAK_IF(!CKDialog::init());
+
+		Size visibleSize = Director::getInstance()->getVisibleSize();
+
+		m_infoLabel = LabelTTF::create("Hello World", "Arial", 24);
+
+		m_infoLabel->setPosition(ccp(visibleSize.width/2,visibleSize.height/2));
+
+		this->addChild(m_infoLabel);
+
+		bRet = true;
+	} while (0);	
+
+	return bRet;
+}
+
+void CKInfoDialog::setInfoLableString(std::string info)
+{
+	if (m_infoLabel)
+	{
+		m_infoLabel->setString(info);
+	}
 }

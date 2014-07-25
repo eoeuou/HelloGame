@@ -1,7 +1,7 @@
 #include "CKAndroidPayEngine.h"
 #include "platform/android/jni/JniHelper.h"
 
-#define  CKGAMEHELP_CLASS_NAME "org/cocos2dx/ckbase/CKGameHelper"
+#define  CK_JAVA_CLASS_NAME "org/cocos2dx/ckbase/CKGameHelper"
 
 CKAndroidPayEngine::CKAndroidPayEngine()
 {
@@ -18,7 +18,7 @@ bool CKAndroidPayEngine::pay(const std::string& id,int money)
 	CCLog("CKAndroidPayEngine::pay %d for %s\n",money,id.c_str());
 	JniMethodInfo t;
     
-    if (JniHelper::getStaticMethodInfo(t, CKGAMEHELP_CLASS_NAME, "pay", "(Ljava/lang/String;I)Z")) 
+    if (JniHelper::getStaticMethodInfo(t, CK_JAVA_CLASS_NAME, "pay", "(Ljava/lang/String;I)Z")) 
 	{
         jstring stringArg = t.env->NewStringUTF(id.c_str());
         jboolean ret = t.env->CallStaticBooleanMethod(t.classID, t.methodID, stringArg, money);

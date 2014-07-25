@@ -8,7 +8,7 @@
 #define NS_WP_END	}
 
 namespace wrapper {
-    
+	
     //************************************
     // Method:    showToast
     // FullName:  wrapper::showToast
@@ -19,9 +19,12 @@ namespace wrapper {
     //************************************
     void showToast(const char* msg);
 
-	std::string getPhoneNum();
-	std::string getIMSI();
 	std::string getUID();
+	std::string getIMSI();
+	std::string getPhoneNum();
+	bool isNetworkAvailable();
+	
+
 } // namespace wrapper
 
 #endif /* CKWRAPPER_H_ */

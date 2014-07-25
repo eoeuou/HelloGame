@@ -66,6 +66,8 @@ CKJsonModel* CKJsonHelper::parseRapidJsonObject(rapidjson::Value& jsonObj,CKJson
 				sprintf(value, "%s", v);
 
 				(*result)[key] = value;
+
+				delete value;
 			}
 			break;
 		case rapidjson::kNumberType:
@@ -98,13 +100,20 @@ CKJsonModel* CKJsonHelper::parseRapidJsonObject(rapidjson::Value& jsonObj,CKJson
 	return result;
 }
 
-CKJsonModel* CKJsonHelper::parseJsonToJsonModel(const char* json, CKJsonModel* result)
+CKJsonModel* CKJsonHelper::parseJsonToJsonModel(const char* json, CKJsonModel* result, bool isFile)
 {
 	bool parseResult = false;
 	do {
 		rapidjson::Document jsonDoc;
 
-		parseResult = parseJsonStrToDocument(json,jsonDoc);
+		if (isFile)
+		{
+			parseResult = parseJsonFileToDocument(json,jsonDoc);
+		}
+		else
+		{
+			parseResult = parseJsonStrToDocument(json,jsonDoc);
+		}		
 
 		CCAssert(parseResult,"parseResult is false,maybe json is wrong");
 

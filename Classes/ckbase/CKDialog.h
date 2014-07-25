@@ -9,6 +9,8 @@ using namespace std;
 
 class CKDialog:public cocos2d::LayerColor
 {
+private:
+	CC_SYNTHESIZE_READONLY(MenuItemImage*,m_closeItem,CloseItem);
 public:
 	CREATE_FUNC(CKDialog);
 				
@@ -32,7 +34,9 @@ public:
 		return dialog;
 	};
 
-	void testBtnAdd();
+	void addCloseItem();
+
+	void removeCloseItem();
 protected:
 	CKDialog(void);
 	
@@ -42,7 +46,7 @@ protected:
 
 };
 
-class  CKLoadingDialog : public CKDialog
+class CKLoadingDialog : public CKDialog
 {
 private:
 	CC_SYNTHESIZE_READONLY(Sprite*,m_loadingSprite,LoadingSprite);
@@ -59,6 +63,25 @@ protected:
 	CKLoadingDialog():m_loadingSprite(nullptr){}
 
 	~CKLoadingDialog(){}
+
+};
+
+class CKInfoDialog : public CKDialog
+{
+private:
+	CC_SYNTHESIZE_READONLY(LabelTTF*,m_infoLabel,InfoLabel);
+
+public:
+	CREATE_FUNC(CKInfoDialog);
+
+	virtual bool init() override;
+
+	void setInfoLableString(std::string info);
+protected:
+
+	CKInfoDialog():m_infoLabel(nullptr){}
+
+	~CKInfoDialog(){}
 
 };
 #endif // __CKDIALOG_H__

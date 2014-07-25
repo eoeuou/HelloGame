@@ -13,6 +13,7 @@
 #include "CKJsonHelper.h"
 #include "CKJsonModel.h"
 #include "URLManager.h"
+#include "CKDeviceEngine.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -137,57 +138,9 @@ Controller g_aTestNames[] = {
 		wrapper::showToast(phone.c_str());
 	}},	
 	{"ParseJson",[=](){
-		CKJsonHelper::getInstance()->parseJsonToJsonModel("jsondata/data.json");
+		CKJsonHelper::getInstance()->parseJsonToJsonModel("jsondata/data.json",nullptr,true);
 		wrapper::showToast("see log");
-	}},		
-	/*{"JsonData",[=](){
-		CKJsonModel* data = new CKJsonModel();
-		(*data)["id"] = 1;	
-		(*data)["image"] = "image_path";
-
-		CKJsonModel* child = new CKJsonModel();
-		(*child)["name"] = 2;
-		(*child)["age"] = 2*20;
-		data->addArrayChild("stu",child);
-
-		CKJsonModel* child1 = new CKJsonModel();
-		(*child1)["name"] = 12;
-		(*child1)["age"] =12*20;
-		data->addArrayChild("stu",child1);
-
-		CKJsonModel* obj = new CKJsonModel();
-		(*obj)["name"] = 12;
-		(*obj)["age"] =12*20;
-		int age = (*obj)["name"].GetInt();
-		data->addObjectChild("stuobj",obj);
-		rapidjson::Type type = (*data)["stuobj"].GetType();
-
-		//反向取obj
-		CKJsonModel* test = data->getObjectChildByKey("1");
-		test = data->getObjectChildByKey("stuobj");
-
-		//反向取array
-		CKJsonModelVector* vector = data->getArrayChildByKey("stu");
-		int count = vector->size();
-		for (int i = 0; i < count; i++)
-		{
-			//vector->at(i)["name"] = "this is name";
-		}		
-
-		data->logJsonString();
-
-		bool result = data->hasRapidJsonMember("stu");
-		result = data->hasRapidJsonMember("name");
-		result = data->hasRapidJsonMember("id");
-
-		std::string str = data->getJsonString();
-		wrapper::showToast(str.c_str());
-
-		int s = data->size();
-		data->clear();
-		s = data->size();
-
-	}},*/
+	}},
 	{"CKJsonModel",[=](){
 		CKJsonModel* child = CKJsonModel::create();
 		(*child)["id"] = 12;		
@@ -228,6 +181,14 @@ Controller g_aTestNames[] = {
 
 		wrapper::showToast("xx");
 	}},
+	{"DeviceMemorySize",[=](){
+		CKInfoDialog* dialog = CKDialog::show<CKInfoDialog>(m_hello,getChildrenMaxZorder(m_hello));
+		dialog->setInfoLableString(CKDeviceEngine::sharedEngine()->getDeviceMemorySizeInfo());
+	}},	
+	{"CurNetworkStatus",[=](){
+		NetworkStatusType status = CKDeviceEngine::sharedEngine()->getCurNetworkStatusType();
+		wrapper::showToast(intToString(status));
+	}},	
 	{"empty",[=](){
 		wrapper::showToast("empty");
 	}},	

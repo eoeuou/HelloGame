@@ -25,8 +25,10 @@ public:
 	// Returns:   CKJsonModel*
 	// Qualifier:
 	// Parameter: const char * json
+	// Parameter: CKJsonModel * result
+	// Parameter: bool isFile
 	//************************************
-	CKJsonModel* parseJsonToJsonModel(const char* json,CKJsonModel* result = nullptr);
+	CKJsonModel* parseJsonToJsonModel(const char* json,CKJsonModel* result = nullptr,bool isFile = false);
 private:
 	CKJsonHelper(void);
 	
@@ -37,8 +39,9 @@ private:
 	// FullName:  CKJsonHelper::parseRapidJsonObject
 	// Access:    private 
 	// Returns:   CKJsonModel*
-	// Qualifier: 
-	// Parameter: rapidjson::Value & jsonDoc
+	// Qualifier:
+	// Parameter: rapidjson::Value & jsonObj
+	// Parameter: CKJsonModel * result
 	//************************************
 	CKJsonModel* parseRapidJsonObject(rapidjson::Value& jsonObj,CKJsonModel* result = nullptr);
 };

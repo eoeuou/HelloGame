@@ -1,4 +1,5 @@
 #include "CKDefaultDeviceEngine.h"
+#include "CKWrapper.h"
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
 #include "platform\wp8-xaml\cpp\WP8DataManager.h"
 #endif
@@ -22,5 +23,5 @@ std::string CKDefaultDeviceEngine::getDeviceId()
 
 void CKDefaultDeviceEngine::showNetworkSettings()
 {
-
+	wrapper::showToast("This is win32");
 }
