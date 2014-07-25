@@ -48,6 +48,22 @@ CK_INIT_STATIC_FIELD(className,fieldName,fieldType,NULL)
 #define CK_SINGLETON_METHOD_INIT(className,fieldName)\
 CK_INIT_STATIC_FIELD(className,fieldName,className*,NULL)
 
+//CKMODEL变量返回值
+#define CK_SYNTHESIZE_MODEL_STRING(varType,varName, funName)\
+public: virtual varType get##funName(void) const { return this->getValue(varName).asString();}
+
+#define CK_SYNTHESIZE_MODEL_INTEGER(varType,varName, funName)\
+public: virtual varType get##funName(void) const { return this->getValue(varName).asInt();}
+
+#define CK_SYNTHESIZE_MODEL_BOOLEAN(varType,varName, funName)\
+public: virtual varType get##funName(void) const { return this->getValue(varName).asBool();}
+
+#define CK_SYNTHESIZE_MODEL_FLOAT(varType,varName, funName)\
+public: virtual varType get##funName(void) const { return this->getValue(varName).asFloat();}
+
+#define CK_SYNTHESIZE_MODEL_DOUBLE(varType,varName, funName)\
+public: virtual varType get##funName(void) const { return this->getValue(varName).asDouble();}
+
 const char* intToString(const int value);
 const char* longToString(const long value);
 const char* floatToString(const float value);

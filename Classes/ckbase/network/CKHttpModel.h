@@ -21,17 +21,16 @@ public:
 	CREATE_FUNC(CKHttpModel);
 
 	/*[isSucceed: 返回成功失败]*/
-	bool getIsSucceed(){ return this->getValue("isSucceed",Value(false)).asBool(); };
+	CK_SYNTHESIZE_MODEL_BOOLEAN(bool,"isSucceed",IsSucceed);
 
 	/*[statusCode：返回状态码]*/
-	int getStatusCode(){ return this->getValue("statusCode").asInt(); };
+	CK_SYNTHESIZE_MODEL_INTEGER(int,"statusCode",StatusCode);
 
 	/*[path：保存地址]*/
-	std::string getPath(){ return this->getValue("path").asString(); };
+	CK_SYNTHESIZE_MODEL_STRING(std::string,"path",Path);
 
-	/*[result：内容]*/
-	std::string getContent(){ return this->getValue("content").asString(); };
-		
+	/*[content：内容]*/
+	CK_SYNTHESIZE_MODEL_STRING(std::string,"content",Content);
 	/*json数据*/
 	CC_SYNTHESIZE_READONLY(CKJsonModel*,m_curCKJsonModel,CurCKJsonModel);
 
