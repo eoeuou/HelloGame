@@ -8,7 +8,12 @@ CKIOSNotificationEngine::~CKIOSNotificationEngine() {
 
 }
 
-bool CKIOSNotificationEngine::notification(const std::string& id,int money){
-	CCLOG("CKIOSNotificationEngine::notification %d for %s\n",money,id.c_str());
-	return false;
+void CKIOSNotificationEngine::show(CKNotification& notification)
+{
+
+}
+
+void CKIOSNotificationEngine::cancel(CKNotification& notification)
+{
+
 }

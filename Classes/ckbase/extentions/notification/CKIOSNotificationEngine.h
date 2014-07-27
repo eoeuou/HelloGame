@@ -8,7 +8,10 @@ public:
 	CKIOSNotificationEngine();
 	virtual ~CKIOSNotificationEngine();
 
-	virtual bool notification(const std::string& id,int money);
+	virtual void show(CKNotification& notification);
+    
+	virtual void cancel(CKNotification& notification);
+
 };
 
 #endif /* CKIOSNOTIFICATIONENGINE_H_ */

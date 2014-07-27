@@ -5,8 +5,8 @@
 
 #include "CKGameDataManager.h"
 #include "FightScene.h"
-#include "device/CKDeviceEngine.h"
-#include "network/CKHttpUtils.h"
+#include "CKDeviceEngine.h"
+#include "CKHttpUtils.h"
 #include "CKGameManager.h"
 #include "CKNotificationEngine.h"
 #include "CKWrapper.h"

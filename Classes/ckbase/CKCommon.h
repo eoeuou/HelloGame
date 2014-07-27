@@ -2,7 +2,7 @@
 #define __CKCommon_H__
 
 #include "cocos2d.h"
-#include "editor-support\cocostudio\DictionaryHelper.h"
+#include "cocostudio/DictionaryHelper.h"
 #include "cocos-ext.h"
 #include "json/stringbuffer.h"
 #include "json/writer.h"

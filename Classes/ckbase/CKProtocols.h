@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
-#include "trigger/EventDef.h"
+#include "EventDef.h"
 
 USING_NS_CC;
 
