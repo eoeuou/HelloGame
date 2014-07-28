@@ -1,7 +1,7 @@
 #include "CKAndroidPayEngine.h"
 #include "platform/android/jni/JniHelper.h"
 
-#define  CK_JAVA_CLASS_NAME "org/cocos2dx/cpp/ckbase/CKGameHelper"
+#define  CK_JAVA_CLASS_NAME "org/cocos2dx/ckbase/CKGameHelper"
 
 CKAndroidPayEngine::CKAndroidPayEngine()
 {

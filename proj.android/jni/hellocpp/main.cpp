@@ -10,6 +10,8 @@
 #include "org_cocos2dx_ckbase_CKNotification.h"
 #include "org_cocos2dx_ckbase_CKGameHelper.h"
 #include "org_cocos2dx_ckbase_utils_CKNotificationService.h"
+#include "org_cocos2dx_ckbase_CKMessageBox.h"
+#include "CKMessageBox.h"
 
 #define  LOG_TAG    "main"
 #define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
@@ -61,4 +63,14 @@ JNIEXPORT jstring JNICALL Java_org_cocos2dx_ckbase_CKGameHelper_httpUtilsGetText
 	std::string path = JniHelper::jstring2string(url);
 	CKHttpUtils::getInstance()->getText(path.c_str());
 	return env->NewStringUTF("");
+}
+/*
+ * Class:     org_cocos2dx_ckbase_CKMessageBox
+ * Method:    onNativeButtonClick
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_org_cocos2dx_ckbase_CKMessageBox_onNativeButtonClick
+  (JNIEnv *env, jclass obj, jint which)
+{
+	CKMessageBox::dispatchButtonClick(which);
 }

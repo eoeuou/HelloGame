@@ -69,7 +69,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)cocos\network;$(EngineRoot)cocos\audio\include;$(EngineRoot)cocos\editor-support;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes\ckbase\device;..\Classes\ckbase\extentions\ckjson;..\Classes\ckbase\extentions\notification;..\Classes\ckbase\extentions\pay;..\Classes\ckbase\extentions\trigger;..\Classes\ckbase\extentions;..\Classes\ckbase\network;..\Classes\ckbase\wrapper;..\Classes\ckbase;..\Classes;..;..\thirdpartylibs;..\thirdpartylibs\openssl;..\thirdpartylibs\openssl\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)cocos\network;$(EngineRoot)cocos\audio\include;$(EngineRoot)cocos\editor-support;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes\ckbase\device;..\Classes\ckbase\extentions\rating;..\Classes\ckbase\extentions\messagebox;..\Classes\ckbase\extentions\ckjson;..\Classes\ckbase\extentions\notification;..\Classes\ckbase\extentions\pay;..\Classes\ckbase\extentions\trigger;..\Classes\ckbase\extentions;..\Classes\ckbase\network;..\Classes\ckbase\wrapper;..\Classes\ckbase;..\Classes;..;..\thirdpartylibs;..\thirdpartylibs\openssl;..\thirdpartylibs\openssl\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -149,6 +149,11 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\ckbase\device\CKDeviceEngine.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\ckjson\CKJsonHelper.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\ckjson\CKJsonModel.cpp" />
+    <ClCompile Include="..\Classes\ckbase\extentions\messagebox\CKAndroidMessageBox.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\messagebox\CKDefaultMessageBox.cpp" />
+    <ClCompile Include="..\Classes\ckbase\extentions\messagebox\CKMessageBox.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\notification\CKAndroidNotificationEngine.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -159,6 +164,12 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     </ClCompile>
     <ClCompile Include="..\Classes\ckbase\extentions\pay\CKDefaultPayEngine.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\pay\CKPayEngine.cpp" />
+    <ClCompile Include="..\Classes\ckbase\extentions\rating\CKAndroidRatingEngine.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\rating\CKDefaultRatingEngine.cpp" />
+    <ClCompile Include="..\Classes\ckbase\extentions\rating\CKRatingDialog.cpp" />
+    <ClCompile Include="..\Classes\ckbase\extentions\rating\CKRatingEngine.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\trigger\acts.cpp" />
     <ClCompile Include="..\Classes\ckbase\extentions\trigger\cons.cpp" />
     <ClCompile Include="..\Classes\ckbase\network\CKHttpModel.cpp" />
@@ -192,6 +203,11 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\ckbase\device\CKDeviceEngine.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\ckjson\CKJsonHelper.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\ckjson\CKJsonModel.h" />
+    <ClInclude Include="..\Classes\ckbase\extentions\messagebox\CKAndroidMessageBox.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\messagebox\CKDefaultMessageBox.h" />
+    <ClInclude Include="..\Classes\ckbase\extentions\messagebox\CKMessageBox.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\notification\CKAndroidNotificationEngine.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
@@ -202,6 +218,12 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\extentions\pay\CKDefaultPayEngine.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\pay\CKPayEngine.h" />
+    <ClInclude Include="..\Classes\ckbase\extentions\rating\CKAndroidRatingEngine.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\rating\CKDefaultRatingEngine.h" />
+    <ClInclude Include="..\Classes\ckbase\extentions\rating\CKRatingDialog.h" />
+    <ClInclude Include="..\Classes\ckbase\extentions\rating\CKRatingEngine.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\trigger\acts.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\trigger\cons.h" />
     <ClInclude Include="..\Classes\ckbase\extentions\trigger\EventDef.h" />

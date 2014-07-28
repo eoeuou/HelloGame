@@ -2,7 +2,6 @@ package org.cocos2dx.ckbase.utils;
 
 import java.util.ArrayList;
 
-import org.cocos2dx.ckbase.CKGameHelper;
 import org.cocos2dx.ckbase.Wrapper;
 
 import android.content.Context;

@@ -37,6 +37,12 @@
     <Filter Include="Classes\ckbase\extentions\ckjson">
       <UniqueIdentifier>{5b55d894-b72d-4e7f-a7d0-a91d0b9706f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\ckbase\extentions\rating">
+      <UniqueIdentifier>{6c320bca-8813-4e33-882b-0ea98612bc06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ckbase\extentions\messagebox">
+      <UniqueIdentifier>{b97db14b-c830-4284-8ccf-c72c53fa39f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -134,6 +140,27 @@
     </ClCompile>
     <ClCompile Include="..\Classes\ckbase\wrapper\RSA_CryptionHandler.cpp">
       <Filter>Classes\ckbase\wrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\rating\CKAndroidRatingEngine.cpp">
+      <Filter>Classes\ckbase\extentions\rating</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\rating\CKDefaultRatingEngine.cpp">
+      <Filter>Classes\ckbase\extentions\rating</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\rating\CKRatingEngine.cpp">
+      <Filter>Classes\ckbase\extentions\rating</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\rating\CKRatingDialog.cpp">
+      <Filter>Classes\ckbase\extentions\rating</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\messagebox\CKAndroidMessageBox.cpp">
+      <Filter>Classes\ckbase\extentions\messagebox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\messagebox\CKDefaultMessageBox.cpp">
+      <Filter>Classes\ckbase\extentions\messagebox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\extentions\messagebox\CKMessageBox.cpp">
+      <Filter>Classes\ckbase\extentions\messagebox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +262,27 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\wrapper\RSA_CryptionHandler.h">
       <Filter>Classes\ckbase\wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\rating\CKAndroidRatingEngine.h">
+      <Filter>Classes\ckbase\extentions\rating</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\rating\CKDefaultRatingEngine.h">
+      <Filter>Classes\ckbase\extentions\rating</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\rating\CKRatingEngine.h">
+      <Filter>Classes\ckbase\extentions\rating</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\rating\CKRatingDialog.h">
+      <Filter>Classes\ckbase\extentions\rating</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\messagebox\CKAndroidMessageBox.h">
+      <Filter>Classes\ckbase\extentions\messagebox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\messagebox\CKDefaultMessageBox.h">
+      <Filter>Classes\ckbase\extentions\messagebox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ckbase\extentions\messagebox\CKMessageBox.h">
+      <Filter>Classes\ckbase\extentions\messagebox</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

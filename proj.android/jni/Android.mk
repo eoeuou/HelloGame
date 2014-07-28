@@ -21,10 +21,15 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/ckbase/device/CKDeviceEngine.cpp \
 ../../Classes/ckbase/extentions/ckjson/CKJsonHelper.cpp \
 ../../Classes/ckbase/extentions/ckjson/CKJsonModel.cpp \
+../../Classes/ckbase/extentions/messagebox/CKAndroidMessageBox.cpp \
+../../Classes/ckbase/extentions/messagebox/CKMessageBox.cpp \
 ../../Classes/ckbase/extentions/notification/CKAndroidNotificationEngine.cpp \
 ../../Classes/ckbase/extentions/notification/CKNotificationEngine.cpp \
 ../../Classes/ckbase/extentions/pay/CKAndroidPayEngine.cpp \
 ../../Classes/ckbase/extentions/pay/CKPayEngine.cpp \
+../../Classes/ckbase/extentions/rating/CKAndroidRatingEngine.cpp \
+../../Classes/ckbase/extentions/rating/CKRatingDialog.cpp \
+../../Classes/ckbase/extentions/rating/CKRatingEngine.cpp \
 ../../Classes/ckbase/extentions/trigger/acts.cpp \
 ../../Classes/ckbase/extentions/trigger/cons.cpp \
 ../../Classes/ckbase/network/CKHttpModel.cpp \
@@ -43,8 +48,10 @@ $(LOCAL_PATH)/../../Classes/ckbase \
 $(LOCAL_PATH)/../../Classes/ckbase/device \
 $(LOCAL_PATH)/../../Classes/ckbase/extentions \
 $(LOCAL_PATH)/../../Classes/ckbase/extentions/ckjson \
+$(LOCAL_PATH)/../../Classes/ckbase/extentions/messagebox \
 $(LOCAL_PATH)/../../Classes/ckbase/extentions/notification \
 $(LOCAL_PATH)/../../Classes/ckbase/extentions/pay \
+$(LOCAL_PATH)/../../Classes/ckbase/extentions/rating \
 $(LOCAL_PATH)/../../Classes/ckbase/extentions/trigger \
 $(LOCAL_PATH)/../../Classes/ckbase/network \
 $(LOCAL_PATH)/../../Classes/ckbase/wrapper 

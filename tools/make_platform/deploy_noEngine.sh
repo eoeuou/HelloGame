@@ -9,7 +9,7 @@ rm -rf output
 mkdir output
 
 begname="CK"
-endname="Engine"
+endname=""
 filename=$begname$1$endname""
 hfile=$begname$1$endname".h"
 cppfile=$begname$1$endname".cpp"
@@ -48,5 +48,5 @@ sed -i -e "s/pay/$filenamesmall/g" output/*
 
 sed -i -e "s/CKPayEngine/$filename/g" output/*
 
+sed -i -e "s/PayEngine/$1/g" output/*
 sed -i -e "s/Pay/$1/g" output/*
-

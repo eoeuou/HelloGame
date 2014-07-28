@@ -14,6 +14,7 @@
 #include "CKJsonModel.h"
 #include "URLManager.h"
 #include "CKDeviceEngine.h"
+#include "CKMessageBox.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -188,6 +189,9 @@ Controller g_aTestNames[] = {
 	{"CurNetworkStatus",[=](){
 		NetworkStatusType status = CKDeviceEngine::sharedEngine()->getCurNetworkStatusType();
 		wrapper::showToast(intToString(status));
+	}},	
+	{"Messagebox",[=](){
+		m_hello->messageboxTest();
 	}},	
 	{"empty",[=](){
 		wrapper::showToast("empty");
@@ -389,4 +393,22 @@ void HelloWorld::NotificationTest()
 	notification.message = "message";
 	notification.url = "http://www.baidu.com/";
 	engine->show(notification);
+}
+
+void HelloWorld::messageboxTest()
+{
+	const char* title = "title";
+	const char* message = "message";
+	CKMessageBox* msg = CKMessageBox::create(title,message);
+	msg->setButtonText(CKMessageBox::BUTTON_POSITIVE,"Ok");
+	msg->setButtonText(CKMessageBox::BUTTON_NEGATIVE,"Cancel");
+
+	msg->setMsgBoxCallback([](CKMessageBox* box,int which){
+		char buf[256];
+		sprintf(buf, "msgBoxCallBack:which = %d", which);
+		wrapper::showToast(buf);
+	});
+	msg->show();
+
+	//msg->dispatchButtonClick(-1);
 }

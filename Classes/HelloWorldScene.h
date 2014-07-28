@@ -40,6 +40,8 @@ public:
 
 	void NotificationTest();
 
+	void messageboxTest();
+
 	virtual void onExit();
 
 	virtual void urlRequestCallback(CKHttpModel* model);
