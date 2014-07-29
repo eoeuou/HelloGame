@@ -5,12 +5,13 @@ CKJsonModel::CKJsonModel(void):
 	m_objMap(nullptr),
 	m_arrayMap(nullptr)
 {
+
 }
 
 
 CKJsonModel::~CKJsonModel(void)
 {
-	
+
 }
 
 bool CKJsonModel::init()

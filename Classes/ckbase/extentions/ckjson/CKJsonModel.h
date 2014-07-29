@@ -23,8 +23,7 @@ public:
 		CKJsonModel *pRet = new CKJsonModel(); 
 		if (pRet && pRet->init()) 
 		{ 
-			pRet->autorelease(); 
-			//pRet->retain();
+			pRet->autorelease();
 			return pRet; 
 		} 
 		else 
