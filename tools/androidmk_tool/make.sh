@@ -9,6 +9,7 @@ cp ../../proj.android/jni/Android.mk output/Android.mk
 #make LOCAL_C_INCLUDES
 echo "LOCAL_C_INCLUDES := ">> output/dir_temp.txt
 find ./../../Classes -type d>> output/dir_temp.txt
+find ./../../thirdpartylibs -type d>> output/dir_temp.txt
 sed -i "s/\.\/\.\.\/\.\.\//\$\(LOCAL_PATH\)\/\.\.\/\.\.\//g" output/dir_temp.txt
 sed -i "s/$/&\ \\\/g" output/dir_temp.txt
 
@@ -16,7 +17,8 @@ line=`cat output/dir_temp.txt | wc -l`
 sed -i ''$line's/\\//' output/dir_temp.txt
 
 echo -e '\033[41;33;1m PATH_BEGIN \033[0m'
-cat output/dir_temp.txt
+#cat output/dir_temp.txt
+echo "you can cat output/dir_temp.txt"
 echo -e '\033[41;33;1m PATH_END \033[0m'
 
 #make LOCAL_SRC_FILES
@@ -40,7 +42,8 @@ line=`cat output/path_temp.txt | wc -l`
 sed -i ''$line's/\\//' output/path_temp.txt
 
 echo -e '\033[41;33;1m SRC_BEGIN \033[0m'
-cat output/path_temp.txt
+#cat output/path_temp.txt
+echo "you can cat output/path_temp.txt"
 echo -e '\033[41;33;1m SRC_END \033[0m'
 
 #==============================
@@ -59,7 +62,7 @@ then
 	echo 'delete from '$src_begin' to '$src_end''
 	sed -i ''$src_begin','$src_end'd' output/Android.mk
 else
-	echo 'delete nothing'
+	cat 'warning delete nothing'
 fi
 #add src_begin~src_end
 sed -i '/#src_begin/r output/path_temp.txt' output/Android.mk
@@ -80,7 +83,7 @@ then
 	echo 'delete from '$c_begin' to '$c_end''
 	sed -i ''$c_begin','$c_end'd' output/Android.mk
 else
-	echo 'delete nothing'
+	cat 'warning delete nothing'
 fi
 #add c_begin~c_end
 sed -i '/#c_begin/r output/dir_temp.txt' output/Android.mk

@@ -390,7 +390,7 @@ void HelloWorld::urlRequestCallback(CKHttpModel* model)
 	std::string abc = "xxxxxxxxxxxx";
 	model->setContent(abc);
 	std::string a = model->getContent();
-	log(a.c_str());
+	log("%s",a.c_str());
 }
 
 void HelloWorld::NotificationTest()
