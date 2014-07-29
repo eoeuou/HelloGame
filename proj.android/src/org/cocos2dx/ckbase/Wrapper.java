@@ -1,6 +1,8 @@
 package org.cocos2dx.ckbase;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.Gravity;
 import android.widget.Toast;
 
@@ -46,6 +48,12 @@ public class Wrapper {
 				toast.show();
 			}
 		});
+	}
+
+	public static void openUrl(String url) {
+		Intent marketIntent = new Intent("android.intent.action.VIEW");
+		marketIntent.setData(Uri.parse(url));
+		Wrapper.getActivity().startActivity(marketIntent);
 	}
 
 }

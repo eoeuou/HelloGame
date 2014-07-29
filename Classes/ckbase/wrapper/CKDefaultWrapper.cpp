@@ -24,9 +24,9 @@ void showToast(const char* msg)
 	label->runAction(CCSequence::createWithTwoActions(CCDelayTime::create(1.0f),CCRemoveSelf::create(true)));
 }
 
-std::string getUID(){ return CKDeviceEngine::sharedEngine()->getDeviceId();}
-std::string getIMSI(){ return CKDeviceEngine::sharedEngine()->getIMSI();}
-std::string getPhoneNum(){ return CKDeviceEngine::sharedEngine()->getPhoneNum();}
-bool isNetworkAvailable(){ return CKDeviceEngine::sharedEngine()->isNetworkAvailable();}
+void openUrl(const char* url)
+{
+
+}
 
 NS_WP_END

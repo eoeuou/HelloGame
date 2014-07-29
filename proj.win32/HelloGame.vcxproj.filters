@@ -162,6 +162,9 @@
     <ClCompile Include="..\Classes\ckbase\extentions\messagebox\CKMessageBox.cpp">
       <Filter>Classes\ckbase\extentions\messagebox</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\wrapper\CKWrapper.cpp">
+      <Filter>Classes\ckbase\wrapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">

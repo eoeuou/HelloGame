@@ -15,7 +15,7 @@
 #include "URLManager.h"
 #include "CKDeviceEngine.h"
 #include "CKMessageBox.h"
-
+#include "CKRatingEngine.h"
 USING_NS_CC;
 using namespace cocostudio;
 
@@ -192,6 +192,10 @@ Controller g_aTestNames[] = {
 	}},	
 	{"Messagebox",[=](){
 		m_hello->messageboxTest();
+	}},	
+	{"Rate",[=](){
+		CKRatingEngine::sharedEngine()->rate("");
+		wrapper::showToast("empty");
 	}},	
 	{"empty",[=](){
 		wrapper::showToast("empty");
@@ -404,7 +408,7 @@ void HelloWorld::messageboxTest()
 	msg->setButtonText(CKMessageBox::BUTTON_NEGATIVE,"Cancel");
 
 	msg->setMsgBoxCallback([](CKMessageBox* box,int which){
-		char buf[256];
+		char buf[256] = {0};
 		sprintf(buf, "msgBoxCallBack:which = %d", which);
 		wrapper::showToast(buf);
 	});

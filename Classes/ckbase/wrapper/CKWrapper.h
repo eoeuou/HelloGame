@@ -9,20 +9,14 @@
 
 namespace wrapper {
 	
-    //************************************
-    // Method:    showToast
-    // FullName:  wrapper::showToast
-    // Access:    public 
-    // Returns:   void
-    // Qualifier:
-    // Parameter: const char * msg
-    //************************************
     void showToast(const char* msg);
+	void openUrl(const char* url);
 
 	std::string getUID();
 	std::string getIMSI();
 	std::string getPhoneNum();
-	bool isNetworkAvailable();
+	bool isNetworkAvailable();	
+
 	
 
 } // namespace wrapper

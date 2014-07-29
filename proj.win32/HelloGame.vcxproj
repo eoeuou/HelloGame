@@ -180,6 +180,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\Classes\ckbase\wrapper\CKDefaultWrapper.cpp" />
+    <ClCompile Include="..\Classes\ckbase\wrapper\CKWrapper.cpp" />
     <ClCompile Include="..\Classes\ckbase\wrapper\RSA_CryptionHandler.cpp" />
     <ClCompile Include="..\Classes\FightScene.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />

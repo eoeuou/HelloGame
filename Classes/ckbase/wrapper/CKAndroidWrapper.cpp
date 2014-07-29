@@ -7,7 +7,7 @@ NS_WP_BGN
 
 void showToast(const char* msg)
 {
-	log("CKAndroidNotificationEngine::show\n");
+	log("showToast\n");
 	JniMethodInfo t;
 
 	if (JniHelper::getStaticMethodInfo(t,CK_JAVA_CLASS_NAME, "showToast", "(Ljava/lang/String;)V")) {
@@ -18,9 +18,17 @@ void showToast(const char* msg)
 	}
 }
 
-std::string getUID(){ return CKDeviceEngine::sharedEngine()->getDeviceId();}
-std::string getIMSI(){ return CKDeviceEngine::sharedEngine()->getIMSI();}
-std::string getPhoneNum(){ return CKDeviceEngine::sharedEngine()->getPhoneNum();}
-bool isNetworkAvailable(){ return CKDeviceEngine::sharedEngine()->isNetworkAvailable();}
+void openUrl(const char* url)
+{
+	log("openUrl\n");
+	JniMethodInfo t;
+
+	if (JniHelper::getStaticMethodInfo(t,CK_JAVA_CLASS_NAME, "openUrl", "(Ljava/lang/String;)V")) {
+		jstring message = t.env->NewStringUTF(url);
+
+		t.env->CallStaticVoidMethod(t.classID, t.methodID,message);
+		t.env->DeleteLocalRef(t.classID);
+	}
+}
 
 NS_WP_END

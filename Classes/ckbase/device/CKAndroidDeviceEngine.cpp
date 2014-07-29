@@ -79,9 +79,9 @@ void CKAndroidDeviceEngine::showNetworkSettings()
 	}
 }
 
-std::string CKAndroidDeviceEngine::getCKGamePackageName()
+std::string CKAndroidDeviceEngine::getPackageName()
 { 
-	return getStringByJniMethod(CK_JAVA_CLASS_NAME,"getCKGamePackageName");
+	return getStringByJniMethod(CK_JAVA_CLASS_NAME,"getPackageName");
 }
 
 std::string CKAndroidDeviceEngine::getVersionName()

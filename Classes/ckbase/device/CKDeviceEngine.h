@@ -30,7 +30,7 @@ public:
 
 	virtual void showNetworkSettings() = 0;
 
-	virtual std::string getCKGamePackageName() = 0;
+	virtual std::string getPackageName() = 0;
 	virtual std::string getVersionName() = 0;
 	virtual int getVersionCode() = 0;
 

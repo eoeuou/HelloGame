@@ -52,7 +52,7 @@ public class CKGameHelper {
 		return callstate;
 	}
 
-	public static String getCKGamePackageName() {
+	public static String getPackageName() {
 
 		Log.d("CKGame", "pack " + Wrapper.getActivity().getPackageName());
 
@@ -331,7 +331,7 @@ public class CKGameHelper {
 
 			Log.e("ck12345", "processName=" + processName + ",pid=" + pid
 					+ ",uid=" + uid + ",memorySize=" + memorySize + "kb");
-			if (getCKGamePackageName().equals(processName)) {
+			if (getPackageName().equals(processName)) {
 				return "processName=" + processName + ",pid=" + pid + ",uid="
 						+ uid + ",memorySize=" + memorySize + "kb";
 			}
