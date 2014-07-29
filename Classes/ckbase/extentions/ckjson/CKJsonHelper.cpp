@@ -32,11 +32,10 @@ CKJsonModel* CKJsonHelper::parseRapidJsonObject(rapidjson::Value& jsonObj,CKJson
 	}
 
 	for (auto it = jsonObj.MemberonBegin(); it !=  jsonObj.MemberonEnd(); ++it)
-	{		
-		const rapidjson::Value::Ch* k = (*it).name.GetString();
-		char* key = new char[strlen(k)+1];
-		sprintf(key, "%s", k);
-		
+	{
+		__String * keyStr = __String::create((*it).name.GetString());
+		const char* key = keyStr->getCString();
+
 		//key must be delete
 
 		rapidjson::Type type = (*it).value.GetType();
@@ -62,13 +61,9 @@ CKJsonModel* CKJsonHelper::parseRapidJsonObject(rapidjson::Value& jsonObj,CKJson
 			break;
 		case rapidjson::kStringType:
 			{
-				const rapidjson::Value::Ch* v = (*it).value.GetString();
-				char* value = new char[strlen(v)+1];
-				sprintf(value, "%s", v);
-
+				__String * valueStr = __String::create((*it).value.GetString());
+				const char* value = valueStr->getCString();
 				(*result)[key] = value;
-
-				//value must be delete
 			}
 			break;
 		case rapidjson::kNumberType:
