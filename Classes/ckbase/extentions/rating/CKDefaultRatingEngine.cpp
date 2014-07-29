@@ -1,4 +1,5 @@
 #include "CKDefaultRatingEngine.h"
+#include "CKWrapper.h"
 
 CKDefaultRatingEngine::CKDefaultRatingEngine()
 {
@@ -17,8 +18,8 @@ bool CKDefaultRatingEngine::rate(const char* appId)
 	MarketplaceReviewTask marketplaceReviewTask = new MarketplaceReviewTask();
 	marketplaceReviewTask.Show();
 #endif
-	CCLOG("CKDefaultRatingEngine::rating %d for %s\n",appId);
-
+	CCLOG("CKDefaultRatingEngine::rating %s\n",appId);
+	wrapper::openUrl("http://www.baidu.com/");
 	if (m_listener)
 	{
 		m_listener->onRatingSuccess(appId);

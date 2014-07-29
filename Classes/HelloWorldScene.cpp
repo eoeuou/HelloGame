@@ -386,6 +386,11 @@ void HelloWorld::urlRequestCallback(CKHttpModel* model)
 	static int i = 1;
 	log("i=%d,isSucceed=%s",i++,model->getIsSucceed()?"true":"false");
 	wrapper::showToast(model->getContent().c_str());
+
+	std::string abc = "xxxxxxxxxxxx";
+	model->setContent(abc);
+	std::string a = model->getContent();
+	log(a.c_str());
 }
 
 void HelloWorld::NotificationTest()
