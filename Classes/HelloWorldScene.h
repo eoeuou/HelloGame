@@ -45,6 +45,8 @@ public:
 	virtual void onExit();
 
 	virtual void urlRequestCallback(CKHttpModel* model);
+
+	void drawTest();
 private:
 	Point _beginPos;
 	Menu* _itemMenu;

@@ -16,6 +16,7 @@
 #include "CKDeviceEngine.h"
 #include "CKMessageBox.h"
 #include "CKRatingEngine.h"
+#include "DrawScene.h"
 USING_NS_CC;
 using namespace cocostudio;
 
@@ -196,6 +197,9 @@ Controller g_aTestNames[] = {
 	{"Rate",[=](){
 		CKRatingEngine::sharedEngine()->rate("");
 		wrapper::showToast("empty");
+	}},		
+	{"DrawTest",[=](){
+		m_hello->drawTest();
 	}},	
 	{"empty",[=](){
 		wrapper::showToast("empty");
@@ -420,4 +424,10 @@ void HelloWorld::messageboxTest()
 	msg->show();
 
 	//msg->dispatchButtonClick(-1);
+}
+
+void HelloWorld::drawTest()
+{
+	CCScene * newscene = DrawScene::create();
+	CCDirector::sharedDirector()->pushScene(newscene); 
 }

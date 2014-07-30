@@ -1,5 +1,5 @@
-#ifndef __FIGHTSCENE_H__
-#define __FIGHTSCENE_H__
+#ifndef __DrawScene_H__
+#define __DrawScene_H__
 
 #include "cocos2d.h"
 #include "CKScene.h"
@@ -8,17 +8,21 @@ USING_NS_CC;
 
 using namespace std;
 
-class FightScene:public CKScene
+class DrawScene:public CKScene
 {
 private:
-
+	DrawNode* m_drawNode;
+	LabelTTF* m_animal;
+	CCPoint m_startPoint;
+	CCPoint m_curPoint;
+	CCPoint m_toPoint;
 public:
-	CREATE_FUNC(FightScene);
+	CREATE_FUNC(DrawScene);
 			
 protected:
-	FightScene(void);
+	DrawScene(void);
 	
-	~FightScene(void);
+	~DrawScene(void);
 
 	virtual bool init();  
 
@@ -34,6 +38,8 @@ public:
 		
 	void gameLogic(float dt);
 
+	void drawLine();
+
 };
 
-#endif // __FIGHTSCENE_H__
+#endif // __DrawScene_H__

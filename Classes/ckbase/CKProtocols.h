@@ -62,4 +62,28 @@ protected:
 	virtual void resumeScene() = 0;
 };
 
+class CKTouchProtocol
+{
+private:
+	CC_SYNTHESIZE(EventListenerKeyboard*,m_eventListenerKeyboard,EventListenerKeyboard);
+
+	CC_SYNTHESIZE(EventListener*,m_touchListener,TouchListener);
+protected:
+
+	CKTouchProtocol();
+
+	~CKTouchProtocol();
+
+	virtual void addKeyBackEvent(Node* node, std::function<void(EventKeyboard::KeyCode, Event*)> onKeyReleased = nullptr);
+	virtual void removeKeyBackEvent(Node* node);
+
+	virtual void addTouchEvent();
+	virtual void removeTouchEvent();
+
+	virtual bool onTouchBegan(Touch *touch, Event *unused_event); 
+	virtual void onTouchMoved(Touch *touch, Event *unused_event); 
+	virtual void onTouchEnded(Touch *touch, Event *unused_event); 
+	virtual void onTouchCancelled(Touch *touch, Event *unused_event);
+};
+
 #endif // __CKProtocols_H__
