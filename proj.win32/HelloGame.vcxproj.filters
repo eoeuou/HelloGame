@@ -43,6 +43,9 @@
     <Filter Include="Classes\ckbase\extentions\messagebox">
       <UniqueIdentifier>{b97db14b-c830-4284-8ccf-c72c53fa39f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\game">
+      <UniqueIdentifier>{729465d5-f8da-48da-a192-2bb99dea729d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -168,6 +171,9 @@
     <ClCompile Include="..\Classes\DrawScene.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\game\CKSequenceLayer.cpp">
+      <Filter>Classes\game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -292,6 +298,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\DrawScene.h">
       <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\CKSequenceLayer.h">
+      <Filter>Classes\game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

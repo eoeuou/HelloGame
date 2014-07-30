@@ -27,6 +27,7 @@ THE SOFTWARE.
 package org.cocos2dx.cpp;
 
 import org.cocos2dx.ckbase.Wrapper;
+import org.cocos2dx.ckbase.thirdsdk.cocospush.CocosPush;
 import org.cocos2dx.lib.Cocos2dxActivity;
 
 import android.os.Bundle;
@@ -47,5 +48,7 @@ public class AppActivity extends Cocos2dxActivity {
 
 	private void initCKBase() {
 		Wrapper.init(this);
+
+		CocosPush.initCocosPush();
 	}
 }

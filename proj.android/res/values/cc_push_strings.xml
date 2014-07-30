@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- 以下是集成pushSDK需要的文本 -->
+    <string name="cc_permit_open_url">应用请求打开页面，是否允许？</string>
+    <string name="cc_permit">允许</string>
+    <string name="cc_refuse">拒绝</string>
+
+</resources>

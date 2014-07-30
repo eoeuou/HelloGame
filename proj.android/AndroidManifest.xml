@@ -6,10 +6,27 @@
 
     <uses-sdk android:minSdkVersion="9" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- Push service 运行需要的权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- Push service 运行需要的权限 -->
+
     <uses-feature android:glEsVersion="0x00020000" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name" >
         <activity
@@ -56,6 +73,45 @@
                 <action android:name="com.ckgame.CLICK_NOTIFICATION" />
             </intent-filter>
         </service>
+
+        <!-- push所用的核心服务声明 -->
+        <service
+            android:name="com.cocos.push.service.CCPushService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":cocos.push.service" >
+            <intent-filter>
+                <action android:name="cocos.push.service" />
+            </intent-filter>
+        </service>
+        <!-- 请将以下广播接收者类替换成自己创建的广播接收者类，该类需要继承CCPushRecevier类 -->
+        <receiver android:name="org.cocos2dx.ckbase.thirdsdk.cocospush.CCReceiver" >
+            <intent-filter>
+                <action android:name="com.cocos.push.service.action.MESSAGE" />
+                <!-- 接收启停push、设置删除标签、设置删除帐号等操作的反馈 -->
+                <action android:name="com.cocos.push.service.action.RECEIVE" />
+            </intent-filter>
+        </receiver>
+        <!-- pushSDK内置的广播接收者类声明，用于接收push推送的消息 -->
+        <receiver
+            android:name="com.cocos.push.client.CCPushClientReceiver"
+            android:process=":cocos.push.service" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="com.cocos.push.service.action.notification.SHOW" />
+                <action android:name="com.cocos.push.service.action.notification.CANCEL" />
+                <action android:name="com.cocos.push.service.action.UPDATE" />
+                <action android:name="com.cocos.push.service.action.AUTOCHECK" />
+            </intent-filter>
+        </receiver>
+        <!-- 请先登录开发者平台并添加应用，将生成的“APP id”填入此项，数值类型请在数值前加反斜杠和空格"\" -->
+        <meta-data
+            android:name="cocos_aid"
+            android:value="\ 667081452" />
+        <!-- 请写入自定义的渠道ID，用于按渠道精准推送，允许为空。数值类型请在数值前加反斜杠和空格"\" -->
+        <meta-data
+            android:name="cocos_cid"
+            android:value="\ 999999" />
     </application>
 
     <supports-screens
@@ -64,8 +120,5 @@
         android:normalScreens="true"
         android:smallScreens="true"
         android:xlargeScreens="true" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
 </manifest>

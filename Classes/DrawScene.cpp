@@ -1,4 +1,6 @@
 #include "DrawScene.h"
+#include "game/CKSequenceLayer.h"
+
 #define AnimalSpeed 50.0f
 
 DrawScene::DrawScene(void)
@@ -26,7 +28,12 @@ void DrawScene::onEnter()
 
 	this->schedule(schedule_selector(DrawScene::gameLogic));
 
+	CKSequenceLayer* layer = CKSequenceLayer::create();
 	
+	addChild(layer,100);
+
+	layer->startScrollLand();
+
 	auto s = Director::getInstance()->getWinSize();
 
 	m_drawNode = DrawNode::create();
