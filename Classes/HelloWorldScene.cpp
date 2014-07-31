@@ -143,6 +143,9 @@ Controller g_aTestNames[] = {
 		CKJsonHelper::getInstance()->parseJsonToJsonModel("jsondata/data.json",nullptr,true);
 		wrapper::showToast("see log");
 	}},
+	{"DrawTest",[=](){
+		m_hello->drawTest();
+	}},	
 	{"CKJsonModel",[=](){
 		CKJsonModel* child = CKJsonModel::create();
 		(*child)["id"] = 12;		
@@ -198,9 +201,6 @@ Controller g_aTestNames[] = {
 		CKRatingEngine::sharedEngine()->rate("");
 		wrapper::showToast("empty");
 	}},		
-	{"DrawTest",[=](){
-		m_hello->drawTest();
-	}},	
 	{"empty",[=](){
 		wrapper::showToast("empty");
 	}},	

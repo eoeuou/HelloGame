@@ -39,7 +39,9 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/ckbase/wrapper/CKAndroidWrapper.cpp \
 ../../Classes/ckbase/wrapper/CKWrapper.cpp \
 ../../Classes/ckbase/wrapper/RSA_CryptionHandler.cpp \
+../../Classes/DrawScene.cpp \
 ../../Classes/FightScene.cpp \
+../../Classes/game/CKSequenceLayer.cpp \
 ../../Classes/HelloWorldScene.cpp 
 #src_end
 
@@ -57,6 +59,7 @@ $(LOCAL_PATH)/../../Classes/ckbase/extentions/rating \
 $(LOCAL_PATH)/../../Classes/ckbase/extentions/trigger \
 $(LOCAL_PATH)/../../Classes/ckbase/network \
 $(LOCAL_PATH)/../../Classes/ckbase/wrapper \
+$(LOCAL_PATH)/../../Classes/game \
 $(LOCAL_PATH)/../../thirdpartylibs \
 $(LOCAL_PATH)/../../thirdpartylibs/openssl \
 $(LOCAL_PATH)/../../thirdpartylibs/openssl/lib 

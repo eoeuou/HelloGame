@@ -1,13 +1,13 @@
 #include "DrawScene.h"
-#include "game/CKSequenceLayer.h"
 
 #define AnimalSpeed 50.0f
 
-DrawScene::DrawScene(void)
-	:m_animal(NULL)
+DrawScene::DrawScene(void):
+	m_ckSequenceLayer(NULL),
+	m_drawNode(NULL),
+	m_animal(NULL)
 {
 }
-
 
 DrawScene::~DrawScene(void)
 {
@@ -26,45 +26,43 @@ void DrawScene::onEnter()
 
 	addTouchEvent();
 
-	this->schedule(schedule_selector(DrawScene::gameLogic));
-
-	CKSequenceLayer* layer = CKSequenceLayer::create();
+	this->schedule(schedule_selector(DrawScene::sceneUpdate));
 	
-	addChild(layer,100);
+	auto size = Director::getInstance()->getWinSize();
+	m_startPoint = ccp(size.width/2,size.height/2);
+	m_curPoint = m_startPoint;
+	m_directionPoint = ccp(1,0);
 
-	layer->startScrollLand();
-
-	auto s = Director::getInstance()->getWinSize();
+	m_ckSequenceLayer = CKSequenceLayer::create();
+	addChild(m_ckSequenceLayer,-1);
+	m_ckSequenceLayer->changeScrollVector(m_directionPoint*LandSpeed_DIS);
+	m_ckSequenceLayer->startScrollLand();
 
 	m_drawNode = DrawNode::create();
-	addChild(m_drawNode, 10);
+	m_ckSequenceLayer->addChild(m_drawNode, 10);
+	m_drawNode->drawDot(m_curPoint,10,Color4F(0, 0, 0, 1));
 
-	m_toPoint = ccp(s.width,s.height);
-	m_startPoint = ccp(200,200);
-	
 	m_animal = LabelTTF::create("Hello World", "Arial", 24);
-	this->addChild(m_animal);
-	m_animal->setPosition(m_startPoint);
-
-	float dis = ccpDistance(m_animal->getPosition(),m_toPoint);
-	float time = dis/AnimalSpeed;
-	m_animal->runAction(CCMoveTo::create(time,m_toPoint));
+	addChild(m_animal,11);
+	m_animal->setPosition(ccp(size.width,size.height/2));
+	m_animal->runAction(CCMoveTo::create(4.0f,ccp(0,size.height/2)));
 }
 
 void DrawScene::onExit()
 {
-	this->unschedule(schedule_selector(DrawScene::gameLogic));
+	this->unschedule(schedule_selector(DrawScene::sceneUpdate));
 	removeTouchEvent();
 	CKScene::onExit();
 }
 
 bool DrawScene::onTouchBegan( Touch *touch, Event *unused_event )
 {
-	m_toPoint = touch->getLocation();
-	m_animal->cleanup();
-	float dis = ccpDistance(m_animal->getPosition(),m_toPoint);
-	float time = dis/AnimalSpeed;
-	m_animal->runAction(CCMoveTo::create(time,m_toPoint));
+	CCPoint touchPoint = touch->getLocation();
+	float angle = ccpToAngle(ccpSub(touchPoint,m_startPoint));
+	m_directionPoint = Point::forAngle(angle);
+
+	//m_ckSequenceLayer->pauseScrollLand();
+	m_ckSequenceLayer->changeScrollVector(m_directionPoint*LandSpeed_DIS);
 
 	return true;
 }
@@ -78,7 +76,7 @@ void DrawScene::onTouchMoved( Touch *touch, Event *unused_event )
 
 void DrawScene::onTouchEnded( Touch *touch, Event *unused_event )
 {
-
+	//m_ckSequenceLayer->resumeScrollLand();
 }
 
 void DrawScene::onTouchCancelled( Touch *touch, Event *unused_event )
@@ -86,13 +84,11 @@ void DrawScene::onTouchCancelled( Touch *touch, Event *unused_event )
 
 }
 
-void DrawScene::gameLogic( float dt )
+void DrawScene::sceneUpdate( float dt )
 {
-	auto s = Director::getInstance()->getWinSize();
-	//m_drawNode->clear();
-	//m_drawNode->drawSegment(m_startPoint, m_animal->getPosition(), 2, Color4F(0, 1, 0, 1));
-	//m_drawNode->drawTriangle(Point(10, 10), Point(70, 30), Point(100, 140), Color4F(CCRANDOM_0_1(), CCRANDOM_0_1(), CCRANDOM_0_1(), 0.5));
-	m_drawNode->drawDot(m_animal->getPosition(),2,Color4F(0, 1, 0, 1));
+	m_curPoint += m_directionPoint;
+	//log("%f,%f,%f",m_directionPoint.x,m_directionPoint.y,dt);
+	m_drawNode->drawDot(m_curPoint,2,Color4F(0.5, 1, 0.8, 1));
 }
 
 void DrawScene::drawLine()

@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "CKScene.h"
+#include "game/CKSequenceLayer.h"
 
 USING_NS_CC;
 
@@ -11,11 +12,14 @@ using namespace std;
 class DrawScene:public CKScene
 {
 private:
+	CKSequenceLayer* m_ckSequenceLayer;
 	DrawNode* m_drawNode;
 	LabelTTF* m_animal;
+
 	CCPoint m_startPoint;
+
 	CCPoint m_curPoint;
-	CCPoint m_toPoint;
+	CCPoint m_directionPoint;
 public:
 	CREATE_FUNC(DrawScene);
 			
@@ -36,7 +40,7 @@ public:
 	virtual void onTouchEnded(Touch *touch, Event *unused_event) override; 
 	virtual void onTouchCancelled(Touch *touch, Event *unused_event) override;
 		
-	void gameLogic(float dt);
+	void sceneUpdate(float dt);
 
 	void drawLine();
 

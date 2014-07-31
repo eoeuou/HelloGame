@@ -1,10 +1,13 @@
 #include "CKSequenceLayer.h"
 
-#define LandSpeed_DIS 20.0f
-
 CKSequenceLayer::CKSequenceLayer(void):
+	m_scrollDirection(CKScrollDirection::CKSCROLL_DIR_BOTH),
+	m_scrollVector(Point::ZERO),
 	m_landLayerA(nullptr),
-	m_landLayerB(nullptr)
+	m_landLayerB(nullptr),
+	m_landLayerC(nullptr),
+	m_landLayerD(nullptr),
+	m_bIsPauseScrollLand(false)
 {
 }
 
@@ -14,58 +17,177 @@ CKSequenceLayer::~CKSequenceLayer(void)
 	
 }
 
+void CKSequenceLayer::changeScrollVector(CCPoint scrollVector)
+{
+	//CCAssert(m_scrollDirection == CKScrollDirection::CKSCROLL_DIR_BOTH,"wrong msg");
+	m_scrollVector = scrollVector;
+}
+
 bool CKSequenceLayer::init()
 {
 	Size s = Director::getInstance()->getWinSize();
-	m_landLayerA = CCLayerColor::create(Color4B(CCRANDOM_0_1()*255, CCRANDOM_0_1()*255, CCRANDOM_0_1()*255, 255), s.width, s.height);
-	m_landLayerB = CCLayerColor::create(Color4B(CCRANDOM_0_1()*255, CCRANDOM_0_1()*255, CCRANDOM_0_1()*255, 255), s.width, s.height);
-	
-	this->m_landLayerA->setAnchorPoint(Point::ZERO);
-	this->m_landLayerA->setPosition(Point::ZERO);
-	this->addChild(this->m_landLayerA, 30);
+	Color4B colorA = Color4B(CCRANDOM_0_1()*255, CCRANDOM_0_1()*255, CCRANDOM_0_1()*255, 255);
+	Color4B colorB = Color4B(CCRANDOM_0_1()*255, CCRANDOM_0_1()*255, CCRANDOM_0_1()*255, 255);
 
-	this->m_landLayerB->setAnchorPoint(Point::ZERO);
-	this->m_landLayerB->setPosition(this->m_landLayerA->getContentSize().width,0);
-	this->addChild(this->m_landLayerB, 30);
+	m_landLayerA = CCLayerColor::create(Color4B::BLUE, s.width, s.height);
+	m_landLayerB = CCLayerColor::create(Color4B::GREEN, s.width, s.height);
+	
+	if (m_scrollDirection == CKScrollDirection::CKSCROLL_DIR_HORIZONTAL)
+	{
+		m_landLayerA->setAnchorPoint(Point::ZERO);
+		m_landLayerA->setPosition(Point::ZERO);
+
+		m_landLayerB->setAnchorPoint(Point::ZERO);
+		m_landLayerB->setPosition(s.width,0);
+
+		m_scrollVector = ccp(LandSpeed_DIS,0);
+	}
+	else if (m_scrollDirection == CKScrollDirection::CKSCROLL_DIR_VERTICAL)
+	{
+		m_landLayerA->setAnchorPoint(Point::ZERO);
+		m_landLayerA->setPosition(Point::ZERO);
+
+		m_landLayerB->setAnchorPoint(Point::ZERO);
+		m_landLayerB->setPosition(0,s.height);
+
+		m_scrollVector = ccp(0,LandSpeed_DIS);
+	}
+	else
+	{
+		m_landLayerC = CCLayerColor::create(Color4B::RED, s.width, s.height);
+		m_landLayerD = CCLayerColor::create(Color4B::ORANGE, s.width, s.height);
+
+		m_landLayerA->setAnchorPoint(Point::ZERO);
+		m_landLayerA->setPosition(Point::ZERO);
+
+		m_landLayerB->setAnchorPoint(Point::ZERO);
+		m_landLayerB->setPosition(-s.width,0);
+		
+		m_landLayerC->setAnchorPoint(Point::ZERO);
+		m_landLayerC->setPosition(-s.width,-s.height);
+
+		m_landLayerD->setAnchorPoint(Point::ZERO);
+		m_landLayerD->setPosition(0,-s.height);
+
+		addChild(m_landLayerC, 0);
+		addChild(m_landLayerD, 0);
+
+		m_scrollVector = ccp(LandSpeed_DIS,LandSpeed_DIS);
+
+	}
+
+	addChild(m_landLayerA, 0);
+	addChild(m_landLayerB, 0);
 	
 	return true;
 }
 
 void CKSequenceLayer::scrollLand(float dt)
 {
-	this->m_landLayerA->setPositionX(this->m_landLayerA->getPositionX() - LandSpeed_DIS);
-	this->m_landLayerB->setPositionX(this->m_landLayerB->getPositionX() - LandSpeed_DIS);
-	if(this->m_landLayerA->getPositionX() <= -this->m_landLayerA->getContentSize().width) 
+	if (m_bIsPauseScrollLand)
 	{
-		this->m_landLayerA->setPositionX(this->m_landLayerA->getContentSize().width);
-		Color3B color = m_landLayerA->getColor();
-		color.r += 50;
-		if (color.r>=255)
-		{
-			color.r = 0;
-		}
-		m_landLayerA->setColor(color);
+		return;
 	}
-	else if (this->m_landLayerB->getPositionX() <= -this->m_landLayerA->getContentSize().width)
+	
+	if (m_scrollDirection == CKScrollDirection::CKSCROLL_DIR_HORIZONTAL)
 	{
-		this->m_landLayerB->setPositionX(this->m_landLayerA->getContentSize().width);
-		Color3B color = m_landLayerB->getColor();
-		color.r += 50;
-		if (color.r>=255)
-		{
-			color.r = 0;
-		}
-		m_landLayerB->setColor(color);
+		horizontalScroll();
 	}
+	else if (m_scrollDirection == CKScrollDirection::CKSCROLL_DIR_VERTICAL)
+	{
+		verticalScroll();
+	}
+	else
+	{
+		bothScroll();
+	}
+}
+
+void CKSequenceLayer::horizontalScroll()
+{
+	log("%f,%f,%f",m_landLayerA->getPositionX(),m_landLayerB->getPositionX(),m_landLayerA->getPositionX()-m_landLayerB->getPositionX());
+
+	m_landLayerA->setPositionX(m_landLayerA->getPositionX() + m_scrollVector.x);
+	m_landLayerB->setPositionX(m_landLayerB->getPositionX() + m_scrollVector.x);
+	
+	resetLandLayerVertical(m_landLayerA);
+	resetLandLayerVertical(m_landLayerB);
+}
+
+void CKSequenceLayer::verticalScroll()
+{
+	log("%f,%f,%f",m_landLayerA->getPositionY(),m_landLayerB->getPositionY(),m_landLayerA->getPositionY()-m_landLayerB->getPositionY());
+
+	m_landLayerA->setPositionY(m_landLayerA->getPositionY() + m_scrollVector.y);
+	m_landLayerB->setPositionY(m_landLayerB->getPositionY() + m_scrollVector.y);
+	
+	resetLandLayerHorizontal(m_landLayerA);
+	resetLandLayerHorizontal(m_landLayerB);
+}
+
+void CKSequenceLayer::bothScroll()
+{
+	log("X:%f,%f,%f,%f",m_landLayerA->getPositionX(),m_landLayerB->getPositionX(),m_landLayerC->getPositionX(),m_landLayerB->getPositionX());
+	log("Y:%f,%f,%f,%f",m_landLayerA->getPositionY(),m_landLayerB->getPositionY(),m_landLayerC->getPositionY(),m_landLayerB->getPositionY());
+	m_landLayerA->setPosition(m_landLayerA->getPosition() + m_scrollVector);
+	m_landLayerB->setPosition(m_landLayerB->getPosition() + m_scrollVector);
+	m_landLayerC->setPosition(m_landLayerC->getPosition() + m_scrollVector);
+	m_landLayerD->setPosition(m_landLayerD->getPosition() + m_scrollVector);
+
+	resetLandLayerVertical(m_landLayerA);
+	resetLandLayerVertical(m_landLayerB);
+	resetLandLayerVertical(m_landLayerC);
+	resetLandLayerVertical(m_landLayerD);
+
+	resetLandLayerHorizontal(m_landLayerA);
+	resetLandLayerHorizontal(m_landLayerB);
+	resetLandLayerHorizontal(m_landLayerC);
+	resetLandLayerHorizontal(m_landLayerD);
 }
 
 void CKSequenceLayer::startScrollLand()
 {
 	stopScrollLand();
-	this->schedule(schedule_selector(CKSequenceLayer::scrollLand), 0.01f);
+	schedule(schedule_selector(CKSequenceLayer::scrollLand));
 }
 
 void CKSequenceLayer::stopScrollLand()
 {
-	this->unschedule(schedule_selector(CKSequenceLayer::scrollLand));
+	unschedule(schedule_selector(CKSequenceLayer::scrollLand));
+}
+
+void CKSequenceLayer::pauseScrollLand()
+{
+	m_bIsPauseScrollLand = true;
+}
+
+void CKSequenceLayer::resumeScrollLand()
+{
+	m_bIsPauseScrollLand = false;
+}
+
+void CKSequenceLayer::resetLandLayerVertical(Layer* landLayer)
+{
+	float width = Director::getInstance()->getWinSize().width;
+	if(landLayer->getPositionX() <= -width) 
+	{
+		landLayer->setPositionX(landLayer->getPositionX() + 2*width);
+	}
+	else if(landLayer->getPositionX() >= width) 
+	{
+		landLayer->setPositionX(landLayer->getPositionX() - 2*width);
+	}
+}
+
+void CKSequenceLayer::resetLandLayerHorizontal(Layer* landLayer)
+{
+	float height = Director::getInstance()->getWinSize().height;
+	if(landLayer->getPositionY() <= -height) 
+	{
+		landLayer->setPositionY(landLayer->getPositionY() + 2*height);
+	}
+	else if(landLayer->getPositionY() >= height) 
+	{
+		landLayer->setPositionY(landLayer->getPositionY() - 2*height);
+	}
 }
