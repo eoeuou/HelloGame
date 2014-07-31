@@ -17,7 +17,27 @@ DrawScene::~DrawScene(void)
 bool DrawScene::init()
 {	
 	addKeyBackEvent(this);
+
+	auto closeItem = MenuItemImage::create(
+		"CloseNormal.png",
+		"CloseSelected.png",
+		CC_CALLBACK_1(DrawScene::menuCloseCallback, this));
+
+	closeItem->setPosition(Point(closeItem->getContentSize().width/2 ,closeItem->getContentSize().height/2));
+
+	// create menu, it's an autorelease object
+	auto menu = Menu::create(closeItem, NULL);
+	menu->setPosition(Point::ZERO);
+	this->addChild(menu, 1);
 	return true;
+}
+
+void DrawScene::menuCloseCallback(Ref* pSender)
+{
+	if (m_drawNode)
+	{
+		m_drawNode->clear();
+	}	
 }
 
 void DrawScene::onEnter()
@@ -84,10 +104,12 @@ void DrawScene::onTouchCancelled( Touch *touch, Event *unused_event )
 
 }
 
+static int num = 1;
 void DrawScene::sceneUpdate( float dt )
 {
 	m_curPoint += m_directionPoint;
 	//log("%f,%f,%f",m_directionPoint.x,m_directionPoint.y,dt);
+	log("%d",num++);
 	m_drawNode->drawDot(m_curPoint,2,Color4F(0.5, 1, 0.8, 1));
 }
 

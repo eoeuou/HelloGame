@@ -41,6 +41,8 @@ bool CKSequenceLayer::init()
 		m_landLayerB->setPosition(s.width,0);
 
 		m_scrollVector = ccp(LandSpeed_DIS,0);
+
+		this->setContentSize(CCSize(s.width*2,s.height));
 	}
 	else if (m_scrollDirection == CKScrollDirection::CKSCROLL_DIR_VERTICAL)
 	{
@@ -51,6 +53,8 @@ bool CKSequenceLayer::init()
 		m_landLayerB->setPosition(0,s.height);
 
 		m_scrollVector = ccp(0,LandSpeed_DIS);
+
+		this->setContentSize(CCSize(s.width,s.height*2));
 	}
 	else
 	{
@@ -74,6 +78,7 @@ bool CKSequenceLayer::init()
 
 		m_scrollVector = ccp(LandSpeed_DIS,LandSpeed_DIS);
 
+		this->setContentSize(CCSize(s.width*2,s.height*2));
 	}
 
 	addChild(m_landLayerA, 0);
@@ -166,28 +171,34 @@ void CKSequenceLayer::resumeScrollLand()
 	m_bIsPauseScrollLand = false;
 }
 
-void CKSequenceLayer::resetLandLayerVertical(Layer* landLayer)
+bool CKSequenceLayer::resetLandLayerVertical(Layer* landLayer)
 {
 	float width = Director::getInstance()->getWinSize().width;
 	if(landLayer->getPositionX() <= -width) 
 	{
 		landLayer->setPositionX(landLayer->getPositionX() + 2*width);
+		return true;
 	}
 	else if(landLayer->getPositionX() >= width) 
 	{
 		landLayer->setPositionX(landLayer->getPositionX() - 2*width);
+		return true;
 	}
+	return false;
 }
 
-void CKSequenceLayer::resetLandLayerHorizontal(Layer* landLayer)
+bool CKSequenceLayer::resetLandLayerHorizontal(Layer* landLayer)
 {
 	float height = Director::getInstance()->getWinSize().height;
 	if(landLayer->getPositionY() <= -height) 
 	{
 		landLayer->setPositionY(landLayer->getPositionY() + 2*height);
+		return true;
 	}
 	else if(landLayer->getPositionY() >= height) 
 	{
 		landLayer->setPositionY(landLayer->getPositionY() - 2*height);
+		return true;
 	}
+	return false;
 }

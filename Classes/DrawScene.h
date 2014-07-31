@@ -44,6 +44,7 @@ public:
 
 	void drawLine();
 
+	void menuCloseCallback(Ref* pSender);
 };
 
 #endif // __DrawScene_H__

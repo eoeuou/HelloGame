@@ -57,9 +57,9 @@ protected:
 
 	void bothScroll();
 	
-	void resetLandLayerVertical(Layer* landLayer);
+	bool resetLandLayerVertical(Layer* landLayer);
 
-	void resetLandLayerHorizontal(Layer* landLayer);
+	bool resetLandLayerHorizontal(Layer* landLayer);
 
 };
 
