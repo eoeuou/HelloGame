@@ -9,9 +9,9 @@ bool CKLandLayer::initWithColor(const Color4B& color, GLfloat width, GLfloat hei
 	return ret;
 }
 
-void CKLandLayer::drawDotUpdate(float dt,CCPoint drawPoint)
+void CKLandLayer::drawDotUpdate(float dt,CCPoint prePoint,CCPoint curPoint)
 {
-	m_drawNode->drawDot(drawPoint,4,Color4F(0.5, 1, 0.8, 1));
+	m_drawNode->drawSegment(prePoint,curPoint,10,Color4F(0.5, 1, 0.8, 1));
 }
 
 CKSequenceLayer::CKSequenceLayer(void):
@@ -22,7 +22,8 @@ CKSequenceLayer::CKSequenceLayer(void):
 	m_landLayerB(nullptr),
 	m_landLayerC(nullptr),
 	m_landLayerD(nullptr),
-	m_bIsPauseScrollLand(false)
+	m_bIsPauseScrollLand(false),
+	m_curLandLayer(nullptr)
 {
 	m_landLayers.clear();
 }
@@ -37,6 +38,13 @@ void CKSequenceLayer::changeScrollDirection(CCPoint direction)
 {
 	//CCAssert(m_scrollType == CKScrollType::CKSCROLL_DIR_BOTH,"wrong msg");
 	m_scrollDirection = direction*m_scrollSpeed;
+}
+
+void CKSequenceLayer::changeScrollSpeed(float speed)
+{
+	CCPoint direction = m_scrollDirection/m_scrollSpeed;
+	m_scrollSpeed = speed;
+	changeScrollDirection(direction);
 }
 
 bool CKSequenceLayer::init()
@@ -94,8 +102,8 @@ bool CKSequenceLayer::init()
 		m_landLayerD->setAnchorPoint(Point::ZERO);
 		m_landLayerD->setPosition(0,-s.height);
 
-		addChild(m_landLayerC, 0);
-		addChild(m_landLayerD, 0);
+		addChild(m_landLayerC);
+		addChild(m_landLayerD);
 		m_landLayers.pushBack(m_landLayerC);
 		m_landLayers.pushBack(m_landLayerD);
 
@@ -104,18 +112,16 @@ bool CKSequenceLayer::init()
 		this->setContentSize(CCSize(s.width*2,s.height*2));
 	}
 
-	addChild(m_landLayerA, 0);
-	addChild(m_landLayerB, 0);
+	addChild(m_landLayerA);
+	addChild(m_landLayerB);
 	m_landLayers.pushBack(m_landLayerA);
 	m_landLayers.pushBack(m_landLayerB);
-
-	float d = 255*CCRANDOM_0_1();
-	Color3B color = ccc3(CCRANDOM_0_1()*d,CCRANDOM_0_1()*d,CCRANDOM_0_1()*d);
+	
+	/*Color3B color = ccc3(CCRANDOM_0_1()*255,CCRANDOM_0_1()*255,CCRANDOM_0_1()*255);
 	for (const auto& child : m_landLayers)
 	{
 		child->setColor(color);
-	}
-
+	}*/
 	return true;
 }
 static int num = 1;
@@ -124,6 +130,30 @@ void CKSequenceLayer::scrollLand(float dt)
 	if (m_bIsPauseScrollLand)
 	{
 		return;
+	}
+	CCScene* scene = Director::getInstance()->getRunningScene();
+	CCPoint point = scene->convertToWorldSpace(m_startPoint);
+
+	for (const auto& child : m_landLayers)
+	{
+		if (child->getBoundingBox().containsPoint(point))
+		{
+			CCPoint curPoint = child->convertToNodeSpace(point);
+			if (m_curLandLayer!=child)
+			{
+				if (m_curLandLayer)
+				{
+					m_curLandLayer->getParent()->reorderChild(m_curLandLayer,-1);
+				}
+				m_curLandLayer = child;
+				m_prePoint = curPoint;
+			}
+
+			child->drawDotUpdate(dt,m_prePoint,curPoint);
+			m_prePoint = curPoint;
+			log("%d",num++);
+			break;
+		}
 	}
 	
 	if (m_scrollType == CKScrollType::CKSCROLL_DIR_HORIZONTAL)
@@ -137,23 +167,6 @@ void CKSequenceLayer::scrollLand(float dt)
 	else
 	{
 		bothScroll();
-	}
-	
-	auto size = Director::getInstance()->getWinSize();
-	CCPoint startPoint = ccp(size.width/2,size.height/2);
-	CCScene* scene = Director::getInstance()->getRunningScene();
-
-	CCPoint point = scene->convertToWorldSpace(startPoint);
-	
-	for (const auto& child : m_landLayers)
-	{
-		if (child->getBoundingBox().containsPoint(point))
-		{
-			point = child->convertToNodeSpace(point);
-			child->drawDotUpdate(dt,point);
-			log("%d",num++);
-			break;
-		}
 	}
 }
 
@@ -207,11 +220,19 @@ void CKSequenceLayer::stopScrollLand()
 void CKSequenceLayer::pauseScrollLand()
 {
 	m_bIsPauseScrollLand = true;
+	for (const auto& child : m_landLayers)
+	{
+		child->addTouchEvent();
+	}
 }
 
 void CKSequenceLayer::resumeScrollLand()
 {
 	m_bIsPauseScrollLand = false;
+	for (const auto& child : m_landLayers)
+	{
+		child->removeTouchEvent();
+	}
 }
 
 bool CKSequenceLayer::resetLandLayerHorizontal(Layer* landLayer)

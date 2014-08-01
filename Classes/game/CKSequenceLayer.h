@@ -19,9 +19,12 @@ class CKLandLayer:public cocos2d::CCLayerColor
 {
 private:
 	CC_SYNTHESIZE_READONLY(DrawNode*, m_drawNode, DrawNode);
+	CCPoint m_prePoint;
+	EventListenerTouchOneByOne* m_eventListener;
 protected:
 	CKLandLayer():
-		m_drawNode(nullptr)
+		m_drawNode(nullptr),
+		m_eventListener(nullptr)
 	{
 	};
 
@@ -42,7 +45,54 @@ public:
 
 	bool initWithColor(const Color4B& color, GLfloat width, GLfloat height);
 
-	void drawDotUpdate(float dt,CCPoint drawPoint);
+	void drawDotUpdate(float dt,CCPoint prePoint,CCPoint curPoint);
+
+	void addTouchEvent()
+	{
+		m_eventListener = EventListenerTouchOneByOne::create();
+		m_eventListener->setSwallowTouches(true);
+
+		m_eventListener->onTouchBegan = [](Touch* touch, Event* event){
+			auto target = static_cast<Sprite*>(event->getCurrentTarget());
+
+			Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+			Size s = target->getContentSize();
+			Rect rect = Rect(0, 0, s.width, s.height);
+
+			if (rect.containsPoint(locationInNode))
+			{
+				log("sprite began... x = %f, y = %f", locationInNode.x, locationInNode.y);
+				target->setOpacity(180);
+				return true;
+			}
+
+			target->getParent()->reorderChild(target,100);
+			return false;
+		};
+
+		m_eventListener->onTouchMoved = [](Touch* touch, Event* event){
+			auto target = static_cast<Sprite*>(event->getCurrentTarget());
+			target->setPosition(target->getPosition() + touch->getDelta());
+		};
+
+		m_eventListener->onTouchEnded = [=](Touch* touch, Event* event){
+			auto target = static_cast<Sprite*>(event->getCurrentTarget());
+			log("sprite onTouchesEnded.. ");
+			target->setOpacity(255);
+			target->getParent()->reorderChild(target,0);
+		};
+
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(m_eventListener, this);
+	}
+
+	void removeTouchEvent()
+	{
+		if (m_eventListener)
+		{
+			this->getEventDispatcher()->removeEventListener(m_eventListener);
+		}
+		
+	}
 };
 
 class CKSequenceLayer:public cocos2d::Layer
@@ -51,7 +101,7 @@ private:
 	CC_SYNTHESIZE(CKScrollType,m_scrollType,ScrollType);
 
 	CC_SYNTHESIZE(Point,m_scrollDirection,ScrollDirection);
-	CC_SYNTHESIZE(float,m_scrollSpeed,ScrollSpeed);
+	CC_SYNTHESIZE_READONLY(float,m_scrollSpeed,ScrollSpeed);
 
 	CC_SYNTHESIZE(CKLandLayer*,m_landLayerA,LandLayerA);
 	CC_SYNTHESIZE(CKLandLayer*,m_landLayerB,LandLayerB);
@@ -61,8 +111,10 @@ private:
 	CC_SYNTHESIZE(Vector<CKLandLayer*>,m_landLayers,LandLayers);
 
 	CC_SYNTHESIZE(bool,m_bIsPauseScrollLand,BIsPauseScrollLand);
-
-	CCPoint m_positionDelta;
+	
+	CC_SYNTHESIZE(CCPoint,m_startPoint,StartPoint);
+	CC_SYNTHESIZE(CCPoint,m_prePoint,PrePoint);
+	CC_SYNTHESIZE(CKLandLayer*,m_curLandLayer,CurLandLayer);
 public:
 	CREATE_FUNC(CKSequenceLayer);
 
@@ -75,6 +127,8 @@ public:
 	void resumeScrollLand();
 
 	void changeScrollDirection(CCPoint direction);
+
+	void changeScrollSpeed(float speed);
 protected:
 	CKSequenceLayer(void);
 
@@ -93,7 +147,7 @@ protected:
 	bool resetLandLayerHorizontal(Layer* landLayer);
 
 	bool resetLandLayerVertical(Layer* landLayer);
-
+	
 };
 
 #endif // __CKSEQUENCELAYER_H__

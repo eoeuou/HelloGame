@@ -41,9 +41,6 @@ public:
 	void sceneUpdate(float dt);
 
 	void drawLine();
-
-	void menuCloseCallback(Ref* pSender);
-
 };
 
 #endif // __DrawScene_H__

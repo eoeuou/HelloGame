@@ -17,29 +17,43 @@ bool DrawScene::init()
 {	
 	CKScene::init();
 
-	CCSize size = this->getContentSize();
-	addKeyBackEvent(this);
-
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Point origin = Director::getInstance()->getVisibleOrigin();
 	auto closeItem = MenuItemImage::create(
 		"CloseNormal.png",
 		"CloseSelected.png",
-		CC_CALLBACK_1(DrawScene::menuCloseCallback, this));
+		[this](Ref* pSender){
+			if (!m_ckSequenceLayer->getBIsPauseScrollLand())
+			{
+				m_ckSequenceLayer->pauseScrollLand();
+			}
+			else
+			{
+				m_ckSequenceLayer->resumeScrollLand();
+			}
+	});
 
-	closeItem->setPosition(Point(closeItem->getContentSize().width/2 ,closeItem->getContentSize().height/2));
+	closeItem->setPosition(Point(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
+		origin.y + closeItem->getContentSize().height/2));
 
-	// create menu, it's an autorelease object
-	auto menu = Menu::create(closeItem, NULL);
+	auto speedItem = MenuItemImage::create(
+		"CloseNormal.png",
+		"CloseSelected.png",
+		[this](Ref* pSender){
+			m_ckSequenceLayer->changeScrollSpeed(m_ckSequenceLayer->getScrollSpeed() + 10.5f);
+	});
+
+	speedItem->setPosition(Point(origin.x + visibleSize.width - speedItem->getContentSize().width/2 ,
+		origin.y + visibleSize.height - speedItem->getContentSize().height/2));
+
+
+	auto menu = Menu::create(closeItem, speedItem, NULL);
 	menu->setPosition(Point::ZERO);
 	this->addChild(menu, 100);
-	return true;
-}
 
-void DrawScene::menuCloseCallback(Ref* pSender)
-{
-	if (m_drawNode)
-	{
-		m_drawNode->clear();
-	}
+	addKeyBackEvent(this);
+
+	return true;
 }
 
 void DrawScene::onEnter()
@@ -56,6 +70,8 @@ void DrawScene::onEnter()
 
 	m_ckSequenceLayer = CKSequenceLayer::create();
 	addChild(m_ckSequenceLayer,-1);
+	m_ckSequenceLayer->setStartPoint(m_startPoint);
+	m_ckSequenceLayer->setPrePoint(m_startPoint);
 	m_ckSequenceLayer->changeScrollDirection(m_directionPoint);
 	m_ckSequenceLayer->startScrollLand();
 
