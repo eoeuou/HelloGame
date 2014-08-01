@@ -9,17 +9,15 @@ USING_NS_CC;
 
 using namespace std;
 
-class DrawScene:public CKScene
+class DrawScene : public CKScene
 {
 private:
 	CKSequenceLayer* m_ckSequenceLayer;
 	DrawNode* m_drawNode;
-	LabelTTF* m_animal;
 
 	CCPoint m_startPoint;
-
-	CCPoint m_curPoint;
 	CCPoint m_directionPoint;
+
 public:
 	CREATE_FUNC(DrawScene);
 			
@@ -39,12 +37,13 @@ public:
 	virtual void onTouchMoved(Touch *touch, Event *unused_event) override; 
 	virtual void onTouchEnded(Touch *touch, Event *unused_event) override; 
 	virtual void onTouchCancelled(Touch *touch, Event *unused_event) override;
-		
+
 	void sceneUpdate(float dt);
 
 	void drawLine();
 
 	void menuCloseCallback(Ref* pSender);
+
 };
 
 #endif // __DrawScene_H__

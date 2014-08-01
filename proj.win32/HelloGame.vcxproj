@@ -179,6 +179,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\ckbase\wrapper\CKAndroidWrapper.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\Classes\ckbase\wrapper\CKDate.cpp" />
     <ClCompile Include="..\Classes\ckbase\wrapper\CKDefaultWrapper.cpp" />
     <ClCompile Include="..\Classes\ckbase\wrapper\CKWrapper.cpp" />
     <ClCompile Include="..\Classes\ckbase\wrapper\RSA_CryptionHandler.cpp" />
@@ -234,6 +235,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\ckbase\network\CKHttpUtils.h" />
     <ClInclude Include="..\Classes\ckbase\network\URLData.h" />
     <ClInclude Include="..\Classes\ckbase\network\URLManager.h" />
+    <ClInclude Include="..\Classes\ckbase\wrapper\CKDate.h" />
     <ClInclude Include="..\Classes\ckbase\wrapper\CKWrapper.h" />
     <ClInclude Include="..\Classes\ckbase\wrapper\RSA_CryptionHandler.h" />
     <ClInclude Include="..\Classes\DrawScene.h" />
