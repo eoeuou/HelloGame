@@ -14,7 +14,7 @@ public:
     
 	virtual void showNetworkSettings(){};
     
-	virtual std::string getCKGamePackageName(){ return "";}
+	virtual std::string getPackageName(){ return "";}
 	virtual std::string getVersionName() { return "";}
 	virtual int getVersionCode() { return 0;}
     

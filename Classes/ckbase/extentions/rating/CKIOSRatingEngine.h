@@ -7,8 +7,8 @@ class CKIOSRatingEngine: public CKRatingEngine {
 public:
 	CKIOSRatingEngine();
 	virtual ~CKIOSRatingEngine();
-
-	virtual bool rating(const std::string& id,int money);
+    
+	virtual bool rate(const char* appId){};
 };
 
 #endif /* CKIOSRATINGENGINE_H_ */
