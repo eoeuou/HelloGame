@@ -13,7 +13,7 @@ typedef enum __ScrollType
 	CKSCROLL_DIR_BOTH
 }CKScrollType;
 
-#define LandSpeed_DIS 3.0f
+#define LandSpeed 3.0f
 
 class CKLandLayer:public cocos2d::CCLayerColor
 {
@@ -66,7 +66,7 @@ public:
 				return true;
 			}
 
-			target->getParent()->reorderChild(target,100);
+			target->getParent()->reorderChild(target,-1);
 			return false;
 		};
 

@@ -2,6 +2,18 @@
 #define CKPAYENGINE_H_
 
 #include "CKCommon.h"
+#include "CKModel.h"
+
+/*商品信息*/
+class CKProductInfoModel : public CKModel
+{
+public:
+	CREATE_FUNC(CKProductInfoModel);
+
+	CK_SYNTHESIZE_MODEL_STRING(std::string,"productId",ProductId);
+	CK_SYNTHESIZE_MODEL_FLOAT(float,"rice",Price);
+
+};
 
 class CKPayListener{
 public:

@@ -62,6 +62,11 @@
 			<locationURI>COCOS2DX/extensions</locationURI>
 		</link>
 		<link>
+			<name>libs_common</name>
+			<type>2</type>
+			<locationURI>PARENT-1-PROJECT_LOC/libs_common</locationURI>
+		</link>
+		<link>
 			<name>scripting</name>
 			<type>2</type>
 			<locationURI>COCOS2DX/scripting</locationURI>

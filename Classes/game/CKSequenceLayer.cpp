@@ -17,7 +17,7 @@ void CKLandLayer::drawDotUpdate(float dt,CCPoint prePoint,CCPoint curPoint)
 CKSequenceLayer::CKSequenceLayer(void):
 	m_scrollType(CKScrollType::CKSCROLL_DIR_BOTH),
 	m_scrollDirection(Point::ZERO),
-	m_scrollSpeed(LandSpeed_DIS),
+	m_scrollSpeed(LandSpeed),
 	m_landLayerA(nullptr),
 	m_landLayerB(nullptr),
 	m_landLayerC(nullptr),
@@ -241,11 +241,13 @@ bool CKSequenceLayer::resetLandLayerHorizontal(Layer* landLayer)
 	if(landLayer->getPositionX() <= -width) 
 	{
 		landLayer->setPositionX(landLayer->getPositionX() + 2*width);
+		log("reset:%d,to right",landLayer->getTag());
 		return true;
 	}
 	else if(landLayer->getPositionX() >= width) 
 	{
 		landLayer->setPositionX(landLayer->getPositionX() - 2*width);
+		log("reset:%d,to left",landLayer->getTag());
 		return true;
 	}
 	return false;
