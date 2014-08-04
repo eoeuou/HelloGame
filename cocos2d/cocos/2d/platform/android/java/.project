@@ -34,12 +34,18 @@
 		<link>
 			<name>cocos2dxAndroidCpp</name>
 			<type>2</type>
-			<location>D:/cocos2dxDownload/cocos2d-x-3.0/projects/HelloGame/cocos2d/cocos/2d/platform/android/cpp</location>
+			<locationURI>$%7BPROJECT_COCOS2DX_LOC%7D/cocos/2d/platform/android/cpp</locationURI>
 		</link>
 		<link>
 			<name>cocos2dxAndroidJni</name>
 			<type>2</type>
-			<location>D:/cocos2dxDownload/cocos2d-x-3.0/projects/HelloGame/cocos2d/cocos/2d/platform/android/jni</location>
+			<locationURI>$%7BPROJECT_COCOS2DX_LOC%7D/cocos/2d/platform/android/jni</locationURI>
 		</link>
 	</linkedResources>
+	<variableList>
+		<variable>
+			<name>PROJECT_COCOS2DX_LOC</name>
+			<value>$%7BPARENT-5-PROJECT_LOC%7D</value>
+		</variable>
+	</variableList>
 </projectDescription>
