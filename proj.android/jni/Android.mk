@@ -37,6 +37,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/ckbase/network/URLData.cpp \
 ../../Classes/ckbase/network/URLManager.cpp \
 ../../Classes/ckbase/wrapper/CKAndroidWrapper.cpp \
+../../Classes/ckbase/wrapper/CKDate.cpp \
 ../../Classes/ckbase/wrapper/CKWrapper.cpp \
 ../../Classes/ckbase/wrapper/RSA_CryptionHandler.cpp \
 ../../Classes/DrawScene.cpp \
