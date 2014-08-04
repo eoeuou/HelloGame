@@ -42,11 +42,6 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>AndroidJni</name>
-			<type>2</type>
-			<location>D:/cocos2dxDownload/cocos2d-x-3.0/projects/HelloGame/Classes/AndroidJni</location>
-		</link>
-		<link>
 			<name>Classes</name>
 			<type>2</type>
 			<locationURI>COCOS2DX/projects/HelloGame/Classes</locationURI>
