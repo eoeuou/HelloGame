@@ -17,6 +17,8 @@
 #include "CKMessageBox.h"
 #include "CKRatingEngine.h"
 #include "DrawScene.h"
+#include "GUIScene.h"
+
 USING_NS_CC;
 using namespace cocostudio;
 
@@ -200,7 +202,11 @@ Controller g_aTestNames[] = {
 	{"Rate",[=](){
 		CKRatingEngine::sharedEngine()->rate("");
 		wrapper::showToast("empty");
-	}},		
+	}},
+	{"cocostudioUITest",[=](){
+		CCScene * newscene = GUIScene::create();
+		CCDirector::sharedDirector()->pushScene(newscene); 
+	}},
 	{"empty",[=](){
 		wrapper::showToast("empty");
 	}},	

@@ -177,6 +177,9 @@
     <ClCompile Include="..\Classes\ckbase\wrapper\CKDate.cpp">
       <Filter>Classes\ckbase\wrapper</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\GUIScene.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -307,6 +310,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\wrapper\CKDate.h">
       <Filter>Classes\ckbase\wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GUIScene.h">
+      <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
