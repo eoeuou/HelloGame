@@ -161,7 +161,6 @@ void CKColorGameLayer::checkBoundingItems(int x, int y)
 		if (!item->isItemTypeEqual(curItem))
 		{
 			break;
-			
 		}
 		item->runRotateAction();
 	}
@@ -174,36 +173,33 @@ void CKColorGameLayer::checkBoundingItems(int x, int y)
 		if (!item->isItemTypeEqual(curItem))
 		{
 			break;
-
 		}
 		item->runRotateAction();
 	}
 	//check to top
-// 	for (int i = y+1; i > 0; i--)
-// 	{
-// 		int index = i + y * GAME_HORIZONTAL;
-// 		CKColorItem* item = m_colorItems.at(index);
-// 		log("index=%d,cur=%d",index,cur);
-// 		if (!item->isItemTypeEqual(curItem))
-// 		{
-// 			break;
-// 
-// 		}
-// 		item->runRotateAction();
-// 	}
+	for (int i = y+1; i < GAME_VERTICAL; i++)
+	{
+		int index = x + i * GAME_HORIZONTAL;
+		CKColorItem* item = m_colorItems.at(index);
+		log("index=%d,cur=%d",index,cur);
+		if (!item->isItemTypeEqual(curItem))
+		{
+			break;
+		}
+		item->runRotateAction();
+	}
 	//check to bottom
-// 	for (int i = x-1; i > 0; i--)
-// 	{
-// 		int index = i + y * GAME_HORIZONTAL;
-// 		CKColorItem* item = m_colorItems.at(index);
-// 		log("index=%d,cur=%d",index,cur);
-// 		if (!item->isItemTypeEqual(curItem))
-// 		{
-// 			break;
-// 
-// 		}
-// 		item->runRotateAction();
-// 	}
+	for (int i = y-1; i > 0; i--)
+	{
+		int index = x + i * GAME_HORIZONTAL;
+		CKColorItem* item = m_colorItems.at(index);
+		log("index=%d,cur=%d",index,cur);
+		if (!item->isItemTypeEqual(curItem))
+		{
+			break;
+		}
+		item->runRotateAction();
+	}
 }
 
 void CKColorGameLayer::cleanupAllItems()
