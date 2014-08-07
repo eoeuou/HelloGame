@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include "CKScene.h"
-#include "game/CKSequenceLayer.h"
+#include "CKSequenceLayer.h"
 
 USING_NS_CC;
 

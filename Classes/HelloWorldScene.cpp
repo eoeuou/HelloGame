@@ -18,6 +18,7 @@
 #include "CKRatingEngine.h"
 #include "DrawScene.h"
 #include "GUIScene.h"
+#include "CKColorGameScene.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -133,6 +134,10 @@ Controller g_aTestNames[] = {
 			//this->addChild(CKDialog::create(),100);
 		}
 	},
+	{"XiaoChu",[=](){
+		CCScene * newscene = CKColorGameScene::create();
+		CCDirector::sharedDirector()->pushScene(newscene); 
+	}},
 	{"CKLoadingDialog",[=](){CKDialog::show<CKLoadingDialog>(m_hello,getChildrenMaxZorder(m_hello));}},
 	{"Toast",[=](){wrapper::showToast("11111111111");}},
 	{"UID",[=](){wrapper::showToast(wrapper::getUID().c_str());}},

@@ -46,6 +46,12 @@
     <Filter Include="Classes\game">
       <UniqueIdentifier>{729465d5-f8da-48da-a192-2bb99dea729d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\game\colorgame">
+      <UniqueIdentifier>{0fd0d8a9-c47f-48b5-9bb0-746f163c2a61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\game\drawgame">
+      <UniqueIdentifier>{779233b8-d867-4637-8c05-72b1f7166960}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -168,17 +174,26 @@
     <ClCompile Include="..\Classes\ckbase\wrapper\CKWrapper.cpp">
       <Filter>Classes\ckbase\wrapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\DrawScene.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\game\CKSequenceLayer.cpp">
-      <Filter>Classes\game</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\ckbase\wrapper\CKDate.cpp">
       <Filter>Classes\ckbase\wrapper</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\GUIScene.cpp">
       <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\colorgame\CKColorGameLayer.cpp">
+      <Filter>Classes\game\colorgame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\colorgame\CKColorGameManager.cpp">
+      <Filter>Classes\game\colorgame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\colorgame\CKColorGameScene.cpp">
+      <Filter>Classes\game\colorgame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\drawgame\CKSequenceLayer.cpp">
+      <Filter>Classes\game\drawgame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\drawgame\DrawScene.cpp">
+      <Filter>Classes\game\drawgame</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -302,17 +317,26 @@
     <ClInclude Include="..\Classes\ckbase\extentions\messagebox\CKMessageBox.h">
       <Filter>Classes\ckbase\extentions\messagebox</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\DrawScene.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\game\CKSequenceLayer.h">
-      <Filter>Classes\game</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\ckbase\wrapper\CKDate.h">
       <Filter>Classes\ckbase\wrapper</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\GUIScene.h">
       <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\colorgame\CKColorGameLayer.h">
+      <Filter>Classes\game\colorgame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\colorgame\CKColorGameManager.h">
+      <Filter>Classes\game\colorgame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\colorgame\CKColorGameScene.h">
+      <Filter>Classes\game\colorgame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\drawgame\CKSequenceLayer.h">
+      <Filter>Classes\game\drawgame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\drawgame\DrawScene.h">
+      <Filter>Classes\game\drawgame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

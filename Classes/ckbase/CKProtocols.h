@@ -86,4 +86,65 @@ protected:
 	virtual void onTouchCancelled(Touch *touch, Event *unused_event);
 };
 
+/************************************************************************/
+/* Node的拖动事件                                                                     */
+/************************************************************************/
+class CKTouchMoveProtocol
+{
+private:
+	EventListenerTouchOneByOne* m_eventListener;
+	Node* m_node;
+protected:
+
+	CKTouchMoveProtocol():m_node(nullptr){};
+
+	~CKTouchMoveProtocol(){};
+
+	virtual void addTouchMoveEvent(Node* node)
+	{
+		m_node = node;
+		m_eventListener = EventListenerTouchOneByOne::create();
+		m_eventListener->setSwallowTouches(true);
+
+		m_eventListener->onTouchBegan = [=](Touch* touch, Event* event){
+			auto target = static_cast<Sprite*>(event->getCurrentTarget());
+
+			Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+			Size s = target->getContentSize();
+			Rect rect = Rect(0, 0, s.width, s.height);
+
+			if (rect.containsPoint(locationInNode))
+			{
+				log("sprite began... x = %f, y = %f", locationInNode.x, locationInNode.y);
+				log("sprite ...Position...x = %f, y = %f \n...Anchor...x = %f, y = %f", m_node->getPositionX(),m_node->getPositionY(),m_node->getAnchorPoint().x,m_node->getAnchorPoint().y);
+				target->setOpacity(180);
+				return true;
+			}
+			return false;
+		};
+
+		m_eventListener->onTouchMoved = [](Touch* touch, Event* event){
+			auto target = static_cast<Sprite*>(event->getCurrentTarget());
+			target->setPosition(target->getPosition() + touch->getDelta());
+		};
+
+		m_eventListener->onTouchEnded = [=](Touch* touch, Event* event){
+			auto target = static_cast<Sprite*>(event->getCurrentTarget());
+			log("sprite onTouchesEnded.. ");
+			target->setOpacity(255);
+			log("sprite ...Position...x = %f, y = %f \n...Anchor...x = %f, y = %f", m_node->getPositionX(),m_node->getPositionY(),m_node->getAnchorPoint().x,m_node->getAnchorPoint().y);
+		};
+
+		node->getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_eventListener, node);
+	}
+
+	virtual void removeTouchMoveEvent(Node* node)
+	{
+		if (m_eventListener)
+		{
+			node->getEventDispatcher()->removeEventListener(m_eventListener);
+		}
+	}
+
+};
 #endif // __CKProtocols_H__
