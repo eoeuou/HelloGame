@@ -28,6 +28,7 @@ class CKColorItem : public cocos2d::CCLayer
 {
 private:
 	CC_SYNTHESIZE(Sprite*,m_bgSprite,BgSprite);
+	CC_SYNTHESIZE(bool,m_bIsRotated,BIsRotated);
 	CC_SYNTHESIZE(CKColorItemType,m_colorItemType,ColorItemType);
 	CC_SYNTHESIZE(CKColorItemStatus,m_colorItemStatus,CKColorItemStatus);
 protected:
@@ -45,12 +46,19 @@ public:
 
 	void runRotateAction()
 	{
+		m_bIsRotated = true;
 		this->runAction(CCRepeatForever::create(CCRotateBy::create(3,360)));
 	}
 	void stopRotateAction()
 	{
+		m_bIsRotated = false;
 		this->setRotation(0);
 		this->cleanup();
+	}
+
+	void runMissAction()
+	{
+		this->runAction(CCSequence::create(Blink::create(0.5f,3),Hide::create(),NULL));
 	}
 
 	bool isItemTypeEqual(CKColorItem* item)
@@ -70,6 +78,8 @@ private:
 	CC_SYNTHESIZE_READONLY(CKColorItems,m_colorItems,ColorItems);
 
 	CC_SYNTHESIZE_READONLY(Size,m_colorItemSize,ColorItemSize);
+
+	CC_SYNTHESIZE_READONLY(CKColorItems,m_rotateColorItems,RotateColorItems);
 
 protected:
 
@@ -101,7 +111,9 @@ public:
 
 	void checkBoundingItems(int x, int y);
 
-	void cleanupAllItems();
+	void cleanupAllItemsAction();
+
+	void removeAllRotateColorItems();
 };
 
 #endif // __CKCOLORGAMELAYER_H__

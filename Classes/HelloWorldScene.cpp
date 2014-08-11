@@ -52,9 +52,13 @@ bool HelloWorld::init()
 	m_hello = this;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
+	Size sceneSize = Director::getInstance()->getWinSize();
+	Size sizeInPixels = Director::getInstance()->getWinSizeInPixels();
 
 	log("visibleSize.width=%f,visibleSize.height=%f",visibleSize.width,visibleSize.height);
 	log("origin.x=%f,origin.y=%f",origin.x,origin.y);
+	log("sceneSize.width=%f,sceneSize.height=%f",sceneSize.width,sceneSize.height);
+	log("sizeInPixels.width=%f,sizeInPixels.height=%f",sizeInPixels.width,sizeInPixels.height);
 
 	/////////////////////////////
 	// 2. add a menu item with "X" image, which is clicked to quit the program

@@ -6,7 +6,8 @@ ant clean
 ant debug
 #ant release
 
-ant installr
+#ant installr
+ant installd
 
 adb shell am start -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.chukong.HelloGame/org.cocos2dx.cpp.AppActivity
 

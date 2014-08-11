@@ -2,6 +2,7 @@
 
 CKColorItem::CKColorItem():
 	m_bgSprite(nullptr),
+	m_bIsRotated(false),
 	m_colorItemType(CKColorItemType::CKITEM_COLOR_NONE),
 	m_colorItemStatus(CKColorItemStatus::CKITEM_STATUS_NONE)
 {
@@ -48,7 +49,7 @@ void CKColorItem::setItemType(CKColorItemType type)
 			color = Color3B::ORANGE;
 			break;
 		default:
-			assert(false,"type wrong!");
+			CCAssert(false,"type wrong!");
 			break;
 		}
 		m_bgSprite->setColor(color);
@@ -95,6 +96,7 @@ bool CKColorGameLayer::initWithColor(const Color4B& color)
 void CKColorGameLayer::initGameItems()
 {
 	m_colorItems.clear();
+	m_rotateColorItems.clear();
 
 	int sum = GAME_HORIZONTAL*GAME_VERTICAL;
 	for (int i = 0; i < GAME_VERTICAL; i++)
@@ -123,7 +125,17 @@ bool CKColorGameLayer::onTouchBegan( Touch *touch, Event *unused_event )
 		int y = locationInNode.y/m_colorItemSize.height;
 
 		log("sprite began... x = %d, y = %d", x, y);
-		checkBoundingItems(x,y);
+		CKColorItem* curItem = m_colorItems.at(x + y * GAME_HORIZONTAL);
+		if (curItem->getBIsRotated())
+		{
+			removeAllRotateColorItems();
+		}
+		else
+		{
+			m_rotateColorItems.clear();
+			cleanupAllItemsAction();
+			checkBoundingItems(x,y);
+		}
 		return true;
 	}
 
@@ -147,65 +159,85 @@ void CKColorGameLayer::onTouchCancelled( Touch *touch, Event *unused_event )
 
 void CKColorGameLayer::checkBoundingItems(int x, int y)
 {
-	cleanupAllItems();
+	log("checkBoundingItems... x = %d, y = %d", x, y);
 	int cur = x + y * GAME_HORIZONTAL;
 
 	CKColorItem* curItem = m_colorItems.at(cur);
+	if (curItem->getBIsRotated())
+	{
+		return;
+	}
 	curItem->runRotateAction();
+	if (m_rotateColorItems.contains(curItem))
+	{
+		CCAssert(false,"add wrong!");
+	}	
+	m_rotateColorItems.pushBack(curItem);
 	//check to right
-	for (int i = x+1; i < GAME_HORIZONTAL; i++)
+	int right = x + 1;
+	if (right < GAME_HORIZONTAL)
 	{
-		int index = i + y * GAME_HORIZONTAL;
+		int index = right + y * GAME_HORIZONTAL;
 		CKColorItem* item = m_colorItems.at(index);
 		log("index=%d,cur=%d",index,cur);
-		if (!item->isItemTypeEqual(curItem))
+		if (!item->getBIsRotated()&&item->isItemTypeEqual(curItem))
 		{
-			break;
+			checkBoundingItems(right,y);
 		}
-		item->runRotateAction();
 	}
+	
 	//check to left
-	for (int i = x-1; i > 0; i--)
+	int left = x - 1;
+	if (left >= 0)
 	{
-		int index = i + y * GAME_HORIZONTAL;
+		int index = left + y * GAME_HORIZONTAL;
 		CKColorItem* item = m_colorItems.at(index);
 		log("index=%d,cur=%d",index,cur);
-		if (!item->isItemTypeEqual(curItem))
+		if (!item->getBIsRotated()&&item->isItemTypeEqual(curItem))
 		{
-			break;
+			checkBoundingItems(left,y);
 		}
-		item->runRotateAction();
 	}
+
 	//check to top
-	for (int i = y+1; i < GAME_VERTICAL; i++)
+	int top = y + 1;
+	if (top < GAME_VERTICAL)
 	{
-		int index = x + i * GAME_HORIZONTAL;
+		int index = x + top * GAME_HORIZONTAL;
 		CKColorItem* item = m_colorItems.at(index);
 		log("index=%d,cur=%d",index,cur);
-		if (!item->isItemTypeEqual(curItem))
+		if (!item->getBIsRotated()&&item->isItemTypeEqual(curItem))
 		{
-			break;
+			checkBoundingItems(x,top);
 		}
-		item->runRotateAction();
 	}
 	//check to bottom
-	for (int i = y-1; i > 0; i--)
+	int bottom = y - 1;
+	if (bottom >= 0)
 	{
-		int index = x + i * GAME_HORIZONTAL;
+		int index = x + bottom * GAME_HORIZONTAL;
 		CKColorItem* item = m_colorItems.at(index);
 		log("index=%d,cur=%d",index,cur);
-		if (!item->isItemTypeEqual(curItem))
+		if (!item->getBIsRotated()&&item->isItemTypeEqual(curItem))
 		{
-			break;
+			checkBoundingItems(x,bottom);
 		}
-		item->runRotateAction();
 	}
 }
 
-void CKColorGameLayer::cleanupAllItems()
+void CKColorGameLayer::cleanupAllItemsAction()
 {
 	for (const auto& child : m_colorItems)
 	{
 		child->stopRotateAction();
 	}
+}
+
+void CKColorGameLayer::removeAllRotateColorItems()
+{
+	for (const auto& child : m_rotateColorItems)
+	{
+		child->runMissAction();
+	}
+	m_rotateColorItems.clear();
 }

@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 #include "cocos-ext.h"
 #include "CKScene.h"
-#include "UILayout.h"
+#include "ui/UILayout.h"
 
 #include "cocos2d.h"
 #include "extensions/cocos-ext.h"

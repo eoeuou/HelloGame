@@ -2,18 +2,9 @@
 #define __CKCOLORGAMESCENE_H__
 
 #include "cocos2d.h"
-#include "cocos-ext.h"
 #include "CKScene.h"
-#include "UILayout.h"
-
-#include "cocos2d.h"
-#include "extensions/cocos-ext.h"
-#include "ui/CocosGUI.h"
-#include "cocostudio/CocoStudio.h"
 
 USING_NS_CC;
-USING_NS_CC_EXT;
-using namespace ui;
 using namespace std;
 
 class CKColorGameScene : public CKScene
