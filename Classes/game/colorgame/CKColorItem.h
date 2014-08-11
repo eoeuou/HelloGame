@@ -7,6 +7,9 @@ USING_NS_CC;
 
 using namespace std;
 
+#define GAME_HORIZONTAL 10
+#define GAME_VERTICAL 8
+
 typedef enum __ColorItemType
 {
 	CKITEM_COLOR_BLUE,
@@ -37,57 +40,111 @@ protected:
 public:
 	~CKColorItem();
 
-	CREATE_FUNC(CKColorItem);
+	static CKColorItem* create(int itemIndex) 
+	{ 
+		CKColorItem *pRet = new CKColorItem(); 
+		if (pRet && pRet->init(itemIndex)) 
+		{
+			pRet->autorelease(); 
+			return pRet; 
+		} 
+		else 
+		{ 
+			delete pRet; 
+			pRet = NULL; 
+			return NULL; 
+		} 
+	}
 	
-	virtual bool init();
+	virtual bool init(int itemIndex);
 
+	//************************************
+	// Method:    setItemType
+	// FullName:  CKColorItem::setItemType
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: 设置颜色类型
+	// Parameter: CKColorItemType type
+	//************************************
 	void setItemType(CKColorItemType type);
 
+	//************************************
+	// Method:    randomItemType
+	// FullName:  CKColorItem::randomItemType
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: 随机颜色
+	//************************************
 	void randomItemType();
 
-	void changeItemIndex(int index)
-	{
-		m_itemIndex = index;
-	}
+	//************************************
+	// Method:    changeItemIndex
+	// FullName:  CKColorItem::changeItemIndex
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: 改变原始Index
+	// Parameter: int index
+	//************************************
+	void changeItemIndex(int index);
 
-	void onItemSelected()
-	{
-		this->m_bIsSelected = true;
-	}
+	//************************************
+	// Method:    onItemSelected
+	// FullName:  CKColorItem::onItemSelected
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: 当元素被选中
+	//************************************
+	void onItemSelected();
 
-	void runRotateAction()
-	{
-		this->runAction(CCRepeatForever::create(CCRotateBy::create(3,360)));
-	}
+	//************************************
+	// Method:    onItemuUnSelected
+	// FullName:  CKColorItem::onItemuUnSelected
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: 当元素失去焦点
+	//************************************
+	void onItemuUnSelected();
 
-	void stopRotateAction()
-	{
-		m_bIsSelected = false;
-		this->setRotation(0);
-		this->cleanup();
-	}
+	//************************************
+	// Method:    runRotateAction
+	// FullName:  CKColorItem::runRotateAction
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: 运行旋转动画
+	//************************************
+	void runRotateAction();
 
-	void runMissAction(CallFunc* func = nullptr)
-	{
-		CallFunc* changeStatus = CallFunc::create(
-			// lambda
-			[&](){
-				this->m_colorItemStatus = CKColorItemStatus::CKITEM_STATUS_MISS;
-		}  );
+	//************************************
+	// Method:    stopRotateAction
+	// FullName:  CKColorItem::stopRotateAction
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: 停止旋转动画
+	//************************************
+	void stopRotateAction();
 
-		if (func != nullptr)
-		{
-			this->runAction(CCSequence::create(Blink::create(0.3f,3),Hide::create(),changeStatus,func,NULL));
-		}
-		else
-		{
-			this->runAction(CCSequence::create(Blink::create(0.3f,3),Hide::create(),changeStatus,NULL));
-		}
-	}
+	//************************************
+	// Method:    runMissAction
+	// FullName:  CKColorItem::runMissAction
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: 消失动画
+	// Parameter: CallFunc * func
+	//************************************
+	void runMissAction(CallFunc* func = nullptr,float delay = 0);
 
-	bool isItemTypeEqual(CKColorItem* item)
-	{
-		return this->getColorItemType()==item->getColorItemType();
-	}
+	//************************************
+	// Method:    isItemTypeEqual
+	// FullName:  CKColorItem::isItemTypeEqual
+	// Access:    public 
+	// Returns:   bool
+	// Qualifier: 判断两个元素是否一致
+	// Parameter: CKColorItem * item
+	//************************************
+	bool isItemTypeEqual(CKColorItem* item);
+
+	bool isItemMiss();
+
+	void runMoveAction(int toItemIndex);
 };
 #endif // __CKCOLORITEM_H__

@@ -24,7 +24,7 @@ void CKColorGameManager::destroyInstance()
 
 bool CKColorGameManager::init()
 {
-	m_colorItemSize = CKColorItem::create()->getContentSize();
+	m_colorItemSize = CKColorItem::create(-1)->getContentSize();
 
 	std::function<void(int,int)> func = [&](int x, int y){
 		this->onSelectColorItem(x,y);
@@ -50,19 +50,18 @@ void CKColorGameManager::initGameItems()
 	m_selectedItems.clear();
 
 	int sum = GAME_HORIZONTAL*GAME_VERTICAL;
-	for (int i = 0; i < GAME_VERTICAL; i++)
+	for (int y = 0; y < GAME_VERTICAL; y++)
 	{
-		for (int j = 0;j < GAME_HORIZONTAL; j++)
+		for (int x = 0; x < GAME_HORIZONTAL; x++)
 		{
-			CKColorItem* item = CKColorItem::create();
-			m_colorGameLayer->addChild(item);
-			item->setPosition(ccp(j*m_colorItemSize.width + m_colorItemSize.width/2.0f,
-				i*m_colorItemSize.height + m_colorItemSize.height/2.0f));
+			int index = x+y*GAME_HORIZONTAL;
 
-			int index = j+i*GAME_HORIZONTAL;
-			log("index=%d",index);
+			CKColorItem* item = CKColorItem::create(index);
+			m_colorGameLayer->addChild(item);
+			item->setPosition(ccp(x*m_colorItemSize.width + m_colorItemSize.width/2.0f,
+				y*m_colorItemSize.height + m_colorItemSize.height/2.0f));
+
 			m_colorItems.insert(index,item);
-			item->changeItemIndex(index);
 		}
 	}
 
@@ -74,9 +73,7 @@ void CKColorGameManager::initGameItems()
 
 CKColorItem* CKColorGameManager::getItemByIndex(int index)
 {
-	int size = m_colorItems.size();
-	bool result = index>=0&&index<size;
-	assert(result,"wrong index");
+	assert(index>=0,"wrong index");
 	return m_colorItems.at(index);
 }
 
@@ -113,7 +110,7 @@ void CKColorGameManager::checkBoundingItems(int x, int y)
 	if (right < GAME_HORIZONTAL)
 	{
 		CKColorItem* item = getItemByPosition(right,y);
-		if (!item->getBIsSelected()&&item->isItemTypeEqual(curItem))
+		if (!item->isItemMiss()&&!item->getBIsSelected()&&item->isItemTypeEqual(curItem))
 		{
 			checkBoundingItems(right,y);
 		}
@@ -124,7 +121,7 @@ void CKColorGameManager::checkBoundingItems(int x, int y)
 	if (left >= 0)
 	{
 		CKColorItem* item = getItemByPosition(left,y);
-		if (!item->getBIsSelected()&&item->isItemTypeEqual(curItem))
+		if (!item->isItemMiss()&&!item->getBIsSelected()&&item->isItemTypeEqual(curItem))
 		{
 			checkBoundingItems(left,y);
 		}
@@ -135,7 +132,7 @@ void CKColorGameManager::checkBoundingItems(int x, int y)
 	if (top < GAME_VERTICAL)
 	{
 		CKColorItem* item = getItemByPosition(x,top);
-		if (!item->getBIsSelected()&&item->isItemTypeEqual(curItem))
+		if (!item->isItemMiss()&&!item->getBIsSelected()&&item->isItemTypeEqual(curItem))
 		{
 			checkBoundingItems(x,top);
 		}
@@ -146,7 +143,7 @@ void CKColorGameManager::checkBoundingItems(int x, int y)
 	if (bottom >= 0)
 	{
 		CKColorItem* item = getItemByPosition(x,bottom);
-		if (!item->getBIsSelected()&&item->isItemTypeEqual(curItem))
+		if (!item->isItemMiss()&&!item->getBIsSelected()&&item->isItemTypeEqual(curItem))
 		{
 			checkBoundingItems(x,bottom);
 		}
@@ -166,6 +163,10 @@ void CKColorGameManager::allSelectedItemsRotateAction()
 {
 	if (m_selectedItems.size() <= 1)
 	{
+		for (const auto& child : m_selectedItems)
+		{
+			child->onItemuUnSelected();
+		}
 		m_selectedItems.clear();
 	}
 	
@@ -180,7 +181,7 @@ void CKColorGameManager::allSelectedItemsMissAction()
 	CallFunc* func = CallFunc::create(
 		// lambda
 		[&](){
-			log("xxxxxxxxxx");
+			adjustItemsPosition();
 	}  );
 
 	int size = m_selectedItems.size();
@@ -199,11 +200,25 @@ void CKColorGameManager::allSelectedItemsMissAction()
 	m_selectedItems.clear();
 }
 
+void CKColorGameManager::allUnMissItemAction()
+{
+	float delay = 0.1f;
+	for (const auto& child : m_colorItems)
+	{
+		if (!child.second->isItemMiss())
+		{
+			delay += 0.3f;
+			child.second->runMissAction(nullptr,delay);
+		}
+	}
+}
+
 void CKColorGameManager::onSelectColorItem(int x , int y)
 {
 	CKColorItem* curItem = getItemByPosition(x,y);
 	if (curItem->getBIsSelected())
 	{
+		log("===================================================");
 		allSelectedItemsMissAction();
 	}
 	else
@@ -212,4 +227,156 @@ void CKColorGameManager::onSelectColorItem(int x , int y)
 		checkBoundingItems(x,y);
 		allSelectedItemsRotateAction();
 	}
+}
+
+void CKColorGameManager::changeItemPosition(int fromIndex , int toIndex)
+{
+	CKColorItem* fromItem = getItemByIndex(fromIndex);
+	CKColorItem* toItem = getItemByIndex(toIndex);
+	fromItem->runMoveAction(toIndex);
+
+	m_colorItems.insert(fromIndex,toItem);
+	m_colorItems.insert(toIndex,fromItem);
+}
+
+void CKColorGameManager::adjustItemsPosition()
+{
+	//竖直方向调整
+	for (int y = 0; y < GAME_VERTICAL; y++)
+	{
+		for (int x = 0; x < GAME_HORIZONTAL; x++)
+		{
+			int tempVer = y;
+			int index = getIndexByPosition(x,y);
+			CKColorItem* item = getItemByIndex(index);
+			CKColorItem* tempItem = item;
+			if (!tempItem->isItemMiss())
+			{
+				continue;
+			}
+			else
+			{
+				while (tempItem->isItemMiss() && (tempVer < GAME_VERTICAL))
+				{
+					tempItem = getItemByPosition(x,tempVer);
+					if (!tempItem->isItemMiss())
+					{
+						break;
+					}
+					++tempVer;
+				}
+
+				if (!tempItem->isItemMiss())
+				{
+					int tempIndex = getIndexByPosition(x,tempVer);
+					changeItemPosition(tempIndex,index);
+				}
+			}
+		}
+	}
+
+	while (isNeedHoriAdjust())
+	{
+		int maxX = getMaxHoriValue();
+		for (int x = 0; x <= maxX; ++x)
+		{
+			CKColorItem* item = getItemByPosition(x,0);
+			if (item->isItemMiss())
+			{
+				for (int i = x; i < maxX; ++i)
+				{
+					for (int j = 0; j < GAME_VERTICAL; ++j)
+					{
+						int fromIndex = getIndexByPosition(i+1,j);
+						CKColorItem* fromItem = getItemByIndex(fromIndex);
+						if (fromItem->isItemMiss())
+						{
+							break;
+						}
+						int toIndex = getIndexByPosition(i,j);
+						changeItemPosition(fromIndex,toIndex);
+					}
+				}
+				break;
+			}
+		}
+	}
+
+	if (isLevelEnd())
+	{
+		allUnMissItemAction();
+	}
+
+}
+
+int CKColorGameManager::getMaxHoriValue()
+{
+	int max = GAME_HORIZONTAL-1;
+	while (max >= 0)
+	{
+		CKColorItem* item = getItemByPosition(max,0);
+		if (!item->isItemMiss())
+		{
+			break;
+		}
+		--max;
+	}
+
+	return max;
+}
+
+bool CKColorGameManager::isNeedHoriAdjust()
+{
+	bool needHoriAdjust = false;
+	bool haveHole = false;
+	for (int x = 0; x < GAME_HORIZONTAL; ++x)
+	{
+		CKColorItem* item = getItemByPosition(x,0);
+		if (item->isItemMiss())
+		{
+			haveHole = true;
+		}
+		else if (haveHole)
+		{
+			needHoriAdjust = true;
+		}
+	}
+	return needHoriAdjust;
+}
+
+
+bool CKColorGameManager::isLevelEnd()
+{
+	for (int x = 0; x < GAME_HORIZONTAL; x++)
+	{
+		for (int y = 0; y < GAME_VERTICAL; y++)
+		{
+			CKColorItem* item = getItemByPosition(x,y);
+			if (item->isItemMiss())
+			{
+				continue;
+			}
+
+			int right = x + 1;
+			if (right < GAME_HORIZONTAL)
+			{
+				CKColorItem* tempItem = getItemByPosition(right,y);
+				if (!tempItem->isItemMiss() && tempItem->isItemTypeEqual(item))
+				{
+					return false;
+				}
+			}
+
+			int top = y + 1;
+			if (top < GAME_VERTICAL)
+			{
+				CKColorItem* tempItem = getItemByPosition(x,top);
+				if (!tempItem->isItemMiss() && tempItem->isItemTypeEqual(item))
+				{
+					return false;
+				}
+			}
+		}
+	}
+	return true;
 }

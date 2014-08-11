@@ -15,8 +15,9 @@ CKColorItem::~CKColorItem()
 
 }
 
-bool CKColorItem::init()
+bool CKColorItem::init(int itemIndex)
 {
+	this->m_itemIndex = itemIndex;
 	this->ignoreAnchorPointForPosition(false);
 	m_bgSprite = Sprite::create("item.png");
 	CCSize size = m_bgSprite->getContentSize();
@@ -63,4 +64,79 @@ void CKColorItem::randomItemType()
 	int number = CKITEM_COLOR_NONE;
 	int ret = rand()%number;
 	setItemType((CKColorItemType)ret);
+}
+
+void CKColorItem::changeItemIndex(int index)
+{
+	m_itemIndex = index;
+}
+
+void CKColorItem::onItemSelected()
+{
+	this->m_bIsSelected = true;
+}
+
+void CKColorItem::onItemuUnSelected()
+{
+	this->m_bIsSelected = false;
+}
+
+void CKColorItem::runRotateAction()
+{
+	this->runAction(CCRepeatForever::create(CCRotateBy::create(3,360)));
+}
+
+void CKColorItem::stopRotateAction()
+{
+	this->onItemuUnSelected();
+	this->setRotation(0);
+	this->cleanup();
+}
+
+void CKColorItem::runMissAction(CallFunc* func,float delay)
+{
+	CallFunc* changeStatus = CallFunc::create(
+		// lambda
+		[&](){
+			this->m_colorItemStatus = CKColorItemStatus::CKITEM_STATUS_MISS;
+	}  );
+
+
+	if (func != nullptr)
+	{
+		this->runAction(CCSequence::create(DelayTime::create(delay),Blink::create(0.3f,3),Hide::create(),changeStatus,func,NULL));
+	}
+	else
+	{
+		this->runAction(CCSequence::create(DelayTime::create(delay),Blink::create(0.3f,3),Hide::create(),changeStatus,NULL));
+	}
+}
+
+bool CKColorItem::isItemTypeEqual(CKColorItem* item)
+{
+	return this->getColorItemType()==item->getColorItemType();
+}
+
+bool CKColorItem::isItemMiss()
+{
+	return this->getCKColorItemStatus() == CKColorItemStatus::CKITEM_STATUS_MISS;
+}
+
+void CKColorItem::runMoveAction(int toItemIndex)
+{
+	int nowX = m_itemIndex%GAME_HORIZONTAL;
+	int nowY = m_itemIndex/GAME_HORIZONTAL;
+
+	int toX = toItemIndex%GAME_HORIZONTAL;
+	int toY = toItemIndex/GAME_HORIZONTAL;
+
+	log("from:nowX=%d,nowY=%d to:toX=%d,toY=%d========from:m_itemIndex=%d to:toItemIndex=%d",nowX,nowY,toX,toY,m_itemIndex,toItemIndex);
+
+	this->m_itemIndex = toItemIndex;
+
+	CCSize size = this->getContentSize();
+	CCPoint point = this->getPosition();
+	point = ccpAdd(point,ccp(size.width*(toX-nowX),size.height*(toY-nowY)));
+
+	this->runAction(CCSequence::create(EaseElasticInOut::create(CCMoveTo::create(0.3f,point),0.1f),NULL));
 }

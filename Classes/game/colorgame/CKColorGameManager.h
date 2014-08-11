@@ -25,6 +25,7 @@ private:
 
 	CKColorGameManager(void);
 
+	CKColorItem* m_items[GAME_HORIZONTAL][GAME_VERTICAL];
 public:
 
 	~CKColorGameManager(void);
@@ -116,6 +117,8 @@ private:
 	//************************************
 	void allSelectedItemsMissAction();
 
+	void allUnMissItemAction();
+
 	//************************************
 	// Method:    onSelectColorItem
 	// FullName:  CKColorGameManager::onSelectColorItem
@@ -126,6 +129,52 @@ private:
 	// Parameter: int y
 	//************************************
 	void onSelectColorItem(int x , int y);
+
+	//************************************
+	// Method:    changeItemPosition
+	// FullName:  CKColorGameManager::changeItemPosition
+	// Access:    private 
+	// Returns:   void
+	// Qualifier: 切换Item位置，从fromIndex到toIndex
+	// Parameter: int fromIndex
+	// Parameter: int toIndex
+	//************************************
+	void changeItemPosition(int fromIndex , int toIndex);
+
+	//************************************
+	// Method:    adjustItemsPosition
+	// FullName:  CKColorGameManager::adjustItemsPosition
+	// Access:    private 
+	// Returns:   void
+	// Qualifier: 调整所有Item位置
+	//************************************
+	void adjustItemsPosition();
+	
+	//************************************
+	// Method:    getMaxHoriValue
+	// FullName:  CKColorGameManager::getMaxHoriValue
+	// Access:    private 
+	// Returns:   int
+	// Qualifier: 水平方向没有消失的最大值
+	//************************************
+	int getMaxHoriValue();
+	//************************************
+	// Method:    isNeedHoriAdjust
+	// FullName:  CKColorGameManager::isNeedHoriAdjust
+	// Access:    private 
+	// Returns:   bool
+	// Qualifier: 水平方向是否需要调整
+	//************************************
+	bool isNeedHoriAdjust();
+
+	//************************************
+	// Method:    isLevelEnd
+	// FullName:  CKColorGameManager::isLevelEnd
+	// Access:    private 
+	// Returns:   bool
+	// Qualifier: 当前等级是否结束
+	//************************************
+	bool isLevelEnd();
 };
 
 #endif // __CKCOLORGAMEMANAGER_H__

@@ -9,9 +9,6 @@ USING_NS_CC;
 
 using namespace std;
 
-#define GAME_HORIZONTAL 10
-#define GAME_VERTICAL 8
-
 class CKColorGameLayer : public cocos2d::LayerColor ,public CKTouchMoveProtocol ,public CKTouchProtocol
 {
 private:

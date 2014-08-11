@@ -37,7 +37,7 @@ bool CKColorGameScene::onTouchBegan( Touch *touch, Event *unused_event )
 {
 	CKScene::onTouchBegan(touch,unused_event);
 
-	CKColorItem* item = CKColorItem::create();
+	CKColorItem* item = CKColorItem::create(1);
 	this->addChild(item);
 	item->setPosition(touch->getLocation());
 	item->randomItemType();
