@@ -15,8 +15,8 @@ private:
 	CKSequenceLayer* m_ckSequenceLayer;
 	DrawNode* m_drawNode;
 
-	CCPoint m_startPoint;
-	CCPoint m_directionPoint;
+	Point m_startPoint;
+	Point m_directionPoint;
 
 public:
 	CREATE_FUNC(DrawScene);

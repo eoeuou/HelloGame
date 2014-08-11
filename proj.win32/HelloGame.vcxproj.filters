@@ -195,6 +195,9 @@
     <ClCompile Include="..\Classes\game\drawgame\DrawScene.cpp">
       <Filter>Classes\game\drawgame</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\game\colorgame\CKColorItem.cpp">
+      <Filter>Classes\game\colorgame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -337,6 +340,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\game\drawgame\DrawScene.h">
       <Filter>Classes\game\drawgame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\colorgame\CKColorItem.h">
+      <Filter>Classes\game\colorgame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -89,7 +89,7 @@ void DrawScene::onExit()
 
 bool DrawScene::onTouchBegan( Touch *touch, Event *unused_event )
 {
-	CCPoint touchPoint = touch->getLocation();
+	Point touchPoint = touch->getLocation();
 	float angle = ccpToAngle(ccpSub(touchPoint,m_startPoint));
 	m_directionPoint = Point::forAngle(angle);
 
@@ -100,8 +100,8 @@ bool DrawScene::onTouchBegan( Touch *touch, Event *unused_event )
 
 void DrawScene::onTouchMoved( Touch *touch, Event *unused_event )
 {
-	CCPoint prePoint = touch->getPreviousLocation();
-	CCPoint curPoint = touch->getLocation();
+	Point prePoint = touch->getPreviousLocation();
+	Point curPoint = touch->getLocation();
 	//m_drawNode->drawSegment(prePoint, curPoint, 10, Color4F(CCRANDOM_0_1(), CCRANDOM_0_1(), CCRANDOM_0_1(), 1));
 }
 

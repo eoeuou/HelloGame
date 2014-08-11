@@ -1,5 +1,5 @@
 #include "CKColorGameScene.h"
-#include "CKColorGameLayer.h"
+#include "CKColorGameManager.h"
 
 CKColorGameScene::CKColorGameScene(void)
 {
@@ -17,23 +17,19 @@ bool CKColorGameScene::init()
 	addKeyBackEvent(this);
 	//addTouchEvent();
 
-	Size s = Director::getInstance()->getWinSize();
-	Color4B colorA = Color4B(CCRANDOM_0_1()*255, CCRANDOM_0_1()*255, CCRANDOM_0_1()*255, 255);
-	CKColorGameLayer* m_ckColorGameLayer =  CKColorGameLayer::create(colorA);
-	m_ckColorGameLayer->setPosition(ccp(s.width/2.0f,m_ckColorGameLayer->getContentSize().height/2));
-	addChild(m_ckColorGameLayer,-1);
-
 	return true;
 }
 
 void CKColorGameScene::onEnter()
 {
 	CKScene::onEnter();
+	CKColorGameManager::getInstance();
 }
 
 void CKColorGameScene::onExit()
 {
 	removeKeyBackEvent(this);
+	CKColorGameManager::destroyInstance();
 	CKScene::onExit();
 }
 

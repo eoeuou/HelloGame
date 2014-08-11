@@ -9,7 +9,7 @@ bool CKLandLayer::initWithColor(const Color4B& color, GLfloat width, GLfloat hei
 	return ret;
 }
 
-void CKLandLayer::drawDotUpdate(float dt,CCPoint prePoint,CCPoint curPoint)
+void CKLandLayer::drawDotUpdate(float dt,Point prePoint,Point curPoint)
 {
 	m_drawNode->drawSegment(prePoint,curPoint,10,Color4F(0.5, 1, 0.8, 1));
 }
@@ -34,7 +34,7 @@ CKSequenceLayer::~CKSequenceLayer(void)
 	
 }
 
-void CKSequenceLayer::changeScrollDirection(CCPoint direction)
+void CKSequenceLayer::changeScrollDirection(Point direction)
 {
 	//CCAssert(m_scrollType == CKScrollType::CKSCROLL_DIR_BOTH,"wrong msg");
 	m_scrollDirection = direction*m_scrollSpeed;
@@ -42,7 +42,7 @@ void CKSequenceLayer::changeScrollDirection(CCPoint direction)
 
 void CKSequenceLayer::changeScrollSpeed(float speed)
 {
-	CCPoint direction = m_scrollDirection/m_scrollSpeed;
+	Point direction = m_scrollDirection/m_scrollSpeed;
 	m_scrollSpeed = speed;
 	changeScrollDirection(direction);
 }
@@ -132,13 +132,13 @@ void CKSequenceLayer::scrollLand(float dt)
 		return;
 	}
 	CCScene* scene = Director::getInstance()->getRunningScene();
-	CCPoint point = scene->convertToWorldSpace(m_startPoint);
+	Point point = scene->convertToWorldSpace(m_startPoint);
 
 	for (const auto& child : m_landLayers)
 	{
 		if (child->getBoundingBox().containsPoint(point))
 		{
-			CCPoint curPoint = child->convertToNodeSpace(point);
+			Point curPoint = child->convertToNodeSpace(point);
 			if (m_curLandLayer!=child)
 			{
 				if (m_curLandLayer)

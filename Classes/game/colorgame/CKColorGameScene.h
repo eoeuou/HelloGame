@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "CKScene.h"
+#include "CKColorGameLayer.h"
 
 USING_NS_CC;
 using namespace std;

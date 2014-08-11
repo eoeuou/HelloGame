@@ -19,7 +19,7 @@ class CKLandLayer:public cocos2d::CCLayerColor
 {
 private:
 	CC_SYNTHESIZE_READONLY(DrawNode*, m_drawNode, DrawNode);
-	CCPoint m_prePoint;
+	Point m_prePoint;
 	EventListenerTouchOneByOne* m_eventListener;
 protected:
 	CKLandLayer():
@@ -45,7 +45,7 @@ public:
 
 	bool initWithColor(const Color4B& color, GLfloat width, GLfloat height);
 
-	void drawDotUpdate(float dt,CCPoint prePoint,CCPoint curPoint);
+	void drawDotUpdate(float dt,Point prePoint,Point curPoint);
 
 	void addTouchEvent()
 	{
@@ -112,8 +112,8 @@ private:
 
 	CC_SYNTHESIZE(bool,m_bIsPauseScrollLand,BIsPauseScrollLand);
 	
-	CC_SYNTHESIZE(CCPoint,m_startPoint,StartPoint);
-	CC_SYNTHESIZE(CCPoint,m_prePoint,PrePoint);
+	CC_SYNTHESIZE(Point,m_startPoint,StartPoint);
+	CC_SYNTHESIZE(Point,m_prePoint,PrePoint);
 	CC_SYNTHESIZE(CKLandLayer*,m_curLandLayer,CurLandLayer);
 public:
 	CREATE_FUNC(CKSequenceLayer);
@@ -126,7 +126,7 @@ public:
 
 	void resumeScrollLand();
 
-	void changeScrollDirection(CCPoint direction);
+	void changeScrollDirection(Point direction);
 
 	void changeScrollSpeed(float speed);
 protected:

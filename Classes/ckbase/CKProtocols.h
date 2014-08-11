@@ -62,6 +62,9 @@ protected:
 	virtual void resumeScene() = 0;
 };
 
+/************************************************************************/
+/* Node的点击事件（EventListenerTouchOneByOne）、KeyBack事件                                                                     */
+/************************************************************************/
 class CKTouchProtocol
 {
 private:

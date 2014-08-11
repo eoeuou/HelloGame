@@ -238,7 +238,7 @@ void HelloWorld::addTestLabel()
 		auto label = LabelTTF::create( g_aTestNames[i].test_name,"Arial", 24);
 		auto menuItem = MenuItemLabel::create(label, CC_CALLBACK_1(HelloWorld::menuCallback, this));
 		_itemMenu->addChild(menuItem, i + 10000);		
-		menuItem->setPosition( Point( visibleSize.width/2, (visibleSize.height - (i + 1) * LINE_SPACE) ));				
+		menuItem->setPosition( Point(origin.x + visibleSize.width/2, (visibleSize.height - (i + 1) * LINE_SPACE) ));				
 	}	
 	
 	_itemMenu->setContentSize(Size(visibleSize.width, (g_testCount + 1) * (LINE_SPACE)));
