@@ -73,7 +73,7 @@ void CKColorGameManager::initGameItems()
 
 CKColorItem* CKColorGameManager::getItemByIndex(int index)
 {
-	assert(index>=0,"wrong index");
+	CCAssert(index>=0,"wrong index");
 	return m_colorItems.at(index);
 }
 
