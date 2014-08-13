@@ -52,9 +52,6 @@
     <Filter Include="Classes\game\drawgame">
       <UniqueIdentifier>{779233b8-d867-4637-8c05-72b1f7166960}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\test">
-      <UniqueIdentifier>{b3fae3e0-69c4-4de4-91b8-0b431d712028}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

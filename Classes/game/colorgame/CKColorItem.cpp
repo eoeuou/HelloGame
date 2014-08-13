@@ -5,6 +5,7 @@ CKColorItem::CKColorItem():
 	m_bIsSelected(false),
 	m_colorItemType(CKColorItemType::CKITEM_COLOR_NONE),
 	m_colorItemStatus(CKColorItemStatus::CKITEM_STATUS_NONE),
+	m_colorItemPropsType(CKColorItemPropsType::CKITEM_PROPSTYPE_NONE),
 	m_itemIndex(-1),
 	m_toItemIndex(-1)
 {
@@ -96,6 +97,11 @@ void CKColorItem::stopRotateAction()
 
 void CKColorItem::runMissAction(CallFunc* func,float delay)
 {
+	if (this->isItemMiss())
+	{
+		return;
+	}
+	
 	CallFunc* changeStatus = CallFunc::create(
 		// lambda
 		[this](){
@@ -120,7 +126,7 @@ bool CKColorItem::isItemTypeEqual(CKColorItem* item)
 
 bool CKColorItem::isItemMiss()
 {
-	return this->getCKColorItemStatus() == CKColorItemStatus::CKITEM_STATUS_MISS;
+	return this->getColorItemStatus() == CKColorItemStatus::CKITEM_STATUS_MISS;
 }
 
 bool CKColorItem::isItemNeedMove()
@@ -165,4 +171,24 @@ void CKColorItem::runMoveAction(CallFunc* func)
 	{
 		this->runAction(CCSequence::create(EaseElasticInOut::create(CCMoveTo::create(time,point),0.1f),changeStatus,NULL));
 	}
+}
+
+void CKColorItem::changeItemPropsType(CKColorItemPropsType type)
+{
+	this->m_colorItemPropsType = type;
+	if (type == CKColorItemPropsType::CKITEM_PROPSTYPE_1)
+	{
+		this->cleanup();
+		this->setRotation(0);
+		this->setVisible(true);
+		this->onItemuUnSelected();
+		m_bgSprite->setColor(Color3B::BLACK);
+		this->m_colorItemStatus = CKColorItemStatus::CKITEM_STATUS_NONE;
+		m_colorItemType = CKColorItemType::CKITEM_COLOR_NONE;		
+	}
+}
+
+bool CKColorItem::isItemPropsType()
+{
+	return this->m_colorItemPropsType != CKColorItemPropsType::CKITEM_PROPSTYPE_NONE;
 }

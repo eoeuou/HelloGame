@@ -22,6 +22,10 @@ private:
 	CC_SYNTHESIZE_READONLY(CKColorItemVector,m_selectedItems,SelectedItems);
 
 	CC_SYNTHESIZE_READONLY(CKColorGameLayer*,m_colorGameLayer,ColorGameLayer);
+	
+	CC_SYNTHESIZE_READONLY(CKColorItem*,m_curColorItem,CurColorItem);
+
+	CC_SYNTHESIZE_READONLY(bool,m_bIsLevelEnd,BIsLevelEnd);
 
 	CKColorGameManager(void);
 public:
@@ -115,7 +119,35 @@ private:
 	//************************************
 	void allSelectedItemsMissAction();
 
+	//************************************
+	// Method:    allUnMissItemAction
+	// FullName:  CKColorGameManager::allUnMissItemAction
+	// Access:    private 
+	// Returns:   void
+	// Qualifier: 剩余所有Item消失
+	//************************************
 	void allUnMissItemAction();
+	
+	//************************************
+	// Method:    addPropsAroundItemsToSelectedItems
+	// FullName:  CKColorGameManager::addPropsAroundItemsToSelectedItems
+	// Access:    private 
+	// Returns:   void
+	// Qualifier: 添加道具周围的Item到选择Items
+	// Parameter: int x
+	// Parameter: int y
+	//************************************
+	bool addPropsAroundItemsToSelectedItems(int x , int y);
+
+	//************************************
+	// Method:    triggerItemProps
+	// FullName:  CKColorGameManager::triggerItemProps
+	// Access:    private 
+	// Returns:   void
+	// Qualifier: 道具触发
+	// Parameter: CKColorItem * curItem
+	//************************************
+	void triggerItemProps(CKColorItem* curItem);
 
 	//************************************
 	// Method:    onSelectColorItem

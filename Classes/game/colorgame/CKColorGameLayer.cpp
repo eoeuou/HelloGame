@@ -22,6 +22,12 @@ bool CKColorGameLayer::initWithColor(const Color4B& color)
 	return ret;
 }
 
+void CKColorGameLayer::onExit()
+{
+	LayerColor::onExit();
+	this->removeTouchEvent();
+}
+
 bool CKColorGameLayer::onTouchBegan( Touch *touch, Event *unused_event )
 {
 	Point locationInNode = this->convertToNodeSpace(touch->getLocation());

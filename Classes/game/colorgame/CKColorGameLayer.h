@@ -37,6 +37,8 @@ public:
 		return nullptr;
 	}
 
+	virtual void onExit() override;
+
 	virtual bool onTouchBegan(Touch *touch, Event *unused_event); 
 	virtual void onTouchMoved(Touch *touch, Event *unused_event); 
 	virtual void onTouchEnded(Touch *touch, Event *unused_event); 

@@ -10,6 +10,9 @@ using namespace std;
 #define GAME_HORIZONTAL 10
 #define GAME_VERTICAL 8
 
+#define MAKE_PROPSTYPE_1_SUM 1 //生成道具类型1的数量
+
+/*元素类型（颜色）*/
 typedef enum __ColorItemType
 {
 	CKITEM_COLOR_BLUE,
@@ -20,11 +23,20 @@ typedef enum __ColorItemType
 	CKITEM_COLOR_NONE
 }CKColorItemType;
 
+/*元素状态*/
 typedef enum __ColorItemStatus
 {
 	CKITEM_STATUS_MISS,
 	CKITEM_STATUS_NONE
 }CKColorItemStatus;
+
+/*道具类型*/
+typedef enum __ColorItemPropsType
+{
+	CKITEM_PROPSTYPE_1,
+	CKITEM_PROPSTYPE_2,
+	CKITEM_PROPSTYPE_NONE
+}CKColorItemPropsType;
 
 class CKColorItem : public cocos2d::CCLayer
 {
@@ -32,7 +44,8 @@ private:
 	CC_SYNTHESIZE_READONLY(Sprite*,m_bgSprite,BgSprite);
 	CC_SYNTHESIZE_READONLY(bool,m_bIsSelected,BIsSelected);
 	CC_SYNTHESIZE_READONLY(CKColorItemType,m_colorItemType,ColorItemType);
-	CC_SYNTHESIZE_READONLY(CKColorItemStatus,m_colorItemStatus,CKColorItemStatus);
+	CC_SYNTHESIZE_READONLY(CKColorItemStatus,m_colorItemStatus,ColorItemStatus);
+	CC_SYNTHESIZE_READONLY(CKColorItemPropsType,m_colorItemPropsType,ColorItemPropsType);
 
 	CC_SYNTHESIZE_READONLY(int,m_itemIndex,ItemIndex);
 	CC_SYNTHESIZE(int,m_toItemIndex,ToItemIndex);
@@ -172,5 +185,24 @@ public:
 	// Parameter: CallFunc * func
 	//************************************
 	void runMoveAction(CallFunc* func = nullptr);
+
+	//************************************
+	// Method:    changeItemPropsType
+	// FullName:  CKColorItem::changeItemPropsType
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: 改变Item道具类型
+	// Parameter: CKColorItemPropsType type
+	//************************************
+	void changeItemPropsType(CKColorItemPropsType type);
+
+	//************************************
+	// Method:    isItemPropsTypeNone
+	// FullName:  CKColorItem::isItemPropsTypeNone
+	// Access:    public 
+	// Returns:   bool
+	// Qualifier: Item是否为道具类型
+	//************************************
+	bool isItemPropsType();
 };
 #endif // __CKCOLORITEM_H__

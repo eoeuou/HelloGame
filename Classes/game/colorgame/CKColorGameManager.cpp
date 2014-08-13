@@ -3,7 +3,9 @@
 CK_SINGLETON_METHOD_INIT(CKColorGameManager,s_singleInstance);
 
 CKColorGameManager::CKColorGameManager(void):
-	m_colorGameLayer(nullptr)
+	m_colorGameLayer(nullptr),
+	m_curColorItem(nullptr),
+	m_bIsLevelEnd(false)
 {
 	m_colorItems.clear();
 	m_colorItemSize = Size(0,0);
@@ -16,6 +18,8 @@ CKColorGameManager::~CKColorGameManager(void)
 	m_colorItemSize = Size(0,0);
 	m_selectedItems.clear();
 	m_colorGameLayer = nullptr;
+	m_curColorItem = nullptr;
+	m_bIsLevelEnd = false;
 }
 
 void CKColorGameManager::destroyInstance()
@@ -164,24 +168,49 @@ void CKColorGameManager::allSelectedItemsRotateAction()
 {
 	if (m_selectedItems.size() <= 1)
 	{
+		bool isClear = false;
 		for (const auto& child : m_selectedItems)
 		{
-			child->onItemuUnSelected();
+			if (child->isItemPropsType())//ÊÇµÀ¾ß
+			{
+				child->runRotateAction();
+			}
+			else
+			{
+				isClear = true;
+				child->onItemuUnSelected();
+			}
 		}
-		m_selectedItems.clear();
+		if (isClear)
+		{
+			m_selectedItems.clear();
+		}
 	}
-	
-	for (const auto& child : m_selectedItems)
+	else
 	{
-		child->runRotateAction();
+		for (const auto& child : m_selectedItems)
+		{
+			child->runRotateAction();
+		}
 	}
 }
 
 void CKColorGameManager::allSelectedItemsMissAction()
 {
+	changeGameLayerTouchStatus(false);
+	log("===========================%d miss========================",m_selectedItems.size());
 	CallFunc* func = CallFunc::create(
 		// lambda
 		[this](){
+			if (!m_curColorItem->isItemPropsType())
+			{
+				int size = m_selectedItems.size();
+				if (size > MAKE_PROPSTYPE_1_SUM)
+				{
+					m_curColorItem->changeItemPropsType(CKColorItemPropsType::CKITEM_PROPSTYPE_1);
+				}
+			}
+			changeGameLayerTouchStatus(true);
 			adjustItemsPosition();
 	}  );
 
@@ -198,7 +227,6 @@ void CKColorGameManager::allSelectedItemsMissAction()
 			child->runMissAction();
 		}
 	}
-	m_selectedItems.clear();
 }
 
 void CKColorGameManager::allUnMissItemAction()
@@ -214,13 +242,105 @@ void CKColorGameManager::allUnMissItemAction()
 	}
 }
 
+bool CKColorGameManager::addPropsAroundItemsToSelectedItems(int x , int y)
+{
+	bool result=  false;
+	CKColorItem* item = getItemByPosition(x,y);
+	if (!item->isItemMiss()&&!m_selectedItems.contains(item))
+	{
+		m_selectedItems.pushBack(item);
+		if (item->isItemPropsType())
+		{
+			triggerItemProps(item);
+		}
+		else
+		{
+			result = true;
+		}
+	}
+	return result;
+}
+
+void CKColorGameManager::triggerItemProps(CKColorItem* curItem)
+{
+	if (curItem->getColorItemPropsType()==CKColorItemPropsType::CKITEM_PROPSTYPE_1)
+	{
+		int index = curItem->getItemIndex();
+		int x = index%GAME_HORIZONTAL;
+		int y = index/GAME_HORIZONTAL;
+
+		m_selectedItems.pushBack(curItem);
+
+		//left
+		for (int i = x-1; i >= 0; i--)
+		{
+			if (!addPropsAroundItemsToSelectedItems(i,y))
+			{
+				break;
+			}
+		}
+
+		//right
+		for (int i = x+1; i < GAME_HORIZONTAL; i++)
+		{
+			if (!addPropsAroundItemsToSelectedItems(i,y))
+			{
+				break;
+			}
+		}
+		
+		//top
+		for(int j = y+1; j < GAME_VERTICAL; j++)
+		{
+			if (!addPropsAroundItemsToSelectedItems(x,j))
+			{
+				break;
+			}
+		}
+		//bottom
+		for(int j = y-1; j >=0; j--)
+		{
+			if (!addPropsAroundItemsToSelectedItems(x,j))
+			{
+				break;
+			}
+		}
+		
+		allSelectedItemsMissAction();
+	}
+}
+
 void CKColorGameManager::onSelectColorItem(int x , int y)
 {
-	CKColorItem* curItem = getItemByPosition(x,y);
-	if (curItem->getBIsSelected())
+	if (m_bIsLevelEnd)
 	{
-		log("===================================================");
-		allSelectedItemsMissAction();
+		return;
+	}
+	
+	m_curColorItem = getItemByPosition(x,y);
+	if (m_curColorItem->isItemMiss())
+	{
+		return;
+	}
+
+	static int m = 1;
+	log("xxxxxxxxxxxxxxx%dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",m);
+	if (m%2==0)
+	{
+		log("xxxxx");
+	}
+	m++;
+	if (m_curColorItem->getBIsSelected())
+	{
+		if (m_curColorItem->isItemPropsType())
+		{
+			m_selectedItems.clear();
+			triggerItemProps(m_curColorItem);
+		}
+		else
+		{
+			allSelectedItemsMissAction();
+		}
 	}
 	else
 	{
@@ -228,6 +348,7 @@ void CKColorGameManager::onSelectColorItem(int x , int y)
 		checkBoundingItems(x,y);
 		allSelectedItemsRotateAction();
 	}
+	
 }
 
 void CKColorGameManager::changeItemPosition(int fromIndex , int toIndex)
@@ -399,7 +520,11 @@ bool CKColorGameManager::isLevelEnd()
 			{
 				continue;
 			}
-
+			if (item->isItemPropsType())
+			{
+				return false;
+			}
+			
 			int right = x + 1;
 			if (right < GAME_HORIZONTAL)
 			{
@@ -421,6 +546,7 @@ bool CKColorGameManager::isLevelEnd()
 			}
 		}
 	}
+	m_bIsLevelEnd = true;
 	return true;
 }
 
