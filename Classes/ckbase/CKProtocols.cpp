@@ -24,7 +24,8 @@ std::string PropertyProtocol::getInfo() const
 
 CKTouchProtocol::CKTouchProtocol():
 	m_eventListenerKeyboard(nullptr),
-	m_touchListener(nullptr)
+	m_touchListener(nullptr),
+	m_touchable(false)
 {
 
 }
@@ -57,9 +58,13 @@ void CKTouchProtocol::removeKeyBackEvent(Node* node)
 	node->getEventDispatcher()->removeEventListener(m_eventListenerKeyboard);
 }
 
-void CKTouchProtocol::addTouchEvent()
+void CKTouchProtocol::addTouchEvent(EventDispatcher* dispatch)
 {
-	auto dispatch = Director::getInstance()->getEventDispatcher();
+	m_touchable = true;
+	if (dispatch == nullptr)
+	{
+		dispatch = Director::getInstance()->getEventDispatcher();
+	}
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);
 	listener->onTouchBegan = CC_CALLBACK_2(CKTouchProtocol::onTouchBegan,this);
@@ -70,9 +75,13 @@ void CKTouchProtocol::addTouchEvent()
 	m_touchListener = listener;
 }
 
-void CKTouchProtocol::removeTouchEvent()
+void CKTouchProtocol::removeTouchEvent(EventDispatcher* dispatch)
 {
-	auto dispatch = Director::getInstance()->getEventDispatcher();
+	m_touchable = false;
+	if (dispatch == nullptr)
+	{
+		dispatch = Director::getInstance()->getEventDispatcher();
+	}
 	dispatch->removeEventListener(m_touchListener);
 }
 

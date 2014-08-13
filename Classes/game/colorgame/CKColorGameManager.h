@@ -129,7 +129,7 @@ private:
 	// Parameter: int y
 	//************************************
 	void onSelectColorItem(int x , int y);
-
+	
 	//************************************
 	// Method:    changeItemPosition
 	// FullName:  CKColorGameManager::changeItemPosition
@@ -149,6 +149,15 @@ private:
 	// Qualifier: 调整所有Item位置
 	//************************************
 	void adjustItemsPosition();
+
+	//************************************
+	// Method:    adjustItemsAction
+	// FullName:  CKColorGameManager::adjustItemsAction
+	// Access:    private 
+	// Returns:   void
+	// Qualifier: 调整所有Item动画
+	//************************************
+	void adjustItemsAction();
 	
 	//************************************
 	// Method:    getMaxHoriValue
@@ -158,6 +167,7 @@ private:
 	// Qualifier: 水平方向没有消失的最大值
 	//************************************
 	int getMaxHoriValue();
+
 	//************************************
 	// Method:    isNeedHoriAdjust
 	// FullName:  CKColorGameManager::isNeedHoriAdjust
@@ -175,6 +185,16 @@ private:
 	// Qualifier: 当前等级是否结束
 	//************************************
 	bool isLevelEnd();
+
+	//************************************
+	// Method:    changeGameLayerTouchStatus
+	// FullName:  CKColorGameManager::changeGameLayerTouchStatus
+	// Access:    private 
+	// Returns:   void
+	// Qualifier: 改变gameLayer点击状态
+	// Parameter: bool touchable
+	//************************************
+	void changeGameLayerTouchStatus(bool touchable);
 };
 
 #endif // __CKCOLORGAMEMANAGER_H__

@@ -57,3 +57,21 @@ void CKColorGameLayer::onTouchEnded( Touch *touch, Event *unused_event )
 void CKColorGameLayer::onTouchCancelled( Touch *touch, Event *unused_event )
 {
 }
+
+void CKColorGameLayer::changeTouchStatus(bool touchable)
+{
+	if (m_touchable == touchable)
+	{
+		return;
+	}	
+	if (touchable)
+	{
+		log("CKColorGameLayer touchable true");
+		this->addTouchEvent(this->getEventDispatcher());
+	}
+	else
+	{
+		log("CKColorGameLayer touchable false");
+		this->removeTouchEvent(this->getEventDispatcher());
+	}
+}

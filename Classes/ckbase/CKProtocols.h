@@ -71,6 +71,8 @@ private:
 	CC_SYNTHESIZE(EventListenerKeyboard*,m_eventListenerKeyboard,EventListenerKeyboard);
 
 	CC_SYNTHESIZE(EventListener*,m_touchListener,TouchListener);
+
+	CC_SYNTHESIZE_READONLY(bool,m_touchable,Touchable);
 protected:
 
 	CKTouchProtocol();
@@ -80,8 +82,8 @@ protected:
 	virtual void addKeyBackEvent(Node* node, std::function<void(EventKeyboard::KeyCode, Event*)> onKeyReleased = nullptr);
 	virtual void removeKeyBackEvent(Node* node);
 
-	virtual void addTouchEvent();
-	virtual void removeTouchEvent();
+	virtual void addTouchEvent(EventDispatcher* dispatch = nullptr);
+	virtual void removeTouchEvent(EventDispatcher* dispatch = nullptr);
 
 	virtual bool onTouchBegan(Touch *touch, Event *unused_event); 
 	virtual void onTouchMoved(Touch *touch, Event *unused_event); 

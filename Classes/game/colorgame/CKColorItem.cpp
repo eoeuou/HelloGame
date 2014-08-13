@@ -5,7 +5,8 @@ CKColorItem::CKColorItem():
 	m_bIsSelected(false),
 	m_colorItemType(CKColorItemType::CKITEM_COLOR_NONE),
 	m_colorItemStatus(CKColorItemStatus::CKITEM_STATUS_NONE),
-	m_itemIndex(-1)
+	m_itemIndex(-1),
+	m_toItemIndex(-1)
 {
 
 }
@@ -97,7 +98,7 @@ void CKColorItem::runMissAction(CallFunc* func,float delay)
 {
 	CallFunc* changeStatus = CallFunc::create(
 		// lambda
-		[&](){
+		[this](){
 			this->m_colorItemStatus = CKColorItemStatus::CKITEM_STATUS_MISS;
 	}  );
 
@@ -122,21 +123,46 @@ bool CKColorItem::isItemMiss()
 	return this->getCKColorItemStatus() == CKColorItemStatus::CKITEM_STATUS_MISS;
 }
 
-void CKColorItem::runMoveAction(int toItemIndex)
+bool CKColorItem::isItemNeedMove()
 {
+	return m_toItemIndex != -1;
+}
+
+void CKColorItem::runMoveAction(CallFunc* func)
+{
+	if (m_toItemIndex==-1)
+	{
+		return ;
+	}
+	
 	int nowX = m_itemIndex%GAME_HORIZONTAL;
 	int nowY = m_itemIndex/GAME_HORIZONTAL;
 
-	int toX = toItemIndex%GAME_HORIZONTAL;
-	int toY = toItemIndex/GAME_HORIZONTAL;
+	int toX = m_toItemIndex%GAME_HORIZONTAL;
+	int toY = m_toItemIndex/GAME_HORIZONTAL;
 
-	log("from:nowX=%d,nowY=%d to:toX=%d,toY=%d========from:m_itemIndex=%d to:toItemIndex=%d",nowX,nowY,toX,toY,m_itemIndex,toItemIndex);
+	log("from:nowX=%d,nowY=%d to:toX=%d,toY=%d========from:m_itemIndex=%d to:toItemIndex=%d",nowX,nowY,toX,toY,m_itemIndex,m_toItemIndex);
 
-	this->m_itemIndex = toItemIndex;
+	this->m_itemIndex = m_toItemIndex;
 
 	CCSize size = this->getContentSize();
 	CCPoint point = this->getPosition();
 	point = ccpAdd(point,ccp(size.width*(toX-nowX),size.height*(toY-nowY)));
 
-	this->runAction(CCSequence::create(EaseElasticInOut::create(CCMoveTo::create(0.3f,point),0.1f),NULL));
+	float time = 0.3f;
+
+	CallFunc* changeStatus = CallFunc::create(
+		// lambda
+		[this](){
+			m_toItemIndex = -1;
+	}  );
+
+	if (func != nullptr)
+	{
+		this->runAction(CCSequence::create(EaseElasticInOut::create(CCMoveTo::create(time,point),0.1f),changeStatus,func,NULL));
+	}
+	else
+	{
+		this->runAction(CCSequence::create(EaseElasticInOut::create(CCMoveTo::create(time,point),0.1f),changeStatus,NULL));
+	}
 }

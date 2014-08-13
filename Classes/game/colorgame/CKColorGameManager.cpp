@@ -180,7 +180,7 @@ void CKColorGameManager::allSelectedItemsMissAction()
 {
 	CallFunc* func = CallFunc::create(
 		// lambda
-		[&](){
+		[this](){
 			adjustItemsPosition();
 	}  );
 
@@ -233,7 +233,7 @@ void CKColorGameManager::changeItemPosition(int fromIndex , int toIndex)
 {
 	CKColorItem* fromItem = getItemByIndex(fromIndex);
 	CKColorItem* toItem = getItemByIndex(toIndex);
-	fromItem->runMoveAction(toIndex);
+	fromItem->setToItemIndex(toIndex);
 
 	m_colorItems.insert(fromIndex,toItem);
 	m_colorItems.insert(toIndex,fromItem);
@@ -274,7 +274,7 @@ void CKColorGameManager::adjustItemsPosition()
 			}
 		}
 	}
-
+	//ºáÏòµ÷Õû
 	while (isNeedHoriAdjust())
 	{
 		int maxX = getMaxHoriValue();
@@ -302,11 +302,53 @@ void CKColorGameManager::adjustItemsPosition()
 		}
 	}
 
+	adjustItemsAction();
+
 	if (isLevelEnd())
 	{
 		allUnMissItemAction();
 	}
 
+}
+
+void CKColorGameManager::adjustItemsAction()
+{
+	CKColorItemVector items;
+	for (const auto& child : m_colorItems)
+	{
+		if (!child.second->isItemMiss()&&child.second->isItemNeedMove())
+		{
+			items.pushBack(child.second);
+		}
+	}
+
+	int size = items.size();
+	if (size==0)
+	{
+		return;
+	}
+
+	changeGameLayerTouchStatus(false);
+
+	CallFunc* func = CallFunc::create(
+		// lambda
+		[this](){
+			changeGameLayerTouchStatus(true);
+	}  );
+
+	int i = 0;
+	for (const auto& child : items)
+	{
+		if (i++ == size-1)
+		{
+			child->runMoveAction(func);
+		}
+		else
+		{
+			child->runMoveAction();
+		}
+	}
+	items.clear();
 }
 
 int CKColorGameManager::getMaxHoriValue()
@@ -379,4 +421,13 @@ bool CKColorGameManager::isLevelEnd()
 		}
 	}
 	return true;
+}
+
+
+void CKColorGameManager::changeGameLayerTouchStatus(bool touchable)
+{
+	if (m_colorGameLayer)
+	{
+		m_colorGameLayer->changeTouchStatus(touchable);
+	}
 }

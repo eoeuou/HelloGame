@@ -35,6 +35,8 @@ private:
 	CC_SYNTHESIZE_READONLY(CKColorItemStatus,m_colorItemStatus,CKColorItemStatus);
 
 	CC_SYNTHESIZE_READONLY(int,m_itemIndex,ItemIndex);
+	CC_SYNTHESIZE(int,m_toItemIndex,ToItemIndex);
+
 protected:
 	CKColorItem();
 public:
@@ -143,8 +145,32 @@ public:
 	//************************************
 	bool isItemTypeEqual(CKColorItem* item);
 
+	//************************************
+	// Method:    isItemMiss
+	// FullName:  CKColorItem::isItemMiss
+	// Access:    public 
+	// Returns:   bool
+	// Qualifier: item是否为消失状态
+	//************************************
 	bool isItemMiss();
 
-	void runMoveAction(int toItemIndex);
+	//************************************
+	// Method:    isItemNeedMove
+	// FullName:  CKColorItem::isItemNeedMove
+	// Access:    public 
+	// Returns:   bool
+	// Qualifier: item是否需要移动
+	//************************************
+	bool isItemNeedMove();
+
+	//************************************
+	// Method:    runMoveAction
+	// FullName:  CKColorItem::runMoveAction
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: 移动动画
+	// Parameter: CallFunc * func
+	//************************************
+	void runMoveAction(CallFunc* func = nullptr);
 };
 #endif // __CKCOLORITEM_H__

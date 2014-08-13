@@ -42,6 +42,7 @@ public:
 	virtual void onTouchEnded(Touch *touch, Event *unused_event); 
 	virtual void onTouchCancelled(Touch *touch, Event *unused_event);
 
+	void changeTouchStatus(bool touchable);
 private:
 	bool initWithColor(const Color4B& color);
 
