@@ -24,8 +24,6 @@ private:
 	CC_SYNTHESIZE_READONLY(CKColorGameLayer*,m_colorGameLayer,ColorGameLayer);
 
 	CKColorGameManager(void);
-
-	CKColorItem* m_items[GAME_HORIZONTAL][GAME_VERTICAL];
 public:
 
 	~CKColorGameManager(void);

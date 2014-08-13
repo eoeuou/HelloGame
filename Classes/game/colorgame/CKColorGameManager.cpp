@@ -15,6 +15,7 @@ CKColorGameManager::~CKColorGameManager(void)
 	m_colorItems.clear();
 	m_colorItemSize = Size(0,0);
 	m_selectedItems.clear();
+	m_colorGameLayer = nullptr;
 }
 
 void CKColorGameManager::destroyInstance()
