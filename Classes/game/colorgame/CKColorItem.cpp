@@ -108,6 +108,7 @@ void CKColorItem::runMissAction(CallFunc* func,float delay)
 			this->m_colorItemStatus = CKColorItemStatus::CKITEM_STATUS_MISS;
 	}  );
 
+	this->addChild();
 
 	if (func != nullptr)
 	{
@@ -151,9 +152,9 @@ void CKColorItem::runMoveAction(CallFunc* func)
 
 	this->m_itemIndex = m_toItemIndex;
 
-	CCSize size = this->getContentSize();
-	CCPoint point = this->getPosition();
-	point = ccpAdd(point,ccp(size.width*(toX-nowX),size.height*(toY-nowY)));
+	Size size = this->getContentSize();
+	Point point = this->getPosition();
+	point = ccpAdd(point,ccp(size.width*(toX-nowX)*this->getScaleX(),size.height*(toY-nowY)*this->getScaleY()));
 
 	float time = 0.3f;
 

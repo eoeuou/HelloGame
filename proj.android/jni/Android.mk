@@ -44,11 +44,13 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/game/colorgame/CKColorGameLayer.cpp \
 ../../Classes/game/colorgame/CKColorGameManager.cpp \
 ../../Classes/game/colorgame/CKColorGameScene.cpp \
+../../Classes/game/colorgame/CKColorGameScoreManager.cpp \
 ../../Classes/game/colorgame/CKColorItem.cpp \
 ../../Classes/game/drawgame/CKSequenceLayer.cpp \
 ../../Classes/game/drawgame/DrawScene.cpp \
 ../../Classes/GUIScene.cpp \
-../../Classes/HelloWorldScene.cpp 
+../../Classes/HelloWorldScene.cpp \
+../../Classes/VisibleRect.cpp 
 #src_end
 
 #c_begin

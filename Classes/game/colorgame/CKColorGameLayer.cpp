@@ -8,18 +8,33 @@ CKColorGameLayer::~CKColorGameLayer()
 {
 }
 
-bool CKColorGameLayer::initWithColor(const Color4B& color)
+bool CKColorGameLayer::initWithColor(const Color4B& color, GLfloat width, GLfloat height)
 {
-	int width = GAME_HORIZONTAL*m_colorItemSize.width;
-	int height = GAME_VERTICAL*m_colorItemSize.height;
-
 	bool ret = LayerColor::initWithColor(color,width,height);
+
 	this->ignoreAnchorPointForPosition(false);
 
 	//this->addTouchMoveEvent(this);
 	this->addTouchEvent();
 
 	return ret;
+}
+
+CKColorItem* CKColorGameLayer::initColorItemByPos(int x, int y)
+{
+	int index = x+y*GAME_HORIZONTAL;
+
+	CKColorItem* item = CKColorItem::create(index);
+
+	float sacleX = m_colorItemSize.width/item->getContentSize().width;
+	float sacleY = m_colorItemSize.height/item->getContentSize().height;
+	item->setScale(sacleX,sacleY);
+	item->setPosition(ccp(x*m_colorItemSize.width + m_colorItemSize.width/2.0f,
+		y*m_colorItemSize.height + m_colorItemSize.height/2.0f));
+
+	this->addChild(item);
+
+	return item;
 }
 
 void CKColorGameLayer::onExit()

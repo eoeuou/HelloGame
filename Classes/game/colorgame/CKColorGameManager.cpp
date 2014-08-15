@@ -5,7 +5,8 @@ CK_SINGLETON_METHOD_INIT(CKColorGameManager,s_singleInstance);
 CKColorGameManager::CKColorGameManager(void):
 	m_colorGameLayer(nullptr),
 	m_curColorItem(nullptr),
-	m_bIsLevelEnd(false)
+	m_bIsLevelEnd(false),
+	m_colorGameMode(ColorGameMode::CKCOLORGAME_MODE_NONE)
 {
 	m_colorItems.clear();
 	m_colorItemSize = Size(0,0);
@@ -20,6 +21,7 @@ CKColorGameManager::~CKColorGameManager(void)
 	m_colorGameLayer = nullptr;
 	m_curColorItem = nullptr;
 	m_bIsLevelEnd = false;
+	m_colorGameMode = ColorGameMode::CKCOLORGAME_MODE_NONE;
 }
 
 void CKColorGameManager::destroyInstance()
@@ -29,20 +31,28 @@ void CKColorGameManager::destroyInstance()
 
 bool CKColorGameManager::init()
 {
-	m_colorItemSize = CKColorItem::create(-1)->getContentSize();
+	float w = VisibleRect::getVisibleRect().size.width/GAME_HORIZONTAL;
+	float h = VisibleRect::getVisibleRect().size.height/GAME_VERTICAL;
+	Size size = CKColorItem::create(-1)->getContentSize();
+
+	float scaleX = w/size.width;
+	float scaleY = h/size.height;
+		
+	m_colorItemSize = size * MIN(scaleX,scaleY);
 
 	std::function<void(int,int)> func = [&](int x, int y){
 		this->onSelectColorItem(x,y);
 	};
 
 	Color4B colorA = Color4B(CCRANDOM_0_1()*255, CCRANDOM_0_1()*255, CCRANDOM_0_1()*255, 255);
-	m_colorGameLayer = CKColorGameLayer::create(colorA,func,m_colorItemSize);
-
+	Size colorSize = Size(m_colorItemSize.width*GAME_HORIZONTAL,m_colorItemSize.height*GAME_VERTICAL);
+	m_colorGameLayer = CKColorGameLayer::create(colorA,func,colorSize);
+	
 	CCScene* scene = Director::getInstance()->getRunningScene();
 	scene->addChild(m_colorGameLayer,-1);
 
-	Size winSize = Director::getInstance()->getWinSize();
-	m_colorGameLayer->setPosition(ccp(winSize.width/2.0f,m_colorGameLayer->getContentSize().height/2));
+	m_colorGameLayer->setPosition(ccp(VisibleRect::center().x,m_colorGameLayer->getContentSize().height/2));
+	m_colorGameLayer->setColorItemSize(m_colorItemSize);
 
 	initGameItems();
 
@@ -59,14 +69,9 @@ void CKColorGameManager::initGameItems()
 	{
 		for (int x = 0; x < GAME_HORIZONTAL; x++)
 		{
-			int index = x+y*GAME_HORIZONTAL;
+			CKColorItem* item = m_colorGameLayer->initColorItemByPos(x,y);
 
-			CKColorItem* item = CKColorItem::create(index);
-			m_colorGameLayer->addChild(item);
-			item->setPosition(ccp(x*m_colorItemSize.width + m_colorItemSize.width/2.0f,
-				y*m_colorItemSize.height + m_colorItemSize.height/2.0f));
-
-			m_colorItems.insert(index,item);
+			m_colorItems.insert(item->getItemIndex(),item);
 		}
 	}
 
@@ -305,7 +310,7 @@ void CKColorGameManager::triggerItemProps(CKColorItem* curItem)
 				break;
 			}
 		}
-		
+		showLightingAnim(curItem->getPosition());
 		allSelectedItemsMissAction();
 	}
 }
@@ -318,18 +323,11 @@ void CKColorGameManager::onSelectColorItem(int x , int y)
 	}
 	
 	m_curColorItem = getItemByPosition(x,y);
-	if (m_curColorItem->isItemMiss())
+	if (!m_curColorItem||m_curColorItem->isItemMiss())
 	{
 		return;
 	}
 
-	static int m = 1;
-	log("xxxxxxxxxxxxxxx%dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",m);
-	if (m%2==0)
-	{
-		log("xxxxx");
-	}
-	m++;
 	if (m_curColorItem->getBIsSelected())
 	{
 		if (m_curColorItem->isItemPropsType())
@@ -550,11 +548,52 @@ bool CKColorGameManager::isLevelEnd()
 	return true;
 }
 
-
 void CKColorGameManager::changeGameLayerTouchStatus(bool touchable)
 {
 	if (m_colorGameLayer)
 	{
 		m_colorGameLayer->changeTouchStatus(touchable);
 	}
+}
+
+void CKColorGameManager::showLightingAnim(Point point)
+{
+	auto particle1 = ParticleSystemQuad::create("colorgame/light1.plist");
+	m_colorGameLayer->addChild(particle1,10);
+	particle1->setPosition(point);
+
+	auto particle2 = ParticleSystemQuad::create("colorgame/light1.plist");
+	m_colorGameLayer->addChild(particle2,10);
+	particle2->setPosition(point);
+	particle2->setAngle(90);
+
+// 	auto size = m_colorGameLayer->getContentSize();
+// 	Point left = ccp(0,point.y);
+// 	Point right = ccp(size.width,point.y);
+// 	Point top = ccp(point.x,size.height);
+// 	Point bottom = ccp(point.x,0);
+// 
+// 	vector<Point> points;
+// 	points.push_back(left);
+// 	points.push_back(right);
+// 	points.push_back(top);
+// 	points.push_back(bottom);
+// 
+// 
+// 	for (int i = 0; i < 4; i++)
+// 	{
+// 		auto _emitter = ParticleSun::create();
+// 		m_colorGameLayer->addChild(_emitter, 10);
+// 		_emitter->setPosition(point);
+// 		_emitter->setTexture( Director::getInstance()->getTextureCache()->addImage("colorgame/fire.png") );
+// 
+// 		CallFuncN* changeStatus = CallFuncN::create(
+// 			// lambda
+// 			[this](cocos2d::Node* node){
+// 				node->removeFromParent();
+// 		}  );
+// 
+// 		_emitter->runAction(CCSequence::create(MoveTo::create(0.3f,points.at(i)),changeStatus,NULL));
+// 	}
+
 }

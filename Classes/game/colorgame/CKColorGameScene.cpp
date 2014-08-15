@@ -22,7 +22,7 @@ bool CKColorGameScene::init()
 	});
 
 	nextItem->setFontSizeObj(16);
-	nextItem->setPosition(Point(100, 150));
+	nextItem->setPosition(ccpSub(VisibleRect::rightBottom(),Point(nextItem->getContentSize().width,nextItem->getContentSize().height)));
 
 	auto menu2 = Menu::create(nextItem, NULL);
 	menu2->setPosition(Point(0, 0));

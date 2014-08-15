@@ -8,6 +8,13 @@
 USING_NS_CC;
 
 using namespace std;
+/*сно╥дёй╫*/
+typedef enum __ColorGameMode
+{
+	CKCOLORGAME_MODE_1,
+	CKCOLORGAME_MODE_2,
+	CKCOLORGAME_MODE_NONE
+}ColorGameMode;
 
 typedef Map<int,CKColorItem*> CKColorItemMap;
 typedef Vector<CKColorItem*> CKColorItemVector;
@@ -26,6 +33,8 @@ private:
 	CC_SYNTHESIZE_READONLY(CKColorItem*,m_curColorItem,CurColorItem);
 
 	CC_SYNTHESIZE_READONLY(bool,m_bIsLevelEnd,BIsLevelEnd);
+
+	CC_SYNTHESIZE_READONLY(ColorGameMode,m_colorGameMode,ColorGameMode);
 
 	CKColorGameManager(void);
 public:
@@ -225,6 +234,8 @@ private:
 	// Parameter: bool touchable
 	//************************************
 	void changeGameLayerTouchStatus(bool touchable);
+
+	void showLightingAnim(Point point);
 };
 
 #endif // __CKCOLORGAMEMANAGER_H__

@@ -2,6 +2,7 @@
 #include "cocostudio/CocoStudio.h"
 
 #include "CKDialog.h"
+#include "VisibleRect.h"
 
 #include "CKGameDataManager.h"
 #include "FightScene.h"
@@ -226,10 +227,7 @@ static int g_testCount = sizeof(g_aTestNames) / sizeof(g_aTestNames[0]);
 static Point s_tCurPos = Point::ZERO;
 
 void HelloWorld::addTestLabel()
-{	
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	Point origin = Director::getInstance()->getVisibleOrigin();
-
+{
 	TTFConfig ttfConfig("fonts/arial.ttf", 24);
 	_itemMenu = Menu::create();
 
@@ -237,12 +235,12 @@ void HelloWorld::addTestLabel()
 	{		
 		auto label = LabelTTF::create( g_aTestNames[i].test_name,"Arial", 24);
 		auto menuItem = MenuItemLabel::create(label, CC_CALLBACK_1(HelloWorld::menuCallback, this));
-		_itemMenu->addChild(menuItem, i + 10000);		
-		menuItem->setPosition( Point(origin.x + visibleSize.width/2, (visibleSize.height - (i + 1) * LINE_SPACE) ));				
+		_itemMenu->addChild(menuItem, i + 10000);
+		menuItem->setPosition( Point( VisibleRect::center().x, (VisibleRect::top().y - (i + 1) * LINE_SPACE) ));
 	}	
 	
-	_itemMenu->setContentSize(Size(visibleSize.width, (g_testCount + 1) * (LINE_SPACE)));
-	_itemMenu->setPosition(Point::ZERO);
+	_itemMenu->setContentSize(Size(VisibleRect::getVisibleRect().size.width, (g_testCount + 1) * (LINE_SPACE)));
+	_itemMenu->setPosition(s_tCurPos);
 	_itemMenu->setColor(ccc3(255,255,0));
 	addChild(_itemMenu,100);
 	log("w:%f,h:%f",_itemMenu->getContentSize().width,_itemMenu->getContentSize().height);
@@ -264,6 +262,11 @@ void HelloWorld::addTestLabel()
 bool HelloWorld::onTouchBegan(Touch* touch, Event  *event)
 {
 	_beginPos = touch->getLocation();
+	auto particle1 = ParticleSystemQuad::create("colorgame/light1.plist");
+	addChild(particle1,10);
+	particle1->setPosition(_beginPos);
+	particle1->setAngle(90);
+
 	return true;
 }
 

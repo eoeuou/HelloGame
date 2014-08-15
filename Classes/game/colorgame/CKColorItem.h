@@ -2,15 +2,16 @@
 #define __CKCOLORITEM_H__
 
 #include "cocos2d.h"
+#include "VisibleRect.h"
 
 USING_NS_CC;
 
 using namespace std;
 
-#define GAME_HORIZONTAL 10
-#define GAME_VERTICAL 8
+#define GAME_HORIZONTAL 8
+#define GAME_VERTICAL 10
 
-#define MAKE_PROPSTYPE_1_SUM 1 //生成道具类型1的数量
+#define MAKE_PROPSTYPE_1_SUM 1 //生成道具类型1所需的数量
 
 /*元素类型（颜色）*/
 typedef enum __ColorItemType
@@ -33,7 +34,7 @@ typedef enum __ColorItemStatus
 /*道具类型*/
 typedef enum __ColorItemPropsType
 {
-	CKITEM_PROPSTYPE_1,
+	CKITEM_PROPSTYPE_1,/*生成黑块，可以横竖暴击*/
 	CKITEM_PROPSTYPE_2,
 	CKITEM_PROPSTYPE_NONE
 }CKColorItemPropsType;

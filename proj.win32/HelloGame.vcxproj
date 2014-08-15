@@ -187,11 +187,13 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\game\colorgame\CKColorGameLayer.cpp" />
     <ClCompile Include="..\Classes\game\colorgame\CKColorGameManager.cpp" />
     <ClCompile Include="..\Classes\game\colorgame\CKColorGameScene.cpp" />
+    <ClCompile Include="..\Classes\game\colorgame\CKColorGameScoreManager.cpp" />
     <ClCompile Include="..\Classes\game\colorgame\CKColorItem.cpp" />
     <ClCompile Include="..\Classes\game\drawgame\CKSequenceLayer.cpp" />
     <ClCompile Include="..\Classes\game\drawgame\DrawScene.cpp" />
     <ClCompile Include="..\Classes\GUIScene.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\VisibleRect.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -247,11 +249,13 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\game\colorgame\CKColorGameLayer.h" />
     <ClInclude Include="..\Classes\game\colorgame\CKColorGameManager.h" />
     <ClInclude Include="..\Classes\game\colorgame\CKColorGameScene.h" />
+    <ClInclude Include="..\Classes\game\colorgame\CKColorGameScoreManager.h" />
     <ClInclude Include="..\Classes\game\colorgame\CKColorItem.h" />
     <ClInclude Include="..\Classes\game\drawgame\CKSequenceLayer.h" />
     <ClInclude Include="..\Classes\game\drawgame\DrawScene.h" />
     <ClInclude Include="..\Classes\GUIScene.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\VisibleRect.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

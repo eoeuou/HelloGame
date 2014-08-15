@@ -19,13 +19,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        //glview = GLView::createWithRect("My Game",Rect(0, 0, 1920/2, 1080/2), 1);
-		glview = GLView::create("My Game");
+        glview = GLView::createWithRect(targetGLViewRect.name,targetGLViewRect.rect, 1);
+		//glview = GLView::create("My Game");
         director->setOpenGLView(glview);
     }
-	glview->setDesignResolutionSize(960,512,ResolutionPolicy::NO_BORDER);
-	CCSize size = glview->getDesignResolutionSize();
-	float scale = director->getContentScaleFactor();
 
 	//director->setContentScaleFactor(2);
 	// Set the design resolution
@@ -33,10 +30,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	// a bug in DirectX 11 level9-x on the device prevents ResolutionPolicy::NO_BORDER from working correctly
 	glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::SHOW_ALL);
 #else
-	//glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::NO_BORDER);
+	glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::NO_BORDER);
 #endif
 
-	/*Size frameSize = glview->getFrameSize();
+	Size frameSize = glview->getFrameSize();
 
 	vector<string> searchPath;
 
@@ -65,7 +62,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 		searchPath.push_back(smallResource.directory);
 
 		director->setContentScaleFactor(MIN(smallResource.size.height/designResolutionSize.height, smallResource.size.width/designResolutionSize.width));
-	}*/
+	}
 
     // turn on display FPS
     director->setDisplayStats(true);

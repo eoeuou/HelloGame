@@ -15,20 +15,19 @@ private:
 
 	std::function<void(int,int)> m_onSelectColorItemFunc;
 
-	CC_SYNTHESIZE_READONLY(Size,m_colorItemSize,ColorItemSize);
+	CC_SYNTHESIZE(Size,m_colorItemSize,ColorItemSize);
 	
 	CKColorGameLayer();
 
 public:
 	~CKColorGameLayer();
 
-	static CKColorGameLayer * create(const Color4B& color,std::function<void(int,int)> func,Size itemSize)
+	static CKColorGameLayer * create(const Color4B& color,std::function<void(int,int)> onSelectFunc,Size size)
 	{
 		CKColorGameLayer * layer = new CKColorGameLayer();
-		layer->m_onSelectColorItemFunc = func;
-		layer->m_colorItemSize = itemSize;
+		layer->m_onSelectColorItemFunc = onSelectFunc;
 
-		if( layer && layer->initWithColor(color))
+		if( layer && layer->initWithColor(color,size.width,size.height))
 		{
 			layer->autorelease();
 			return layer;
@@ -36,6 +35,8 @@ public:
 		CC_SAFE_DELETE(layer);
 		return nullptr;
 	}
+
+	CKColorItem* initColorItemByPos(int x, int y);
 
 	virtual void onExit() override;
 
@@ -46,7 +47,7 @@ public:
 
 	void changeTouchStatus(bool touchable);
 private:
-	bool initWithColor(const Color4B& color);
+	bool initWithColor(const Color4B& color, GLfloat width, GLfloat height);
 
 };
 

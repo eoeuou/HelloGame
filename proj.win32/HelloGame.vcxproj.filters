@@ -198,6 +198,12 @@
     <ClCompile Include="..\Classes\game\colorgame\CKColorItem.cpp">
       <Filter>Classes\game\colorgame</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\game\colorgame\CKColorGameScoreManager.cpp">
+      <Filter>Classes\game\colorgame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\VisibleRect.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -343,6 +349,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\game\colorgame\CKColorItem.h">
       <Filter>Classes\game\colorgame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\colorgame\CKColorGameScoreManager.h">
+      <Filter>Classes\game\colorgame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\VisibleRect.h">
+      <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
