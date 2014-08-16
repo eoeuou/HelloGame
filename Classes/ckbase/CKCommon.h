@@ -48,7 +48,7 @@ CK_INIT_STATIC_FIELD(className,fieldName,fieldType,NULL)
 #define CK_SINGLETON_METHOD_INIT(className,fieldName)\
 CK_INIT_STATIC_FIELD(className,fieldName,className*,NULL)
 
-//CKMODEL±äÁ¿·µ»ØÖµ
+//CKMODELå˜é‡è¿”å›å€¼
 #define CK_SYNTHESIZE_MODEL_STRING(varType,varName, funName)\
 public: virtual void set##funName(varType& var){ this->setValue(varName,Value(var));}\
 public: virtual varType get##funName(void) const { return this->getValue(varName).asString();}
@@ -94,7 +94,7 @@ std::string UnicodeToUTF8(const wchar_t* putf8);
 // FullName:  parseJsonFileToDocument
 // Access:    public 
 // Returns:   bool
-// Qualifier:  ½«jsonÎÄ¼ş½âÎöÎªdocument
+// Qualifier:  å°†jsonæ–‡ä»¶è§£æä¸ºdocument
 // Parameter: const std::string & fileName
 // Parameter: rapidjson::Document & doc
 //************************************
@@ -105,7 +105,7 @@ bool parseJsonFileToDocument(const std::string &fileName, rapidjson::Document &d
 // FullName:  parseJsonStrToDocument
 // Access:    public 
 // Returns:   bool
-// Qualifier: ½«json×Ö·û´®½âÎöÎªdocument
+// Qualifier: å°†jsonå­—ç¬¦ä¸²è§£æä¸ºdocument
 // Parameter: const std::string & jsonStr
 // Parameter: rapidjson::Document & doc
 //************************************
@@ -117,7 +117,7 @@ bool parseJsonStrToDocument(const std::string &jsonStr, rapidjson::Document &doc
 // FullName:  writeFileData
 // Access:    public 
 // Returns:   bool
-// Qualifier: Ğ´Èë±¾µØÎÄ¼ş
+// Qualifier: å†™å…¥æœ¬åœ°æ–‡ä»¶
 // Parameter: const char * localPath
 // Parameter: const char * fileData
 //************************************
@@ -128,7 +128,7 @@ bool writeFileData(const char * localPath, const char * fileData);
 // FullName:  getChildrenMaxZorder
 // Access:    public 
 // Returns:   int
-// Qualifier:  »ñÈ¡Node½ÚµãµÄº¢×Ó½ÚµãÖĞ×î´óµÄorder
+// Qualifier:  è·å–NodeèŠ‚ç‚¹çš„å­©å­èŠ‚ç‚¹ä¸­æœ€å¤§çš„order
 // Parameter: Node * parent
 //************************************
 int getChildrenMaxZorder(Node* parent);
