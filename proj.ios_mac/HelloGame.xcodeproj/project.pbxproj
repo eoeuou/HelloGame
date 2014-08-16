@@ -17,9 +17,6 @@
 		1AC6FB30180E99EB004C840B /* libcocos2dx iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2dx iOS.a */; };
 		1AC6FB31180E99EB004C840B /* libcocos2dx-extensions iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB09180E9839004C840B /* libcocos2dx-extensions iOS.a */; };
 		1AC6FB32180E99EB004C840B /* libCocosDenshion iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB0F180E9839004C840B /* libCocosDenshion iOS.a */; };
-		1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B916D35E4900DB1158 /* CloseNormal.png */; };
-		1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */; };
-		1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
@@ -30,9 +27,6 @@
 		503AE10517EB98FF00D1A890 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 503AE10317EB98FF00D1A890 /* main.cpp */; };
 		503AE11217EB99EE00D1A890 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 503AE11117EB99EE00D1A890 /* libcurl.dylib */; };
 		503AE11B17EB9C5A00D1A890 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503AE11A17EB9C5A00D1A890 /* IOKit.framework */; };
-		5087E75317EB910900C73F5D /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B916D35E4900DB1158 /* CloseNormal.png */; };
-		5087E75417EB910900C73F5D /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */; };
-		5087E75517EB910900C73F5D /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */; };
 		5087E76317EB910900C73F5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		5087E76517EB910900C73F5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		5087E76717EB910900C73F5D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -58,43 +52,69 @@
 		50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629517ECD46A001EB2F8 /* Icon-100.png */; };
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
-		79A1A3AD198CA426007E86E8 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A346198CA426007E86E8 /* AppDelegate.cpp */; };
-		79A1A3AE198CA426007E86E8 /* CKCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A34A198CA426007E86E8 /* CKCommon.cpp */; };
-		79A1A3AF198CA426007E86E8 /* CKConstants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A34C198CA426007E86E8 /* CKConstants.cpp */; };
-		79A1A3B0198CA426007E86E8 /* CKDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A34E198CA426007E86E8 /* CKDialog.cpp */; };
-		79A1A3B1198CA426007E86E8 /* CKGameDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A350198CA426007E86E8 /* CKGameDataManager.cpp */; };
-		79A1A3B2198CA426007E86E8 /* CKGameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A352198CA426007E86E8 /* CKGameManager.cpp */; };
-		79A1A3B3198CA426007E86E8 /* CKModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A354198CA426007E86E8 /* CKModel.cpp */; };
-		79A1A3B4198CA426007E86E8 /* CKProtocols.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A356198CA426007E86E8 /* CKProtocols.cpp */; };
-		79A1A3B5198CA426007E86E8 /* CKScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A358198CA426007E86E8 /* CKScene.cpp */; };
-		79A1A3B8198CA426007E86E8 /* CKDeviceEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A35F198CA426007E86E8 /* CKDeviceEngine.cpp */; };
-		79A1A3B9198CA426007E86E8 /* CKIOSDeviceEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A362198CA426007E86E8 /* CKIOSDeviceEngine.mm */; };
-		79A1A3BA198CA426007E86E8 /* CKJsonHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A365198CA426007E86E8 /* CKJsonHelper.cpp */; };
-		79A1A3BB198CA426007E86E8 /* CKJsonModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A367198CA426007E86E8 /* CKJsonModel.cpp */; };
-		79A1A3BE198CA426007E86E8 /* CKIOSMessageBox.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A36F198CA426007E86E8 /* CKIOSMessageBox.mm */; };
-		79A1A3BF198CA426007E86E8 /* CKMessageBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A370198CA426007E86E8 /* CKMessageBox.cpp */; };
-		79A1A3C1198CA426007E86E8 /* CKDefaultNotificationEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A375198CA426007E86E8 /* CKDefaultNotificationEngine.cpp */; };
-		79A1A3C2198CA426007E86E8 /* CKIOSNotificationEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A378198CA426007E86E8 /* CKIOSNotificationEngine.mm */; };
-		79A1A3C3198CA426007E86E8 /* CKNotificationEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A379198CA426007E86E8 /* CKNotificationEngine.cpp */; };
-		79A1A3C5198CA426007E86E8 /* CKDefaultPayEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A37E198CA426007E86E8 /* CKDefaultPayEngine.cpp */; };
-		79A1A3C6198CA426007E86E8 /* CKIOSPayEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A381198CA426007E86E8 /* CKIOSPayEngine.mm */; };
-		79A1A3C7198CA426007E86E8 /* CKPayEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A382198CA426007E86E8 /* CKPayEngine.cpp */; };
-		79A1A3CA198CA426007E86E8 /* CKIOSRatingEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A38A198CA426007E86E8 /* CKIOSRatingEngine.mm */; };
-		79A1A3CB198CA426007E86E8 /* CKRatingDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A38B198CA426007E86E8 /* CKRatingDialog.cpp */; };
-		79A1A3CC198CA426007E86E8 /* CKRatingEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A38D198CA426007E86E8 /* CKRatingEngine.cpp */; };
-		79A1A3CD198CA426007E86E8 /* acts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A390198CA426007E86E8 /* acts.cpp */; };
-		79A1A3CE198CA426007E86E8 /* cons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A392198CA426007E86E8 /* cons.cpp */; };
-		79A1A3CF198CA426007E86E8 /* CKHttpModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A396198CA426007E86E8 /* CKHttpModel.cpp */; };
-		79A1A3D0198CA426007E86E8 /* CKHttpUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A398198CA426007E86E8 /* CKHttpUtils.cpp */; };
-		79A1A3D1198CA426007E86E8 /* URLData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A39A198CA426007E86E8 /* URLData.cpp */; };
-		79A1A3D2198CA426007E86E8 /* URLManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A39C198CA426007E86E8 /* URLManager.cpp */; };
-		79A1A3D4198CA426007E86E8 /* CKDefaultWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A3A0198CA426007E86E8 /* CKDefaultWrapper.cpp */; };
-		79A1A3D5198CA426007E86E8 /* CKIOSWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A3A1198CA426007E86E8 /* CKIOSWrapper.mm */; };
-		79A1A3D6198CA426007E86E8 /* CKWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A3A2198CA426007E86E8 /* CKWrapper.cpp */; };
-		79A1A3D7198CA426007E86E8 /* DrawScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A3A4198CA426007E86E8 /* DrawScene.cpp */; };
-		79A1A3D8198CA426007E86E8 /* FightScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A3A6198CA426007E86E8 /* FightScene.cpp */; };
-		79A1A3D9198CA426007E86E8 /* CKSequenceLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A3A9198CA426007E86E8 /* CKSequenceLayer.cpp */; };
-		79A1A3DA198CA426007E86E8 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79A1A3AB198CA426007E86E8 /* HelloWorldScene.cpp */; };
+		793085E1199E665E0098E3B0 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79308568199E665D0098E3B0 /* AppDelegate.cpp */; };
+		793085E2199E665E0098E3B0 /* CKCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7930856C199E665D0098E3B0 /* CKCommon.cpp */; };
+		793085E3199E665E0098E3B0 /* CKConstants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7930856E199E665D0098E3B0 /* CKConstants.cpp */; };
+		793085E4199E665E0098E3B0 /* CKDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79308570199E665D0098E3B0 /* CKDialog.cpp */; };
+		793085E5199E665E0098E3B0 /* CKGameDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79308572199E665D0098E3B0 /* CKGameDataManager.cpp */; };
+		793085E6199E665E0098E3B0 /* CKGameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79308574199E665D0098E3B0 /* CKGameManager.cpp */; };
+		793085E7199E665E0098E3B0 /* CKModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79308576199E665D0098E3B0 /* CKModel.cpp */; };
+		793085E8199E665E0098E3B0 /* CKProtocols.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79308578199E665D0098E3B0 /* CKProtocols.cpp */; };
+		793085E9199E665E0098E3B0 /* CKScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7930857A199E665D0098E3B0 /* CKScene.cpp */; };
+		793085EB199E665E0098E3B0 /* CKDefaultDeviceEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7930857F199E665D0098E3B0 /* CKDefaultDeviceEngine.cpp */; };
+		793085EC199E665E0098E3B0 /* CKDeviceEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79308581199E665D0098E3B0 /* CKDeviceEngine.cpp */; };
+		793085ED199E665E0098E3B0 /* CKIOSDeviceEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79308584199E665D0098E3B0 /* CKIOSDeviceEngine.mm */; };
+		793085EE199E665E0098E3B0 /* CKJsonHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79308587199E665D0098E3B0 /* CKJsonHelper.cpp */; };
+		793085EF199E665E0098E3B0 /* CKJsonModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79308589199E665D0098E3B0 /* CKJsonModel.cpp */; };
+		793085F1199E665E0098E3B0 /* CKDefaultMessageBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7930858E199E665D0098E3B0 /* CKDefaultMessageBox.cpp */; };
+		793085F2199E665E0098E3B0 /* CKIOSMessageBox.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79308591199E665D0098E3B0 /* CKIOSMessageBox.mm */; };
+		793085F3199E665E0098E3B0 /* CKMessageBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79308592199E665D0098E3B0 /* CKMessageBox.cpp */; };
+		793085F5199E665E0098E3B0 /* CKDefaultNotificationEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79308597199E665D0098E3B0 /* CKDefaultNotificationEngine.cpp */; };
+		793085F6199E665E0098E3B0 /* CKIOSNotificationEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7930859A199E665D0098E3B0 /* CKIOSNotificationEngine.mm */; };
+		793085F7199E665E0098E3B0 /* CKNotificationEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7930859B199E665D0098E3B0 /* CKNotificationEngine.cpp */; };
+		793085F9199E665E0098E3B0 /* CKDefaultPayEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085A0199E665D0098E3B0 /* CKDefaultPayEngine.cpp */; };
+		793085FA199E665E0098E3B0 /* CKIOSPayEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 793085A3199E665D0098E3B0 /* CKIOSPayEngine.mm */; };
+		793085FB199E665E0098E3B0 /* CKPayEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085A4199E665D0098E3B0 /* CKPayEngine.cpp */; };
+		793085FD199E665E0098E3B0 /* CKDefaultRatingEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085A9199E665D0098E3B0 /* CKDefaultRatingEngine.cpp */; };
+		793085FE199E665E0098E3B0 /* CKIOSRatingEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 793085AC199E665D0098E3B0 /* CKIOSRatingEngine.mm */; };
+		793085FF199E665E0098E3B0 /* CKRatingDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085AD199E665D0098E3B0 /* CKRatingDialog.cpp */; };
+		79308600199E665E0098E3B0 /* CKRatingEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085AF199E665D0098E3B0 /* CKRatingEngine.cpp */; };
+		79308601199E665E0098E3B0 /* acts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085B2199E665D0098E3B0 /* acts.cpp */; };
+		79308602199E665E0098E3B0 /* cons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085B4199E665D0098E3B0 /* cons.cpp */; };
+		79308603199E665E0098E3B0 /* CKHttpModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085B8199E665D0098E3B0 /* CKHttpModel.cpp */; };
+		79308604199E665E0098E3B0 /* CKHttpUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085BA199E665D0098E3B0 /* CKHttpUtils.cpp */; };
+		79308605199E665E0098E3B0 /* URLData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085BC199E665D0098E3B0 /* URLData.cpp */; };
+		79308606199E665E0098E3B0 /* URLManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085BE199E665D0098E3B0 /* URLManager.cpp */; };
+		79308608199E665E0098E3B0 /* CKDate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085C2199E665D0098E3B0 /* CKDate.cpp */; };
+		79308609199E665E0098E3B0 /* CKDefaultWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085C4199E665D0098E3B0 /* CKDefaultWrapper.cpp */; };
+		7930860A199E665E0098E3B0 /* CKIOSWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 793085C5199E665D0098E3B0 /* CKIOSWrapper.mm */; };
+		7930860B199E665E0098E3B0 /* CKWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085C6199E665D0098E3B0 /* CKWrapper.cpp */; };
+		7930860C199E665E0098E3B0 /* FightScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085C8199E665D0098E3B0 /* FightScene.cpp */; };
+		7930860D199E665E0098E3B0 /* CKColorGameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085CC199E665D0098E3B0 /* CKColorGameLayer.cpp */; };
+		7930860E199E665E0098E3B0 /* CKColorGameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085CE199E665D0098E3B0 /* CKColorGameManager.cpp */; };
+		7930860F199E665E0098E3B0 /* CKColorGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085D0199E665D0098E3B0 /* CKColorGameScene.cpp */; };
+		79308610199E665E0098E3B0 /* CKColorGameScoreManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085D2199E665D0098E3B0 /* CKColorGameScoreManager.cpp */; };
+		79308611199E665E0098E3B0 /* CKColorItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085D4199E665D0098E3B0 /* CKColorItem.cpp */; };
+		79308612199E665E0098E3B0 /* CKSequenceLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085D7199E665D0098E3B0 /* CKSequenceLayer.cpp */; };
+		79308613199E665E0098E3B0 /* DrawScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085D9199E665D0098E3B0 /* DrawScene.cpp */; };
+		79308614199E665E0098E3B0 /* GUIScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085DB199E665D0098E3B0 /* GUIScene.cpp */; };
+		79308615199E665E0098E3B0 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085DD199E665E0098E3B0 /* HelloWorldScene.cpp */; };
+		79308616199E665E0098E3B0 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793085DF199E665E0098E3B0 /* VisibleRect.cpp */; };
+		79360D2D199EEA9700B56772 /* ani in Resources */ = {isa = PBXBuildFile; fileRef = 79360D1E199EEA9700B56772 /* ani */; };
+		79360D2E199EEA9700B56772 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 79360D1F199EEA9700B56772 /* CloseNormal.png */; };
+		79360D2F199EEA9700B56772 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 79360D20199EEA9700B56772 /* CloseSelected.png */; };
+		79360D30199EEA9700B56772 /* colorgame in Resources */ = {isa = PBXBuildFile; fileRef = 79360D21199EEA9700B56772 /* colorgame */; };
+		79360D31199EEA9700B56772 /* DemoShop in Resources */ = {isa = PBXBuildFile; fileRef = 79360D22199EEA9700B56772 /* DemoShop */; };
+		79360D32199EEA9700B56772 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 79360D23199EEA9700B56772 /* fonts */; };
+		79360D33199EEA9700B56772 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 79360D24199EEA9700B56772 /* HelloWorld.png */; };
+		79360D34199EEA9700B56772 /* img in Resources */ = {isa = PBXBuildFile; fileRef = 79360D25199EEA9700B56772 /* img */; };
+		79360D35199EEA9700B56772 /* item.png in Resources */ = {isa = PBXBuildFile; fileRef = 79360D26199EEA9700B56772 /* item.png */; };
+		79360D36199EEA9700B56772 /* jsondata in Resources */ = {isa = PBXBuildFile; fileRef = 79360D27199EEA9700B56772 /* jsondata */; };
+		79360D37199EEA9700B56772 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 79360D28199EEA9700B56772 /* loading.png */; };
+		79360D38199EEA9700B56772 /* particle in Resources */ = {isa = PBXBuildFile; fileRef = 79360D29199EEA9700B56772 /* particle */; };
+		79360D39199EEA9700B56772 /* publish in Resources */ = {isa = PBXBuildFile; fileRef = 79360D2A199EEA9700B56772 /* publish */; };
+		79360D3A199EEA9700B56772 /* SampleChangeEquip in Resources */ = {isa = PBXBuildFile; fileRef = 79360D2B199EEA9700B56772 /* SampleChangeEquip */; };
+		79360D3B199EEA9700B56772 /* ui in Resources */ = {isa = PBXBuildFile; fileRef = 79360D2C199EEA9700B56772 /* ui */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -250,9 +270,6 @@
 /* Begin PBXFileReference section */
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
-		1AFAF8B916D35E4900DB1158 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
-		1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
-		1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* HelloGame iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HelloGame iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -289,80 +306,117 @@
 		50EF629517ECD46A001EB2F8 /* Icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-100.png"; sourceTree = "<group>"; };
 		50EF62A017ECD613001EB2F8 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
-		79A1A346198CA426007E86E8 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
-		79A1A347198CA426007E86E8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
-		79A1A348198CA426007E86E8 /* AppMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacros.h; path = ../Classes/AppMacros.h; sourceTree = "<group>"; };
-		79A1A34A198CA426007E86E8 /* CKCommon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKCommon.cpp; sourceTree = "<group>"; };
-		79A1A34B198CA426007E86E8 /* CKCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCommon.h; sourceTree = "<group>"; };
-		79A1A34C198CA426007E86E8 /* CKConstants.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKConstants.cpp; sourceTree = "<group>"; };
-		79A1A34D198CA426007E86E8 /* CKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKConstants.h; sourceTree = "<group>"; };
-		79A1A34E198CA426007E86E8 /* CKDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKDialog.cpp; sourceTree = "<group>"; };
-		79A1A34F198CA426007E86E8 /* CKDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDialog.h; sourceTree = "<group>"; };
-		79A1A350198CA426007E86E8 /* CKGameDataManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKGameDataManager.cpp; sourceTree = "<group>"; };
-		79A1A351198CA426007E86E8 /* CKGameDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKGameDataManager.h; sourceTree = "<group>"; };
-		79A1A352198CA426007E86E8 /* CKGameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKGameManager.cpp; sourceTree = "<group>"; };
-		79A1A353198CA426007E86E8 /* CKGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKGameManager.h; sourceTree = "<group>"; };
-		79A1A354198CA426007E86E8 /* CKModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKModel.cpp; sourceTree = "<group>"; };
-		79A1A355198CA426007E86E8 /* CKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKModel.h; sourceTree = "<group>"; };
-		79A1A356198CA426007E86E8 /* CKProtocols.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKProtocols.cpp; sourceTree = "<group>"; };
-		79A1A357198CA426007E86E8 /* CKProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKProtocols.h; sourceTree = "<group>"; };
-		79A1A358198CA426007E86E8 /* CKScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKScene.cpp; sourceTree = "<group>"; };
-		79A1A359198CA426007E86E8 /* CKScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKScene.h; sourceTree = "<group>"; };
-		79A1A35F198CA426007E86E8 /* CKDeviceEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKDeviceEngine.cpp; sourceTree = "<group>"; };
-		79A1A360198CA426007E86E8 /* CKDeviceEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDeviceEngine.h; sourceTree = "<group>"; };
-		79A1A361198CA426007E86E8 /* CKIOSDeviceEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKIOSDeviceEngine.h; sourceTree = "<group>"; };
-		79A1A362198CA426007E86E8 /* CKIOSDeviceEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CKIOSDeviceEngine.mm; sourceTree = "<group>"; };
-		79A1A365198CA426007E86E8 /* CKJsonHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKJsonHelper.cpp; sourceTree = "<group>"; };
-		79A1A366198CA426007E86E8 /* CKJsonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKJsonHelper.h; sourceTree = "<group>"; };
-		79A1A367198CA426007E86E8 /* CKJsonModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKJsonModel.cpp; sourceTree = "<group>"; };
-		79A1A368198CA426007E86E8 /* CKJsonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKJsonModel.h; sourceTree = "<group>"; };
-		79A1A36E198CA426007E86E8 /* CKIOSMessageBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKIOSMessageBox.h; sourceTree = "<group>"; };
-		79A1A36F198CA426007E86E8 /* CKIOSMessageBox.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CKIOSMessageBox.mm; sourceTree = "<group>"; };
-		79A1A370198CA426007E86E8 /* CKMessageBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKMessageBox.cpp; sourceTree = "<group>"; };
-		79A1A371198CA426007E86E8 /* CKMessageBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKMessageBox.h; sourceTree = "<group>"; };
-		79A1A375198CA426007E86E8 /* CKDefaultNotificationEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKDefaultNotificationEngine.cpp; sourceTree = "<group>"; };
-		79A1A376198CA426007E86E8 /* CKDefaultNotificationEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDefaultNotificationEngine.h; sourceTree = "<group>"; };
-		79A1A377198CA426007E86E8 /* CKIOSNotificationEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKIOSNotificationEngine.h; sourceTree = "<group>"; };
-		79A1A378198CA426007E86E8 /* CKIOSNotificationEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CKIOSNotificationEngine.mm; sourceTree = "<group>"; };
-		79A1A379198CA426007E86E8 /* CKNotificationEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKNotificationEngine.cpp; sourceTree = "<group>"; };
-		79A1A37A198CA426007E86E8 /* CKNotificationEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNotificationEngine.h; sourceTree = "<group>"; };
-		79A1A37E198CA426007E86E8 /* CKDefaultPayEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKDefaultPayEngine.cpp; sourceTree = "<group>"; };
-		79A1A37F198CA426007E86E8 /* CKDefaultPayEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDefaultPayEngine.h; sourceTree = "<group>"; };
-		79A1A380198CA426007E86E8 /* CKIOSPayEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKIOSPayEngine.h; sourceTree = "<group>"; };
-		79A1A381198CA426007E86E8 /* CKIOSPayEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CKIOSPayEngine.mm; sourceTree = "<group>"; };
-		79A1A382198CA426007E86E8 /* CKPayEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKPayEngine.cpp; sourceTree = "<group>"; };
-		79A1A383198CA426007E86E8 /* CKPayEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKPayEngine.h; sourceTree = "<group>"; };
-		79A1A389198CA426007E86E8 /* CKIOSRatingEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKIOSRatingEngine.h; sourceTree = "<group>"; };
-		79A1A38A198CA426007E86E8 /* CKIOSRatingEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CKIOSRatingEngine.mm; sourceTree = "<group>"; };
-		79A1A38B198CA426007E86E8 /* CKRatingDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKRatingDialog.cpp; sourceTree = "<group>"; };
-		79A1A38C198CA426007E86E8 /* CKRatingDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRatingDialog.h; sourceTree = "<group>"; };
-		79A1A38D198CA426007E86E8 /* CKRatingEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKRatingEngine.cpp; sourceTree = "<group>"; };
-		79A1A38E198CA426007E86E8 /* CKRatingEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRatingEngine.h; sourceTree = "<group>"; };
-		79A1A390198CA426007E86E8 /* acts.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = acts.cpp; sourceTree = "<group>"; };
-		79A1A391198CA426007E86E8 /* acts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = acts.h; sourceTree = "<group>"; };
-		79A1A392198CA426007E86E8 /* cons.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cons.cpp; sourceTree = "<group>"; };
-		79A1A393198CA426007E86E8 /* cons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cons.h; sourceTree = "<group>"; };
-		79A1A394198CA426007E86E8 /* EventDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDef.h; sourceTree = "<group>"; };
-		79A1A396198CA426007E86E8 /* CKHttpModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKHttpModel.cpp; sourceTree = "<group>"; };
-		79A1A397198CA426007E86E8 /* CKHttpModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKHttpModel.h; sourceTree = "<group>"; };
-		79A1A398198CA426007E86E8 /* CKHttpUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKHttpUtils.cpp; sourceTree = "<group>"; };
-		79A1A399198CA426007E86E8 /* CKHttpUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKHttpUtils.h; sourceTree = "<group>"; };
-		79A1A39A198CA426007E86E8 /* URLData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = URLData.cpp; sourceTree = "<group>"; };
-		79A1A39B198CA426007E86E8 /* URLData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLData.h; sourceTree = "<group>"; };
-		79A1A39C198CA426007E86E8 /* URLManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = URLManager.cpp; sourceTree = "<group>"; };
-		79A1A39D198CA426007E86E8 /* URLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLManager.h; sourceTree = "<group>"; };
-		79A1A3A0198CA426007E86E8 /* CKDefaultWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKDefaultWrapper.cpp; sourceTree = "<group>"; };
-		79A1A3A1198CA426007E86E8 /* CKIOSWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CKIOSWrapper.mm; sourceTree = "<group>"; };
-		79A1A3A2198CA426007E86E8 /* CKWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKWrapper.cpp; sourceTree = "<group>"; };
-		79A1A3A3198CA426007E86E8 /* CKWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKWrapper.h; sourceTree = "<group>"; };
-		79A1A3A4198CA426007E86E8 /* DrawScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DrawScene.cpp; path = ../Classes/DrawScene.cpp; sourceTree = "<group>"; };
-		79A1A3A5198CA426007E86E8 /* DrawScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawScene.h; path = ../Classes/DrawScene.h; sourceTree = "<group>"; };
-		79A1A3A6198CA426007E86E8 /* FightScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FightScene.cpp; path = ../Classes/FightScene.cpp; sourceTree = "<group>"; };
-		79A1A3A7198CA426007E86E8 /* FightScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FightScene.h; path = ../Classes/FightScene.h; sourceTree = "<group>"; };
-		79A1A3A9198CA426007E86E8 /* CKSequenceLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKSequenceLayer.cpp; sourceTree = "<group>"; };
-		79A1A3AA198CA426007E86E8 /* CKSequenceLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSequenceLayer.h; sourceTree = "<group>"; };
-		79A1A3AB198CA426007E86E8 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = ../Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
-		79A1A3AC198CA426007E86E8 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = ../Classes/HelloWorldScene.h; sourceTree = "<group>"; };
+		79308568199E665D0098E3B0 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
+		79308569199E665D0098E3B0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
+		7930856A199E665D0098E3B0 /* AppMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacros.h; path = ../Classes/AppMacros.h; sourceTree = "<group>"; };
+		7930856C199E665D0098E3B0 /* CKCommon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKCommon.cpp; sourceTree = "<group>"; };
+		7930856D199E665D0098E3B0 /* CKCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCommon.h; sourceTree = "<group>"; };
+		7930856E199E665D0098E3B0 /* CKConstants.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKConstants.cpp; sourceTree = "<group>"; };
+		7930856F199E665D0098E3B0 /* CKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKConstants.h; sourceTree = "<group>"; };
+		79308570199E665D0098E3B0 /* CKDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKDialog.cpp; sourceTree = "<group>"; };
+		79308571199E665D0098E3B0 /* CKDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDialog.h; sourceTree = "<group>"; };
+		79308572199E665D0098E3B0 /* CKGameDataManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKGameDataManager.cpp; sourceTree = "<group>"; };
+		79308573199E665D0098E3B0 /* CKGameDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKGameDataManager.h; sourceTree = "<group>"; };
+		79308574199E665D0098E3B0 /* CKGameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKGameManager.cpp; sourceTree = "<group>"; };
+		79308575199E665D0098E3B0 /* CKGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKGameManager.h; sourceTree = "<group>"; };
+		79308576199E665D0098E3B0 /* CKModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKModel.cpp; sourceTree = "<group>"; };
+		79308577199E665D0098E3B0 /* CKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKModel.h; sourceTree = "<group>"; };
+		79308578199E665D0098E3B0 /* CKProtocols.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKProtocols.cpp; sourceTree = "<group>"; };
+		79308579199E665D0098E3B0 /* CKProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKProtocols.h; sourceTree = "<group>"; };
+		7930857A199E665D0098E3B0 /* CKScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKScene.cpp; sourceTree = "<group>"; };
+		7930857B199E665D0098E3B0 /* CKScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKScene.h; sourceTree = "<group>"; };
+		7930857F199E665D0098E3B0 /* CKDefaultDeviceEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKDefaultDeviceEngine.cpp; sourceTree = "<group>"; };
+		79308580199E665D0098E3B0 /* CKDefaultDeviceEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDefaultDeviceEngine.h; sourceTree = "<group>"; };
+		79308581199E665D0098E3B0 /* CKDeviceEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKDeviceEngine.cpp; sourceTree = "<group>"; };
+		79308582199E665D0098E3B0 /* CKDeviceEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDeviceEngine.h; sourceTree = "<group>"; };
+		79308583199E665D0098E3B0 /* CKIOSDeviceEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKIOSDeviceEngine.h; sourceTree = "<group>"; };
+		79308584199E665D0098E3B0 /* CKIOSDeviceEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CKIOSDeviceEngine.mm; sourceTree = "<group>"; };
+		79308587199E665D0098E3B0 /* CKJsonHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKJsonHelper.cpp; sourceTree = "<group>"; };
+		79308588199E665D0098E3B0 /* CKJsonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKJsonHelper.h; sourceTree = "<group>"; };
+		79308589199E665D0098E3B0 /* CKJsonModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKJsonModel.cpp; sourceTree = "<group>"; };
+		7930858A199E665D0098E3B0 /* CKJsonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKJsonModel.h; sourceTree = "<group>"; };
+		7930858E199E665D0098E3B0 /* CKDefaultMessageBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKDefaultMessageBox.cpp; sourceTree = "<group>"; };
+		7930858F199E665D0098E3B0 /* CKDefaultMessageBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDefaultMessageBox.h; sourceTree = "<group>"; };
+		79308590199E665D0098E3B0 /* CKIOSMessageBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKIOSMessageBox.h; sourceTree = "<group>"; };
+		79308591199E665D0098E3B0 /* CKIOSMessageBox.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CKIOSMessageBox.mm; sourceTree = "<group>"; };
+		79308592199E665D0098E3B0 /* CKMessageBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKMessageBox.cpp; sourceTree = "<group>"; };
+		79308593199E665D0098E3B0 /* CKMessageBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKMessageBox.h; sourceTree = "<group>"; };
+		79308597199E665D0098E3B0 /* CKDefaultNotificationEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKDefaultNotificationEngine.cpp; sourceTree = "<group>"; };
+		79308598199E665D0098E3B0 /* CKDefaultNotificationEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDefaultNotificationEngine.h; sourceTree = "<group>"; };
+		79308599199E665D0098E3B0 /* CKIOSNotificationEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKIOSNotificationEngine.h; sourceTree = "<group>"; };
+		7930859A199E665D0098E3B0 /* CKIOSNotificationEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CKIOSNotificationEngine.mm; sourceTree = "<group>"; };
+		7930859B199E665D0098E3B0 /* CKNotificationEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKNotificationEngine.cpp; sourceTree = "<group>"; };
+		7930859C199E665D0098E3B0 /* CKNotificationEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNotificationEngine.h; sourceTree = "<group>"; };
+		793085A0199E665D0098E3B0 /* CKDefaultPayEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKDefaultPayEngine.cpp; sourceTree = "<group>"; };
+		793085A1199E665D0098E3B0 /* CKDefaultPayEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDefaultPayEngine.h; sourceTree = "<group>"; };
+		793085A2199E665D0098E3B0 /* CKIOSPayEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKIOSPayEngine.h; sourceTree = "<group>"; };
+		793085A3199E665D0098E3B0 /* CKIOSPayEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CKIOSPayEngine.mm; sourceTree = "<group>"; };
+		793085A4199E665D0098E3B0 /* CKPayEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKPayEngine.cpp; sourceTree = "<group>"; };
+		793085A5199E665D0098E3B0 /* CKPayEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKPayEngine.h; sourceTree = "<group>"; };
+		793085A9199E665D0098E3B0 /* CKDefaultRatingEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKDefaultRatingEngine.cpp; sourceTree = "<group>"; };
+		793085AA199E665D0098E3B0 /* CKDefaultRatingEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDefaultRatingEngine.h; sourceTree = "<group>"; };
+		793085AB199E665D0098E3B0 /* CKIOSRatingEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKIOSRatingEngine.h; sourceTree = "<group>"; };
+		793085AC199E665D0098E3B0 /* CKIOSRatingEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CKIOSRatingEngine.mm; sourceTree = "<group>"; };
+		793085AD199E665D0098E3B0 /* CKRatingDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKRatingDialog.cpp; sourceTree = "<group>"; };
+		793085AE199E665D0098E3B0 /* CKRatingDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRatingDialog.h; sourceTree = "<group>"; };
+		793085AF199E665D0098E3B0 /* CKRatingEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKRatingEngine.cpp; sourceTree = "<group>"; };
+		793085B0199E665D0098E3B0 /* CKRatingEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRatingEngine.h; sourceTree = "<group>"; };
+		793085B2199E665D0098E3B0 /* acts.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = acts.cpp; sourceTree = "<group>"; };
+		793085B3199E665D0098E3B0 /* acts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = acts.h; sourceTree = "<group>"; };
+		793085B4199E665D0098E3B0 /* cons.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cons.cpp; sourceTree = "<group>"; };
+		793085B5199E665D0098E3B0 /* cons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cons.h; sourceTree = "<group>"; };
+		793085B6199E665D0098E3B0 /* EventDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDef.h; sourceTree = "<group>"; };
+		793085B8199E665D0098E3B0 /* CKHttpModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKHttpModel.cpp; sourceTree = "<group>"; };
+		793085B9199E665D0098E3B0 /* CKHttpModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKHttpModel.h; sourceTree = "<group>"; };
+		793085BA199E665D0098E3B0 /* CKHttpUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKHttpUtils.cpp; sourceTree = "<group>"; };
+		793085BB199E665D0098E3B0 /* CKHttpUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKHttpUtils.h; sourceTree = "<group>"; };
+		793085BC199E665D0098E3B0 /* URLData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = URLData.cpp; sourceTree = "<group>"; };
+		793085BD199E665D0098E3B0 /* URLData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLData.h; sourceTree = "<group>"; };
+		793085BE199E665D0098E3B0 /* URLManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = URLManager.cpp; sourceTree = "<group>"; };
+		793085BF199E665D0098E3B0 /* URLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLManager.h; sourceTree = "<group>"; };
+		793085C2199E665D0098E3B0 /* CKDate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKDate.cpp; sourceTree = "<group>"; };
+		793085C3199E665D0098E3B0 /* CKDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDate.h; sourceTree = "<group>"; };
+		793085C4199E665D0098E3B0 /* CKDefaultWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKDefaultWrapper.cpp; sourceTree = "<group>"; };
+		793085C5199E665D0098E3B0 /* CKIOSWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CKIOSWrapper.mm; sourceTree = "<group>"; };
+		793085C6199E665D0098E3B0 /* CKWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKWrapper.cpp; sourceTree = "<group>"; };
+		793085C7199E665D0098E3B0 /* CKWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKWrapper.h; sourceTree = "<group>"; };
+		793085C8199E665D0098E3B0 /* FightScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FightScene.cpp; path = ../Classes/FightScene.cpp; sourceTree = "<group>"; };
+		793085C9199E665D0098E3B0 /* FightScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FightScene.h; path = ../Classes/FightScene.h; sourceTree = "<group>"; };
+		793085CC199E665D0098E3B0 /* CKColorGameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKColorGameLayer.cpp; sourceTree = "<group>"; };
+		793085CD199E665D0098E3B0 /* CKColorGameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKColorGameLayer.h; sourceTree = "<group>"; };
+		793085CE199E665D0098E3B0 /* CKColorGameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKColorGameManager.cpp; sourceTree = "<group>"; };
+		793085CF199E665D0098E3B0 /* CKColorGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKColorGameManager.h; sourceTree = "<group>"; };
+		793085D0199E665D0098E3B0 /* CKColorGameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKColorGameScene.cpp; sourceTree = "<group>"; };
+		793085D1199E665D0098E3B0 /* CKColorGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKColorGameScene.h; sourceTree = "<group>"; };
+		793085D2199E665D0098E3B0 /* CKColorGameScoreManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKColorGameScoreManager.cpp; sourceTree = "<group>"; };
+		793085D3199E665D0098E3B0 /* CKColorGameScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKColorGameScoreManager.h; sourceTree = "<group>"; };
+		793085D4199E665D0098E3B0 /* CKColorItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKColorItem.cpp; sourceTree = "<group>"; };
+		793085D5199E665D0098E3B0 /* CKColorItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKColorItem.h; sourceTree = "<group>"; };
+		793085D7199E665D0098E3B0 /* CKSequenceLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKSequenceLayer.cpp; sourceTree = "<group>"; };
+		793085D8199E665D0098E3B0 /* CKSequenceLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSequenceLayer.h; sourceTree = "<group>"; };
+		793085D9199E665D0098E3B0 /* DrawScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawScene.cpp; sourceTree = "<group>"; };
+		793085DA199E665D0098E3B0 /* DrawScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawScene.h; sourceTree = "<group>"; };
+		793085DB199E665D0098E3B0 /* GUIScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GUIScene.cpp; path = ../Classes/GUIScene.cpp; sourceTree = "<group>"; };
+		793085DC199E665E0098E3B0 /* GUIScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GUIScene.h; path = ../Classes/GUIScene.h; sourceTree = "<group>"; };
+		793085DD199E665E0098E3B0 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = ../Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
+		793085DE199E665E0098E3B0 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = ../Classes/HelloWorldScene.h; sourceTree = "<group>"; };
+		793085DF199E665E0098E3B0 /* VisibleRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VisibleRect.cpp; path = ../Classes/VisibleRect.cpp; sourceTree = "<group>"; };
+		793085E0199E665E0098E3B0 /* VisibleRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VisibleRect.h; path = ../Classes/VisibleRect.h; sourceTree = "<group>"; };
+		79360D1E199EEA9700B56772 /* ani */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ani; sourceTree = "<group>"; };
+		79360D1F199EEA9700B56772 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
+		79360D20199EEA9700B56772 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
+		79360D21199EEA9700B56772 /* colorgame */ = {isa = PBXFileReference; lastKnownFileType = folder; path = colorgame; sourceTree = "<group>"; };
+		79360D22199EEA9700B56772 /* DemoShop */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DemoShop; sourceTree = "<group>"; };
+		79360D23199EEA9700B56772 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		79360D24199EEA9700B56772 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
+		79360D25199EEA9700B56772 /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
+		79360D26199EEA9700B56772 /* item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item.png; sourceTree = "<group>"; };
+		79360D27199EEA9700B56772 /* jsondata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = jsondata; sourceTree = "<group>"; };
+		79360D28199EEA9700B56772 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
+		79360D29199EEA9700B56772 /* particle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = particle; sourceTree = "<group>"; };
+		79360D2A199EEA9700B56772 /* publish */ = {isa = PBXFileReference; lastKnownFileType = folder; path = publish; sourceTree = "<group>"; };
+		79360D2B199EEA9700B56772 /* SampleChangeEquip */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SampleChangeEquip; sourceTree = "<group>"; };
+		79360D2C199EEA9700B56772 /* ui */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ui; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -439,17 +493,19 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				79A1A346198CA426007E86E8 /* AppDelegate.cpp */,
-				79A1A347198CA426007E86E8 /* AppDelegate.h */,
-				79A1A348198CA426007E86E8 /* AppMacros.h */,
-				79A1A349198CA426007E86E8 /* ckbase */,
-				79A1A3A4198CA426007E86E8 /* DrawScene.cpp */,
-				79A1A3A5198CA426007E86E8 /* DrawScene.h */,
-				79A1A3A6198CA426007E86E8 /* FightScene.cpp */,
-				79A1A3A7198CA426007E86E8 /* FightScene.h */,
-				79A1A3A8198CA426007E86E8 /* game */,
-				79A1A3AB198CA426007E86E8 /* HelloWorldScene.cpp */,
-				79A1A3AC198CA426007E86E8 /* HelloWorldScene.h */,
+				79308568199E665D0098E3B0 /* AppDelegate.cpp */,
+				79308569199E665D0098E3B0 /* AppDelegate.h */,
+				7930856A199E665D0098E3B0 /* AppMacros.h */,
+				7930856B199E665D0098E3B0 /* ckbase */,
+				793085C8199E665D0098E3B0 /* FightScene.cpp */,
+				793085C9199E665D0098E3B0 /* FightScene.h */,
+				793085CA199E665D0098E3B0 /* game */,
+				793085DB199E665D0098E3B0 /* GUIScene.cpp */,
+				793085DC199E665E0098E3B0 /* GUIScene.h */,
+				793085DD199E665E0098E3B0 /* HelloWorldScene.cpp */,
+				793085DE199E665E0098E3B0 /* HelloWorldScene.h */,
+				793085DF199E665E0098E3B0 /* VisibleRect.cpp */,
+				793085E0199E665E0098E3B0 /* VisibleRect.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -565,173 +621,221 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
-				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
-				1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */,
+				79360D1E199EEA9700B56772 /* ani */,
+				79360D1F199EEA9700B56772 /* CloseNormal.png */,
+				79360D20199EEA9700B56772 /* CloseSelected.png */,
+				79360D21199EEA9700B56772 /* colorgame */,
+				79360D22199EEA9700B56772 /* DemoShop */,
+				79360D23199EEA9700B56772 /* fonts */,
+				79360D24199EEA9700B56772 /* HelloWorld.png */,
+				79360D25199EEA9700B56772 /* img */,
+				79360D26199EEA9700B56772 /* item.png */,
+				79360D27199EEA9700B56772 /* jsondata */,
+				79360D28199EEA9700B56772 /* loading.png */,
+				79360D29199EEA9700B56772 /* particle */,
+				79360D2A199EEA9700B56772 /* publish */,
+				79360D2B199EEA9700B56772 /* SampleChangeEquip */,
+				79360D2C199EEA9700B56772 /* ui */,
 			);
 			name = Resources;
 			path = ../Resources;
 			sourceTree = "<group>";
 		};
-		79A1A349198CA426007E86E8 /* ckbase */ = {
+		7930856B199E665D0098E3B0 /* ckbase */ = {
 			isa = PBXGroup;
 			children = (
-				79A1A34A198CA426007E86E8 /* CKCommon.cpp */,
-				79A1A34B198CA426007E86E8 /* CKCommon.h */,
-				79A1A34C198CA426007E86E8 /* CKConstants.cpp */,
-				79A1A34D198CA426007E86E8 /* CKConstants.h */,
-				79A1A34E198CA426007E86E8 /* CKDialog.cpp */,
-				79A1A34F198CA426007E86E8 /* CKDialog.h */,
-				79A1A350198CA426007E86E8 /* CKGameDataManager.cpp */,
-				79A1A351198CA426007E86E8 /* CKGameDataManager.h */,
-				79A1A352198CA426007E86E8 /* CKGameManager.cpp */,
-				79A1A353198CA426007E86E8 /* CKGameManager.h */,
-				79A1A354198CA426007E86E8 /* CKModel.cpp */,
-				79A1A355198CA426007E86E8 /* CKModel.h */,
-				79A1A356198CA426007E86E8 /* CKProtocols.cpp */,
-				79A1A357198CA426007E86E8 /* CKProtocols.h */,
-				79A1A358198CA426007E86E8 /* CKScene.cpp */,
-				79A1A359198CA426007E86E8 /* CKScene.h */,
-				79A1A35A198CA426007E86E8 /* device */,
-				79A1A363198CA426007E86E8 /* extentions */,
-				79A1A395198CA426007E86E8 /* network */,
-				79A1A39E198CA426007E86E8 /* wrapper */,
+				7930856C199E665D0098E3B0 /* CKCommon.cpp */,
+				7930856D199E665D0098E3B0 /* CKCommon.h */,
+				7930856E199E665D0098E3B0 /* CKConstants.cpp */,
+				7930856F199E665D0098E3B0 /* CKConstants.h */,
+				79308570199E665D0098E3B0 /* CKDialog.cpp */,
+				79308571199E665D0098E3B0 /* CKDialog.h */,
+				79308572199E665D0098E3B0 /* CKGameDataManager.cpp */,
+				79308573199E665D0098E3B0 /* CKGameDataManager.h */,
+				79308574199E665D0098E3B0 /* CKGameManager.cpp */,
+				79308575199E665D0098E3B0 /* CKGameManager.h */,
+				79308576199E665D0098E3B0 /* CKModel.cpp */,
+				79308577199E665D0098E3B0 /* CKModel.h */,
+				79308578199E665D0098E3B0 /* CKProtocols.cpp */,
+				79308579199E665D0098E3B0 /* CKProtocols.h */,
+				7930857A199E665D0098E3B0 /* CKScene.cpp */,
+				7930857B199E665D0098E3B0 /* CKScene.h */,
+				7930857C199E665D0098E3B0 /* device */,
+				79308585199E665D0098E3B0 /* extentions */,
+				793085B7199E665D0098E3B0 /* network */,
+				793085C0199E665D0098E3B0 /* wrapper */,
 			);
 			name = ckbase;
 			path = ../Classes/ckbase;
 			sourceTree = "<group>";
 		};
-		79A1A35A198CA426007E86E8 /* device */ = {
+		7930857C199E665D0098E3B0 /* device */ = {
 			isa = PBXGroup;
 			children = (
-				79A1A35F198CA426007E86E8 /* CKDeviceEngine.cpp */,
-				79A1A360198CA426007E86E8 /* CKDeviceEngine.h */,
-				79A1A361198CA426007E86E8 /* CKIOSDeviceEngine.h */,
-				79A1A362198CA426007E86E8 /* CKIOSDeviceEngine.mm */,
+				7930857F199E665D0098E3B0 /* CKDefaultDeviceEngine.cpp */,
+				79308580199E665D0098E3B0 /* CKDefaultDeviceEngine.h */,
+				79308581199E665D0098E3B0 /* CKDeviceEngine.cpp */,
+				79308582199E665D0098E3B0 /* CKDeviceEngine.h */,
+				79308583199E665D0098E3B0 /* CKIOSDeviceEngine.h */,
+				79308584199E665D0098E3B0 /* CKIOSDeviceEngine.mm */,
 			);
 			path = device;
 			sourceTree = "<group>";
 		};
-		79A1A363198CA426007E86E8 /* extentions */ = {
+		79308585199E665D0098E3B0 /* extentions */ = {
 			isa = PBXGroup;
 			children = (
-				79A1A364198CA426007E86E8 /* ckjson */,
-				79A1A369198CA426007E86E8 /* messagebox */,
-				79A1A372198CA426007E86E8 /* notification */,
-				79A1A37B198CA426007E86E8 /* pay */,
-				79A1A384198CA426007E86E8 /* rating */,
-				79A1A38F198CA426007E86E8 /* trigger */,
+				79308586199E665D0098E3B0 /* ckjson */,
+				7930858B199E665D0098E3B0 /* messagebox */,
+				79308594199E665D0098E3B0 /* notification */,
+				7930859D199E665D0098E3B0 /* pay */,
+				793085A6199E665D0098E3B0 /* rating */,
+				793085B1199E665D0098E3B0 /* trigger */,
 			);
 			path = extentions;
 			sourceTree = "<group>";
 		};
-		79A1A364198CA426007E86E8 /* ckjson */ = {
+		79308586199E665D0098E3B0 /* ckjson */ = {
 			isa = PBXGroup;
 			children = (
-				79A1A365198CA426007E86E8 /* CKJsonHelper.cpp */,
-				79A1A366198CA426007E86E8 /* CKJsonHelper.h */,
-				79A1A367198CA426007E86E8 /* CKJsonModel.cpp */,
-				79A1A368198CA426007E86E8 /* CKJsonModel.h */,
+				79308587199E665D0098E3B0 /* CKJsonHelper.cpp */,
+				79308588199E665D0098E3B0 /* CKJsonHelper.h */,
+				79308589199E665D0098E3B0 /* CKJsonModel.cpp */,
+				7930858A199E665D0098E3B0 /* CKJsonModel.h */,
 			);
 			path = ckjson;
 			sourceTree = "<group>";
 		};
-		79A1A369198CA426007E86E8 /* messagebox */ = {
+		7930858B199E665D0098E3B0 /* messagebox */ = {
 			isa = PBXGroup;
 			children = (
-				79A1A36E198CA426007E86E8 /* CKIOSMessageBox.h */,
-				79A1A36F198CA426007E86E8 /* CKIOSMessageBox.mm */,
-				79A1A370198CA426007E86E8 /* CKMessageBox.cpp */,
-				79A1A371198CA426007E86E8 /* CKMessageBox.h */,
+				7930858E199E665D0098E3B0 /* CKDefaultMessageBox.cpp */,
+				7930858F199E665D0098E3B0 /* CKDefaultMessageBox.h */,
+				79308590199E665D0098E3B0 /* CKIOSMessageBox.h */,
+				79308591199E665D0098E3B0 /* CKIOSMessageBox.mm */,
+				79308592199E665D0098E3B0 /* CKMessageBox.cpp */,
+				79308593199E665D0098E3B0 /* CKMessageBox.h */,
 			);
 			path = messagebox;
 			sourceTree = "<group>";
 		};
-		79A1A372198CA426007E86E8 /* notification */ = {
+		79308594199E665D0098E3B0 /* notification */ = {
 			isa = PBXGroup;
 			children = (
-				79A1A375198CA426007E86E8 /* CKDefaultNotificationEngine.cpp */,
-				79A1A376198CA426007E86E8 /* CKDefaultNotificationEngine.h */,
-				79A1A377198CA426007E86E8 /* CKIOSNotificationEngine.h */,
-				79A1A378198CA426007E86E8 /* CKIOSNotificationEngine.mm */,
-				79A1A379198CA426007E86E8 /* CKNotificationEngine.cpp */,
-				79A1A37A198CA426007E86E8 /* CKNotificationEngine.h */,
+				79308597199E665D0098E3B0 /* CKDefaultNotificationEngine.cpp */,
+				79308598199E665D0098E3B0 /* CKDefaultNotificationEngine.h */,
+				79308599199E665D0098E3B0 /* CKIOSNotificationEngine.h */,
+				7930859A199E665D0098E3B0 /* CKIOSNotificationEngine.mm */,
+				7930859B199E665D0098E3B0 /* CKNotificationEngine.cpp */,
+				7930859C199E665D0098E3B0 /* CKNotificationEngine.h */,
 			);
 			path = notification;
 			sourceTree = "<group>";
 		};
-		79A1A37B198CA426007E86E8 /* pay */ = {
+		7930859D199E665D0098E3B0 /* pay */ = {
 			isa = PBXGroup;
 			children = (
-				79A1A37E198CA426007E86E8 /* CKDefaultPayEngine.cpp */,
-				79A1A37F198CA426007E86E8 /* CKDefaultPayEngine.h */,
-				79A1A380198CA426007E86E8 /* CKIOSPayEngine.h */,
-				79A1A381198CA426007E86E8 /* CKIOSPayEngine.mm */,
-				79A1A382198CA426007E86E8 /* CKPayEngine.cpp */,
-				79A1A383198CA426007E86E8 /* CKPayEngine.h */,
+				793085A0199E665D0098E3B0 /* CKDefaultPayEngine.cpp */,
+				793085A1199E665D0098E3B0 /* CKDefaultPayEngine.h */,
+				793085A2199E665D0098E3B0 /* CKIOSPayEngine.h */,
+				793085A3199E665D0098E3B0 /* CKIOSPayEngine.mm */,
+				793085A4199E665D0098E3B0 /* CKPayEngine.cpp */,
+				793085A5199E665D0098E3B0 /* CKPayEngine.h */,
 			);
 			path = pay;
 			sourceTree = "<group>";
 		};
-		79A1A384198CA426007E86E8 /* rating */ = {
+		793085A6199E665D0098E3B0 /* rating */ = {
 			isa = PBXGroup;
 			children = (
-				79A1A389198CA426007E86E8 /* CKIOSRatingEngine.h */,
-				79A1A38A198CA426007E86E8 /* CKIOSRatingEngine.mm */,
-				79A1A38B198CA426007E86E8 /* CKRatingDialog.cpp */,
-				79A1A38C198CA426007E86E8 /* CKRatingDialog.h */,
-				79A1A38D198CA426007E86E8 /* CKRatingEngine.cpp */,
-				79A1A38E198CA426007E86E8 /* CKRatingEngine.h */,
+				793085A9199E665D0098E3B0 /* CKDefaultRatingEngine.cpp */,
+				793085AA199E665D0098E3B0 /* CKDefaultRatingEngine.h */,
+				793085AB199E665D0098E3B0 /* CKIOSRatingEngine.h */,
+				793085AC199E665D0098E3B0 /* CKIOSRatingEngine.mm */,
+				793085AD199E665D0098E3B0 /* CKRatingDialog.cpp */,
+				793085AE199E665D0098E3B0 /* CKRatingDialog.h */,
+				793085AF199E665D0098E3B0 /* CKRatingEngine.cpp */,
+				793085B0199E665D0098E3B0 /* CKRatingEngine.h */,
 			);
 			path = rating;
 			sourceTree = "<group>";
 		};
-		79A1A38F198CA426007E86E8 /* trigger */ = {
+		793085B1199E665D0098E3B0 /* trigger */ = {
 			isa = PBXGroup;
 			children = (
-				79A1A390198CA426007E86E8 /* acts.cpp */,
-				79A1A391198CA426007E86E8 /* acts.h */,
-				79A1A392198CA426007E86E8 /* cons.cpp */,
-				79A1A393198CA426007E86E8 /* cons.h */,
-				79A1A394198CA426007E86E8 /* EventDef.h */,
+				793085B2199E665D0098E3B0 /* acts.cpp */,
+				793085B3199E665D0098E3B0 /* acts.h */,
+				793085B4199E665D0098E3B0 /* cons.cpp */,
+				793085B5199E665D0098E3B0 /* cons.h */,
+				793085B6199E665D0098E3B0 /* EventDef.h */,
 			);
 			path = trigger;
 			sourceTree = "<group>";
 		};
-		79A1A395198CA426007E86E8 /* network */ = {
+		793085B7199E665D0098E3B0 /* network */ = {
 			isa = PBXGroup;
 			children = (
-				79A1A396198CA426007E86E8 /* CKHttpModel.cpp */,
-				79A1A397198CA426007E86E8 /* CKHttpModel.h */,
-				79A1A398198CA426007E86E8 /* CKHttpUtils.cpp */,
-				79A1A399198CA426007E86E8 /* CKHttpUtils.h */,
-				79A1A39A198CA426007E86E8 /* URLData.cpp */,
-				79A1A39B198CA426007E86E8 /* URLData.h */,
-				79A1A39C198CA426007E86E8 /* URLManager.cpp */,
-				79A1A39D198CA426007E86E8 /* URLManager.h */,
+				793085B8199E665D0098E3B0 /* CKHttpModel.cpp */,
+				793085B9199E665D0098E3B0 /* CKHttpModel.h */,
+				793085BA199E665D0098E3B0 /* CKHttpUtils.cpp */,
+				793085BB199E665D0098E3B0 /* CKHttpUtils.h */,
+				793085BC199E665D0098E3B0 /* URLData.cpp */,
+				793085BD199E665D0098E3B0 /* URLData.h */,
+				793085BE199E665D0098E3B0 /* URLManager.cpp */,
+				793085BF199E665D0098E3B0 /* URLManager.h */,
 			);
 			path = network;
 			sourceTree = "<group>";
 		};
-		79A1A39E198CA426007E86E8 /* wrapper */ = {
+		793085C0199E665D0098E3B0 /* wrapper */ = {
 			isa = PBXGroup;
 			children = (
-				79A1A3A0198CA426007E86E8 /* CKDefaultWrapper.cpp */,
-				79A1A3A1198CA426007E86E8 /* CKIOSWrapper.mm */,
-				79A1A3A2198CA426007E86E8 /* CKWrapper.cpp */,
-				79A1A3A3198CA426007E86E8 /* CKWrapper.h */,
+				793085C2199E665D0098E3B0 /* CKDate.cpp */,
+				793085C3199E665D0098E3B0 /* CKDate.h */,
+				793085C4199E665D0098E3B0 /* CKDefaultWrapper.cpp */,
+				793085C5199E665D0098E3B0 /* CKIOSWrapper.mm */,
+				793085C6199E665D0098E3B0 /* CKWrapper.cpp */,
+				793085C7199E665D0098E3B0 /* CKWrapper.h */,
 			);
 			path = wrapper;
 			sourceTree = "<group>";
 		};
-		79A1A3A8198CA426007E86E8 /* game */ = {
+		793085CA199E665D0098E3B0 /* game */ = {
 			isa = PBXGroup;
 			children = (
-				79A1A3A9198CA426007E86E8 /* CKSequenceLayer.cpp */,
-				79A1A3AA198CA426007E86E8 /* CKSequenceLayer.h */,
+				793085CB199E665D0098E3B0 /* colorgame */,
+				793085D6199E665D0098E3B0 /* drawgame */,
 			);
 			name = game;
 			path = ../Classes/game;
+			sourceTree = "<group>";
+		};
+		793085CB199E665D0098E3B0 /* colorgame */ = {
+			isa = PBXGroup;
+			children = (
+				793085CC199E665D0098E3B0 /* CKColorGameLayer.cpp */,
+				793085CD199E665D0098E3B0 /* CKColorGameLayer.h */,
+				793085CE199E665D0098E3B0 /* CKColorGameManager.cpp */,
+				793085CF199E665D0098E3B0 /* CKColorGameManager.h */,
+				793085D0199E665D0098E3B0 /* CKColorGameScene.cpp */,
+				793085D1199E665D0098E3B0 /* CKColorGameScene.h */,
+				793085D2199E665D0098E3B0 /* CKColorGameScoreManager.cpp */,
+				793085D3199E665D0098E3B0 /* CKColorGameScoreManager.h */,
+				793085D4199E665D0098E3B0 /* CKColorItem.cpp */,
+				793085D5199E665D0098E3B0 /* CKColorItem.h */,
+			);
+			path = colorgame;
+			sourceTree = "<group>";
+		};
+		793085D6199E665D0098E3B0 /* drawgame */ = {
+			isa = PBXGroup;
+			children = (
+				793085D7199E665D0098E3B0 /* CKSequenceLayer.cpp */,
+				793085D8199E665D0098E3B0 /* CKSequenceLayer.h */,
+				793085D9199E665D0098E3B0 /* DrawScene.cpp */,
+				793085DA199E665D0098E3B0 /* DrawScene.h */,
+			);
+			path = drawgame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -898,24 +1002,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79360D34199EEA9700B56772 /* img in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
+				79360D36199EEA9700B56772 /* jsondata in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
+				79360D39199EEA9700B56772 /* publish in Resources */,
+				79360D2D199EEA9700B56772 /* ani in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
-				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
+				79360D2E199EEA9700B56772 /* CloseNormal.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
-				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
+				79360D33199EEA9700B56772 /* HelloWorld.png in Resources */,
+				79360D38199EEA9700B56772 /* particle in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
-				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
+				79360D32199EEA9700B56772 /* fonts in Resources */,
+				79360D3A199EEA9700B56772 /* SampleChangeEquip in Resources */,
+				79360D2F199EEA9700B56772 /* CloseSelected.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
+				79360D35199EEA9700B56772 /* item.png in Resources */,
+				79360D37199EEA9700B56772 /* loading.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
+				79360D30199EEA9700B56772 /* colorgame in Resources */,
+				79360D3B199EEA9700B56772 /* ui in Resources */,
+				79360D31199EEA9700B56772 /* DemoShop in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -924,10 +1040,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5087E75317EB910900C73F5D /* CloseNormal.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
-				5087E75417EB910900C73F5D /* CloseSelected.png in Resources */,
-				5087E75517EB910900C73F5D /* HelloWorld.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -938,46 +1051,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79A1A3AD198CA426007E86E8 /* AppDelegate.cpp in Sources */,
-				79A1A3BF198CA426007E86E8 /* CKMessageBox.cpp in Sources */,
-				79A1A3C5198CA426007E86E8 /* CKDefaultPayEngine.cpp in Sources */,
-				79A1A3AF198CA426007E86E8 /* CKConstants.cpp in Sources */,
-				79A1A3BB198CA426007E86E8 /* CKJsonModel.cpp in Sources */,
-				79A1A3CC198CA426007E86E8 /* CKRatingEngine.cpp in Sources */,
-				79A1A3B4198CA426007E86E8 /* CKProtocols.cpp in Sources */,
+				793085E1199E665E0098E3B0 /* AppDelegate.cpp in Sources */,
+				793085F3199E665E0098E3B0 /* CKMessageBox.cpp in Sources */,
+				793085F9199E665E0098E3B0 /* CKDefaultPayEngine.cpp in Sources */,
+				793085EB199E665E0098E3B0 /* CKDefaultDeviceEngine.cpp in Sources */,
+				793085E3199E665E0098E3B0 /* CKConstants.cpp in Sources */,
+				79308608199E665E0098E3B0 /* CKDate.cpp in Sources */,
+				79308612199E665E0098E3B0 /* CKSequenceLayer.cpp in Sources */,
+				7930860E199E665E0098E3B0 /* CKColorGameManager.cpp in Sources */,
+				793085EF199E665E0098E3B0 /* CKJsonModel.cpp in Sources */,
+				79308600199E665E0098E3B0 /* CKRatingEngine.cpp in Sources */,
+				793085E8199E665E0098E3B0 /* CKProtocols.cpp in Sources */,
+				7930860D199E665E0098E3B0 /* CKColorGameLayer.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
-				79A1A3CE198CA426007E86E8 /* cons.cpp in Sources */,
-				79A1A3D0198CA426007E86E8 /* CKHttpUtils.cpp in Sources */,
-				79A1A3C3198CA426007E86E8 /* CKNotificationEngine.cpp in Sources */,
-				79A1A3C1198CA426007E86E8 /* CKDefaultNotificationEngine.cpp in Sources */,
-				79A1A3B5198CA426007E86E8 /* CKScene.cpp in Sources */,
-				79A1A3D5198CA426007E86E8 /* CKIOSWrapper.mm in Sources */,
-				79A1A3B1198CA426007E86E8 /* CKGameDataManager.cpp in Sources */,
-				79A1A3C6198CA426007E86E8 /* CKIOSPayEngine.mm in Sources */,
-				79A1A3CA198CA426007E86E8 /* CKIOSRatingEngine.mm in Sources */,
-				79A1A3AE198CA426007E86E8 /* CKCommon.cpp in Sources */,
-				79A1A3D9198CA426007E86E8 /* CKSequenceLayer.cpp in Sources */,
-				79A1A3D6198CA426007E86E8 /* CKWrapper.cpp in Sources */,
-				79A1A3CD198CA426007E86E8 /* acts.cpp in Sources */,
-				79A1A3D7198CA426007E86E8 /* DrawScene.cpp in Sources */,
+				79308602199E665E0098E3B0 /* cons.cpp in Sources */,
+				79308616199E665E0098E3B0 /* VisibleRect.cpp in Sources */,
+				79308604199E665E0098E3B0 /* CKHttpUtils.cpp in Sources */,
+				793085F7199E665E0098E3B0 /* CKNotificationEngine.cpp in Sources */,
+				793085F5199E665E0098E3B0 /* CKDefaultNotificationEngine.cpp in Sources */,
+				793085E9199E665E0098E3B0 /* CKScene.cpp in Sources */,
+				793085E5199E665E0098E3B0 /* CKGameDataManager.cpp in Sources */,
+				793085F1199E665E0098E3B0 /* CKDefaultMessageBox.cpp in Sources */,
+				793085FA199E665E0098E3B0 /* CKIOSPayEngine.mm in Sources */,
+				7930860F199E665E0098E3B0 /* CKColorGameScene.cpp in Sources */,
+				79308613199E665E0098E3B0 /* DrawScene.cpp in Sources */,
+				793085FE199E665E0098E3B0 /* CKIOSRatingEngine.mm in Sources */,
+				793085E2199E665E0098E3B0 /* CKCommon.cpp in Sources */,
+				79308601199E665E0098E3B0 /* acts.cpp in Sources */,
+				79308615199E665E0098E3B0 /* HelloWorldScene.cpp in Sources */,
+				79308609199E665E0098E3B0 /* CKDefaultWrapper.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
-				79A1A3CF198CA426007E86E8 /* CKHttpModel.cpp in Sources */,
-				79A1A3DA198CA426007E86E8 /* HelloWorldScene.cpp in Sources */,
-				79A1A3D1198CA426007E86E8 /* URLData.cpp in Sources */,
-				79A1A3D2198CA426007E86E8 /* URLManager.cpp in Sources */,
-				79A1A3B8198CA426007E86E8 /* CKDeviceEngine.cpp in Sources */,
-				79A1A3D4198CA426007E86E8 /* CKDefaultWrapper.cpp in Sources */,
-				79A1A3B9198CA426007E86E8 /* CKIOSDeviceEngine.mm in Sources */,
-				79A1A3C7198CA426007E86E8 /* CKPayEngine.cpp in Sources */,
-				79A1A3B2198CA426007E86E8 /* CKGameManager.cpp in Sources */,
-				79A1A3CB198CA426007E86E8 /* CKRatingDialog.cpp in Sources */,
-				79A1A3B0198CA426007E86E8 /* CKDialog.cpp in Sources */,
+				79308603199E665E0098E3B0 /* CKHttpModel.cpp in Sources */,
+				79308605199E665E0098E3B0 /* URLData.cpp in Sources */,
+				79308606199E665E0098E3B0 /* URLManager.cpp in Sources */,
+				793085EC199E665E0098E3B0 /* CKDeviceEngine.cpp in Sources */,
+				79308614199E665E0098E3B0 /* GUIScene.cpp in Sources */,
+				793085ED199E665E0098E3B0 /* CKIOSDeviceEngine.mm in Sources */,
+				793085FB199E665E0098E3B0 /* CKPayEngine.cpp in Sources */,
+				793085E6199E665E0098E3B0 /* CKGameManager.cpp in Sources */,
+				793085FF199E665E0098E3B0 /* CKRatingDialog.cpp in Sources */,
+				793085E4199E665E0098E3B0 /* CKDialog.cpp in Sources */,
+				793085FD199E665E0098E3B0 /* CKDefaultRatingEngine.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
-				79A1A3D8198CA426007E86E8 /* FightScene.cpp in Sources */,
-				79A1A3BA198CA426007E86E8 /* CKJsonHelper.cpp in Sources */,
-				79A1A3C2198CA426007E86E8 /* CKIOSNotificationEngine.mm in Sources */,
-				79A1A3B3198CA426007E86E8 /* CKModel.cpp in Sources */,
-				79A1A3BE198CA426007E86E8 /* CKIOSMessageBox.mm in Sources */,
+				79308610199E665E0098E3B0 /* CKColorGameScoreManager.cpp in Sources */,
+				793085EE199E665E0098E3B0 /* CKJsonHelper.cpp in Sources */,
+				79308611199E665E0098E3B0 /* CKColorItem.cpp in Sources */,
+				7930860C199E665E0098E3B0 /* FightScene.cpp in Sources */,
+				793085F6199E665E0098E3B0 /* CKIOSNotificationEngine.mm in Sources */,
+				7930860A199E665E0098E3B0 /* CKIOSWrapper.mm in Sources */,
+				793085E7199E665E0098E3B0 /* CKModel.cpp in Sources */,
+				7930860B199E665E0098E3B0 /* CKWrapper.cpp in Sources */,
+				793085F2199E665E0098E3B0 /* CKIOSMessageBox.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

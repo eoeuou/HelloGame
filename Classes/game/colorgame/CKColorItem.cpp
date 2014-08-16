@@ -22,10 +22,10 @@ bool CKColorItem::init(int itemIndex)
 	this->m_itemIndex = itemIndex;
 	this->ignoreAnchorPointForPosition(false);
 	m_bgSprite = Sprite::create("item.png");
-	CCSize size = m_bgSprite->getContentSize();
+	Size size = m_bgSprite->getContentSize();
 	this->setContentSize(size);
 	this->addChild(m_bgSprite);
-	m_bgSprite->setPosition(ccp(size.width/2,size.height/2));
+	m_bgSprite->setPosition(Point(size.width/2,size.height/2));
 	randomItemType();
 	return true;
 }
@@ -108,7 +108,6 @@ void CKColorItem::runMissAction(CallFunc* func,float delay)
 			this->m_colorItemStatus = CKColorItemStatus::CKITEM_STATUS_MISS;
 	}  );
 
-	this->addChild();
 
 	if (func != nullptr)
 	{
