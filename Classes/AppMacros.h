@@ -61,20 +61,20 @@ typedef struct tagGLViewRect
 	char name[100];
 }GLViewRect;
 
-static GLViewRect glviewRect480x800_P  =  { cocos2d::Rect(0,0,480, 800),   "三星 GT-I9003(480x800)" };
-static GLViewRect glviewRect480x800_L  =  { cocos2d::Rect(0,0,800, 480),   "三星 GT-I9003(480x800)" };
+static GLViewRect glviewRect480x800_P  =  { cocos2d::Rect(0,0,480, 800),   "涓夋槦 GT-I9003(480x800)" };
+static GLViewRect glviewRect480x800_L  =  { cocos2d::Rect(0,0,800, 480),   "涓夋槦 GT-I9003(480x800)" };
 
-static GLViewRect glviewRect480x854_P =  { cocos2d::Rect(0,0,480, 854),  "华为 C8860E(480x854)"   };
-static GLViewRect glviewRect480x854_L =  { cocos2d::Rect(0,0,854, 480),  "华为 C8860E(480x854)"   };
+static GLViewRect glviewRect480x854_P =  { cocos2d::Rect(0,0,480, 854),  "鍗庝负 C8860E(480x854)"   };
+static GLViewRect glviewRect480x854_L =  { cocos2d::Rect(0,0,854, 480),  "鍗庝负 C8860E(480x854)"   };
 
 static GLViewRect glviewRect1920x1080_P  =  { cocos2d::Rect(0,0,1080/2, 1920/2), "HTC_X920e(1920x1080)" };
 static GLViewRect glviewRect1920x1080_L  =  { cocos2d::Rect(0,0,1920/2, 1080/2), "HTC_X920e(1920x1080)" };
 
-static GLViewRect glviewRect1280x720_P  =  { cocos2d::Rect(0,0,720/2, 1280/2), "华为_HN3-U01(1280x720)" };
-static GLViewRect glviewRect1280x720_L  =  { cocos2d::Rect(0,0,1280/2, 720/2), "华为_HN3-U01(1280x720)" };
+static GLViewRect glviewRect1280x720_P  =  { cocos2d::Rect(0,0,720/2, 1280/2), "鍗庝负_HN3-U01(1280x720)" };
+static GLViewRect glviewRect1280x720_L  =  { cocos2d::Rect(0,0,1280/2, 720/2), "鍗庝负_HN3-U01(1280x720)" };
 
-static GLViewRect glviewRect960x540_P  =  { cocos2d::Rect(0,0,540, 960), "华为 G610-U00(960x540)" };
-static GLViewRect glviewRect960x540_L  =  { cocos2d::Rect(0,0,960, 540), "华为 G610-U00(960x540)" };
+static GLViewRect glviewRect960x540_P  =  { cocos2d::Rect(0,0,540, 960), "鍗庝负 G610-U00(960x540)" };
+static GLViewRect glviewRect960x540_L  =  { cocos2d::Rect(0,0,960, 540), "鍗庝负 G610-U00(960x540)" };
 
 static GLViewRect glviewRect1280x800_P  =  { cocos2d::Rect(0,0,800/2, 1280/2), "Sony_Table S(1280x800)" };
 static GLViewRect glviewRect1280x800_L  =  { cocos2d::Rect(0,0,1280/2, 800/2), "Sony_Table S(1280x800)" };
