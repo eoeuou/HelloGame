@@ -19,7 +19,7 @@ void showToast(const char* msg)
 
 	scene->addChild(label,zOrder);
 
-	label->setPosition(ccp(size.width/2,label->getContentSize().height*2));
+	label->setPosition(Point(size.width/2,label->getContentSize().height*2));
 
 	label->runAction(CCSequence::createWithTwoActions(CCDelayTime::create(1.0f),CCRemoveSelf::create(true)));
 }

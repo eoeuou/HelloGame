@@ -39,7 +39,7 @@ typedef enum __ColorItemPropsType
 	CKITEM_PROPSTYPE_NONE
 }CKColorItemPropsType;
 
-class CKColorItem : public cocos2d::CCLayer
+class CKColorItem : public cocos2d::Layer
 {
 private:
 	CC_SYNTHESIZE_READONLY(Sprite*,m_bgSprite,BgSprite);

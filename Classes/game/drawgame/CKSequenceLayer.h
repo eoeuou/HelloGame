@@ -15,7 +15,7 @@ typedef enum __ScrollType
 
 #define LandSpeed 3.0f
 
-class CKLandLayer:public cocos2d::CCLayerColor
+class CKLandLayer:public cocos2d::LayerColor
 {
 private:
 	CC_SYNTHESIZE_READONLY(DrawNode*, m_drawNode, DrawNode);
