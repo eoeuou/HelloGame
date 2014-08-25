@@ -147,9 +147,6 @@
     <ClCompile Include="..\Classes\ckbase\network\CKHttpModel.cpp">
       <Filter>Classes\ckbase\network</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ckbase\wrapper\RSA_CryptionHandler.cpp">
-      <Filter>Classes\ckbase\wrapper</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\ckbase\extentions\rating\CKAndroidRatingEngine.cpp">
       <Filter>Classes\ckbase\extentions\rating</Filter>
     </ClCompile>
@@ -301,9 +298,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\network\CKHttpModel.h">
       <Filter>Classes\ckbase\network</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ckbase\wrapper\RSA_CryptionHandler.h">
-      <Filter>Classes\ckbase\wrapper</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\ckbase\extentions\rating\CKAndroidRatingEngine.h">
       <Filter>Classes\ckbase\extentions\rating</Filter>

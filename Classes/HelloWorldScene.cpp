@@ -1,4 +1,4 @@
-#include "HelloWorldScene.h"
+﻿#include "HelloWorldScene.h"
 #include "cocostudio/CocoStudio.h"
 
 #include "CKDialog.h"
@@ -98,7 +98,7 @@ bool HelloWorld::init()
 	// add the label as a child to this layer
 	//this->addChild(label, 1);
 
-	this->setColor(ccc3(0,0,0));
+	this->setColor(Color3B(0,0,0));
 	// add "HelloWorld" splash screen"
 	auto sprite = Sprite::create("HelloWorld.png");
 
@@ -107,14 +107,6 @@ bool HelloWorld::init()
 
 	// add the sprite as a child to this layer
 	//this->addChild(sprite, 0);
-	
-	CKModel* child = CKModel::create();
-	child->setValue("name",Value("childName"));
-
-	CKModel* model = CKModel::create();
-	model->setValue("child",Value(child->getValue("name")));
-	int key = model->getValue("key").asInt();
-	CCLog("%s",model->getInfo().c_str());
 
 	addTestLabel();
 
@@ -128,6 +120,7 @@ typedef struct _Controller{
 } Controller;
 
 Controller g_aTestNames[] = {
+	{ "json", [=]() { m_hello->jsonTest();} },
 	{"loadGameData",[=](){CKGameDataManager::getInstance()->loadGameData();}},
 	{ "FightScene", [=]() { m_hello->showFightScene();} },
 	{ "questionTest", [=]() { m_hello->questionTest();} },
@@ -140,8 +133,8 @@ Controller g_aTestNames[] = {
 		}
 	},
 	{"XiaoChu",[=](){
-		CCScene * newscene = CKColorGameScene::create();
-		CCDirector::sharedDirector()->pushScene(newscene); 
+		Scene * newscene = CKColorGameScene::create();
+		Director::getInstance()->pushScene(newscene); 
 	}},
 	{"CKLoadingDialog",[=](){CKDialog::show<CKLoadingDialog>(m_hello,getChildrenMaxZorder(m_hello));}},
 	{"Toast",[=](){wrapper::showToast("11111111111");}},
@@ -151,51 +144,18 @@ Controller g_aTestNames[] = {
 		std::string phone = wrapper::getPhoneNum();
 		wrapper::showToast(phone.c_str());
 	}},	
-	{"ParseJson",[=](){
-		CKJsonHelper::getInstance()->parseJsonToJsonModel("jsondata/data.json",nullptr,true);
+	{"ParseJson",[=](){		
+		CKJsonHelper::getInstance()->parseJsonToJsonModel("jsondata/data2.json",nullptr,true);
 		wrapper::showToast("see log");
 	}},
 	{"DrawTest",[=](){
 		m_hello->drawTest();
+	}},
+	{"CKModelTest",[=](){
+		m_hello->ckmodelTest();
 	}},	
 	{"CKJsonModel",[=](){
-		CKJsonModel* child = CKJsonModel::create();
-		(*child)["id"] = 12;		
-		
-		rapidjson::Type type = child->GetType();
-		int id = (*child)["id"].GetInt();
-		int size = child->size();
-
-		//model
-		CKJsonModel* model = CKJsonModel::create();
-		bool result = model->HasMember("key");
-		(*model)["key"] = 1;
-		result = model->HasMember("key");
-		model->addObjectChild("child",child);
-
-		type = (*model)["child"].GetType();
-		id = (*model)["child"]["id"].GetInt();
-
-		model->logJsonString();
-
-		CKJsonModel* child1 = CKJsonModel::create();
-		(*child1)["name"] = 12;
-		(*child1)["age"] =12*20;
-		model->addArrayChild("stu",child1);
-
-		CKJsonModel* child2 = CKJsonModel::create();
-		(*child2)["name"] = 2;
-		(*child2)["age"] = 2*20;
-		model->addArrayChild("stu",child2);
-
-		model->logJsonString();
-		//model->convertToRapidJsonValue();
-		model->logJsonString();
-		
-		CKJsonModel* j_Data = CKJsonModel::create();
-		(*j_Data)<<model->getJsonString();
-		j_Data->logJsonString();
-
+        m_hello->ckjsonTest();
 		wrapper::showToast("xx");
 	}},
 	{"DeviceMemorySize",[=](){
@@ -214,8 +174,8 @@ Controller g_aTestNames[] = {
 		wrapper::showToast("empty");
 	}},
 	{"cocostudioUITest",[=](){
-		CCScene * newscene = GUIScene::create();
-		CCDirector::sharedDirector()->pushScene(newscene); 
+		Scene * newscene = GUIScene::create();
+		Director::getInstance()->pushScene(newscene); 
 	}},
 	{"empty",[=](){
 		wrapper::showToast("empty");
@@ -241,7 +201,7 @@ void HelloWorld::addTestLabel()
 	
 	_itemMenu->setContentSize(Size(VisibleRect::getVisibleRect().size.width, (g_testCount + 1) * (LINE_SPACE)));
 	_itemMenu->setPosition(s_tCurPos);
-	_itemMenu->setColor(ccc3(255,255,0));
+	_itemMenu->setColor(Color3B(255,255,0));
 	addChild(_itemMenu,100);
 	log("w:%f,h:%f",_itemMenu->getContentSize().width,_itemMenu->getContentSize().height);
 
@@ -351,8 +311,8 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 }
 void HelloWorld::showFightScene()
 {
-	CCScene * newscene = FightScene::create();
-	CCDirector::sharedDirector()->pushScene(newscene); 
+	Scene * newscene = FightScene::create();
+	Director::getInstance()->pushScene(newscene); 
 }
 
 CKModel* HelloWorld::getQuestionByIndex(int index)
@@ -362,7 +322,7 @@ CKModel* HelloWorld::getQuestionByIndex(int index)
 	int sum = questions->count();
 	if (index<sum)
 	{
-		return dynamic_cast<CKModel*>(questions->objectAtIndex(index));
+		return dynamic_cast<CKModel*>(questions->getObjectAtIndex(index));
 	}	
 	return NULL;
 }
@@ -380,18 +340,101 @@ void HelloWorld::questionTest()
 	std::string c = answers->getValue("c").asString();
 	std::string d = answers->getValue("d").asString();
 }
+
+void HelloWorld::ckmodelTest()
+{
+	CKModel* model = CKModel::create();
+	model->setValue("k1",Value("v1"));
+	model->setValue("k2",Value(2014));
+	int size=  model->size();
+	int k2 = model->getValue("k2").asInt();
+
+	CKModel* child = CKModel::create();
+	child->setValue("name",Value("zhangsan"));
+
+	model->setForeignProperty("child",child);
+	std::string str = child->getInfo();
+
+	child = model->getForeignProperty("child");
+	str = child->getInfo();
+
+	log("%s",str.c_str());
+
+}
+
+void HelloWorld::ckjsonTest()
+{/*
+	//key-value
+	CKJsonModel* root = CKJsonModel::create();
+	root->addChild("root",Value("rootValue"));
+	root->addChild("rootInt",Value(20));
+	root->logJsonString();
+
+	//key-object
+	CKJsonModel* object = CKJsonModel::create();
+	object->addChild("string",Value("string"));
+	object->addChild("int1",Value(150));
+	object->addChild("int2",Value(1510));
+	object->addChild("bool",Value(false));
+	object->addChild("float",Value(12.01));
+	object->logJsonString();
+
+	root->addObjectChild("object",object);
+	root->logJsonString();
+
+	//key-array
+	CKJsonModelVector vector;
+
+	for (int i = 0; i<10;i++)
+	{
+		CKJsonModel* child = CKJsonModel::create();
+		child->addChild("i=",Value(i));
+		vector.pushBack(child);
+	}
+	root->addArrayChild("array",vector);
+	root->logJsonString();
+	object->logJsonString();
+	root->logJsonString();
+
+	log("");
+
+	//get key--value
+	std::string rootValue = root->getChildByKey("root").asString();
+	int rootInt = root->getChildByKey("rootInt").asInt();
+
+	//get object
+	CKJsonModel* object1 = root->getObjectChildByKey("object");
+	object1->logJsonString();
+	int i1 = object1->getChildByKey("int1").asInt();
+	int i2 = object1->getChildByKey("int2").asInt();
+	int test = object1->getChildByKey("test").asInt();
+	string s = object1->getChildByKey("string").asString();
+	bool b = object1->getChildByKey("bool").asBool();
+	float f = object1->getChildByKey("float").asFloat();
+	//get array
+
+	CKJsonModelVector vector1 = root->getArrayChildByKey("array");
+	int size = vector1.size();
+	for (auto& child : vector1)
+	{
+		child->logJsonString();
+	}
+	
+	log("end");*/
+}
+
 void HelloWorld::httpTest()
 {
 	/*std::string writablePath = CCFileUtils::sharedFileUtils()->getWritablePath();
 	std::string fileName = writablePath+"external.txt";
 	CKHttpUtils::getInstance()->getFile("http://httpbin.org/ip",fileName.c_str(),[](CKHttpModel* model){
-		CCLog("getFile_end:result=%s,path=%s",model->getValue("result").asString(),model->getValue("path").asString());
+		log("getFile_end:result=%s,path=%s",model->getValue("result").asString(),model->getValue("path").asString());
 	});*/
 		
 // 	CKHttpUtils::getInstance()->getText("http://tarenaapptest.herokuapp.com/?echostr=1",[](CKHttpModel* model){
 // 		bool isSucceed = model->getIsSucceed();
 // 		int code = model->getStatusCode();
-// 		CCLog("getText_end:result=%s,path=%s",model->getValue("result").asString().c_str(),model->getValue("path").asString().c_str());
+// 		log("getText_end:result=%s,path=%s",model->getValue("result").asString().c_str(),model->getValue("path").asString().c_str());
 // 	});
 
 	CKJsonModel* model = CKJsonModel::create();
@@ -446,6 +489,41 @@ void HelloWorld::messageboxTest()
 
 void HelloWorld::drawTest()
 {
-	CCScene * newscene = DrawScene::create();
-	CCDirector::sharedDirector()->pushScene(newscene); 
+	Scene * newscene = DrawScene::create();
+	Director::getInstance()->pushScene(newscene);
+}
+
+void HelloWorld::jsonTest()
+{
+	auto path =FileUtils::getInstance()->getWritablePath();
+	log("%s", path.c_str());
+	path.append("myhero.json");
+
+	rapidjson::Document document;
+	document.SetObject();
+	rapidjson::Document::AllocatorType& allocator = document.GetAllocator();
+	rapidjson::Value array(rapidjson::kArrayType);
+	rapidjson::Value object(rapidjson::kObjectType);
+	object.AddMember("id", 1, allocator);
+	object.AddMember("name", "豹儿", allocator);
+	object.AddMember("name", "豹儿1", allocator);
+	object.AddMember("age", "3年", allocator);
+	object.AddMember("low", true, allocator);
+	array.PushBack(object, allocator);
+
+	document.AddMember("propety", "PLAYER-TO", allocator);
+	document.AddMember("player", array, allocator);
+
+	rapidjson::StringBuffer  buffer;
+	rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+	document.Accept(writer);
+	FILE* file = fopen(path.c_str(), "wb");
+	if (file)
+	{
+		fputs(buffer.GetString(), file);
+		fclose(file);
+	}
+
+	//{"key":1,"child":{"id":12},"stu":[{"name":12,"age":240},{"name":2,"age":40}]}
+	//{"propety":"PLAYER-TO","player":[{"id":1,"name":"豹儿","age":"3年","low":true}]} 
 }

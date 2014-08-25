@@ -1,4 +1,4 @@
-#ifndef __HELLOWORLD_SCENE_H__
+﻿#ifndef __HELLOWORLD_SCENE_H__
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
@@ -36,6 +36,10 @@ public:
 
 	void questionTest();
 
+	void ckmodelTest();
+
+	void ckjsonTest();
+
 	void httpTest();
 
 	void NotificationTest();
@@ -47,6 +51,8 @@ public:
 	virtual void urlRequestCallback(CKHttpModel* model);
 
 	void drawTest();
+
+	void jsonTest();
 private:
 	Point _beginPos;
 	Menu* _itemMenu;
