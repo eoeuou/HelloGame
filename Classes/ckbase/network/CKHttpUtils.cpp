@@ -1,4 +1,4 @@
-#include "CKHttpUtils.h"
+﻿#include "CKHttpUtils.h"
 
 CK_SINGLETON_METHOD_INIT(CKHttpUtils,s_singleInstance);
 

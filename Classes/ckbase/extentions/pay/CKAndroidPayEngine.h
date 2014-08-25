@@ -1,4 +1,4 @@
-#ifndef CKANDROIDPAYENGINE_H_
+﻿#ifndef CKANDROIDPAYENGINE_H_
 #define CKANDROIDPAYENGINE_H_
 
 #include "CKPayEngine.h"

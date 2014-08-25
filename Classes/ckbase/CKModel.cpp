@@ -1,7 +1,8 @@
-#include "CKModel.h"
+﻿#include "CKModel.h"
 
 CKModel::CKModel(void)
-	:m_propertyDic(__Dictionary::create())
+	:PropertyProtocol()
+	,m_propertyDic(__Dictionary::create())
 {
 }
 
@@ -18,7 +19,7 @@ bool CKModel::init()
 }
 	
 void CKModel::setForeignProperty(const char* key,CKModel* value)
-{	
+{
 	if(value)
 	{
 		m_propertyDic->setObject(value,key);
@@ -44,7 +45,7 @@ CKModel* CKModel::getForeignProperty(const char* key,CKModel* defaultValue)
 }
 
 void CKModel::setForeignArray(const char* key,__Array* value)
-{	
+{
 	if(value)
 	{
 		m_propertyDic->setObject(value,key);
@@ -93,4 +94,65 @@ __Dictionary* CKModel::getForeignDic(const char* key,__Dictionary* defaultValue)
 		}
 	}
 	return defaultValue;
+}
+
+bool CKModel::removeValue(const char* key)
+{
+	if (getModelTypeByKey(key) != ModelType::NONE)
+	{
+		if (PropertyProtocol::hasValue(key))
+		{
+			return PropertyProtocol::removeValue(key);
+		}
+		else if (m_propertyDic->objectForKey(key) != nullptr)
+		{
+			m_propertyDic->removeObjectForKey(key);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool CKModel::hasValue(const char* key)
+{
+	bool res1 = PropertyProtocol::hasValue(key);
+	
+	bool res2 = (m_propertyDic->objectForKey(key) != nullptr);
+	
+	return res1||res2;
+}
+
+int CKModel::size()
+{
+	return PropertyProtocol::size() + m_propertyDic->count();
+}
+
+void CKModel::clear()
+{
+	PropertyProtocol::clear();
+	m_propertyDic->removeAllObjects();
+}
+
+ModelType CKModel::getModelTypeByKey(const char* key)
+{
+	if (PropertyProtocol::hasValue(key))
+	{
+		return ModelType::VALUEMAP;
+	}
+	else if (m_propertyDic->objectForKey(key) != nullptr)
+	{
+		return ModelType::DICTIONARY;
+	}
+
+	return ModelType::NONE;
+}
+
+std::string CKModel::getInfo() const
+{
+	if (m_propertyDic->count()>0)
+	{
+		CCAssert(false,"to do!");
+	}
+	
+	return PropertyProtocol::getInfo();
 }

@@ -1,4 +1,4 @@
-#ifndef KIOSMESSAGEBOXENGINE_H_
+﻿#ifndef KIOSMESSAGEBOXENGINE_H_
 #define CKIOSMESSAGEBOXENGINE_H_
 
 #include "CKMessageBox.h"

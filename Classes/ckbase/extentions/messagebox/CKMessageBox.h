@@ -1,4 +1,4 @@
-#ifndef CKMESSAGEBOXENGINE_H_
+﻿#ifndef CKMESSAGEBOXENGINE_H_
 #define CKMESSAGEBOXENGINE_H_
 
 #include "CKCommon.h"

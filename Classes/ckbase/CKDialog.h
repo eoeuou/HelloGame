@@ -1,4 +1,4 @@
-#ifndef __CKDIALOG_H__
+﻿#ifndef __CKDIALOG_H__
 #define __CKDIALOG_H__
 
 #include "cocos2d.h"

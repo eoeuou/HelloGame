@@ -1,4 +1,4 @@
-#ifndef __CKCommon_H__
+﻿#ifndef __CKCommon_H__
 #define __CKCommon_H__
 
 #include "cocos2d.h"
@@ -6,12 +6,14 @@
 #include "cocos-ext.h"
 #include "json/stringbuffer.h"
 #include "json/writer.h"
+#include "AppMacros.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
 using namespace std;
 using namespace cocostudio;
-
+using namespace CocosDenshion;
 
 //////////////////////////////////////////////////////////////////////////
 #define STD_FUN_NULL [](){}
@@ -69,6 +71,23 @@ public: virtual varType get##funName(void) const { return this->getValue(varName
 public: virtual void set##funName(varType& var){ this->setValue(varName,Value(var));}\
 public: virtual varType get##funName(void) const { return this->getValue(varName).asDouble();}
 
+//CKJSONMODEL 变量返回值
+#define CK_SYNTHESIZE_JSONMODEL_STRING(varType,varName, funName)\
+public: varType get##funName(void) { return (*this)[varName].GetString();}
+
+#define CK_SYNTHESIZE_JSONMODEL_INTEGER(varType,varName, funName)\
+public: varType get##funName(void) { return (*this)[varName].GetInt();}
+
+#define CK_SYNTHESIZE_JSONMODEL_BOOLEAN(varType,varName, funName)\
+public: varType get##funName(void) { return (*this)[varName].GetBool();}
+
+#define CK_SYNTHESIZE_JSONMODEL_FLOAT(varType,varName, funName)\
+public: varType get##funName(void) { return (*this)[varName].GetDouble();}
+
+#define CK_SYNTHESIZE_JSONMODEL_DOUBLE(varType,varName, funName)\
+public: varType get##funName(void) { return (*this)[varName].GetDouble();}
+
+//convert somethine
 const char* intToString(const int value);
 const char* longToString(const long value);
 const char* floatToString(const float value);
@@ -84,10 +103,12 @@ std::string UnicodeToUTF8(const wchar_t* putf8);
 {\
 	return;\
 }\
-	const char* value = DICTOOL->getStringValue_json(doc,key.c_str());\
+{\
+    const char* value = DICTOOL->getStringValue_json(doc,key.c_str());\
 	model->setValue(key.c_str(),Value(value));\
-	CCLog("key=%s,value=%s",key.c_str(),value);\
-	CCLog("info=%s",model->getInfo().c_str());\
+	log("key=%s,value=%s",key.c_str(),value);\
+	log("info=%s",model->getInfo().c_str());\
+}\
 
 //************************************
 // Method:    parseJsonFileToDocument
@@ -133,9 +154,23 @@ bool writeFileData(const char * localPath, const char * fileData);
 //************************************
 int getChildrenMaxZorder(Node* parent);
 
-/* */ 
+cocos2d::Point nodeLeftPoint(Node* node);
+cocos2d::Point nodeRightPoint(Node* node);
+cocos2d::Point nodeTopPoint(Node* node);
+cocos2d::Point nodeBottomPoint(Node* node);
+cocos2d::Point nodeCenterPoint(Node* node);
+cocos2d::Point nodeLeftTopPoint(Node* node);
+cocos2d::Point nodeRightTopPoint(Node* node);
+cocos2d::Point nodeLeftBottomPoint(Node* node);
+cocos2d::Point nodeRightBottomPoint(Node* node);
+
+/* */
 std::string base64_encode(const char* data, int data_len);
 /* */ 
 std::string base64_decode(const char *data, int data_len);
+
+#define CKFontSize TITLE_FONT_SIZE
+#define CKFontName "Marker Felt"
+#define CKFontNamePath "fonts/Marker Felt.ttf"
 
 #endif // __CKCommon_H__

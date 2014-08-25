@@ -1,4 +1,4 @@
-#include "CKPayEngine.h"
+﻿#include "CKPayEngine.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #	include "CKIOSPayEngine.h"

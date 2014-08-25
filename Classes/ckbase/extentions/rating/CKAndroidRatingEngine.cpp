@@ -1,4 +1,4 @@
-#include "CKAndroidRatingEngine.h"
+﻿#include "CKAndroidRatingEngine.h"
 #include "platform/android/jni/JniHelper.h"
 #include "CKDeviceEngine.h"
 #include "CKWrapper.h"

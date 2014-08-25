@@ -1,4 +1,4 @@
-#ifndef CKRATINGENGINE_H_
+﻿#ifndef CKRATINGENGINE_H_
 #define CKRATINGENGINE_H_
 
 #include "CKCommon.h"

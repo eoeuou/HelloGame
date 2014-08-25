@@ -1,4 +1,4 @@
-#ifndef CKNOTIFICATIONENGINE_H_
+﻿#ifndef CKNOTIFICATIONENGINE_H_
 #define CKNOTIFICATIONENGINE_H_
 
 #include "CKCommon.h"

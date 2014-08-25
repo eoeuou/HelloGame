@@ -1,4 +1,4 @@
-#ifndef __CKCONSTANTS_H_
+﻿#ifndef __CKCONSTANTS_H_
 #define __CKCONSTANTS_H_
 
 #include "CKCommon.h"

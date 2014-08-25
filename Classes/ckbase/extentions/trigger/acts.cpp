@@ -1,4 +1,4 @@
-
+﻿
 #include "acts.h"
 
 using namespace cocos2d;

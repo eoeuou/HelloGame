@@ -1,4 +1,4 @@
-#include "CKCommon.h"
+﻿#include "CKCommon.h"
 
 const char* longToString(const long value) {
 
@@ -148,7 +148,7 @@ bool parseJsonFileToDocument(const std::string &fileName, rapidjson::Document &d
 	do {
 		std::string jsonpath = FileUtils::getInstance()->fullPathForFilename(fileName);
 		std::string contentStr = FileUtils::getInstance()->getStringFromFile(jsonpath);
-		doc.Parse<0>(contentStr.c_str());
+		doc.Parse<rapidjson::ParseFlag::kParseDefaultFlags>(contentStr.c_str());
 		CC_BREAK_IF(doc.HasParseError());
 		bRet = true;
 	} while (0);
@@ -159,7 +159,7 @@ bool parseJsonStrToDocument(const std::string &jsonStr, rapidjson::Document &doc
 {
 	bool bRet = false;
 	do {
-		doc.Parse<0>(jsonStr.c_str());
+		doc.Parse<rapidjson::ParseFlag::kParseDefaultFlags>(jsonStr.c_str());
 		CC_BREAK_IF(doc.HasParseError());
 		bRet = true;
 	} while (0);
@@ -199,6 +199,61 @@ int getChildrenMaxZorder(Node* parent)
 	}
 	return maxZoreder;
 }
+
+cocos2d::Point nodeLeftPoint(Node* node)
+{
+    Size size = node->getContentSize();
+    return Point(0,size.height/2);
+}
+
+cocos2d::Point nodeRightPoint(Node* node)
+{
+    Size size = node->getContentSize();
+    return Point(size.width,size.height/2);
+}
+
+cocos2d::Point nodeTopPoint(Node* node)
+{
+    Size size = node->getContentSize();
+    return Point(size.width/2,size.height);
+}
+
+cocos2d::Point nodeBottomPoint(Node* node)
+{
+    Size size = node->getContentSize();
+    return Point(size.width/2,0);
+}
+
+cocos2d::Point nodeCenterPoint(Node* node)
+{
+    Size size = node->getContentSize();
+    return Point(size.width/2,size.height/2);
+}
+
+cocos2d::Point nodeLeftTopPoint(Node* node)
+{
+    Size size = node->getContentSize();
+    return Point(0,size.height);
+}
+
+cocos2d::Point nodeRightTopPoint(Node* node)
+{
+    Size size = node->getContentSize();
+    return Point(size.width,size.height);
+}
+
+cocos2d::Point nodeLeftBottomPoint(Node* node)
+{
+    Size size = node->getContentSize();
+    return Point(0,0);
+}
+
+cocos2d::Point nodeRightBottomPoint(Node* node)
+{
+    Size size = node->getContentSize();
+    return Point(size.width,0);
+}
+
 
 
 const char base[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="; 

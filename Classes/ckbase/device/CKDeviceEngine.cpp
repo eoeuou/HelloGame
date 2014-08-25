@@ -1,4 +1,4 @@
-#include "CKDeviceEngine.h"
+﻿#include "CKDeviceEngine.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #	include "CKIOSDeviceEngine.h"

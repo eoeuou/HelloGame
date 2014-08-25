@@ -1,4 +1,4 @@
-#ifndef __CKRATINGDIALOG_H__
+﻿#ifndef __CKRATINGDIALOG_H__
 #define __CKRATINGDIALOG_H__
 
 #include "cocos2d.h"

@@ -1,4 +1,4 @@
-#include "CKRatingEngine.h"
+﻿#include "CKRatingEngine.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #	include "CKIOSRatingEngine.h"

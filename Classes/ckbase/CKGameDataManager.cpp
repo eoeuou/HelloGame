@@ -1,4 +1,4 @@
-#include "CKGameDataManager.h"
+﻿#include "CKGameDataManager.h"
 
 CK_SINGLETON_METHOD_INIT(CKGameDataManager,s_singleInstance);
 

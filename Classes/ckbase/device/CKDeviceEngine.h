@@ -1,4 +1,4 @@
-#ifndef CKDEVICEENGINE_H_
+﻿#ifndef CKDEVICEENGINE_H_
 #define CKDEVICEENGINE_H_
 
 #include "CKCommon.h"

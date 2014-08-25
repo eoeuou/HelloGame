@@ -1,4 +1,4 @@
-#include "CKRatingDialog.h"
+﻿#include "CKRatingDialog.h"
 
 CKRatingDialog::CKRatingDialog(void)
 {

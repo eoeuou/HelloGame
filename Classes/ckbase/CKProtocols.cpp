@@ -1,24 +1,53 @@
-#include "CKProtocols.h"
+﻿#include "CKProtocols.h"
 //
 // generic getters for properties
 //
-const Value& PropertyProtocol::getValue(const std::string& key, const Value& defaultValue) const
+const Value& PropertyProtocol::getValue(const char* key, const Value& defaultValue) const
 {
-	auto iter = _valueDict.find(key);
-	if (iter != _valueDict.cend())
-		return _valueDict.at(key);
+	auto iter = m_valueMap.find(key);
+	if (iter != m_valueMap.cend())
+		return m_valueMap.at(key);
 	return defaultValue;
 }
 
-void PropertyProtocol::setValue(const std::string& key, const Value& value)
+void PropertyProtocol::setValue(const char* key, const Value& value)
 {
-	_valueDict[key] = value;
+	m_valueMap[key] = value;
+}
+
+bool PropertyProtocol::removeValue(const char* key)
+{
+	auto iter = m_valueMap.find(key);
+	if (iter != m_valueMap.cend())
+	{
+		m_valueMap.erase(iter);
+		return true;
+	}
+	return false;
+}
+
+bool PropertyProtocol::hasValue(const char* key)
+{
+	auto iter = m_valueMap.find(key);
+	if (iter != m_valueMap.cend())
+		return true;
+	return false;
+}
+
+int PropertyProtocol::size()
+{
+	return m_valueMap.size();
+}
+
+void PropertyProtocol::clear()
+{
+	m_valueMap.clear();
 }
 
 std::string PropertyProtocol::getInfo() const
 {
 	// Dump
-	Value forDump = Value(_valueDict);
+	Value forDump = Value(m_valueMap);
 	return forDump.getDescription();
 }
 
@@ -44,7 +73,7 @@ void CKTouchProtocol::addKeyBackEvent(Node* node, std::function<void(EventKeyboa
 		{
 			if (keyCode == EventKeyboard::KeyCode::KEY_BACKSPACE)
 			{
-				CCDirector::sharedDirector()->popScene();
+				Director::getInstance()->popScene();
 			}
 		};
 	}

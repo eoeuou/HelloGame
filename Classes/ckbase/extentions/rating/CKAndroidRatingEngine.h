@@ -1,4 +1,4 @@
-#ifndef CKANDROIDRATINGENGINE_H_
+﻿#ifndef CKANDROIDRATINGENGINE_H_
 #define CKANDROIDRATINGENGINE_H_
 
 #include "CKRatingEngine.h"

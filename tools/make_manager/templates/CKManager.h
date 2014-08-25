@@ -12,10 +12,10 @@ class CKManager
 {
 private:
 	CKManager(void);
+    
+public:
 	
 	~CKManager(void);
-	
-public:
 
 	CK_SINGLETON_METHOD_LAZY(CKManager,s_singleInstance,Instance);
 

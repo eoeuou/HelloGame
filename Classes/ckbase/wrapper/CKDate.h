@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef __CLASSES_DATE_H__
 #define __CLASSES_DATE_H__
 
@@ -11,28 +11,28 @@ public:
 	CKDate();
 	~CKDate() {};
 
-	// ÓÃ×Ö·û´®±íÊ¾µÄÊ±¼ä£¬¸ñÊ½ÀàËÆÎª "Sat May 20 17:36:17 2000"
+	// ç”¨å­—ç¬¦ä¸²è¡¨ç¤ºçš„æ—¶é—´ï¼Œæ ¼å¼ç±»ä¼¼ä¸º "Sat May 20 17:36:17 2000"
 	char* toString();
 
-	// ±ê×¼Ê±¼ä¸ñÊ½×Ö·û´®£¬¸ñÊ½ÀàËÆÎª "YYYY-MM-DD HH:mm:ss"
+	// æ ‡å‡†æ—¶é—´æ ¼å¼å­—ç¬¦ä¸²ï¼Œæ ¼å¼ç±»ä¼¼ä¸º "YYYY-MM-DD HH:mm:ss"
 	std::string toStandardString();
-    // ¶ÌÊ±¼ä¸ñÊ½×Ö·û´® ¸ñÊ½Îª"HH:mm:ss"    
+    // çŸ­æ—¶é—´æ ¼å¼å­—ç¬¦ä¸² æ ¼å¼ä¸º"HH:mm:ss"    
     std::string toShortString();
-	// ¸ù¾İ"YYYY-MM-DD HH:mm:ss"£¬×ª»¯Îªtime_t
+	// æ ¹æ®"YYYY-MM-DD HH:mm:ss"ï¼Œè½¬åŒ–ä¸ºtime_t
 	void setTimeWithStandardString(char* pszStandardString);
 
 	time_t getTime();
 	void setTime(time_t time);
     time_t timeIntervalSinceDate(CKDate* otherDate);
 
-	// »ñÈ¡YYYYMMDD¸ñÊ½µÄÈÕÆÚ£¬Èç20130423 
+	// è·å–YYYYMMDDæ ¼å¼çš„æ—¥æœŸï¼Œå¦‚20130423 
 	int getCurrentDate();
 
 	static CKDate* date();
 
 private:
 	void init();
-	// 1970Äê1ÔÂ1ºÅµ½ÏÖÔÚµÄÃëÊı 
+	// 1970å¹´1æœˆ1å·åˆ°ç°åœ¨çš„ç§’æ•° 
 	time_t currentTime;
 };
 

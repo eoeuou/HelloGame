@@ -1,4 +1,4 @@
-#ifndef __EVENTDEF__
+﻿#ifndef __EVENTDEF__
 #define __EVENTDEF__
 
 

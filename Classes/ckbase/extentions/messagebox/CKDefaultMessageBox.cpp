@@ -1,4 +1,4 @@
-#include "CKDefaultMessageBox.h"
+﻿#include "CKDefaultMessageBox.h"
 
 CKDefaultMessageBox::CKDefaultMessageBox()
 {

@@ -1,8 +1,9 @@
-#ifndef __CKJSONHELPER_H__
+﻿#ifndef __CKJSONHELPER_H__
 #define __CKJSONHELPER_H__
 
 #include "cocos2d.h"
 #include "CKJsonModel.h"
+#include "CKCommon.h"
 
 USING_NS_CC;
 
@@ -29,21 +30,33 @@ public:
 	// Parameter: bool isFile
 	//************************************
 	CKJsonModel* parseJsonToJsonModel(const char* json,CKJsonModel* result = nullptr,bool isFile = false);
+
+	//************************************
+	// Method:    convertJsonValue2JsonModel
+	// FullName:  CKJsonHelper::convertJsonValue2JsonModel
+	// Access:    public 
+	// Returns:   CKJsonModel*
+	// Qualifier: 将jsonValue 转换为JsonModel对象
+	// Parameter: rapidjson::Value & jsonObj
+	// Parameter: CKJsonModel * result
+	//************************************
+	CKJsonModel* convertJsonValue2JsonModel(rapidjson::Value& jsonObj, CKJsonModel* result = nullptr);
+
+	//************************************
+	// Method:    convertJsonValue2JsonModelVector
+	// FullName:  CKJsonHelper::convertJsonValue2JsonModelVector
+	// Access:    public 
+	// Returns:   CKJsonModelVector*
+	// Qualifier: 将jsonValue 转换为CKJsonModelVector对象
+	// Parameter: rapidjson::Value & jsonObj
+	// Parameter: CKJsonModel * result
+	//************************************
+	CKJsonModelVector convertJsonValue2JsonModelVector(rapidjson::Value& jsonObj, CKJsonModel* result = nullptr);
 private:
 	CKJsonHelper(void);
 	
 	~CKJsonHelper(void);
 
-	//************************************
-	// Method:    parseRapidJsonObject
-	// FullName:  CKJsonHelper::parseRapidJsonObject
-	// Access:    private 
-	// Returns:   CKJsonModel*
-	// Qualifier:
-	// Parameter: rapidjson::Value & jsonObj
-	// Parameter: CKJsonModel * result
-	//************************************
-	CKJsonModel* parseRapidJsonObject(rapidjson::Value& jsonObj,CKJsonModel* result = nullptr);
 };
 
 #endif // __CKJSONHELPER_H__

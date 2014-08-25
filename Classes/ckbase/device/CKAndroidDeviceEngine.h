@@ -1,4 +1,4 @@
-#ifndef CKANDROIDDEVICEENGINE_H_
+﻿#ifndef CKANDROIDDEVICEENGINE_H_
 #define CKANDROIDDEVICEENGINE_H_
 
 #include "CKDeviceEngine.h"

@@ -1,4 +1,4 @@
-#include "CKDefaultRatingEngine.h"
+﻿#include "CKDefaultRatingEngine.h"
 #include "CKWrapper.h"
 
 CKDefaultRatingEngine::CKDefaultRatingEngine()

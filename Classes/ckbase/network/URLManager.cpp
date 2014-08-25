@@ -1,4 +1,4 @@
-#include "URLManager.h"
+ï»¿#include "URLManager.h"
 
 #define MAX_RETRY_TIMES 1
 
@@ -51,10 +51,10 @@ void URLManager::requestData(URLRequestType action, CKJsonModel *model ,URLReque
 	_data.m_picURL = "";
 	_data.m_extraInfo = extraInfo;
 
-	//Ïò¶ÓÁĞÖĞÌí¼Óurl    
+	//å‘é˜Ÿåˆ—ä¸­æ·»åŠ url    
 	if (!addUrl(_data))
 	{
-		//½øÈëÕâÀïÖ¤Ã÷¶ÓÁĞÒÑÂú    
+		//è¿›å…¥è¿™é‡Œè¯æ˜é˜Ÿåˆ—å·²æ»¡    
 		CKHttpModel* httpModel = CKHttpModel::create();
 		httpModel->initModelData(false,-1,"","",NULL);
 		_data.m_listener->urlRequestCallback(httpModel);
@@ -93,20 +93,20 @@ void URLManager::openUrl(std::string url)
 			{
 				if (checkShakeHandsData())
 				{
-					wrapper::showToast("ÎÕÊÖ³É¹¦!");
+					wrapper::showToast("æ¡æ‰‹æˆåŠŸ!");
 					next();
 				}			
 			}
 			else
 			{
-				log("Óë·şÎñÆ÷Á¬½ÓÖĞ¶Ï!");
-				wrapper::showToast("Óë·şÎñÆ÷Á¬½ÓÖĞ¶Ï(ÎŞÇ©Ãû utf-8¿ÉÒÔÏÔÊ¾ººÓï) Server connection is broken!");
+				log("ä¸æœåŠ¡å™¨è¿æ¥ä¸­æ–­!");
+				wrapper::showToast("ä¸æœåŠ¡å™¨è¿æ¥ä¸­æ–­(æ— ç­¾å utf-8å¯ä»¥æ˜¾ç¤ºæ±‰è¯­) Server connection is broken!");
 				exit();
 			}		
 		}
 		else if (isSucceed)
 		{
-			//´¦ÀíÊı¾İ,¼Ó½âÃÜ´¦ÀíµÈ
+			//å¤„ç†æ•°æ®,åŠ è§£å¯†å¤„ç†ç­‰
 
 			URLRequestListener* listener = m_urlData->getCurUrlData()->m_listener;
 			if (listener)
@@ -117,7 +117,7 @@ void URLManager::openUrl(std::string url)
 			}		
 
 			m_bIsRunning = false;
-			//·¢ËÍÏÂÒ»¸öÇëÇó
+			//å‘é€ä¸‹ä¸€ä¸ªè¯·æ±‚
 			next();
 		}
 		else

@@ -1,4 +1,4 @@
-#include "CKMessageBox.h"
+﻿#include "CKMessageBox.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #	include "CKIOSMessageBox.h"

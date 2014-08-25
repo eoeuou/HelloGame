@@ -1,4 +1,4 @@
-#ifndef __URLDATA_H__
+ï»¿#ifndef __URLDATA_H__
 #define __URLDATA_H__
 
 #include "cocos2d.h"
@@ -18,7 +18,7 @@ typedef enum __URLRequestType
 
 }URLRequestType;
 
-/*URLController ÖĞopenUrl ·½·¨µÄ»Øµô*/
+/*URLController ä¸­openUrl æ–¹æ³•çš„å›æ‰*/ 
 class URLRequestListener
 {
 public:
@@ -57,7 +57,7 @@ class URLData:public cocos2d::Ref
 public:
 	CREATE_FUNC(URLData);
 
-	//Ìí¼ÓUrl     
+	//æ·»åŠ Url     
 	bool add(requestURLData urlData);
 
 	string getNextUrl();
@@ -71,7 +71,7 @@ public:
 	// FullName:  URLData::removeCurRUrlData
 	// Access:    public 
 	// Returns:   void
-	// Qualifier: É¾³ıµ±Ç°ÇëÇóÊı¾İ
+	// Qualifier: åˆ é™¤å½“å‰è¯·æ±‚æ•°æ® 
 	//************************************
 	void removeCurRUrlData();
 
@@ -86,10 +86,10 @@ protected:
 
 	virtual bool init();  
 	
-	//ÓÃÓÚ´æ´¢Url
+	//ç”¨äºå­˜å‚¨Url 
 	requestURLData m_rUrlData[MAX_URL_NUM];
 
-	//Ìí¼ÓUrlµÄindex
+	//æ·»åŠ Urlçš„index 
 	int m_addIndex;
 	
 	//
@@ -101,7 +101,7 @@ private:
 	// FullName:  URLData::generateURL
 	// Access:    private 
 	// Returns:   std::string
-	// Qualifier: ¸ù¾İtypeÉú³Éurl
+	// Qualifier: æ ¹æ®typeç”Ÿæˆurl 
 	// Parameter: URLRequestType type
 	//************************************
 	std::string generateURL(URLRequestType type);

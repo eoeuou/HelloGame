@@ -1,4 +1,4 @@
-#ifndef __URLMANAGER_H__
+ï»¿#ifndef __URLMANAGER_H__
 #define __URLMANAGER_H__
 
 #include "cocos2d.h"
@@ -28,7 +28,7 @@ private:
 	
 	~URLManager(void);
 	
-	//Ïò¶ÓÁĞÖĞÌí¼Óurl
+	//å‘é˜Ÿåˆ—ä¸­æ·»åŠ url
 	bool addUrl(requestURLData _data);
 
 	void openUrl(std::string url);
@@ -41,27 +41,27 @@ private:
 
 	void exit();
 
-	//Éú³ÉÓë·şÎñÆ÷µÄÎÕÊÖ²Ù×÷
+	//ç”Ÿæˆä¸æœåŠ¡å™¨çš„æ¡æ‰‹æ“ä½œ
 	std::string shakeHandsUrl();
 
-	//Ğ£Ñé·şÎñÆ÷·µ»ØÎÕÊÖÊı¾İ    
+	//æ ¡éªŒæœåŠ¡å™¨è¿”å›æ¡æ‰‹æ•°æ®    
 	bool checkShakeHandsData();
 
 private:
     static URLManager* s_singleInstance;		
 
-	//ÓÃÓÚ´æ´¢url
+	//ç”¨äºå­˜å‚¨url
 	CC_SYNTHESIZE_READONLY(URLData*,m_urlData,URLData);
-	//ÊÇ·ñĞèÒªÓë·şÎñÆ÷ÎÕÊÖ
+	//æ˜¯å¦éœ€è¦ä¸æœåŠ¡å™¨æ¡æ‰‹
 	CC_SYNTHESIZE_READONLY(bool,m_bNeedShakeHands,BNeedShakeHands);
-	//ÊÇ·ñÕıÔÚÓë·şÎñÆ÷ÎÕÊÖ
+	//æ˜¯å¦æ­£åœ¨ä¸æœåŠ¡å™¨æ¡æ‰‹
 	CC_SYNTHESIZE_READONLY(bool,m_bIsDoingShakeHands,BDoingShakeHands);
-	//ÊÇ·ñÕıÔÚ·ÃÎÊurl
+	//æ˜¯å¦æ­£åœ¨è®¿é—®url
 	CC_SYNTHESIZE_READONLY(bool,m_bIsRunning,BIsRunning);
-	//ÖØÊÔµÄ´ÎÊı     
+	//é‡è¯•çš„æ¬¡æ•°     
 	CC_SYNTHESIZE_READONLY(int,m_iRetryTimes,IRetryTimes);
 
-	//ÕıÔÚ·ÃÎÊµÄurl
+	//æ­£åœ¨è®¿é—®çš„url
 	//CC_SYNTHESIZE_READONLY(std::string,,)
 
 };

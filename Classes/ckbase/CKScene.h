@@ -1,4 +1,4 @@
-#ifndef __CKSCENE_H__
+﻿#ifndef __CKSCENE_H__
 #define __CKSCENE_H__
 
 #include "cocos2d.h"

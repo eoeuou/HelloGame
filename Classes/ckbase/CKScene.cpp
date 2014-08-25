@@ -1,4 +1,4 @@
-#include "CKScene.h"
+﻿#include "CKScene.h"
 
 CKScene::CKScene(void)
 {
@@ -7,7 +7,7 @@ CKScene::CKScene(void)
 
 CKScene::~CKScene(void)
 {
-	
+	this->removeTouchEvent();
 }
 
 bool CKScene::init()

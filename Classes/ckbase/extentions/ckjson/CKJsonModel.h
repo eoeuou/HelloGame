@@ -1,4 +1,4 @@
-#ifndef __CKJSONMODEL_H__
+ï»¿#ifndef __CKJSONMODEL_H__
 #define __CKJSONMODEL_H__
 
 #include "cocos2d.h"
@@ -10,246 +10,61 @@ using namespace std;
 
 class CKJsonModel;
 
-typedef std::vector<CKJsonModel*> CKJsonModelVector;
-typedef std::unordered_map<std::string, CKJsonModel*> CKJsonModelMap;
-typedef std::unordered_map<std::string, CKJsonModelVector*> CKJsonModelVectorMap;
+typedef Vector<CKJsonModel*> CKJsonModelVector;
+typedef Map<std::string, CKJsonModel*> CKJsonModelMap;
 
-class CKJsonModel:public CKModel , public rapidjson::Document
+//{"propety":"PLAYER-TO",
+//"abcdef":{"id":1,"name":"è±¹å„¿","age":"3å¹´","low":true},
+//"player":[{"id":1,"name":"è±¹å„¿","age":"3å¹´","low":true},{"id":1,"name":"è±¹å„¿","age":"3å¹´","low":true}]} 
+
+class CKJsonModel : public CKModel
 {
 public:
-	//CREATE_FUNC(CKJsonModel);
-	static CKJsonModel* create() 
-	{ 
-		CKJsonModel *pRet = new CKJsonModel(); 
-		if (pRet && pRet->init()) 
-		{ 
-			pRet->autorelease();
-			return pRet; 
-		} 
-		else 
-		{ 
-			delete pRet; 
-			pRet = NULL; 
-			return NULL; 
-		} 
-	}
+	CREATE_FUNC(CKJsonModel);
 	
 	~CKJsonModel(void);
 
 protected:
 	CKJsonModel(void);
 
-	virtual bool init();  	
+	virtual bool init();
 
 private:
 
-	CKJsonModelMap* m_objMap;
-
-	CKJsonModelVectorMap* m_arrayMap;
-
-	void recordToObjMap(const char* key, CKJsonModel* data);
-
-	void recordToArrayMap(const char* key, CKJsonModel* data);
+	rapidjson::Document document;
+	
 public:
-	//************************************
-	// Method:    size
-	// FullName:  CKJsonModel::size
-	// Access:    public 
-	// Returns:   int
-	// Qualifier: get the root keys size
-	//************************************
-	int size();
+	virtual int size() override;
 
-	//************************************
-	// Method:    clear
-	// FullName:  CKJsonModel::clear
-	// Access:    public 
-	// Returns:   void
-	// Qualifier:  clear all data
-	//************************************
-	void clear();
+	virtual void clear() override;
 
-	//************************************
-	// Method:    getKeys
-	// FullName:  CKJsonModel::getKeys
-	// Access:    public 
-	// Returns:   std::vector<std::string>
-	// Qualifier:  get the root keys
-	//************************************
-	std::vector<std::string> getKeys();
-
-	//************************************
-	// Method:    logJsonString
-	// FullName:  CKJsonModel::logJsonString
-	// Access:    public 
-	// Returns:   void
-	// Qualifier: log the Json string
-	//************************************
 	void logJsonString();
 
-	//************************************
-	// Method:    getJsonString
-	// FullName:  CKJsonModel::getJsonString
-	// Access:    public 
-	// Returns:   std::string
-	// Qualifier: get the Json string
-	//************************************
 	std::string getJsonString();
 
-	rapidjson::Value& operator[](int key);
+	bool hasChild(const char* key);
 
-	rapidjson::Value& operator[](string key);
+	const Value& getChildByKey(const char* key);
 
-	rapidjson::Value& operator[](const char* key);
-	
-	//************************************
-	// Method:    operator>>
-	// FullName:  CKJsonModel::operator>>
-	// Access:    public 
-	// Returns:   void
-	// Qualifier:  ½«CKJsonModelÊä³öµ½string
-	// Parameter: string & jstring
-	//************************************
-	void operator>>(string &jstring);
-	void operator>>(char* &jstring);
+	void addChild(std::string key, Value& value);
 
-	//************************************
-	// Method:    operator<<
-	// FullName:  CKJsonModel::operator<<
-	// Access:    public 
-	// Returns:   void
-	// Qualifier: ½«string×ª»¯ÎªCKJsonModel
-	// Parameter: std::string str
-	//************************************
-	void operator<<(std::string jstring);
-	void operator<<(const char* jstring);
+	void addChild(const char* key, Value& value);
 
-	//************************************
-	// Method:    convertToRapidJsonValue
-	// FullName:  CKJsonModel::convertToRapidJsonValue
-	// Access:    public 
-	// Returns:   rapidjson::Value&
-	// Qualifier: ½«CKJsonModel×ª»¯Îªrapidjson::Value¶ÔÏó
-	//************************************
-	rapidjson::Value& convertToRapidJsonValue();
-
-	//************************************
-	// Method:    getObjectChildByKey
-	// FullName:  CKJsonModel::getObjectChildByKey
-	// Access:    public 
-	// Returns:   CKJsonModel*
-	// Qualifier:
-	// Parameter: const char * key
-	//************************************
 	CKJsonModel* getObjectChildByKey(const char* key);
 
-	//************************************
-	// Method:    addObjectChild
-	// FullName:  CKJsonModel::addObjectChild
-	// Access:    public 
-	// Returns:   void
-	// Qualifier: this is used to add object child
-	// Parameter: int key
-	// Parameter: CKJsonModel * data
-	//************************************
-	void addObjectChild(int key, CKJsonModel* data);
-
-	//************************************
-	// Method:    addObjectChild
-	// FullName:  CKJsonModel::addObjectChild
-	// Access:    public 
-	// Returns:   void
-	// Qualifier: this is used to add object child
-	// Parameter: std::string key
-	// Parameter: CKJsonModel * data
-	//************************************
 	void addObjectChild(std::string key, CKJsonModel* data);
 	
-	//************************************
-	// Method:    addObject
-	// FullName:  CKJsonModel::addObject
-	// Access:    public 
-	// Returns:   void
-	// Qualifier: this is used to add object child
-	// Parameter: const char * key
-	// Parameter: CKJsonModel * data
-	//************************************
 	void addObjectChild(const char* key, CKJsonModel* data);
 
-	int getArrayChildCount();
+	CKJsonModelVector getArrayChildByKey(const char* key);
 
-	//************************************
-	// Method:    getArrayChildByKey
-	// FullName:  CKJsonModel::getArrayChildByKey
-	// Access:    public 
-	// Returns:   CKJsonModelVector*
-	// Qualifier:
-	// Parameter: const char * key
-	//************************************
-	CKJsonModelVector* getArrayChildByKey(const char* key);
+	void addArrayChild(std::string key, CKJsonModelVector& data);
 
-	//************************************
-	// Method:    addChild
-	// FullName:  CKJsonModel::addChild
-	// Access:    public 
-	// Returns:   void
-	// Qualifier: this is used to add array child
-	// Parameter: int key
-	// Parameter: CKJsonModel * data
-	//************************************
-	void addArrayChild(int key, CKJsonModel* data);
+	void addArrayChild(const char* key, CKJsonModelVector& data);
 
-	//************************************
-	// Method:    addChild
-	// FullName:  CKJsonModel::addChild
-	// Access:    public 
-	// Returns:   void
-	// Qualifier: this is used to add array child
-	// Parameter: std::string key
-	// Parameter: CKJsonModel * data
-	//************************************
-	void addArrayChild(std::string key, CKJsonModel* data);	
-
-	//************************************
-	// Method:    addChild
-	// FullName:  CKJsonModel::addChild
-	// Access:    public 
-	// Returns:   void
-	// Qualifier: this is used to add array child
-	// Parameter: const char * key
-	// Parameter: CKJsonModel * data
-	//************************************
-	void addArrayChild(const char* key, CKJsonModel* data);
-	
-	//************************************
-	// Method:    removeChild
-	// FullName:  CKJsonModel::removeChild
-	// Access:    public 
-	// Returns:   bool
-	// Qualifier: remove child by key
-	// Parameter: int key
-	//************************************
-	bool removeChild(int key);
-
-	//************************************
-	// Method:    removeChild
-	// FullName:  CKJsonModel::removeChild
-	// Access:    public 
-	// Returns:   bool
-	// Qualifier: remove child by key
-	// Parameter: std::string key
-	//************************************
 	bool removeChild(std::string key);
 
-	//************************************
-	// Method:    removeChild
-	// FullName:  CKJsonModel::removeChild
-	// Access:    public 
-	// Returns:   bool
-	// Qualifier: remove child by key
-	// Parameter: const char * key
-	//************************************
-	bool removeChild(const char* key);	
+	bool removeChild(const char* key);
 
 };
 

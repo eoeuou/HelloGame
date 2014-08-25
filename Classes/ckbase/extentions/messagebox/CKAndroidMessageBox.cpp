@@ -1,4 +1,4 @@
-#include "CKAndroidMessageBox.h"
+﻿#include "CKAndroidMessageBox.h"
 #include "platform/android/jni/JniHelper.h"
 
 #define  CK_JAVA_CLASS_NAME "org/cocos2dx/ckbase/CKMessageBox"

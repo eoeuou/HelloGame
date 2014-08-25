@@ -1,4 +1,4 @@
-#ifndef __CKHTTPUTILS_H__
+ï»¿#ifndef __CKHTTPUTILS_H__
 #define __CKHTTPUTILS_H__
 
 #include "cocos2d.h"
@@ -61,8 +61,8 @@ public:
 	// Qualifier:
 	// Parameter: const char * url
 	// Parameter: std::function<void
-	// Parameter: CKHttpModel * model ÓµÓĞÊôĞÔ [content£ºÄÚÈİ] [path£º±£´æµØÖ·] [statusCode£º·µ»Ø×´Ì¬Âë] [isSucceed: ·µ»Ø³É¹¦Ê§°Ü]
-	// Parameter: > callback »Øµôº¯Êı
+	// Parameter: CKHttpModel * model æ‹¥æœ‰å±æ€§ [contentï¼šå†…å®¹] [pathï¼šä¿å­˜åœ°å€] [statusCodeï¼šè¿”å›çŠ¶æ€ç ] [isSucceed: è¿”å›æˆåŠŸå¤±è´¥]
+	// Parameter: > callback å›æ‰å‡½æ•°
 	//************************************
 	void getText(const char* url,std::function<void(CKHttpModel* model)> callback);
 	void getText(const char* url);
@@ -74,10 +74,10 @@ public:
 	// Returns:   void
 	// Qualifier:
 	// Parameter: const char * url
-	// Parameter: const char * localpath ±£´æÂ·¾¶
+	// Parameter: const char * localpath ä¿å­˜è·¯å¾„
 	// Parameter: std::function<void
-	// Parameter: CKHttpModel * model ÓµÓĞÊôĞÔ [content£ºÄÚÈİ] [path£º±£´æµØÖ·] [statusCode£º·µ»Ø×´Ì¬Âë] [isSucceed: ·µ»Ø³É¹¦Ê§°Ü]
-	// Parameter: > callback »Øµôº¯Êı
+	// Parameter: CKHttpModel * model æ‹¥æœ‰å±æ€§ [contentï¼šå†…å®¹] [pathï¼šä¿å­˜åœ°å€] [statusCodeï¼šè¿”å›çŠ¶æ€ç ] [isSucceed: è¿”å›æˆåŠŸå¤±è´¥]
+	// Parameter: > callback å›æ‰å‡½æ•°
 	//************************************
 	void getFile(const char* url,const char* localpath,std::function<void(CKHttpModel* model)> callback);
 	void getFile(const char* url,const char* localpath);
@@ -90,7 +90,7 @@ public:
 	// Qualifier:
 	// Parameter: const char * url
 	// Parameter: std::function<void
-	// Parameter: CKHttpModel * model ÓµÓĞÊôĞÔ [content£ºÄÚÈİ] [path£º±£´æµØÖ·] [statusCode£º·µ»Ø×´Ì¬Âë] [isSucceed: ·µ»Ø³É¹¦Ê§°Ü]
+	// Parameter: CKHttpModel * model æ‹¥æœ‰å±æ€§ [contentï¼šå†…å®¹] [pathï¼šä¿å­˜åœ°å€] [statusCodeï¼šè¿”å›çŠ¶æ€ç ] [isSucceed: è¿”å›æˆåŠŸå¤±è´¥]
 	// Parameter: > callback
 	//************************************
 	void post(const char* url,const char* postData,std::function<void(CKHttpModel* model)> callback);

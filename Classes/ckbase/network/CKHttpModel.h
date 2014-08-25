@@ -1,4 +1,4 @@
-#ifndef __CKHTTPMODEL_H__
+ï»¿#ifndef __CKHTTPMODEL_H__
 #define __CKHTTPMODEL_H__
 
 #include "cocos2d.h"
@@ -12,26 +12,26 @@ using namespace std;
 #define STD_FUN_CKHTTPMODEL_NULL [](CKHttpModel* model){}
 
 /*
-ÒÔÏÂ½á¹û¾ùÀ´×ÔCKHttpUtils ·µ»ØÖµ
-[content£ºÄÚÈİ] [path£º±£´æµØÖ·] [statusCode£º·µ»Ø×´Ì¬Âë] [isSucceed: ·µ»Ø³É¹¦Ê§°Ü]
+ä»¥ä¸‹ç»“æœå‡æ¥è‡ªCKHttpUtils è¿”å›å€¼
+[contentï¼šå†…å®¹] [pathï¼šä¿å­˜åœ°å€] [statusCodeï¼šè¿”å›çŠ¶æ€ç ] [isSucceed: è¿”å›æˆåŠŸå¤±è´¥]
 */
 class CKHttpModel : public CKModel
 {
 public:
 	CREATE_FUNC(CKHttpModel);
 
-	/*[isSucceed: ·µ»Ø³É¹¦Ê§°Ü]*/
+	/*[isSucceed: è¿”å›æˆåŠŸå¤±è´¥]*/
 	CK_SYNTHESIZE_MODEL_BOOLEAN(bool,"isSucceed",IsSucceed);
 
-	/*[statusCode£º·µ»Ø×´Ì¬Âë]*/
+	/*[statusCodeï¼šè¿”å›çŠ¶æ€ç ]*/
 	CK_SYNTHESIZE_MODEL_INTEGER(int,"statusCode",StatusCode);
 
-	/*[path£º±£´æµØÖ·]*/
+	/*[pathï¼šä¿å­˜åœ°å€]*/
 	CK_SYNTHESIZE_MODEL_STRING(std::string,"path",Path);
 
-	/*[content£ºÄÚÈİ]*/
+	/*[contentï¼šå†…å®¹]*/
 	CK_SYNTHESIZE_MODEL_STRING(std::string,"content",Content);
-	/*jsonÊı¾İ*/
+	/*jsonæ•°æ®*/
 	CC_SYNTHESIZE_READONLY(CKJsonModel*,m_curCKJsonModel,CurCKJsonModel);
 
 	//************************************
@@ -40,10 +40,10 @@ public:
 	// Access:    public 
 	// Returns:   void
 	// Qualifier:
-	// Parameter: bool isSucceed ·µ»Ø³É¹¦Ê§°Ü
-	// Parameter: int statusCode ·µ»Ø×´Ì¬Âë
-	// Parameter: std::string path ±£´æµØÖ·
-	// Parameter: std::string content ÄÚÈİ
+	// Parameter: bool isSucceed è¿”å›æˆåŠŸå¤±è´¥
+	// Parameter: int statusCode è¿”å›çŠ¶æ€ç 
+	// Parameter: std::string path ä¿å­˜åœ°å€
+	// Parameter: std::string content å†…å®¹
 	// Parameter: CKJsonModel * jsonModel 
 	//************************************
 	void initModelData(bool isSucceed, int statusCode,std::string path, std::string content,CKJsonModel* jsonModel);

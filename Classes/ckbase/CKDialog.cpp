@@ -1,4 +1,4 @@
-#include "CKDialog.h"
+﻿#include "CKDialog.h"
 
 CKDialog::CKDialog(void)
 	:m_closeItem(nullptr)
@@ -86,9 +86,9 @@ bool CKLoadingDialog::init()
 
 		m_loadingSprite = Sprite::create("loading.png");
 
-		Size visibleSize = Director::getInstance()->getVisibleSize();
+		Scene* scene = Director::getInstance()->getRunningScene();
 
-		m_loadingSprite->setPosition(ccp(visibleSize.width/2,visibleSize.height/2));
+		m_loadingSprite->setPosition(Point(scene->getContentSize()/2));
 
 		m_loadingSprite->runAction(CCRepeatForever::create(CCRotateBy::create(1,360)));
 
@@ -119,11 +119,11 @@ bool CKInfoDialog::init()
 	{
 		CC_BREAK_IF(!CKDialog::init());
 
-		Size visibleSize = Director::getInstance()->getVisibleSize();
-
 		m_infoLabel = LabelTTF::create("Hello World", "Arial", 24);
 
-		m_infoLabel->setPosition(ccp(visibleSize.width/2,visibleSize.height/2));
+		Scene* scene = Director::getInstance()->getRunningScene();
+
+		m_infoLabel->setPosition(Point(scene->getContentSize()/2));
 
 		this->addChild(m_infoLabel);
 

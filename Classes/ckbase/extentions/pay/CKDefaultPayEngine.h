@@ -1,4 +1,4 @@
-#ifndef CKDEFAULTPAYENGINE_H_
+﻿#ifndef CKDEFAULTPAYENGINE_H_
 #define CKDEFAULTPAYENGINE_H_
 
 #include "CKPayEngine.h"

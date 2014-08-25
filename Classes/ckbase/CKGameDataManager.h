@@ -1,4 +1,4 @@
-#ifndef __CKGAMEDATAMANAGER_H__
+﻿#ifndef __CKGAMEDATAMANAGER_H__
 #define __CKGAMEDATAMANAGER_H__
 
 #include "CKCommon.h"

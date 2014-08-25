@@ -1,4 +1,4 @@
-#ifndef CKDEFAULTRATINGENGINE_H_
+﻿#ifndef CKDEFAULTRATINGENGINE_H_
 #define CKDEFAULTRATINGENGINE_H_
 
 #include "CKRatingEngine.h"

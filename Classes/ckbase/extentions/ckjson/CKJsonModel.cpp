@@ -1,13 +1,10 @@
-#include "CKJsonModel.h"
+﻿#include "CKJsonModel.h"
 #include "CKJsonHelper.h"
 
-CKJsonModel::CKJsonModel(void):
-	m_objMap(nullptr),
-	m_arrayMap(nullptr)
+CKJsonModel::CKJsonModel(void)
 {
-
+	document.SetObject();
 }
-
 
 CKJsonModel::~CKJsonModel(void)
 {
@@ -15,39 +12,19 @@ CKJsonModel::~CKJsonModel(void)
 }
 
 bool CKJsonModel::init()
-{
-	this->SetObject();
-	
+{	
+	document.SetObject();
 	return true;
 }
 
 int CKJsonModel::size()
 {
-	int result = 0;
-	for (auto it = this->MemberonBegin(); it !=  this->MemberonEnd(); ++it)
-	{		
-		result++;
-	}
-	return result;
+	return CKModel::size();
 }
 
 void CKJsonModel::clear()
 {
-	std::vector<string> values = getKeys();
-	for (auto it = values.begin(); it !=  values.end(); ++it)
-	{
-		(*this).RemoveMember((*it).c_str());
-	}		
-}
-
-std::vector<std::string> CKJsonModel::getKeys()
-{
-	std::vector<string> values;
-	for (auto it = (*this).MemberonBegin(); it !=  (*this).MemberonEnd(); ++it)
-	{
-		values.push_back((*it).name.GetString());
-	}	
-	return values;
+	document.Clear();
 }
 
 void CKJsonModel::logJsonString()
@@ -59,101 +36,79 @@ std::string CKJsonModel::getJsonString()
 {
 	rapidjson::StringBuffer buffer;
 	rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
-	(*this).Accept(writer);
+	document.Accept(writer);
 
 	const char* out = buffer.GetString();
 
 	return out;
 }
 
-rapidjson::Value& CKJsonModel::operator[]( int key )
+bool CKJsonModel::hasChild(const char* key)
 {
-	return this->operator[](intToString(key));
+	return this->hasValue(key);
 }
 
-rapidjson::Value& CKJsonModel::operator[]( string key )
+const Value& CKJsonModel::getChildByKey(const char* key)
 {
-	return this->operator[](key.c_str());
+	return this->getValue(key);
 }
 
-rapidjson::Value& CKJsonModel::operator[]( const char* key )
+void CKJsonModel::addChild(std::string key, Value& value)
 {
-	if (!HasMember(key))
+	this->addChild(key.c_str(),value);
+}
+
+void CKJsonModel::addChild(const char* key, Value& value)
+{
+    this->setValue(key, value);
+
+	rapidjson::Document::AllocatorType& allocator = document.GetAllocator();
+
+	if (document.HasMember(key))
 	{
-		rapidjson::Document::AllocatorType& allocator = (*this).GetAllocator();
-		(*this).AddMember(key,"",allocator);		
-		(*this)[key] = "default";
+		document.RemoveMember(key);
 	}
-
-	return rapidjson::Value::operator[](key);	
-}
-
-void CKJsonModel::operator>>(string &jstring)
-{
-	jstring = this->getJsonString();
-}
-
-void CKJsonModel::operator>>(char* &jstring)
-{
-	string str = this->getJsonString();
-	jstring = (char*)malloc(str.length()+1);
-	memset(jstring, 0, str.length()+1);
-	memcpy(jstring, str.c_str(), str.length());
-}
-
-void CKJsonModel::operator<<(std::string jstring)
-{
-	CKJsonHelper::getInstance()->parseJsonToJsonModel(jstring.c_str(),this);
-}
-
-void CKJsonModel::operator<<(const char* jstring)
-{
-	CKJsonHelper::getInstance()->parseJsonToJsonModel(jstring,this);
-}
-
-rapidjson::Value& CKJsonModel::convertToRapidJsonValue()
-{
-	rapidjson::Document::AllocatorType& allocator = (*this).GetAllocator();
-	rapidjson::Value* object = new rapidjson::Value(rapidjson::kObjectType);
-
-	for (auto it = this->MemberonBegin(); it !=  this->MemberonEnd(); ++it)
-	{		
-		CCAssert((*it).name.GetType() == rapidjson::kStringType,"data maybe added");
-
-		rapidjson::Type vtype = (*it).value.GetType();
-		if (vtype == rapidjson::kObjectType)
-		{
-			log("");
-		}
-		
-		(*object).AddMember((*it).name,(*it).value,allocator);
-	}
-
-	return *object;
+    switch (value.getType()) {
+        case Value::Type::INTEGER:
+			{
+				__Integer* valueInter = __Integer::create(value.asInt());
+				document.AddMember(key,valueInter->getValue(),allocator);
+			}
+            break;
+        case Value::Type::STRING:
+			{
+				__String * valueStr = __String::create(value.asString());
+				document.AddMember(key,valueStr->getCString(),allocator);
+			}
+            break;
+		case Value::Type::BOOLEAN:
+			document.AddMember(key,value.asBool(),allocator);
+            break;
+		case Value::Type::FLOAT:
+			document.AddMember(key,value.asFloat(),allocator);
+            break;
+		case Value::Type::DOUBLE:
+			document.AddMember(key,value.asDouble(),allocator);
+            break;
+            
+        default:
+            CCASSERT(false, "addChild type error");
+            break;
+    }
 }
 
 CKJsonModel* CKJsonModel::getObjectChildByKey(const char* key)
-{	
-	if (m_objMap)
+{
+	if (!document.HasMember(key))
 	{
-		return (*m_objMap)[key];
+		return nullptr;
+	}
+	else
+	{
+		return dynamic_cast<CKJsonModel*>(this->getForeignProperty(key));
 	}
 
-	return nullptr;	
-}
-
-void CKJsonModel::recordToObjMap(const char* key, CKJsonModel* data)
-{
-	if (!m_objMap)
-	{
-		m_objMap = new CKJsonModelMap();
-	}		
-	(*m_objMap)[key] = data;
-}
-
-void CKJsonModel::addObjectChild(int key, CKJsonModel* data)
-{
-	this->addObjectChild(intToString(key),data);
+	return nullptr;
 }
 
 void CKJsonModel::addObjectChild(std::string key, CKJsonModel* data)
@@ -163,117 +118,91 @@ void CKJsonModel::addObjectChild(std::string key, CKJsonModel* data)
 
 void CKJsonModel::addObjectChild(const char* key, CKJsonModel* data)
 {
-	rapidjson::Document::AllocatorType& allocator = (*this).GetAllocator();
-	rapidjson::Value& object = data->convertToRapidJsonValue();
-
-	if (!HasMember(key))
+    this->setForeignProperty(key, data);
+    
+	rapidjson::Document::AllocatorType& allocator = document.GetAllocator();
+    rapidjson::Value object(rapidjson::kObjectType);
+    
+	for (auto it = data->document.MemberonBegin(); it !=  data->document.MemberonEnd(); ++it)
 	{
-		(*this).AddMember(key,object,allocator);	
+		object.AddMember((*it).name,(*it).value,allocator);
+	}
+	
+	if (document.HasMember(key))
+	{
+		document.RemoveMember(key);
+	}
+	document.AddMember(key,object,allocator);
+}
 
-		recordToObjMap(key,data);
+CKJsonModelVector CKJsonModel::getArrayChildByKey(const char* key)
+{
+    CKJsonModelVector vector;
+    if (!document.HasMember(key))
+	{
+		return vector;
 	}
 	else
 	{
-		(*this)[key] = object;
-	}
-}
-
-int CKJsonModel::getArrayChildCount()
-{
-	if (m_arrayMap)
-	{
-		return m_arrayMap->size();
-	}
-
-	return 0;	
-}
-
-CKJsonModelVector* CKJsonModel::getArrayChildByKey(const char* key)
-{
-	if (m_arrayMap)
-	{
-		return (*m_arrayMap)[key];
-	}
-
-	return nullptr;	
-}
-
-void CKJsonModel::recordToArrayMap(const char* key, CKJsonModel* data)
-{
-	if (!m_arrayMap)
-	{
-		m_arrayMap = new CKJsonModelVectorMap();
-	}
-	CKJsonModelVector* vector = (*m_arrayMap)[key];
-
-	if (vector)
-	{
-		for (auto it = vector->begin(); it != vector->end(); ++it)
+		if (document[key].GetType()!=rapidjson::Type::kArrayType)
 		{
-			CCAssert((*it) != data,"data maybe added");	
-			if ((*it) == data)
-			{
-				return;
-			}			
+			CCAssert(false,"getArrayChildByKey type error ");
+			return vector;
 		}
+        
+        __Array* array = this->getForeignArray(key);
+        Ref* obj = nullptr;
+        CCARRAY_FOREACH(array,obj) {
+            vector.pushBack(dynamic_cast<CKJsonModel*>(obj));
+        }
+		
+		return vector;
 	}
-	else
-	{
-		vector = new CKJsonModelVector();
-		(*m_arrayMap)[key] = vector;
-	}
-
-	(*vector).push_back(data);
+	
+	return vector;
 }
 
-void CKJsonModel::addArrayChild(int key, CKJsonModel* data)
-{
-	this->addArrayChild(intToString(key),data);
-}
-
-void CKJsonModel::addArrayChild(std::string key, CKJsonModel* data)
+void CKJsonModel::addArrayChild(std::string key, CKJsonModelVector& data)
 {
 	this->addArrayChild(key.c_str(),data);
 }
 
-void CKJsonModel::addArrayChild(const char* key, CKJsonModel* data)
+void CKJsonModel::addArrayChild(const char* key, CKJsonModelVector& data)
 {
-	recordToArrayMap(key,data);	
+    {
+        __Array* array = __Array::create();
+        for (const auto& child : data)
+        {
+            array->addObject(child);
+        }
+        this->setForeignArray(key, array);
+    }
+    
+	rapidjson::Document::AllocatorType& allocator = document.GetAllocator();
 
-	rapidjson::Value array(rapidjson::kArrayType);	
+	rapidjson::Value array(rapidjson::kArrayType);
 
-	bool haveMember = HasMember(key);
+	bool haveMember = document.HasMember(key);
+
+	for (const auto& child : data)
+	{
+        rapidjson::Value object(rapidjson::kObjectType);
+        
+        rapidjson::Document::AllocatorType& allocator = child->document.GetAllocator();
+        for (auto it = child->document.MemberonBegin(); it !=  child->document.MemberonEnd(); ++it)
+        {
+            object.AddMember((*it).name,(*it).value,allocator);
+        }
+        
+		array.PushBack(object,allocator);
+	}
 
 	if (haveMember)
 	{
-		for (auto it = this->MemberonBegin(); it !=  this->MemberonEnd(); ++it)
-		{
-			if ((*it).name.GetString() == key)
-			{
-				CCASSERT((*it).value.GetType() == rapidjson::kArrayType,"this key is not for array before");
-				array = (*it).value;
-				break;
-			}
-		}
-	}	
-
-	rapidjson::Document::AllocatorType& allocator = this->GetAllocator();
-	rapidjson::Value& object = data->convertToRapidJsonValue();
-	array.PushBack(object,allocator);
-
-	if (!haveMember)
-	{
-		this->AddMember(key,array,allocator);			
+		document.RemoveMember(key);
 	}
-	else
-	{
-		(*this)[key] = array;
-	}
-}
 
-bool CKJsonModel::removeChild(int key)
-{
-	return this->removeChild(intToString(key));
+	document.AddMember(key,array,allocator);
 }
 
 bool CKJsonModel::removeChild(std::string key)
@@ -283,11 +212,13 @@ bool CKJsonModel::removeChild(std::string key)
 
 bool CKJsonModel::removeChild(const char* key)
 {
-	for (auto it = this->MemberonBegin(); it !=  this->MemberonEnd(); ++it)
+	this->removeValue(key);
+
+	for (auto it = document.MemberonBegin(); it !=  document.MemberonEnd(); ++it)
 	{
 		if ((*it).name.GetString() == key)
 		{
-			this->RemoveMember((*it).name.GetString());
+			document.RemoveMember((*it).name.GetString());
 
 			return true;
 		}

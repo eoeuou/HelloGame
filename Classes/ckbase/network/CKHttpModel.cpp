@@ -1,4 +1,4 @@
-#include "CKHttpModel.h"
+﻿#include "CKHttpModel.h"
 
 CKHttpModel::CKHttpModel(void):
 	m_curCKJsonModel(nullptr)

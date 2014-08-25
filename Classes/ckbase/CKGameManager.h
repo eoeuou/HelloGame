@@ -1,4 +1,4 @@
-#ifndef __CKGAMEMANAGER_H__
+﻿#ifndef __CKGAMEMANAGER_H__
 #define __CKGAMEMANAGER_H__
 
 #include "cocos2d.h"

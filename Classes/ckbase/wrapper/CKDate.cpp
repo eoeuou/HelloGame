@@ -1,4 +1,4 @@
-#include "CKDate.h"
+ï»¿#include "CKDate.h"
 
 using namespace cocos2d;
 
@@ -45,7 +45,7 @@ time_t CKDate::timeIntervalSinceDate(CKDate* otherDate)
     return currentTime - beforTime;
 }
 
-// ±ê×¼Ê±¼ä¸ñÊ½×Ö·û´® YYYY-MM-DD HH:mm:ss
+// æ ‡å‡†æ—¶é—´æ ¼å¼å­—ç¬¦ä¸² YYYY-MM-DD HH:mm:ss
 std::string CKDate::toStandardString()
 {
 	  char tmpbuf[20] = {0};
@@ -53,7 +53,7 @@ std::string CKDate::toStandardString()
 	  return tmpbuf;
 }
 
-// ±ê×¼Ê±¼ä¸ñÊ½×Ö·û´® YYYY-MM-DD HH:mm:ss
+// æ ‡å‡†æ—¶é—´æ ¼å¼å­—ç¬¦ä¸² YYYY-MM-DD HH:mm:ss
 std::string CKDate::toShortString()
 {
 	  char tmpbuf[10] = {0};
@@ -63,7 +63,7 @@ std::string CKDate::toShortString()
 	  return tmpbuf;
 }
 
-// ¸ù¾İ"YYYY-MM-DD HH:mm:ss"£¬×ª»¯Îªtime_t
+// æ ¹æ®"YYYY-MM-DD HH:mm:ss"ï¼Œè½¬åŒ–ä¸ºtime_t
 void CKDate::setTimeWithStandardString( char* pszStandardString )
 {
 	char *pStart = pszStandardString;
@@ -99,7 +99,7 @@ void CKDate::setTimeWithStandardString( char* pszStandardString )
 
 }
 
-// »ñÈ¡YYYYMMDD¸ñÊ½µÄÈÕÆÚ£¬Èç20130423 
+// è·å–YYYYMMDDæ ¼å¼çš„æ—¥æœŸï¼Œå¦‚20130423 
 int CKDate::getCurrentDate()
 {
 	int nCurTime=0;

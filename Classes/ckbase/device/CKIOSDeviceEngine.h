@@ -1,4 +1,4 @@
-#ifndef KIOSDEVICEENGINE_H_
+﻿#ifndef KIOSDEVICEENGINE_H_
 #define CKIOSDEVICEENGINE_H_
 
 #include "CKDeviceEngine.h"

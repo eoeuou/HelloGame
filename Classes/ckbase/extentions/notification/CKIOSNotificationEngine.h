@@ -1,4 +1,4 @@
-#ifndef KIOSNOTIFICATIONENGINE_H_
+﻿#ifndef KIOSNOTIFICATIONENGINE_H_
 #define CKIOSNOTIFICATIONENGINE_H_
 
 #include "CKNotificationEngine.h"

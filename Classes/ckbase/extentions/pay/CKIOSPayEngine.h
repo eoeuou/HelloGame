@@ -1,4 +1,4 @@
-#ifndef KIOSPAYENGINE_H_
+﻿#ifndef KIOSPAYENGINE_H_
 #define CKIOSPAYENGINE_H_
 
 #include "CKPayEngine.h"

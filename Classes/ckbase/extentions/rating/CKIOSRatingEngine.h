@@ -1,4 +1,4 @@
-#ifndef KIOSRATINGENGINE_H_
+﻿#ifndef KIOSRATINGENGINE_H_
 #define CKIOSRATINGENGINE_H_
 
 #include "CKRatingEngine.h"

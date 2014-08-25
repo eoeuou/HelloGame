@@ -1,10 +1,10 @@
-#ifndef CKPAYENGINE_H_
+О╩©#ifndef CKPAYENGINE_H_
 #define CKPAYENGINE_H_
 
 #include "CKCommon.h"
 #include "CKModel.h"
 
-/*илф╥пео╒*/
+/*Е∙├Е⌠│Д©║Ф│╞*/
 class CKProductInfoModel : public CKModel
 {
 public:

@@ -1,4 +1,4 @@
-#ifndef CKWRAPPER_H_
+﻿#ifndef CKWRAPPER_H_
 #define CKWRAPPER_H_
 
 #include "CKCommon.h"

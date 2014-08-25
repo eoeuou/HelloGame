@@ -1,4 +1,4 @@
-#include "CKAndroidNotificationEngine.h"
+﻿#include "CKAndroidNotificationEngine.h"
 #include "platform/android/jni/JniHelper.h"
 
 #define CK_JAVA_CLASS_NAME "org/cocos2dx/ckbase/CKNotification"
